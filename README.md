@@ -2,11 +2,13 @@
 
 This repository contains benchmark data and documentation for evaluating the inference speeds of various large language models (LLMs) on different GPUs.
 
+![Datacenter](./shared-images/datacenter.jpg)
+
 ## About Massed Compute
 
 Massed Compute leverages cutting-edge technology to offer scalable and efficient distributed computing solutions. We provide flexible computing power for AI research, visual effects production, data science, and more. Our goal is to empower organizations with the tools they need to maximize their computational capabilities.
 
-For more information, visit [Massed Compute](https://massedcompute.com/).
+For more information, visit [Massed Compute](https://massedcompute.com/?utm_source=github.com).
 
 ## Benchmarking Overview
 
