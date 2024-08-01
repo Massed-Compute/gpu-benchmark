@@ -13,6 +13,8 @@ For more information, visit [Massed Compute](https://massedcompute.com/).
 This repository covers benchmarking LLM inference speeds on different GPUs, including:
 
 - Llama 3
+    - [Llama 3 70B](./llama-3/llama-3-70B.md)
+    - [Llama 3.1 70B](./llama-3/llama-3.1-70B.md)
 - Qwen
 - Mixtral
 - Magnum
