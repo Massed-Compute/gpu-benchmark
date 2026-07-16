@@ -5,3 +5,7 @@ venv/
 results/raw/**/state-*.json
 .DS_Store
 *.local.json
+README.html
+index.html
+**/qwen2-5-7b-instruct.html
+results/archive/**/*.html
