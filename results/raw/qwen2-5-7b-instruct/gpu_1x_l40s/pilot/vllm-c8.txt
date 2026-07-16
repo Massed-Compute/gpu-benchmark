@@ -1,0 +1,29 @@
+INFO 07-16 07:00:08 [__init__.py:239] Automatically detected platform cuda.
+Namespace(subparser='bench', bench_type='serve', dispatch_function=<function BenchmarkServingSubcommand.cmd at 0x756f64833560>, endpoint_type='openai-comp', label=None, base_url='http://127.0.0.1:8000', host='127.0.0.1', port=8000, endpoint='/v1/completions', dataset_name='random', max_concurrency=8, model='Qwen/Qwen2.5-7B-Instruct', tokenizer=None, best_of=1, use_beam_search=False, num_prompts=40, logprobs=None, request_rate=inf, burstiness=1.0, seed=0, trust_remote_code=False, disable_tqdm=False, profile=False, save_result=True, metadata=None, result_dir='/tmp', result_filename='vllm-c8.json', ignore_eos=False, percentile_metrics='ttft,tpot,itl', metric_percentiles='99', goodput=None, random_input_len=128, random_output_len=128, random_range_ratio=1.0, random_prefix_len=0, tokenizer_mode='auto', served_model_name=None, lora_modules=None)
+Starting initial single prompt test run...
+Initial test run completed. Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 8
+  0%|          | 0/40 [00:00<?, ?it/s]  2%|▎         | 1/40 [00:00<00:20,  1.86it/s]  5%|▌         | 2/40 [00:02<01:00,  1.60s/it] 22%|██▎       | 9/40 [00:03<00:09,  3.31it/s] 25%|██▌       | 10/40 [00:05<00:18,  1.66it/s] 42%|████▎     | 17/40 [00:06<00:06,  3.42it/s] 45%|████▌     | 18/40 [00:08<00:11,  1.95it/s] 62%|██████▎   | 25/40 [00:09<00:04,  3.46it/s] 65%|██████▌   | 26/40 [00:11<00:06,  2.06it/s] 82%|████████▎ | 33/40 [00:12<00:02,  3.48it/s] 85%|████████▌ | 34/40 [00:12<00:01,  3.28it/s] 88%|████████▊ | 35/40 [00:14<00:02,  2.08it/s]100%|██████████| 40/40 [00:14<00:00,  2.76it/s]
+============ Serving Benchmark Result ============
+Successful requests:                     40        
+Benchmark duration (s):                  14.50     
+Total input tokens:                      5120      
+Total generated tokens:                  4930      
+Request throughput (req/s):              2.76      
+Output token throughput (tok/s):         340.05    
+Total Token throughput (tok/s):          693.22    
+---------------Time to First Token----------------
+Mean TTFT (ms):                          74.78     
+Median TTFT (ms):                        85.38     
+P99 TTFT (ms):                           88.34     
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          22.23     
+Median TPOT (ms):                        22.24     
+P99 TPOT (ms):                           22.53     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           22.23     
+Median ITL (ms):                         22.11     
+P99 ITL (ms):                            23.53     
+==================================================

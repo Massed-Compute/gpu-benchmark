@@ -1,0 +1,119 @@
+{
+  "id": "2026-07-16-gpu_1x_l40s",
+  "date": "2026-07-16",
+  "model": {
+    "hf_id": "Qwen/Qwen2.5-7B-Instruct"
+  },
+  "hardware": {
+    "sku": "gpu_1x_l40s",
+    "gpu": "L40S",
+    "count": 1,
+    "vram_gb_each": 48,
+    "price_usd_per_hour": 0.88,
+    "ip": "64.247.206.164"
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 1,
+      "metrics": {
+        "request_s": 0.37,
+        "output_tok_s": 47.49,
+        "ttft_ms_mean": 35.2,
+        "ttft_ms_p50": 36.05,
+        "tpot_ms_mean": 20.94,
+        "tpot_ms_p50": 20.9
+      },
+      "raw_stdout_path": "results/raw/qwen2-5-7b-instruct/gpu_1x_l40s/pilot/vllm-c1.txt",
+      "screenshot": "qwen2-5-7b-instruct/images/gpu_1x_l40s-vllm-c1.png"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 8,
+      "metrics": {
+        "request_s": 2.76,
+        "output_tok_s": 340.05,
+        "ttft_ms_mean": 74.78,
+        "ttft_ms_p50": 85.38,
+        "tpot_ms_mean": 22.23,
+        "tpot_ms_p50": 22.24
+      },
+      "raw_stdout_path": "results/raw/qwen2-5-7b-instruct/gpu_1x_l40s/pilot/vllm-c8.txt",
+      "screenshot": "qwen2-5-7b-instruct/images/gpu_1x_l40s-vllm-c8.png"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 32,
+      "metrics": {
+        "request_s": 8.88,
+        "output_tok_s": 1084.66,
+        "ttft_ms_mean": 147.42,
+        "ttft_ms_p50": 177.23,
+        "tpot_ms_mean": 27.96,
+        "tpot_ms_p50": 27.16
+      },
+      "raw_stdout_path": "results/raw/qwen2-5-7b-instruct/gpu_1x_l40s/pilot/vllm-c32.txt",
+      "screenshot": "qwen2-5-7b-instruct/images/gpu_1x_l40s-vllm-c32.png"
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 1,
+      "metrics": {
+        "request_s": 0.65,
+        "output_tok_s": 50.0,
+        "ttft_ms_mean": 63.64,
+        "ttft_ms_p50": 46.24,
+        "tpot_ms_mean": 19.79,
+        "tpot_ms_p50": 19.79
+      },
+      "raw_stdout_path": "results/raw/qwen2-5-7b-instruct/gpu_1x_l40s/pilot/sglang-c1.txt",
+      "screenshot": "qwen2-5-7b-instruct/images/gpu_1x_l40s-sglang-c1.png"
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 8,
+      "metrics": {
+        "request_s": 4.82,
+        "output_tok_s": 361.0,
+        "ttft_ms_mean": 65.33,
+        "ttft_ms_p50": 66.43,
+        "tpot_ms_mean": 22.84,
+        "tpot_ms_p50": 22.8
+      },
+      "raw_stdout_path": "results/raw/qwen2-5-7b-instruct/gpu_1x_l40s/pilot/sglang-c8.txt",
+      "screenshot": "qwen2-5-7b-instruct/images/gpu_1x_l40s-sglang-c8.png"
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 32,
+      "metrics": {
+        "request_s": 12.63,
+        "output_tok_s": 1018.0,
+        "ttft_ms_mean": 74.0,
+        "ttft_ms_p50": 72.37,
+        "tpot_ms_mean": 32.68,
+        "tpot_ms_p50": 33.09
+      },
+      "raw_stdout_path": "results/raw/qwen2-5-7b-instruct/gpu_1x_l40s/pilot/sglang-c32.txt",
+      "screenshot": "qwen2-5-7b-instruct/images/gpu_1x_l40s-sglang-c32.png"
+    }
+  ]
+}

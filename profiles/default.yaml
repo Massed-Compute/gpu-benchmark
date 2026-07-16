@@ -1,0 +1,8 @@
+input_len: 128
+output_len: 128
+num_prompts_factor: 5  # num_prompts = conc * factor
+request_rate: inf
+max_concurrency: [1, 8, 32]
+engines: [vllm, sglang]
+vllm_image: vllm/vllm-openai:v0.8.5
+sglang_image: lmsysorg/sglang:latest

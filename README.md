@@ -1,29 +1,37 @@
 # GPU Benchmark
 
-This repository contains benchmark data and documentation for evaluating the inference speeds of various large language models (LLMs) on different GPUs.
+Benchmark data and writeups for LLM inference on Massed Compute GPUs — **vLLM** and **SGLang**.
 
 ![Datacenter](./shared-images/datacenter.jpg)
 
 ## About Massed Compute
 
-Massed Compute leverages cutting-edge technology to offer scalable and efficient distributed computing solutions. We provide flexible computing power for AI research, visual effects production, data science, and more. Our goal is to empower organizations with the tools they need to maximize their computational capabilities.
+Massed Compute offers scalable GPU cloud for AI research, VFX, data science, and more.
 
-For more information, visit [Massed Compute](https://massedcompute.com/?utm_source=github.com).
+More: [massedcompute.com](https://massedcompute.com/?utm_source=github.com)
 
-## Benchmarking Overview
+## Benchmarks
 
-This repository covers benchmarking LLM inference speeds on different GPUs, including:
+### New (2026) — vLLM + SGLang
 
-- Llama 3
-    - [Llama 3 70B](./llama-3/llama-3-70B.md)
-    - [Llama 3.1 70B](./llama-3/llama-3.1-70B.md)
-- Qwen
-- Mixtral
-- Magnum
-- Other popular models
+- [Qwen2.5 7B Instruct on 1× L40S](./qwen2-5-7b-instruct/qwen2-5-7b-instruct.md)
 
-Each benchmark includes:
+### Archive (2024) — Hugging Face TGI
 
-- **Model Description**: Overview of the model being tested.
-- **Hardware Specifications**: Details about the GPUs used.
-- **Benchmark Results**: Inference speed and performance metrics.
+- [Llama 3 70B](./results/archive/2024-08-llama3/llama-3-70B.md)
+- [Llama 3.1 70B](./results/archive/2024-08-llama3/llama-3.1-70B.md)
+
+## How we run it
+
+Same online profile on every card: input=128, output=128, concurrency 1 / 8 / 32.
+
+Orchestrator: [`./bin/mc-bench`](./bin/mc-bench) — launch → bench → classic terminal showcase screenshots → writeup → terminate VMs.
+
+See [docs/methodology.md](./docs/methodology.md) and [docs/new-model-playbook.md](./docs/new-model-playbook.md).
+
+## Caps (traffic + cost)
+
+| Model size | Max VMs | Default SKUs |
+|------------|---------|--------------|
+| ≤32B | 1 | `gpu_1x_l40s` |
+| ~70B+ | 2 (3 max) | Blackwell 2× + H100 2× [+ L40S 4×] |

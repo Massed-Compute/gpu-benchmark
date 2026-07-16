@@ -1,0 +1,88 @@
+{
+  "updated": "2026-07-16",
+  "models": [
+    {
+      "id": "llama-3-70b-instruct",
+      "hf_id": "meta-llama/Meta-Llama-3-70B-Instruct",
+      "params_b": 70,
+      "approx_vram_gb_fp16": 150,
+      "status": "archived",
+      "notes": "Original 2024-08 suite."
+    },
+    {
+      "id": "llama-3.1-70b-instruct",
+      "hf_id": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+      "params_b": 70,
+      "approx_vram_gb_fp16": 150,
+      "status": "archived",
+      "notes": "Original 2024-08 suite."
+    },
+    {
+      "id": "llama-3.3-70b-instruct",
+      "hf_id": "meta-llama/Llama-3.3-70B-Instruct",
+      "params_b": 70,
+      "approx_vram_gb_fp16": 150,
+      "status": "planned",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_2x_h100",
+        "gpu_2x_h100_nvl",
+        "gpu_4x_l40s",
+        "gpu_2x_pro_6000_blackwell",
+        "gpu_1x_h200_nvl"
+      ]
+    },
+    {
+      "id": "llama-3.1-8b-instruct",
+      "hf_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "params_b": 8,
+      "approx_vram_gb_fp16": 16,
+      "status": "planned",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_1x_l40s",
+        "gpu_1x_a6000",
+        "gpu_1x_h100",
+        "gpu_1x_pro_6000_blackwell"
+      ],
+      "notes": "Single-GPU comparison across mid and high end cards."
+    },
+    {
+      "id": "qwen2.5-72b-instruct",
+      "hf_id": "Qwen/Qwen2.5-72B-Instruct",
+      "params_b": 72,
+      "approx_vram_gb_fp16": 150,
+      "status": "planned",
+      "priority": 2,
+      "suggested_skus": ["gpu_2x_h100", "gpu_4x_l40s", "gpu_2x_h200_nvl"]
+    },
+    {
+      "id": "qwen2.5-32b-instruct",
+      "hf_id": "Qwen/Qwen2.5-32B-Instruct",
+      "params_b": 32,
+      "approx_vram_gb_fp16": 70,
+      "status": "planned",
+      "priority": 2,
+      "suggested_skus": ["gpu_1x_h100", "gpu_2x_l40s", "gpu_1x_h200_nvl"]
+    },
+    {
+      "id": "mixtral-8x7b-instruct",
+      "hf_id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "params_b": 46.7,
+      "approx_vram_gb_fp16": 100,
+      "status": "planned",
+      "priority": 3,
+      "suggested_skus": ["gpu_2x_a100", "gpu_2x_h100", "gpu_4x_l40s"],
+      "notes": "Promised in original README; never published."
+    },
+    {
+      "id": "deepseek-r1-distill-llama-70b",
+      "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+      "params_b": 70,
+      "approx_vram_gb_fp16": 150,
+      "status": "planned",
+      "priority": 2,
+      "suggested_skus": ["gpu_2x_h100", "gpu_2x_h200_nvl", "gpu_4x_l40s"]
+    }
+  ]
+}

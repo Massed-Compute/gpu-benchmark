@@ -1,0 +1,121 @@
+{
+  "updated": "2026-07-16",
+  "source": "Massed Compute gpu_inventory_list API",
+  "notes": [
+    "price_usd_per_hour is on-demand list price at catalog snapshot time; spot SKUs omitted unless useful for benches.",
+    "Prefer SKUs with enough aggregate VRAM for the target model dtype."
+  ],
+  "gpus": [
+    {
+      "id": "rtx_a6000",
+      "name": "RTX A6000",
+      "vram_gb": 48,
+      "skus": ["gpu_1x_a6000", "gpu_2x_a6000", "gpu_4x_a6000", "gpu_8x_a6000"],
+      "price_usd_per_hour_1x": 0.57,
+      "benchmark_priority": "legacy"
+    },
+    {
+      "id": "l40",
+      "name": "L40",
+      "vram_gb": 48,
+      "skus": ["gpu_1x_l40", "gpu_2x_l40", "gpu_4x_l40"],
+      "price_usd_per_hour_1x": 0.86,
+      "benchmark_priority": "legacy"
+    },
+    {
+      "id": "l40s",
+      "name": "L40S",
+      "vram_gb": 48,
+      "skus": ["gpu_1x_l40s", "gpu_2x_l40s", "gpu_4x_l40s", "gpu_8x_l40s"],
+      "price_usd_per_hour_1x": 0.88,
+      "benchmark_priority": "high",
+      "notes": "High capacity on marketplace; primary mid-tier refresh target."
+    },
+    {
+      "id": "rtx_6000_ada",
+      "name": "RTX 6000 Ada",
+      "vram_gb": 48,
+      "skus": ["gpu_1x_6000_ada", "gpu_2x_6000_ada", "gpu_4x_6000_ada", "gpu_8x_6000_ada"],
+      "price_usd_per_hour_1x": 0.79,
+      "benchmark_priority": "medium"
+    },
+    {
+      "id": "rtx_pro_6000_blackwell",
+      "name": "RTX PRO 6000 Blackwell",
+      "vram_gb": 96,
+      "skus": [
+        "gpu_1x_pro_6000_blackwell",
+        "gpu_2x_pro_6000_blackwell",
+        "gpu_4x_pro_6000_blackwell",
+        "gpu_8x_pro_6000_blackwell"
+      ],
+      "price_usd_per_hour_1x": 2.19,
+      "benchmark_priority": "high",
+      "notes": "New card; strong candidate for 70B single/dual GPU runs."
+    },
+    {
+      "id": "a30",
+      "name": "A30",
+      "vram_gb": 24,
+      "skus": ["gpu_1x_A30", "gpu_2x_A30", "gpu_4x_A30", "gpu_8x_A30"],
+      "price_usd_per_hour_1x": 0.35,
+      "benchmark_priority": "legacy"
+    },
+    {
+      "id": "a100_pcie",
+      "name": "A100 PCIe",
+      "vram_gb": 80,
+      "skus": ["gpu_1x_a100", "gpu_2x_a100", "gpu_4x_a100", "gpu_8x_a100"],
+      "price_usd_per_hour_1x": 1.35,
+      "benchmark_priority": "medium"
+    },
+    {
+      "id": "a100_sxm4",
+      "name": "A100 SXM4",
+      "vram_gb": 80,
+      "skus": ["gpu_1x_A100_SXM4", "gpu_8x_A100_SXM4", "gpu_8x_DGX_A100"],
+      "price_usd_per_hour_1x": 1.38,
+      "benchmark_priority": "medium"
+    },
+    {
+      "id": "h100",
+      "name": "H100",
+      "vram_gb": 80,
+      "skus": ["gpu_1x_h100", "gpu_2x_h100", "gpu_4x_h100", "gpu_8x_H100_SXM5"],
+      "price_usd_per_hour_1x": 2.73,
+      "benchmark_priority": "high"
+    },
+    {
+      "id": "h100_nvl",
+      "name": "H100 NVL",
+      "vram_gb": 94,
+      "skus": [
+        "gpu_1x_h100_nvl",
+        "gpu_2x_h100_nvl",
+        "gpu_4x_h100_nvl",
+        "gpu_8x_h100_nvl",
+        "gpu_2x_h100_nvl_nvlink",
+        "gpu_4x_h100_nvl_nvlink",
+        "gpu_8x_h100_nvl_nvlink"
+      ],
+      "price_usd_per_hour_1x": 3.11,
+      "benchmark_priority": "high"
+    },
+    {
+      "id": "h200_nvl",
+      "name": "H200 NVL",
+      "vram_gb": 141,
+      "skus": [
+        "gpu_1x_h200_nvl",
+        "gpu_2x_h200_nvl",
+        "gpu_4x_h200_nvl",
+        "gpu_8x_h200_nvl",
+        "gpu_4x_h200_nvl_nvlink",
+        "gpu_8x_h200_nvl_nvlink"
+      ],
+      "price_usd_per_hour_1x": 3.62,
+      "benchmark_priority": "high",
+      "notes": "Best single-GPU VRAM for large models."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "2024-08-llama3-70b-2xh100-pcie",
+  "date": "2024-08-01",
+  "status": "partial",
+  "engine": {
+    "name": "tgi",
+    "image": "ghcr.io/huggingface/text-generation-inference:latest",
+    "version": "unpinned-2024-08"
+  },
+  "model": {
+    "hf_id": "meta-llama/Meta-Llama-3-70B-Instruct",
+    "dtype": "fp16",
+    "quantization": null
+  },
+  "hardware": {
+    "gpu": "H100 PCIe",
+    "count": 2,
+    "vram_gb_each": 80,
+    "sku": "gpu_2x_h100",
+    "price_usd_per_hour": 5.98,
+    "notes": "Price as published Aug 2024 blog/docs; may differ from current list."
+  },
+  "config": {
+    "num_shard": 2,
+    "sequence_length": null,
+    "decode_length": null,
+    "batch_sizes": [1, 2, 4, 8, 16, 32]
+  },
+  "metrics": {
+    "decode_tok_s_b1": 21.48,
+    "decode_tok_s_b32": 515.53,
+    "decode_token_latency_ms_b1": 46.55,
+    "prefill_tok_s_b1": 17.56,
+    "prefill_tok_s_b32": 182.92
+  },
+  "by_batch": [
+    {
+      "batch_size": 1,
+      "prefill_latency_ms_avg": 57.06,
+      "decode_token_latency_ms_avg": 46.55,
+      "decode_total_latency_ms_avg": 325.82,
+      "prefill_tok_s_avg": 17.56,
+      "decode_tok_s_avg": 21.48
+    },
+    {
+      "batch_size": 32,
+      "prefill_latency_ms_avg": 174.94,
+      "decode_token_latency_ms_avg": 62.07,
+      "decode_total_latency_ms_avg": 434.5,
+      "prefill_tok_s_avg": 182.92,
+      "decode_tok_s_avg": 515.53
+    }
+  ],
+  "artifacts": {
+    "screenshot": "results/archive/2024-08-llama3/screenshots/images/Llama3/2xH100PCIe-llama3-70b.png"
+  },
+  "provenance": {
+    "source": "screenshot_transcription",
+    "confidence": "high",
+    "notes": "Transcribed from TGI text-generation-benchmark screenshot. Intermediate batch sizes remain in screenshot only."
+  }
+}

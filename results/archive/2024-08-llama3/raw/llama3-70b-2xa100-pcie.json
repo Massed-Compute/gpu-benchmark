@@ -1,0 +1,58 @@
+{
+  "id": "2024-08-llama3-70b-2xa100-pcie",
+  "date": "2024-08-01",
+  "status": "partial",
+  "engine": {
+    "name": "tgi",
+    "image": "ghcr.io/huggingface/text-generation-inference:latest",
+    "version": "unpinned-2024-08"
+  },
+  "model": {
+    "hf_id": "meta-llama/Meta-Llama-3-70B-Instruct",
+    "dtype": "fp16",
+    "quantization": null
+  },
+  "hardware": {
+    "gpu": "A100 PCIe",
+    "count": 2,
+    "vram_gb_each": 80,
+    "sku": "gpu_2x_a100",
+    "price_usd_per_hour": 3.44
+  },
+  "config": {
+    "num_shard": 2,
+    "sequence_length": null,
+    "decode_length": null,
+    "batch_sizes": [1, 2, 4, 8, 16, 32]
+  },
+  "metrics": {
+    "decode_tok_s_b1": 19.48,
+    "decode_tok_s_b32": 436.6,
+    "decode_token_latency_ms_b1": 51.35,
+    "prefill_tok_s_b1": 16.0,
+    "prefill_tok_s_b32": 130.29
+  },
+  "by_batch": [
+    {
+      "batch_size": 1,
+      "prefill_latency_ms_avg": 62.49,
+      "decode_token_latency_ms_avg": 51.35,
+      "decode_total_latency_ms_avg": 359.43,
+      "prefill_tok_s_avg": 16.0,
+      "decode_tok_s_avg": 19.48
+    },
+    {
+      "batch_size": 32,
+      "prefill_tok_s_avg": 130.29,
+      "decode_tok_s_avg": 436.6
+    }
+  ],
+  "artifacts": {
+    "screenshot": "results/archive/2024-08-llama3/screenshots/images/Llama3/2xA100PCIe-llama3-70b.png"
+  },
+  "provenance": {
+    "source": "screenshot_transcription",
+    "confidence": "high",
+    "notes": "Transcribed from TGI screenshot. Intermediate batches in screenshot only."
+  }
+}

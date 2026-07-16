@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+results/raw/**/state-*.json
+.DS_Store
+*.local.json

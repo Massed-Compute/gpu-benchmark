@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Massed-Compute/gpu-benchmark/results/schema/result.schema.json",
+  "title": "GpuBenchmarkResult",
+  "type": "object",
+  "required": [
+    "id",
+    "date",
+    "engine",
+    "model",
+    "hardware",
+    "metrics"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "date": { "type": "string", "format": "date" },
+    "status": {
+      "type": "string",
+      "enum": ["complete", "partial", "planned", "failed"]
+    },
+    "engine": {
+      "type": "object",
+      "required": ["name", "image"],
+      "properties": {
+        "name": { "type": "string", "enum": ["tgi", "vllm"] },
+        "image": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "model": {
+      "type": "object",
+      "required": ["hf_id"],
+      "properties": {
+        "hf_id": { "type": "string" },
+        "dtype": { "type": "string" },
+        "quantization": { "type": ["string", "null"] }
+      }
+    },
+    "hardware": {
+      "type": "object",
+      "required": ["gpu", "count", "sku"],
+      "properties": {
+        "gpu": { "type": "string" },
+        "count": { "type": "integer", "minimum": 1 },
+        "vram_gb_each": { "type": "number" },
+        "sku": { "type": "string" },
+        "price_usd_per_hour": { "type": ["number", "null"] },
+        "notes": { "type": "string" }
+      }
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "num_shard": { "type": "integer" },
+        "sequence_length": { "type": ["integer", "null"] },
+        "decode_length": { "type": ["integer", "null"] },
+        "batch_sizes": {
+          "type": "array",
+          "items": { "type": "integer" }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Headline metrics used for cross-SKU comparison. Prefer decode tokens/sec.",
+      "properties": {
+        "decode_tok_s_b1": { "type": "number" },
+        "decode_tok_s_b32": { "type": "number" },
+        "decode_token_latency_ms_b1": { "type": "number" },
+        "prefill_tok_s_b1": { "type": "number" },
+        "prefill_tok_s_b32": { "type": "number" }
+      }
+    },
+    "by_batch": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["batch_size"],
+        "properties": {
+          "batch_size": { "type": "integer" },
+          "prefill_latency_ms_avg": { "type": "number" },
+          "decode_token_latency_ms_avg": { "type": "number" },
+          "decode_total_latency_ms_avg": { "type": "number" },
+          "prefill_tok_s_avg": { "type": "number" },
+          "decode_tok_s_avg": { "type": "number" }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "screenshot": { "type": "string" },
+        "raw_log": { "type": "string" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": [
+            "tgi_text_generation_benchmark",
+            "vllm_bench",
+            "screenshot_transcription",
+            "manual"
+          ]
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

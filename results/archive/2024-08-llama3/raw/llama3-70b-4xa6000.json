@@ -1,0 +1,61 @@
+{
+  "id": "2024-08-llama3-70b-4xa6000",
+  "date": "2024-08-01",
+  "status": "partial",
+  "engine": {
+    "name": "tgi",
+    "image": "ghcr.io/huggingface/text-generation-inference:latest",
+    "version": "unpinned-2024-08"
+  },
+  "model": {
+    "hf_id": "meta-llama/Meta-Llama-3-70B-Instruct",
+    "dtype": "fp16",
+    "quantization": null
+  },
+  "hardware": {
+    "gpu": "RTX A6000",
+    "count": 4,
+    "vram_gb_each": 48,
+    "sku": "gpu_4x_a6000",
+    "price_usd_per_hour": 2.5
+  },
+  "config": {
+    "num_shard": 4,
+    "sequence_length": null,
+    "decode_length": null,
+    "batch_sizes": [1, 2, 4, 8, 16, 32]
+  },
+  "metrics": {
+    "decode_tok_s_b1": 15.27,
+    "decode_tok_s_b32": 234.8,
+    "decode_token_latency_ms_b1": 65.47,
+    "prefill_tok_s_b1": 10.48,
+    "prefill_tok_s_b32": 48.2
+  },
+  "by_batch": [
+    {
+      "batch_size": 1,
+      "prefill_latency_ms_avg": 95.74,
+      "decode_token_latency_ms_avg": 65.47,
+      "decode_total_latency_ms_avg": 458.28,
+      "prefill_tok_s_avg": 10.48,
+      "decode_tok_s_avg": 15.27
+    },
+    {
+      "batch_size": 32,
+      "prefill_latency_ms_avg": 663.92,
+      "decode_token_latency_ms_avg": 136.33,
+      "decode_total_latency_ms_avg": 954.32,
+      "prefill_tok_s_avg": 48.2,
+      "decode_tok_s_avg": 234.8
+    }
+  ],
+  "artifacts": {
+    "screenshot": "results/archive/2024-08-llama3/screenshots/images/Llama3/4xA6000-llama3-70b.png"
+  },
+  "provenance": {
+    "source": "screenshot_transcription",
+    "confidence": "high",
+    "notes": "Transcribed from TGI screenshot. Intermediate batches in screenshot only."
+  }
+}
