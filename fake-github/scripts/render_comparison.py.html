@@ -1,0 +1,125 @@
+<!doctype html><html><head><meta charset=utf-8><title>scripts/render_comparison.py - gpu-benchmark</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+:root{--bg:#ffffff;--fg:#1f2328;--muted:#59636e;--border:#d1d9e0;--link:#0969da;--btnbg:#f6f8fa;--headerbg:#f6f8fa;--accent:#0969da;--rowhover:#f6f8fa;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;color:var(--fg);background:var(--bg);font-size:14px;line-height:1.5}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{background:#1f2328;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:12px;font-size:14px}
+.topbar svg{fill:#fff}
+.topbar .repo-path{font-size:15px}
+.topbar .repo-path a{color:#fff;font-weight:400}
+.topbar .repo-path b{font-weight:600}
+.subnav{border-bottom:1px solid var(--border);padding:0 16px;display:flex;gap:8px;background:var(--bg);overflow-x:auto}
+.subnav a{padding:12px 8px;color:var(--fg);border-bottom:2px solid transparent;white-space:nowrap;font-size:14px}
+.subnav a.active{border-bottom-color:#fd8c73;font-weight:600}
+.subnav .counter{background:#eaeef2;border-radius:20px;padding:0 6px;font-size:12px;color:var(--muted);margin-left:4px}
+.wrap{max-width:1280px;margin:24px auto;padding:0 16px;display:flex;gap:24px;align-items:flex-start}
+.main{flex:1;min-width:0}
+.side{width:296px;flex-shrink:0}
+@media(max-width:1000px){.wrap{flex-direction:column}.side{width:100%}}
+.reporow{display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.branchbtn{border:1px solid var(--border);background:var(--btnbg);border-radius:6px;padding:5px 12px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.box{border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.commitbar{display:flex;align-items:center;gap:8px;background:var(--headerbg);padding:8px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+.commitbar .avatar{width:20px;height:20px;border-radius:50%;background:#54aeff}
+.commitbar .msg{color:var(--fg);font-weight:600}
+.commitbar .right{margin-left:auto;display:flex;align-items:center;gap:6px}
+.commitbar .sha{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+table.files{width:100%;border-collapse:collapse;font-size:14px}
+table.files td{padding:8px 16px;border-top:1px solid var(--border)}
+table.files tr:first-child td{border-top:0}
+table.files tr:hover{background:var(--rowhover)}
+.files .icon{width:16px;color:var(--muted);padding-right:0}
+.files .folder{color:#54aeff}
+.files .name{width:35%}
+.files .msg{color:var(--muted)}
+.files .age{text-align:right;color:var(--muted);white-space:nowrap}
+.readmebox{margin-top:16px}
+.readmehead{display:flex;align-items:center;gap:8px;background:var(--bg);padding:8px 16px;border-bottom:1px solid var(--border);font-weight:600}
+.filehead{display:flex;align-items:center;gap:12px;background:var(--bg);padding:8px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+.markdown-body{padding:24px 32px}
+.markdown-body h1{font-size:2em;border-bottom:1px solid var(--border);padding-bottom:.3em;margin-top:0}
+.markdown-body h2{font-size:1.5em;border-bottom:1px solid var(--border);padding-bottom:.3em;margin-top:24px}
+.markdown-body h3{font-size:1.25em;margin-top:24px}
+.markdown-body table{border-collapse:collapse;margin:16px 0;display:block;overflow:auto}
+.markdown-body th,.markdown-body td{border:1px solid var(--border);padding:6px 13px}
+.markdown-body tr:nth-child(2n){background:var(--btnbg)}
+.markdown-body code{background:rgba(129,139,152,.12);padding:.2em .4em;border-radius:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:85%}
+.markdown-body pre{background:var(--btnbg);padding:16px;border-radius:6px;overflow:auto}
+.markdown-body pre code{background:none;padding:0}
+.markdown-body img{max-width:100%;border:1px solid var(--border);border-radius:6px}
+.markdown-body a{color:var(--link)}
+.breadcrumb{font-size:16px;margin-bottom:12px}
+.breadcrumb b{font-weight:600}
+.side h2{font-size:16px;margin:0 0 8px}
+.side .desc{color:var(--fg);margin-bottom:16px}
+.side .meta{color:var(--muted);display:flex;flex-direction:column;gap:8px;font-size:13px}
+.side .meta a{color:var(--muted)}
+.side hr{border:0;border-top:1px solid var(--border);margin:16px 0}
+.imggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:16px}
+.imggrid figure{margin:0}
+.imggrid img{width:100%;border:1px solid var(--border);border-radius:6px}
+.imggrid figcaption{font-size:12px;color:var(--muted);margin-top:4px;word-break:break-all}
+</style></head><body><div class="topbar"><svg height="28" width="28" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg><span class="repo-path"><a href="index.html">Massed-Compute</a> / <a href="index.html"><b>gpu-benchmark</b></a></span></div><div class="subnav"><a class="active" href="index.html">Code</a><a class="" href="index.html">Issues<span class="counter">0</span></a><a class="" href="index.html">Pull requests<span class="counter">0</span></a><a class="" href="index.html">Actions</a><a class="" href="index.html">Projects</a><a class="" href="index.html">Security</a><a class="" href="index.html">Insights</a></div><div class="wrap"><div class="main"><div class="breadcrumb"><a href="../index.html">gpu-benchmark</a> / <a href="../index.html">scripts</a> / <b>render_comparison.py</b></div><div class="box"><div class="filehead"><span>63 lines &#183; 2053 Bytes</span></div><div class="markdown-body"><pre><code>#!/usr/bin/env python3
+&quot;&quot;&quot;Render a markdown comparison table from result JSON files.&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+
+def load_results(paths: list[Path]) -&gt; list[dict]:
+    out = []
+    for p in paths:
+        if p.is_dir():
+            out.extend(load_results(sorted(p.rglob(&quot;*.json&quot;))))
+        else:
+            out.append(json.loads(p.read_text()))
+    return out
+
+
+def main() -&gt; None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument(&quot;paths&quot;, nargs=&quot;+&quot;, type=Path)
+    ap.add_argument(&quot;-o&quot;, &quot;--output&quot;, type=Path)
+    args = ap.parse_args()
+
+    rows = load_results(args.paths)
+    lines = [
+        &quot;| Model | GPU | Count | SKU | $/hr | Decode tok/s (b1) | Decode tok/s (b32) | Cost efficiency (b32 tok/s per $) | Source |&quot;,
+        &quot;|---|---|---:|---|---:|---:|---:|---:|---|&quot;,
+    ]
+    for r in sorted(rows, key=lambda x: (x.get(&quot;model&quot;, {}).get(&quot;hf_id&quot;, &quot;&quot;), x.get(&quot;hardware&quot;, {}).get(&quot;gpu&quot;, &quot;&quot;))):
+        h = r.get(&quot;hardware&quot;, {})
+        m = r.get(&quot;metrics&quot;, {})
+        price = h.get(&quot;price_usd_per_hour&quot;)
+        d32 = m.get(&quot;decode_tok_s_b32&quot;)
+        eff = f&quot;{d32 / price:.1f}&quot; if price and d32 else &quot;—&quot;
+        lines.append(
+            &quot;| {model} | {gpu} | {count} | `{sku}` | {price} | {b1} | {b32} | {eff} | {src} |&quot;.format(
+                model=r.get(&quot;model&quot;, {}).get(&quot;hf_id&quot;, &quot;—&quot;),
+                gpu=h.get(&quot;gpu&quot;, &quot;—&quot;),
+                count=h.get(&quot;count&quot;, &quot;—&quot;),
+                sku=h.get(&quot;sku&quot;, &quot;—&quot;),
+                price=price if price is not None else &quot;—&quot;,
+                b1=m.get(&quot;decode_tok_s_b1&quot;, &quot;—&quot;),
+                b32=d32 if d32 is not None else &quot;—&quot;,
+                eff=eff,
+                src=r.get(&quot;provenance&quot;, {}).get(&quot;source&quot;, &quot;—&quot;),
+            )
+        )
+
+    md = &quot;\n&quot;.join(lines) + &quot;\n&quot;
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(md)
+        print(f&quot;Wrote {args.output}&quot;)
+    else:
+        print(md, end=&quot;&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></div></div><div class="side"><h2>About</h2><div class="desc">Various benchmarks across multiple GPU types.</div><div class="meta"><a href="index.html">Readme</a><span>&#11088; 0 stars</span><span>&#128064; 1 watching</span><span>&#127860; 0 forks</span></div><hr><h2>Releases</h2><div class="meta"><span>No releases published</span></div><hr><h2>Languages</h2><div class="meta"><span>Python &#8226; Shell &#8226; Markdown</span></div></div></div></body></html>

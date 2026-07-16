@@ -1,0 +1,9 @@
++ sudo docker exec vllm-bench vllm bench serve --base-url http://127.0.0.1:8000 --endpoint-type openai-comp --model meta-llama/Meta-Llama-3.1-8B-Instruct --dataset-name random --random-input-len 128 --random-output-len 128 --num-prompts 40 --max-concurrency 8 --request-rate inf --save-result --result-dir /tmp --result-filename vllm-c8.json
+Error response from daemon: container b0cdd3ae250b6a032eac6d13fb93d56303b465e66d4fff0c53906b4ce9c9fd91 is not running
++ true
++ sudo docker cp vllm-bench:/tmp/vllm-c8.json /tmp/vllm-c8.json
+VLLM_BENCH_DONE
++ true
++ cat /tmp/vllm-c8.json
++ true
++ echo VLLM_BENCH_DONE

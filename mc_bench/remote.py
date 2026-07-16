@@ -4,15 +4,12 @@ from __future__ import annotations
 BOOTSTRAP = r'''
 set -euxo pipefail
 sudo apt-get update -qq
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-venv python3-pip git curl jq docker.io nvidia-container-toolkit 2>/dev/null || true
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-venv python3-pip git curl jq 2>/dev/null || true
 sudo systemctl enable --now docker || true
-sudo usermod -aG docker "$USER" || true
-# nvidia container runtime may already exist on image 184
 mkdir -p "$HOME/mc-bench" "$HOME/.cache/huggingface"
 python3 -m venv "$HOME/mc-bench/venv"
 . "$HOME/mc-bench/venv/bin/activate"
 pip install -q -U pip wheel
-# client-side bench deps; servers run in docker
 pip install -q 'openai>=1.40' 'aiohttp' 'numpy' 'transformers' 'datasets' 'pillow' 'pandas'
 echo BOOTSTRAP_OK
 '''
@@ -26,10 +23,10 @@ HF_TOKEN="{hf_token}"
 export HUGGING_FACE_HUB_TOKEN="$HF_TOKEN"
 sudo docker rm -f vllm-bench >/dev/null 2>&1 || true
 sudo docker run -d --name vllm-bench --gpus all --shm-size 16g \
-  -e HUGGING_FACE_HUB_TOKEN \
+  -e "HUGGING_FACE_HUB_TOKEN=$HF_TOKEN" \
   -p ${{PORT}}:8000 \
   -v "$HOME/.cache/huggingface:/root/.cache/huggingface" \
-  vllm/vllm-openai:v0.8.5 \
+  ${{VLLM_IMAGE:-vllm/vllm-openai:v0.8.5}} \
   --model "$MODEL" \
   --tensor-parallel-size "$TP" \
   --max-model-len 4096 \
@@ -53,6 +50,20 @@ OUT="{out}"
 CONC="{conc}"
 . "$HOME/mc-bench/venv/bin/activate"
 # Prefer vllm CLI if present in container; else use openai-compatible load via python
+sudo docker exec vllm-bench vllm bench serve \
+  --base-url "http://127.0.0.1:8000" \
+  --backend openai \
+  --endpoint /v1/completions \
+  --model "$MODEL" \
+  --dataset-name random \
+  --random-input-len 128 \
+  --random-output-len 128 \
+  --num-prompts $(( CONC * 5 )) \
+  --max-concurrency "$CONC" \
+  --request-rate inf \
+  --save-result \
+  --result-dir /tmp \
+  --result-filename "vllm-c${{CONC}}.json" || \
 sudo docker exec vllm-bench vllm bench serve \
   --base-url "http://127.0.0.1:8000" \
   --endpoint-type openai-comp \
@@ -81,7 +92,7 @@ export HUGGING_FACE_HUB_TOKEN="$HF_TOKEN"
 sudo docker rm -f sglang-bench >/dev/null 2>&1 || true
 sudo docker run -d --name sglang-bench --gpus all --shm-size 16g \
   --ipc=host \
-  -e HUGGING_FACE_HUB_TOKEN \
+  -e "HUGGING_FACE_HUB_TOKEN=$HF_TOKEN" \
   -p ${{PORT}}:30000 \
   -v "$HOME/.cache/huggingface:/root/.cache/huggingface" \
   lmsysorg/sglang:latest \

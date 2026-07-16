@@ -1,0 +1,48 @@
+# Qwen3 32B GPU Benchmark
+
+### Last Edit Date:
+MC - 2026.07.16
+
+## Purpose
+Live Massed Compute inference benches for **Qwen/Qwen3-32B**, comparing **vLLM** vs **SGLang**.
+
+## Technique
+Pinned profile: random prompts, input=128, output=128, request-rate=inf, concurrency 1 / 8 / 32. Headlines use **c32**.
+Engines: vLLM (`cu129-nightly`) + SGLang `lmsysorg/sglang:latest`.
+
+## Results
+
+| Engine | SKU | $/hr | Output tok/s (c32) | TTFT med (ms) | tok/s per $ |
+|---|---|---:|---:|---:|---:|
+| vllm | `gpu_1x_pro_6000_blackwell` | 2.19 | 585.2 | 767.0 | 267.2 |
+| sglang | `gpu_1x_pro_6000_blackwell` | 2.19 | 403.5 | 151.5 | 184.2 |
+| vllm | `gpu_1x_h100` | 2.73 | 729.4 | 457.3 | 267.2 |
+| sglang | `gpu_1x_h100` | 2.73 | 506.5 | 117.6 | 185.5 |
+
+### Screenshots
+
+**gpu_1x_pro_6000_blackwell** — $2.19/hr
+
+vllm:
+![gpu_1x_pro_6000_blackwell vllm](./images/1xBlackwell-vllm-showcase.png)
+
+sglang:
+![gpu_1x_pro_6000_blackwell sglang](./images/1xBlackwell-sglang-showcase.png)
+
+**gpu_1x_h100** — $2.73/hr
+
+vllm:
+![gpu_1x_h100 vllm](./images/1xH100-vllm-showcase.png)
+
+sglang:
+![gpu_1x_h100 sglang](./images/1xH100-sglang-showcase.png)
+
+## Conclusion
+
+Peak c32 output throughput: **729 tok/s** on `gpu_1x_h100` with **vllm**.
+Best $/tok: **267.2 tok/s per $** on `gpu_1x_pro_6000_blackwell` / **vllm**.
+
+## Notes
+
+- Dense Qwen3 32B; newest Qwen generation.
+- Numbers from live Massed runs 2026-07-16; bench VMs terminated after capture.

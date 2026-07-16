@@ -54,7 +54,11 @@
       "approx_vram_gb_fp16": 150,
       "status": "planned",
       "priority": 2,
-      "suggested_skus": ["gpu_2x_h100", "gpu_4x_l40s", "gpu_2x_h200_nvl"]
+      "suggested_skus": [
+        "gpu_2x_h100",
+        "gpu_4x_l40s",
+        "gpu_2x_h200_nvl"
+      ]
     },
     {
       "id": "qwen2.5-32b-instruct",
@@ -63,7 +67,11 @@
       "approx_vram_gb_fp16": 70,
       "status": "planned",
       "priority": 2,
-      "suggested_skus": ["gpu_1x_h100", "gpu_2x_l40s", "gpu_1x_h200_nvl"]
+      "suggested_skus": [
+        "gpu_1x_h100",
+        "gpu_2x_l40s",
+        "gpu_1x_h200_nvl"
+      ]
     },
     {
       "id": "mixtral-8x7b-instruct",
@@ -72,7 +80,11 @@
       "approx_vram_gb_fp16": 100,
       "status": "planned",
       "priority": 3,
-      "suggested_skus": ["gpu_2x_a100", "gpu_2x_h100", "gpu_4x_l40s"],
+      "suggested_skus": [
+        "gpu_2x_a100",
+        "gpu_2x_h100",
+        "gpu_4x_l40s"
+      ],
       "notes": "Promised in original README; never published."
     },
     {
@@ -80,9 +92,111 @@
       "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
       "params_b": 70,
       "approx_vram_gb_fp16": 150,
-      "status": "planned",
+      "status": "complete",
       "priority": 2,
-      "suggested_skus": ["gpu_2x_h100", "gpu_2x_h200_nvl", "gpu_4x_l40s"]
+      "suggested_skus": [
+        "gpu_2x_h100",
+        "gpu_2x_h200_nvl",
+        "gpu_4x_l40s"
+      ]
+    },
+    {
+      "id": "glm-4.7-flash",
+      "hf_id": "zai-org/GLM-4.7-Flash",
+      "params_b": 30,
+      "approx_vram_gb_fp16": 32,
+      "status": "complete",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_1x_h100",
+        "gpu_1x_pro_6000_blackwell"
+      ],
+      "notes": "Newest GLM Flash MoE-lite."
+    },
+    {
+      "id": "nemotron-3-nano-30b",
+      "hf_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+      "params_b": 30,
+      "approx_vram_gb_fp16": 32,
+      "status": "complete",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_1x_h100",
+        "gpu_1x_pro_6000_blackwell"
+      ]
+    },
+    {
+      "id": "nemotron-nano-8b",
+      "hf_id": "nvidia/Llama-3.1-Nemotron-Nano-8B-v1",
+      "params_b": 8,
+      "approx_vram_gb_fp16": 16,
+      "status": "complete",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_1x_l40s",
+        "gpu_1x_h100",
+        "gpu_1x_pro_6000_blackwell"
+      ]
+    },
+    {
+      "id": "nemotron-70b-instruct",
+      "hf_id": "nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
+      "params_b": 70,
+      "approx_vram_gb_fp16": 150,
+      "status": "complete",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_2x_h100",
+        "gpu_2x_pro_6000_blackwell"
+      ]
+    },
+    {
+      "id": "deepseek-r1-distill-llama-8b",
+      "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+      "params_b": 8,
+      "approx_vram_gb_fp16": 16,
+      "status": "complete",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_1x_h100",
+        "gpu_1x_pro_6000_blackwell"
+      ]
+    },
+    {
+      "id": "deepseek-r1-distill-qwen-32b",
+      "hf_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "params_b": 32,
+      "approx_vram_gb_fp16": 66,
+      "status": "complete",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_1x_h100",
+        "gpu_1x_pro_6000_blackwell"
+      ]
+    },
+    {
+      "id": "qwen3-32b",
+      "hf_id": "Qwen/Qwen3-32B",
+      "params_b": 32,
+      "approx_vram_gb_fp16": 66,
+      "status": "complete",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_1x_h100",
+        "gpu_1x_pro_6000_blackwell"
+      ]
+    },
+    {
+      "id": "qwen3-30b-a3b",
+      "hf_id": "Qwen/Qwen3-30B-A3B",
+      "params_b": 30,
+      "approx_vram_gb_fp16": 62,
+      "status": "complete",
+      "priority": 1,
+      "suggested_skus": [
+        "gpu_1x_h100",
+        "gpu_1x_pro_6000_blackwell"
+      ]
     }
   ]
 }

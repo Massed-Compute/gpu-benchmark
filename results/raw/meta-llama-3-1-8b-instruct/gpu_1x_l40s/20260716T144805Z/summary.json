@@ -1,0 +1,107 @@
+{
+  "id": "20260716T144805Z-gpu_1x_l40s",
+  "date": "2026-07-16",
+  "model": {
+    "hf_id": "unsloth/Meta-Llama-3.1-8B-Instruct",
+    "mirror_note": true
+  },
+  "hardware": {
+    "sku": "gpu_1x_l40s",
+    "count": 1,
+    "price_usd_per_hour": 0.88
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 44.741795302743164,
+        "request_s": 0.34954527580268097,
+        "ttft_ms_mean": 31.21165679999649,
+        "ttft_ms_p50": 32.065870999986146,
+        "tpot_ms_mean": 22.276492770078484,
+        "tpot_ms_p50": 22.28974671653469
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 309.6855735861035,
+        "request_s": 2.584482149685821,
+        "ttft_ms_mean": 69.4646750000004,
+        "ttft_ms_p50": 70.47386399995048,
+        "tpot_ms_mean": 23.860795945973845,
+        "tpot_ms_p50": 23.893056767715784
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 1096.20053371913,
+        "request_s": 9.014807020716528,
+        "ttft_ms_mean": 110.8395072124921,
+        "ttft_ms_p50": 84.75803099997847,
+        "tpot_ms_mean": 27.10809732601699,
+        "tpot_ms_p50": 27.111382346456452
+      },
+      "screenshot": "llama-3.1-8b/images/1xL40S-vllm-showcase.png"
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 46.865415100993324,
+        "request_s": 0.618277244076429,
+        "ttft_ms_mean": 45.39620659988941,
+        "ttft_ms_p50": 49.151408999932755,
+        "tpot_ms_mean": 20.94312940670267,
+        "tpot_ms_p50": 20.942357533332746
+      }
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 290.9755753093185,
+        "request_s": 4.532329833478482,
+        "ttft_ms_mean": 68.80152497499239,
+        "ttft_ms_p50": 70.6530949998978,
+        "tpot_ms_mean": 24.344951948576988,
+        "tpot_ms_p50": 24.314213445287386
+      }
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 819.9624199753166,
+        "request_s": 12.416618133262412,
+        "ttft_ms_mean": 75.23565256875031,
+        "ttft_ms_p50": 73.63981100002093,
+        "tpot_ms_mean": 32.901259288008994,
+        "tpot_ms_p50": 33.49235089320342
+      },
+      "screenshot": "llama-3.1-8b/images/1xL40S-sglang-showcase.png"
+    }
+  ]
+}

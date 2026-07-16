@@ -9,3 +9,4 @@ README.html
 index.html
 **/qwen2-5-7b-instruct.html
 results/archive/**/*.html
+results/raw/logs/

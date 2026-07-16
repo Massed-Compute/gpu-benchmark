@@ -1,0 +1,98 @@
+{
+  "id": "20260716T150819Z-gpu_2x_h100",
+  "date": "2026-07-16",
+  "model": {
+    "hf_id": "unsloth/Llama-3.3-70B-Instruct"
+  },
+  "hardware": {
+    "sku": "gpu_2x_h100",
+    "count": 2,
+    "price_usd_per_hour": 5.46
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_2x_h100",
+      "gpu_count": 2,
+      "price_usd_per_hour": 5.46,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 21.87039373883057,
+        "ttft_ms_p50": 112.44085900034406,
+        "ttft_ms_mean": 102.16072939992955,
+        "tpot_ms_p50": 45.19741059842513
+      },
+      "screenshot": null
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_2x_h100",
+      "gpu_count": 2,
+      "price_usd_per_hour": 5.46,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 133.17103813611874,
+        "ttft_ms_p50": 280.072050499939,
+        "ttft_ms_mean": 277.1354803250233,
+        "tpot_ms_p50": 54.227261188978765
+      },
+      "screenshot": null
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_2x_h100",
+      "gpu_count": 2,
+      "price_usd_per_hour": 5.46,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 415.5240460132559,
+        "ttft_ms_p50": 309.9051590002091,
+        "ttft_ms_mean": 761.0483184874994,
+        "tpot_ms_p50": 66.5871906141733
+      },
+      "screenshot": "llama-3.3-70b/images/2xH100-vllm-showcase.png"
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_2x_h100",
+      "gpu_count": 2,
+      "price_usd_per_hour": 5.46,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 23.48719802211078,
+        "ttft_ms_p50": 117.49704500016378,
+        "ttft_ms_mean": 107.49130859994693,
+        "tpot_ms_p50": 41.5367402833302
+      },
+      "screenshot": null
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_2x_h100",
+      "gpu_count": 2,
+      "price_usd_per_hour": 5.46,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 131.19189566306716,
+        "ttft_ms_p50": 178.65021649981827,
+        "ttft_ms_mean": 215.32483277501342,
+        "tpot_ms_p50": 53.50479510770419
+      },
+      "screenshot": null
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_2x_h100",
+      "gpu_count": 2,
+      "price_usd_per_hour": 5.46,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 339.42553289879913,
+        "ttft_ms_p50": 198.9135725000324,
+        "ttft_ms_mean": 196.1564529499924,
+        "tpot_ms_p50": 82.4072404322031
+      },
+      "screenshot": "llama-3.3-70b/images/2xH100-sglang-showcase.png"
+    }
+  ]
+}

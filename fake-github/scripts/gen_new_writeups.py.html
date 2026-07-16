@@ -1,0 +1,309 @@
+<!doctype html><html><head><meta charset=utf-8><title>scripts/gen_new_writeups.py - gpu-benchmark</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+:root{--bg:#ffffff;--fg:#1f2328;--muted:#59636e;--border:#d1d9e0;--link:#0969da;--btnbg:#f6f8fa;--headerbg:#f6f8fa;--accent:#0969da;--rowhover:#f6f8fa;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;color:var(--fg);background:var(--bg);font-size:14px;line-height:1.5}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{background:#1f2328;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:12px;font-size:14px}
+.topbar svg{fill:#fff}
+.topbar .repo-path{font-size:15px}
+.topbar .repo-path a{color:#fff;font-weight:400}
+.topbar .repo-path b{font-weight:600}
+.subnav{border-bottom:1px solid var(--border);padding:0 16px;display:flex;gap:8px;background:var(--bg);overflow-x:auto}
+.subnav a{padding:12px 8px;color:var(--fg);border-bottom:2px solid transparent;white-space:nowrap;font-size:14px}
+.subnav a.active{border-bottom-color:#fd8c73;font-weight:600}
+.subnav .counter{background:#eaeef2;border-radius:20px;padding:0 6px;font-size:12px;color:var(--muted);margin-left:4px}
+.wrap{max-width:1280px;margin:24px auto;padding:0 16px;display:flex;gap:24px;align-items:flex-start}
+.main{flex:1;min-width:0}
+.side{width:296px;flex-shrink:0}
+@media(max-width:1000px){.wrap{flex-direction:column}.side{width:100%}}
+.reporow{display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.branchbtn{border:1px solid var(--border);background:var(--btnbg);border-radius:6px;padding:5px 12px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.box{border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.commitbar{display:flex;align-items:center;gap:8px;background:var(--headerbg);padding:8px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+.commitbar .avatar{width:20px;height:20px;border-radius:50%;background:#54aeff}
+.commitbar .msg{color:var(--fg);font-weight:600}
+.commitbar .right{margin-left:auto;display:flex;align-items:center;gap:6px}
+.commitbar .sha{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+table.files{width:100%;border-collapse:collapse;font-size:14px}
+table.files td{padding:8px 16px;border-top:1px solid var(--border)}
+table.files tr:first-child td{border-top:0}
+table.files tr:hover{background:var(--rowhover)}
+.files .icon{width:16px;color:var(--muted);padding-right:0}
+.files .folder{color:#54aeff}
+.files .name{width:35%}
+.files .msg{color:var(--muted)}
+.files .age{text-align:right;color:var(--muted);white-space:nowrap}
+.readmebox{margin-top:16px}
+.readmehead{display:flex;align-items:center;gap:8px;background:var(--bg);padding:8px 16px;border-bottom:1px solid var(--border);font-weight:600}
+.filehead{display:flex;align-items:center;gap:12px;background:var(--bg);padding:8px 16px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+.markdown-body{padding:24px 32px}
+.markdown-body h1{font-size:2em;border-bottom:1px solid var(--border);padding-bottom:.3em;margin-top:0}
+.markdown-body h2{font-size:1.5em;border-bottom:1px solid var(--border);padding-bottom:.3em;margin-top:24px}
+.markdown-body h3{font-size:1.25em;margin-top:24px}
+.markdown-body table{border-collapse:collapse;margin:16px 0;display:block;overflow:auto}
+.markdown-body th,.markdown-body td{border:1px solid var(--border);padding:6px 13px}
+.markdown-body tr:nth-child(2n){background:var(--btnbg)}
+.markdown-body code{background:rgba(129,139,152,.12);padding:.2em .4em;border-radius:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:85%}
+.markdown-body pre{background:var(--btnbg);padding:16px;border-radius:6px;overflow:auto}
+.markdown-body pre code{background:none;padding:0}
+.markdown-body img{max-width:100%;border:1px solid var(--border);border-radius:6px}
+.markdown-body a{color:var(--link)}
+.breadcrumb{font-size:16px;margin-bottom:12px}
+.breadcrumb b{font-weight:600}
+.side h2{font-size:16px;margin:0 0 8px}
+.side .desc{color:var(--fg);margin-bottom:16px}
+.side .meta{color:var(--muted);display:flex;flex-direction:column;gap:8px;font-size:13px}
+.side .meta a{color:var(--muted)}
+.side hr{border:0;border-top:1px solid var(--border);margin:16px 0}
+.imggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:16px}
+.imggrid figure{margin:0}
+.imggrid img{width:100%;border:1px solid var(--border);border-radius:6px}
+.imggrid figcaption{font-size:12px;color:var(--muted);margin-top:4px;word-break:break-all}
+</style></head><body><div class="topbar"><svg height="28" width="28" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg><span class="repo-path"><a href="index.html">Massed-Compute</a> / <a href="index.html"><b>gpu-benchmark</b></a></span></div><div class="subnav"><a class="active" href="index.html">Code</a><a class="" href="index.html">Issues<span class="counter">0</span></a><a class="" href="index.html">Pull requests<span class="counter">0</span></a><a class="" href="index.html">Actions</a><a class="" href="index.html">Projects</a><a class="" href="index.html">Security</a><a class="" href="index.html">Insights</a></div><div class="wrap"><div class="main"><div class="breadcrumb"><a href="../index.html">gpu-benchmark</a> / <a href="../index.html">scripts</a> / <b>gen_new_writeups.py</b></div><div class="box"><div class="filehead"><span>247 lines &#183; 8602 Bytes</span></div><div class="markdown-body"><pre><code>#!/usr/bin/env python3
+&quot;&quot;&quot;Generate llama-3.1-style writeups + TGI showcase PNGs for the new
+DeepSeek + newest-local model benches, matching the shipped format.&quot;&quot;&quot;
+from __future__ import annotations
+
+import json
+import re
+import sys
+from datetime import date
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from mc_bench.screenshot import (  # noqa: E402
+    build_tgi_style_tables,
+    from_vllm_style_runs,
+    render_showcase_png,
+)
+
+RAW = ROOT / &quot;results&quot; / &quot;raw&quot;
+
+SKU_LABEL = {
+    &quot;gpu_1x_pro_6000_blackwell&quot;: &quot;1xBlackwell&quot;,
+    &quot;gpu_1x_h100&quot;: &quot;1xH100&quot;,
+    &quot;gpu_2x_pro_6000_blackwell&quot;: &quot;2xBlackwellPRO6000&quot;,
+    &quot;gpu_2x_h200_nvl&quot;: &quot;2xH200&quot;,
+}
+PRICES = {
+    &quot;gpu_1x_pro_6000_blackwell&quot;: 2.19,
+    &quot;gpu_1x_h100&quot;: 2.73,
+    &quot;gpu_2x_pro_6000_blackwell&quot;: 4.38,
+    &quot;gpu_2x_h200_nvl&quot;: 7.24,
+}
+
+MODELS = [
+    {
+        &quot;slug&quot;: &quot;deepseek-r1-distill-llama-8b&quot;,
+        &quot;hf&quot;: &quot;deepseek-ai/DeepSeek-R1-Distill-Llama-8B&quot;,
+        &quot;title&quot;: &quot;DeepSeek R1 Distill Llama 8B&quot;,
+        &quot;skus&quot;: [&quot;gpu_1x_pro_6000_blackwell&quot;, &quot;gpu_1x_h100&quot;],
+        &quot;notes&quot;: [
+            &quot;Reasoning distill of Llama 3.1 8B; single-GPU class.&quot;,
+            &quot;Blackwell + H100 both ran vLLM `cu129-nightly`.&quot;,
+        ],
+    },
+    {
+        &quot;slug&quot;: &quot;deepseek-r1-distill-qwen-32b&quot;,
+        &quot;hf&quot;: &quot;deepseek-ai/DeepSeek-R1-Distill-Qwen-32B&quot;,
+        &quot;title&quot;: &quot;DeepSeek R1 Distill Qwen 32B&quot;,
+        &quot;skus&quot;: [&quot;gpu_1x_pro_6000_blackwell&quot;, &quot;gpu_1x_h100&quot;],
+        &quot;notes&quot;: [
+            &quot;Reasoning distill on Qwen2.5 32B; fits one 80–96GB card at bf16.&quot;,
+        ],
+    },
+    {
+        &quot;slug&quot;: &quot;qwen3-32b&quot;,
+        &quot;hf&quot;: &quot;Qwen/Qwen3-32B&quot;,
+        &quot;title&quot;: &quot;Qwen3 32B&quot;,
+        &quot;skus&quot;: [&quot;gpu_1x_pro_6000_blackwell&quot;, &quot;gpu_1x_h100&quot;],
+        &quot;notes&quot;: [
+            &quot;Dense Qwen3 32B; newest Qwen generation.&quot;,
+        ],
+    },
+    {
+        &quot;slug&quot;: &quot;qwen3-30b-a3b&quot;,
+        &quot;hf&quot;: &quot;Qwen/Qwen3-30B-A3B&quot;,
+        &quot;title&quot;: &quot;Qwen3 30B-A3B (MoE)&quot;,
+        &quot;skus&quot;: [&quot;gpu_1x_pro_6000_blackwell&quot;, &quot;gpu_1x_h100&quot;],
+        &quot;notes&quot;: [
+            &quot;MoE with ~3B active params — very high throughput per card.&quot;,
+        ],
+    },
+    {
+        &quot;slug&quot;: &quot;deepseek-r1-distill-llama-70b&quot;,
+        &quot;hf&quot;: &quot;deepseek-ai/DeepSeek-R1-Distill-Llama-70B&quot;,
+        &quot;title&quot;: &quot;DeepSeek R1 Distill Llama 70B&quot;,
+        &quot;skus&quot;: [&quot;gpu_2x_pro_6000_blackwell&quot;, &quot;gpu_2x_h200_nvl&quot;],
+        &quot;notes&quot;: [
+            &quot;Reasoning distill of Llama 3.3 70B; needs 2 GPUs (TP=2).&quot;,
+            &quot;2x Blackwell vs 2x H200 NVL comparison.&quot;,
+        ],
+    },
+]
+
+
+def latest_dir(slug: str, sku: str) -&gt; Path | None:
+    base = RAW / slug / sku
+    if not base.exists():
+        return None
+    subs = sorted([p for p in base.iterdir() if p.is_dir()])
+    return subs[-1] if subs else None
+
+
+def load_runs(slug: str, sku: str, engine: str) -&gt; dict[int, dict]:
+    d = latest_dir(slug, sku)
+    runs: dict[int, dict] = {}
+    if not d:
+        return runs
+    for c in (1, 8, 32):
+        f = d / f&quot;{engine}-c{c}.json&quot;
+        if f.exists():
+            try:
+                data = json.loads(f.read_text())
+            except Exception:
+                continue
+            if &quot;output_throughput&quot; not in data and &quot;output_token_throughput&quot; in data:
+                data[&quot;output_throughput&quot;] = data[&quot;output_token_throughput&quot;]
+            runs[c] = data
+    return runs
+
+
+def metric(d: dict, *keys):
+    for k in keys:
+        if k in d and d[k] is not None:
+            return d[k]
+    return 0
+
+
+def gen_model(m: dict):
+    out_dir = ROOT / m[&quot;slug&quot;]
+    img_dir = out_dir / &quot;images&quot;
+    img_dir.mkdir(parents=True, exist_ok=True)
+    rows = []
+    for sku in m[&quot;skus&quot;]:
+        label = SKU_LABEL[sku]
+        price = PRICES[sku]
+        for eng in (&quot;vllm&quot;, &quot;sglang&quot;):
+            runs = load_runs(m[&quot;slug&quot;], sku, eng)
+            if not runs:
+                print(f&quot;  WARN no {eng} runs for {m[&#x27;slug&#x27;]} {sku}&quot;)
+                continue
+            by = from_vllm_style_runs(runs)
+            table = build_tgi_style_tables(title=f&quot;{m[&#x27;hf&#x27;]} | {sku} | {eng}&quot;, by_batch=by)
+            shot = img_dir / f&quot;{label}-{eng}-showcase.png&quot;
+            render_showcase_png(f&quot;{m[&#x27;title&#x27;]} — {label} / {eng}&quot;, table, shot)
+            c32 = runs.get(32, {})
+            tok = float(metric(c32, &quot;output_throughput&quot;, &quot;output_token_throughput&quot;))
+            ttft = float(metric(c32, &quot;median_ttft_ms&quot;, &quot;mean_ttft_ms&quot;))
+            eff = tok / price if price else 0
+            rows.append((eng, sku, label, price, tok, ttft, eff))
+
+    if not rows:
+        print(f&quot;SKIP {m[&#x27;slug&#x27;]} (no data)&quot;)
+        return False
+
+    best = max(rows, key=lambda r: r[4])
+    best_eff = max(rows, key=lambda r: r[6])
+
+    lines = [
+        f&quot;# {m[&#x27;title&#x27;]} GPU Benchmark&quot;,
+        &quot;&quot;,
+        &quot;### Last Edit Date:&quot;,
+        f&quot;MC - {date.today().strftime(&#x27;%Y.%m.%d&#x27;)}&quot;,
+        &quot;&quot;,
+        &quot;## Purpose&quot;,
+        f&quot;Live Massed Compute inference benches for **{m[&#x27;hf&#x27;]}**, comparing **vLLM** vs **SGLang**.&quot;,
+        &quot;&quot;,
+        &quot;## Technique&quot;,
+        &quot;Pinned profile: random prompts, input=128, output=128, request-rate=inf, &quot;
+        &quot;concurrency 1 / 8 / 32. Headlines use **c32**.&quot;,
+        &quot;Engines: vLLM (`cu129-nightly`) + SGLang `lmsysorg/sglang:latest`.&quot;,
+        &quot;&quot;,
+        &quot;## Results&quot;,
+        &quot;&quot;,
+        &quot;| Engine | SKU | $/hr | Output tok/s (c32) | TTFT med (ms) | tok/s per $ |&quot;,
+        &quot;|---|---|---:|---:|---:|---:|&quot;,
+    ]
+    for eng, sku, label, price, tok, ttft, eff in rows:
+        lines.append(f&quot;| {eng} | `{sku}` | {price} | {tok:.1f} | {ttft:.1f} | {eff:.1f} |&quot;)
+
+    lines += [&quot;&quot;, &quot;### Screenshots&quot;, &quot;&quot;]
+    for sku in m[&quot;skus&quot;]:
+        label = SKU_LABEL[sku]
+        lines.append(f&quot;**{sku}** — ${PRICES[sku]}/hr&quot;)
+        lines.append(&quot;&quot;)
+        for eng in (&quot;vllm&quot;, &quot;sglang&quot;):
+            shot = out_dir / &quot;images&quot; / f&quot;{label}-{eng}-showcase.png&quot;
+            if shot.exists():
+                lines.append(f&quot;{eng}:&quot;)
+                lines.append(f&quot;![{sku} {eng}](./images/{label}-{eng}-showcase.png)&quot;)
+                lines.append(&quot;&quot;)
+
+    lines += [
+        &quot;## Conclusion&quot;,
+        &quot;&quot;,
+        f&quot;Peak c32 output throughput: **{best[4]:.0f} tok/s** on `{best[1]}` with **{best[0]}**.&quot;,
+        f&quot;Best $/tok: **{best_eff[6]:.1f} tok/s per $** on `{best_eff[1]}` / **{best_eff[0]}**.&quot;,
+        &quot;&quot;,
+        &quot;## Notes&quot;,
+        &quot;&quot;,
+    ]
+    for n in m[&quot;notes&quot;]:
+        lines.append(f&quot;- {n}&quot;)
+    lines.append(&quot;- Numbers from live Massed runs 2026-07-16; bench VMs terminated after capture.&quot;)
+    lines.append(&quot;&quot;)
+
+    (out_dir / f&quot;{m[&#x27;slug&#x27;]}.md&quot;).write_text(&quot;\n&quot;.join(lines))
+    print(f&quot;wrote {m[&#x27;slug&#x27;]}.md ({len(rows)} engine-sku rows)&quot;)
+    return True
+
+
+def update_readme(done_slugs):
+    readme = ROOT / &quot;README.md&quot;
+    text = readme.read_text()
+    entries = {
+        &quot;deepseek-r1-distill-llama-8b&quot;: &quot;[DeepSeek R1 Distill Llama 8B (Blackwell vs H100)](./deepseek-r1-distill-llama-8b/deepseek-r1-distill-llama-8b.md)&quot;,
+        &quot;deepseek-r1-distill-qwen-32b&quot;: &quot;[DeepSeek R1 Distill Qwen 32B (Blackwell vs H100)](./deepseek-r1-distill-qwen-32b/deepseek-r1-distill-qwen-32b.md)&quot;,
+        &quot;qwen3-32b&quot;: &quot;[Qwen3 32B (Blackwell vs H100)](./qwen3-32b/qwen3-32b.md)&quot;,
+        &quot;qwen3-30b-a3b&quot;: &quot;[Qwen3 30B-A3B MoE (Blackwell vs H100)](./qwen3-30b-a3b/qwen3-30b-a3b.md)&quot;,
+        &quot;deepseek-r1-distill-llama-70b&quot;: &quot;[DeepSeek R1 Distill Llama 70B (2x Blackwell vs 2x H200)](./deepseek-r1-distill-llama-70b/deepseek-r1-distill-llama-70b.md)&quot;,
+    }
+    new_lines = [f&quot;- {entries[s]}&quot; for s in done_slugs if s in entries]
+    block = &quot;## DeepSeek + Newest Local (2026) — vLLM + SGLang\n\n&quot; + &quot;\n&quot;.join(new_lines) + &quot;\n\n&quot;
+    if &quot;## DeepSeek + Newest Local&quot; in text:
+        text = re.sub(r&quot;## DeepSeek \+ Newest Local.*?(?=\n## )&quot;, block, text, flags=re.S)
+    else:
+        # insert after the New (2026) block, before &quot;## How we run&quot; if present
+        anchor = &quot;## How we run&quot;
+        if anchor in text:
+            text = text.replace(anchor, block + anchor)
+        else:
+            text = text.rstrip() + &quot;\n\n&quot; + block
+    readme.write_text(text)
+    print(&quot;README updated&quot;)
+
+
+def update_catalog(done_slugs):
+    p = ROOT / &quot;catalog&quot; / &quot;models.json&quot;
+    cat = json.loads(p.read_text())
+    for model in cat[&quot;models&quot;]:
+        if model[&quot;id&quot;] in done_slugs:
+            model[&quot;status&quot;] = &quot;complete&quot;
+    cat[&quot;updated&quot;] = &quot;2026-07-16&quot;
+    p.write_text(json.dumps(cat, indent=2) + &quot;\n&quot;)
+    print(&quot;catalog updated&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    done = []
+    for m in MODELS:
+        if gen_model(m):
+            done.append(m[&quot;slug&quot;])
+    if done:
+        update_readme(done)
+        update_catalog(done)
+    print(&quot;done:&quot;, done)
+</code></pre></div></div></div><div class="side"><h2>About</h2><div class="desc">Various benchmarks across multiple GPU types.</div><div class="meta"><a href="index.html">Readme</a><span>&#11088; 0 stars</span><span>&#128064; 1 watching</span><span>&#127860; 0 forks</span></div><hr><h2>Releases</h2><div class="meta"><span>No releases published</span></div><hr><h2>Languages</h2><div class="meta"><span>Python &#8226; Shell &#8226; Markdown</span></div></div></div></body></html>

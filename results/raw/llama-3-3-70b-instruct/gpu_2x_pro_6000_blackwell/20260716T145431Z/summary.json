@@ -1,0 +1,98 @@
+{
+  "id": "20260716T145431Z-gpu_2x_pro_6000_blackwell",
+  "date": "2026-07-16",
+  "model": {
+    "hf_id": "unsloth/Llama-3.3-70B-Instruct"
+  },
+  "hardware": {
+    "sku": "gpu_2x_pro_6000_blackwell",
+    "count": 2,
+    "price_usd_per_hour": 4.38
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_2x_pro_6000_blackwell",
+      "gpu_count": 2,
+      "price_usd_per_hour": 4.38,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 19.794797579772492,
+        "ttft_ms_p50": 84.17617100030839,
+        "ttft_ms_mean": 86.06553260015062,
+        "tpot_ms_p50": 50.16939800787183
+      },
+      "screenshot": null
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_2x_pro_6000_blackwell",
+      "gpu_count": 2,
+      "price_usd_per_hour": 4.38,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 139.25349272707686,
+        "ttft_ms_p50": 307.4753214998509,
+        "ttft_ms_mean": 294.12686099997245,
+        "tpot_ms_p50": 55.5033324448819
+      },
+      "screenshot": null
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_2x_pro_6000_blackwell",
+      "gpu_count": 2,
+      "price_usd_per_hour": 4.38,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 461.8375497491146,
+        "ttft_ms_p50": 1244.114767499923,
+        "ttft_ms_mean": 978.7700041312604,
+        "tpot_ms_p50": 62.06132828346536
+      },
+      "screenshot": "llama-3.3-70b/images/2xBlackwellPRO6000-vllm-showcase.png"
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_2x_pro_6000_blackwell",
+      "gpu_count": 2,
+      "price_usd_per_hour": 4.38,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 19.135267994809503,
+        "ttft_ms_p50": 119.71177400027955,
+        "ttft_ms_mean": 109.59939600015787,
+        "tpot_ms_p50": 51.31652454545564
+      },
+      "screenshot": null
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_2x_pro_6000_blackwell",
+      "gpu_count": 2,
+      "price_usd_per_hour": 4.38,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 116.78903565323326,
+        "ttft_ms_p50": 178.00715250018584,
+        "ttft_ms_mean": 175.0822713249704,
+        "tpot_ms_p50": 60.76297685519955
+      },
+      "screenshot": null
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_2x_pro_6000_blackwell",
+      "gpu_count": 2,
+      "price_usd_per_hour": 4.38,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 326.8748500416797,
+        "ttft_ms_p50": 185.1274650000505,
+        "ttft_ms_mean": 185.1233762187661,
+        "tpot_ms_p50": 84.31584619491377
+      },
+      "screenshot": "llama-3.3-70b/images/2xBlackwellPRO6000-sglang-showcase.png"
+    }
+  ]
+}

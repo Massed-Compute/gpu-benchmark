@@ -1,0 +1,9 @@
++ sudo docker exec vllm-bench vllm bench serve --base-url http://127.0.0.1:8000 --endpoint-type openai-comp --model meta-llama/Llama-3.3-70B-Instruct --dataset-name random --random-input-len 128 --random-output-len 128 --num-prompts 160 --max-concurrency 32 --request-rate inf --save-result --result-dir /tmp --result-filename vllm-c32.json
+Error response from daemon: container e0f7c9b2fa45c210bff2319227bf74d5f0ee351be0a2200ce47ac792dc7defc3 is not running
++ true
++ sudo docker cp vllm-bench:/tmp/vllm-c32.json /tmp/vllm-c32.json
++ true
++ cat /tmp/vllm-c32.json
+VLLM_BENCH_DONE
++ true
++ echo VLLM_BENCH_DONE
