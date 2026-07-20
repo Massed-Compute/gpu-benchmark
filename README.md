@@ -43,6 +43,22 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 - [GLM-4.7-Flash](./glm-4.7-flash/glm-4.7-flash.md)
 
+### Ornith
+
+- [Ornith 1.0 9B](./ornith-1.0-9b/ornith-1.0-9b.md)
+- [Ornith 1.0 35B (MoE)](./ornith-1.0-35b/ornith-1.0-35b.md)
+
+### MiniCPM-Robot (embodied)
+
+- [MiniCPM-RobotManip](./minicpm-robotmanip/minicpm-robotmanip.md)
+- [MiniCPM-RobotTrack](./minicpm-robottrack/minicpm-robottrack.md)
+
+### Image / Video
+
+- [Krea 2 Turbo](./krea-2-turbo/krea-2-turbo.md)
+- [Bernini-R 14B](./bernini-r-14b/bernini-r-14b.md)
+
+
 Each benchmark includes:
 
 - **Model Description**: Overview of the model being tested.
@@ -54,3 +70,5 @@ Each benchmark includes:
 The original 2024 Llama 3 suite used [Hugging Face TGI](https://github.com/huggingface/text-generation-inference). The 2026 additions use modern serving engines — [vLLM](https://github.com/vllm-project/vllm) and [SGLang](https://github.com/sgl-project/sglang) — run on live Massed Compute instances.
 
 Pinned profile for the 2026 runs: random prompts, input=128 / output=128 tokens, request-rate=inf, concurrency 1 / 8 / 32 (headline numbers use concurrency 32). GPUs include RTX PRO 6000 Blackwell, H100, H200 NVL, and L40S. Bench VMs were terminated after each capture.
+The 2026-07-20 additions also cover agentic coding (Ornith), embodied VLA (MiniCPM-Robot), text-to-image (Krea 2 Turbo), and video rendering (Bernini-R), with modality-appropriate metrics alongside the vLLM/SGLang LLM profile.
+
