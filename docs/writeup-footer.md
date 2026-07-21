@@ -16,7 +16,7 @@ Append this block to the **bottom** of every model page and the README. Adjust t
   <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
 </p>
 
-> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.
 ```
 
 Voice (from Massed Compute Design System): CTAs ALL CAPS; never call pricing "cheap"; prefer "pay only for what you use" / concrete `$X.XX/hr`.
@@ -34,4 +34,4 @@ Voice (from Massed Compute Design System): CTAs ALL CAPS; never call pricing "ch
   <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
 </p>
 
-> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.
