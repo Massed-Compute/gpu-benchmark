@@ -33,3 +33,18 @@ Blackwell leads both raw latency and $/hr at 2048² / 20 steps in this capture (
 ## Notes
 - Open-weight SenseNova-U1 Infographic V3 (Apache-2.0); code from OpenSenseNova/SenseNova-U1.
 - Numbers from live Massed runs 2026-07-20; bench VMs terminated after capture.
+
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.

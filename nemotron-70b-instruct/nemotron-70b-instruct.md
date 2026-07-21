@@ -47,3 +47,18 @@ Best $/tok: **120.9 tok/s per $** on `gpu_2x_h200_nvl` / **vllm**.
 - 2× Blackwell was out of capacity; compared 2× H200 NVL vs 2× H100 instead.
 - H200 roughly doubles vLLM c32 throughput vs H100 and wins $/tok.
 - Numbers from live Massed runs 2026-07-16; bench VMs terminated after capture.
+
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.

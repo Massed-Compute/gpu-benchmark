@@ -6,9 +6,8 @@ This repository contains benchmark data and documentation for evaluating the inf
 
 ## About Massed Compute
 
-Massed Compute leverages cutting-edge technology to offer scalable and efficient distributed computing solutions. We provide flexible computing power for AI research, visual effects production, data science, and more. Our goal is to empower organizations with the tools they need to maximize their computational capabilities.
+Massed Compute offers scalable GPU cloud for AI research, VFX, data science, and more.
 
-For more information, visit [Massed Compute](https://massedcompute.com/?utm_source=github.com).
 
 ## Benchmarking Overview
 
@@ -61,7 +60,28 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Image / Multimodal
 
+- [Ideogram v4 Instant](./ideogram-v4-instant/ideogram-v4-instant.md)
 - [SenseNova-U1 Infographic V3](./sensenova-u1-8b-mot-infographic-v3/sensenova-u1-8b-mot-infographic-v3.md)
+
+### Creative writing
+
+- [Astrea R8 Chat 9B](./astrea-r8-chat-9b/astrea-r8-chat-9b.md)
+
+### Hunyuan / Hy3
+
+- [Hy3 IQ1_M GGUF](./hy3-iq1-m/hy3-iq1-m.md)
+
+### Motif
+
+- [Motif-3-Beta (partial)](./motif-3-beta/motif-3-beta.md)
+
+### Llama.cpp / GGUF
+
+- [Bonsai 27B Q1_0](./bonsai-27b-q1-0/bonsai-27b-q1-0.md)
+
+### Vision-Language
+
+- [Qwen3-VL-4B Heretic](./qwen3-vl-4b-heretic/qwen3-vl-4b-heretic.md)
 
 Each benchmark includes:
 
@@ -74,5 +94,19 @@ Each benchmark includes:
 The original 2024 Llama 3 suite used [Hugging Face TGI](https://github.com/huggingface/text-generation-inference). The 2026 additions use modern serving engines — [vLLM](https://github.com/vllm-project/vllm) and [SGLang](https://github.com/sgl-project/sglang) — run on live Massed Compute instances.
 
 Pinned profile for the 2026 runs: random prompts, input=128 / output=128 tokens, request-rate=inf, concurrency 1 / 8 / 32 (headline numbers use concurrency 32). GPUs include RTX PRO 6000 Blackwell, H100, H200 NVL, and L40S. Bench VMs were terminated after each capture.
-The 2026-07-20 additions also cover agentic coding (Ornith), embodied VLA (MiniCPM-Robot), text-to-image (Krea 2 Turbo), and video rendering (Bernini-R), with modality-appropriate metrics alongside the vLLM/SGLang LLM profile.
+The 2026-07-21 wave adds Astrea, Hy3, Ideogram Instant, Motif (partial), Bonsai Q1_0, and Qwen3-VL Heretic, plus a SenseNova showcase refresh. The 2026-07-20 additions also cover agentic coding (Ornith), embodied VLA (MiniCPM-Robot), text-to-image (Krea 2 Turbo), and video rendering (Bernini-R), with modality-appropriate metrics alongside the vLLM/SGLang LLM profile.
 
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="./shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.
