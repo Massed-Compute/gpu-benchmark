@@ -31,3 +31,12 @@ Single-GPU Hy3 IQ1_M decode: **75.6 tok/s** on `gpu_1x_pro_6000_blackwell` (~**3
 - Official AngelSlim IQ1_M GGUF of `tencent/Hy3` (hy_v3); fits one RTX PRO 6000 Blackwell 96 GB.
 - Extreme 1-bit compression trades quality for single-card deployability.
 - Numbers from live Massed run 2026-07-21; bench VM terminated after capture.
+
+
+---
+
+[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+
+**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

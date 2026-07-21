@@ -34,3 +34,12 @@ Fastest step latency: **84.37 ms** on `gpu_1x_pro_6000_blackwell`.
 - Embodied VLA (vision-language-action), not a chat LLM.
 - Official card cites ~120 ms/step on H100 BF16 single-frame; our H100 mean was higher under this harness.
 - Numbers from live Massed runs 2026-07-20.
+
+
+---
+
+[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+
+**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

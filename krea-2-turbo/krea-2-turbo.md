@@ -34,3 +34,12 @@ H100 leads raw images/s at 1024² in this capture; Blackwell remains competitive
 ## Notes
 - Open-weight Krea 2 Turbo (Community License).
 - Numbers from live Massed runs 2026-07-20.
+
+
+---
+
+[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+
+**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

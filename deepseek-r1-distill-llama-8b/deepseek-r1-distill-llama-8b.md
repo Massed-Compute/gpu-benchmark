@@ -47,3 +47,12 @@ Best $/tok: **1026.5 tok/s per $** on `gpu_1x_h100` / **vllm**.
 - Reasoning distill of Llama 3.1 8B; single-GPU class.
 - Blackwell + H100 both ran vLLM `cu129-nightly`.
 - Numbers from live Massed runs 2026-07-16; bench VMs terminated after capture.
+
+
+---
+
+[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+
+**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

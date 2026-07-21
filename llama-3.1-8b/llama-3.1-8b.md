@@ -35,3 +35,11 @@ At concurrency 32, peak output throughput was **~1096 tok/s** on `gpu_1x_l40s` w
 - Numbers are from our live Massed runs on 2026-07-16; VMs terminated after capture.
 - Official `meta-llama/*` repos are gated; we used Unsloth BF16 redistributions of the same weights.
 
+
+---
+
+[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+
+**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

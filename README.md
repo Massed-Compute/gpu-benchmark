@@ -6,9 +6,14 @@ This repository contains benchmark data and documentation for evaluating the inf
 
 ## About Massed Compute
 
-Massed Compute leverages cutting-edge technology to offer scalable and efficient distributed computing solutions. We provide flexible computing power for AI research, visual effects production, data science, and more. Our goal is to empower organizations with the tools they need to maximize their computational capabilities.
+Massed Compute offers scalable GPU cloud for AI research, VFX, data science, and more.
 
-For more information, visit [Massed Compute](https://massedcompute.com/?utm_source=github.com).
+[![Massed Compute](./shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+
+**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+
+> **Pricing note:** Listed `$/hr` rates on these pages are point-in-time from each capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.
+
 
 ## Benchmarking Overview
 

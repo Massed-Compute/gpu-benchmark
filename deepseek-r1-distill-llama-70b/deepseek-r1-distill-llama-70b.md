@@ -47,3 +47,12 @@ Best $/tok: **120.4 tok/s per $** on `gpu_2x_h200_nvl` / **vllm**.
 - Reasoning distill of Llama 3.3 70B; needs 2 GPUs (TP=2).
 - 2x Blackwell vs 2x H200 NVL comparison.
 - Numbers from live Massed runs 2026-07-16; bench VMs terminated after capture.
+
+
+---
+
+[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+
+**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

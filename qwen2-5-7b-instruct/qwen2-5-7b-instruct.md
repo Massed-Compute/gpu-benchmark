@@ -63,3 +63,12 @@ Takeaway for traffic: L40S is a strong default for popular 7B–14B instruct mod
 
 ## Future Additions
 More models as they release — `mc-bench run --model <hf_id>` launches, benches, writes this page, and terminates the VMs.
+
+
+---
+
+[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+
+**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

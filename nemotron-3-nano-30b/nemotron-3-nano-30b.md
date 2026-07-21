@@ -47,3 +47,12 @@ Best $/tok: **483.4 tok/s per $** on `gpu_1x_pro_6000_blackwell` / **vllm**.
 - Hybrid Mamba/Transformer; H100 needed `--max-num-seqs 256` (default 1024 OOMs Mamba cache on 80GB).
 - Blackwell 96GB ran defaults fine. SGLang on H100 underperformed vs vLLM at c32.
 - Numbers from live Massed runs 2026-07-16; bench VMs terminated after capture.
+
+
+---
+
+[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+
+**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.
