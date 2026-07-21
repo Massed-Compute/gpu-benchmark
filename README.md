@@ -8,12 +8,6 @@ This repository contains benchmark data and documentation for evaluating the inf
 
 Massed Compute offers scalable GPU cloud for AI research, VFX, data science, and more.
 
-[![Massed Compute](./shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
-
-**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
-
-> **Pricing note:** Listed `$/hr` rates on these pages are point-in-time from each capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.
-
 
 ## Benchmarking Overview
 
@@ -102,3 +96,17 @@ The original 2024 Llama 3 suite used [Hugging Face TGI](https://github.com/huggi
 Pinned profile for the 2026 runs: random prompts, input=128 / output=128 tokens, request-rate=inf, concurrency 1 / 8 / 32 (headline numbers use concurrency 32). GPUs include RTX PRO 6000 Blackwell, H100, H200 NVL, and L40S. Bench VMs were terminated after each capture.
 The 2026-07-21 wave adds Astrea, Hy3, Ideogram Instant, Motif (partial), Bonsai Q1_0, and Qwen3-VL Heretic, plus a SenseNova showcase refresh. The 2026-07-20 additions also cover agentic coding (Ornith), embodied VLA (MiniCPM-Robot), text-to-image (Krea 2 Turbo), and video rendering (Bernini-R), with modality-appropriate metrics alongside the vLLM/SGLang LLM profile.
 
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="./shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

@@ -217,3 +217,18 @@ ui_kits/
   - **Resolved.** Built from the real repo.
 
 **Ask:** Please review the cards in the Design System tab and call out anything off-brand. Specifically: confirm the new orange hex `#FD3300`, confirm the display font, and tell me which gaps in the VM marketplace kit (auth, settings sub-pages, MCP) should land first.
+
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

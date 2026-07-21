@@ -12,3 +12,18 @@ When a new HF model drops:
 Small models → 1× L40S. Big → 2× Blackwell + 2× H100 (optional +4× L40S).
 
 Brand voice + CTA casing: [massed-compute-design-system.md](./massed-compute-design-system.md). Full DS zip (logos, UI kits): `~/Downloads/Massed Compute Design System 2026-07-15.zip` (unpacked local copy: `~/Downloads/mc-design-system-2026-07-15/`). Repo keeps logos under `shared-images/`.
+
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

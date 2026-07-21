@@ -11,3 +11,18 @@ Screenshots for writeups use the **classic TGI-table look** (maroon terminal, Pr
 **Screenshot captions (required):** Above every showcase image in the markdown, put a short context block before the `![](...)` — not only SKU + $/hr. Include: what the image is (T2I still vs terminal bench capture), SKU + GPU name, engine/stack, headline metric, resolution/steps when relevant, and whether the still is the timed sample or a quality-fix. For T2I: describe the subject in prose (prompt theme); never burn captions into the PNG when the model is non-infographic.
 
 **Page footer (required):** Every writeup ends with the pricing disclaimer + signup CTA from [writeup-footer.md](./writeup-footer.md).
+
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.

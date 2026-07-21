@@ -56,3 +56,18 @@ Then act as an expert designer and ship either a static HTML artifact or product
 - Never describe the product as "cheap." Use "affordable," "cost-effective," "the most economic option," or a concrete rate ($.43+/hr).
 - Name real tools (Jupyter, vLLM, ComfyUI, PyTorch, Hugging Face TGI) and real GPU SKUs (H100, A100, L40S, RTX 6000 ADA) instead of generic adjectives.
 - No emoji.
+
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use; no long-term contracts.
