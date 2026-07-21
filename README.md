@@ -32,6 +32,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 - [DeepSeek R1 Distill Llama 8B](./deepseek-r1-distill-llama-8b/deepseek-r1-distill-llama-8b.md)
 - [DeepSeek R1 Distill Qwen 32B](./deepseek-r1-distill-qwen-32b/deepseek-r1-distill-qwen-32b.md)
 - [DeepSeek R1 Distill Llama 70B](./deepseek-r1-distill-llama-70b/deepseek-r1-distill-llama-70b.md)
+- [DeepSeek V4 Flash](./deepseek-v4-flash/deepseek-v4-flash.md)
 
 ### Qwen
 
@@ -58,6 +59,9 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 - [Krea 2 Turbo](./krea-2-turbo/krea-2-turbo.md)
 - [Bernini-R 14B](./bernini-r-14b/bernini-r-14b.md)
 
+### Image / Multimodal
+
+- [SenseNova-U1 Infographic V3](./sensenova-u1-8b-mot-infographic-v3/sensenova-u1-8b-mot-infographic-v3.md)
 
 Each benchmark includes:
 
