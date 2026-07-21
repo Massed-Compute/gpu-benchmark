@@ -61,7 +61,20 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Image / Multimodal
 
+- [Ideogram v4 Instant](./ideogram-v4-instant/ideogram-v4-instant.md)
 - [SenseNova-U1 Infographic V3](./sensenova-u1-8b-mot-infographic-v3/sensenova-u1-8b-mot-infographic-v3.md)
+
+### Creative writing
+
+- [Astrea R8 Chat 9B](./astrea-r8-chat-9b/astrea-r8-chat-9b.md)
+
+### Hunyuan / Hy3
+
+- [Hy3 IQ1_M GGUF](./hy3-iq1-m/hy3-iq1-m.md)
+
+### Motif
+
+- [Motif-3-Beta (partial)](./motif-3-beta/motif-3-beta.md)
 
 Each benchmark includes:
 
