@@ -4,28 +4,41 @@
 MC - 2026.07.22
 
 ## Purpose
-Attempted live Massed Compute benches for **Nanbeige/Nanbeige4.2-3B**.
+Live Massed Compute benches for **Nanbeige/Nanbeige4.2-3B**.
 
 ## Technique
-Wave 5 scripts under `scripts/wave5/` (vLLM / Diffusers / transformers fallbacks).
+Transformers `generate` single-stream (128 new tokens, 5 repeats). Forced `rope_scaling=None` (published config is null; custom code expects keys if a partial dict is present). Not in vLLM (`NanbeigeForCausalLM`).
 
 ## Results
 
-| Status | Note |
-|---|---|
-| **Blocked** | Not in vLLM (`NanbeigeForCausalLM`). Transformers load fails on `rope_scaling` keys (`type`/`factor`) in published config. |
+| Engine | SKU | $/hr | Decode tok/s | tok/s per $ |
+|---|---|---:|---:|---:|
+| transformers | `gpu_1x_pro_6000_blackwell` | 2.19 | 52.2 | 23.8 |
+| transformers | `gpu_1x_l40s` | 0.88 | 30.4 | 34.5 |
 
 ### Screenshots
 
-No showcase — bench did not complete.
+Terminal-style captures from live Massed runs 2026-07-22 (transformers single-stream).
+
+**gpu_1x_pro_6000_blackwell** — RTX PRO 6000 Blackwell 96GB — $2.19/hr
+
+transformers · single-stream **52.2** tok/s:
+![gpu_1x_pro_6000_blackwell](./images/1xBlackwell-transformers-showcase.png)
+
+**gpu_1x_l40s** — L40S 48GB — $0.88/hr
+
+transformers · single-stream **30.4** tok/s:
+![gpu_1x_l40s](./images/1xL40S-transformers-showcase.png)
 
 ## Conclusion
 
-Could not publish latency/tok/s numbers this wave. Revisit when engine support lands.
+Peak decode: **52.2 tok/s** on `gpu_1x_pro_6000_blackwell`.
+Best $/tok: **34.5 tok/s per $** on `gpu_1x_l40s`.
 
 ## Notes
-- Attempted 2026-07-22 on disposable `mc-bench-w5*` VMs (image 184).
-- Related SKU notes: `gpu_1x_h100` / `gpu_2x_h200_nvl` often unavailable; used Blackwell / H200 NVL substitutes where possible.
+- Arch not in vLLM; transformers path only (c8/c32 N/A).
+- `gpu_1x_h100` unavailable; used `gpu_1x_l40s` as second SKU.
+- Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 ---
 

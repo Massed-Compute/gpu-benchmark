@@ -4,28 +4,38 @@
 MC - 2026.07.22
 
 ## Purpose
-Attempted live Massed Compute benches for **microsoft/Mage-Flow**.
+Live Massed Compute text-to-image benches for **microsoft/Mage-Flow**.
 
 ## Technique
-Wave 5 scripts under `scripts/wave5/` (vLLM / Diffusers / transformers fallbacks).
+Official `mage_flow.MageFlowPipeline` from [microsoft/Mage](https://github.com/microsoft/Mage) (`mage_flow/` package). Attention backend forced to **SDPA** (FlashAttention build unavailable on these images). Timed 1024×1024 gens at **20 steps** (5 repeats after warmup).
 
 ## Results
 
-| Status | Note |
-|---|---|
-| **Blocked** | `MageFlowPipeline` not present in released Diffusers; model_index references missing `transformer/mage_flow.py` module. |
+| SKU | $/hr | Res | Gen latency mean (s) | Images/s | Peak VRAM (GB) |
+|---|---:|---|---:|---:|---:|
+| `gpu_1x_pro_6000_blackwell` | 2.19 | 1024x1024 | 3.277 | 0.305 | 18.9 |
+| `gpu_1x_l40s` | 0.88 | 1024x1024 | 5.733 | 0.174 | 18.7 |
 
 ### Screenshots
 
-No showcase — bench did not complete.
+Word-free T2I showcase stills (product photo of a ceramic cup). Prompt locked to no text/letters/watermark. Latency numbers above are from timed multi-seed bench runs.
+
+**gpu_1x_pro_6000_blackwell** — RTX PRO 6000 Blackwell 96GB — $2.19/hr · mean gen **3.277** s
+
+![1xBlackwell t2i](./images/1xBlackwell-t2i-showcase.png)
+
+**gpu_1x_l40s** — L40S 48GB — $0.88/hr · mean gen **5.733** s
+
+![1xL40S t2i](./images/1xL40S-t2i-showcase.png)
 
 ## Conclusion
 
-Could not publish latency/tok/s numbers this wave. Revisit when engine support lands.
+Fastest mean latency: **3.277 s** on `gpu_1x_pro_6000_blackwell`.
 
 ## Notes
-- Attempted 2026-07-22 on disposable `mc-bench-w5*` VMs (image 184).
-- Related SKU notes: `gpu_1x_h100` / `gpu_2x_h200_nvl` often unavailable; used Blackwell / H200 NVL substitutes where possible.
+- Not loadable via stock Diffusers `DiffusionPipeline`; requires Microsoft Mage package.
+- Torch **cu129** required for Blackwell; L40S used cu126.
+- Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 ---
 

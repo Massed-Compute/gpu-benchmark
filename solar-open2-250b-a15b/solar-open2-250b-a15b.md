@@ -4,28 +4,37 @@
 MC - 2026.07.22
 
 ## Purpose
-Attempted live Massed Compute benches for **upstage/Solar-Open2-250B / nota-ai NVFP4**.
+Live Massed Compute inference benches for **nota-ai/Solar-Open2-250B-Nota-NVFP4** (NVFP4 of upstage/Solar-Open2-250B).
 
 ## Technique
-Wave 5 scripts under `scripts/wave5/` (vLLM / Diffusers / transformers fallbacks).
+Upstage `vllm-solar-open2` Docker (v0.22.0). `--tensor-parallel-size 2 --moe-backend cutlass --max-model-len 4096 --enforce-eager --disable-custom-all-reduce`. Concurrent chat completions (max_tokens=128); headline = aggregate output tok/s at concurrency 32.
 
 ## Results
 
-| Status | Note |
-|---|---|
-| **Blocked** | vLLM (nightly docker + host pip) rejects architecture `SolarOpen2ForCausalLM` (only `SolarForCausalLM` listed). Needs fla-core + upstream arch support. |
+| Engine | SKU | $/hr | Output tok/s (c32) | TTFT med (ms) | tok/s per $ |
+|---|---|---:|---:|---:|---:|
+| vllm-upstage | `gpu_2x_pro_6000_blackwell` | 4.38 | 592.5 | 3447.3 | 135.3 |
 
 ### Screenshots
 
-No showcase — bench did not complete.
+Terminal-style serving-bench captures, Massed Compute 2026-07-22.
+
+**gpu_2x_pro_6000_blackwell** — 2x RTX PRO 6000 Blackwell 96GB — $4.38/hr
+
+vLLM Upstage · NVFP4 · c32 **592.5** output tok/s · TTFT med **3447.3** ms:
+![gpu_2x_pro_6000_blackwell vllm](./images/2xBlackwell-vllm-showcase.png)
 
 ## Conclusion
 
-Could not publish latency/tok/s numbers this wave. Revisit when engine support lands.
+Peak c32 output throughput: **592 tok/s** on `gpu_2x_pro_6000_blackwell` with **vllm-upstage**.
+Best $/tok: **135.3 tok/s per $** on `gpu_2x_pro_6000_blackwell`.
 
 ## Notes
-- Attempted 2026-07-22 on disposable `mc-bench-w5*` VMs (image 184).
-- Related SKU notes: `gpu_1x_h100` / `gpu_2x_h200_nvl` often unavailable; used Blackwell / H200 NVL substitutes where possible.
+- Stock vLLM rejects `SolarOpen2ForCausalLM`; used Upstage fork image `upstage/vllm-solar-open2`.
+- NVFP4 requires `--moe-backend cutlass` (not `triton`). Expert-parallel + cutlass failed on this SKU; TP=2 without EP succeeded.
+- BF16 full weights need ~8×80GB; NVFP4 fits 2×96GB.
+- Second multi-GPU SKU (`gpu_2x_h200_nvl` / `gpu_2x_h100_nvl`) unavailable or undersized disk during this wave.
+- Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 ---
 

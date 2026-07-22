@@ -1,0 +1,1 @@
+upstage/vllm-solar-open2 docker; moe_backend=cutlass; tp=2; max_model_len=4096

@@ -1,0 +1,55 @@
+Fetching 43 files:   0%|          | 0/43 [00:00<?, ?it/s]Fetching 43 files: 100%|██████████| 43/43 [00:00<00:00, 3731.05it/s]
+2026-07-22 14:57:22.153 | INFO     | mage_flow.models.mage_flow:patch_text_encoder_forward:218 - Patched Qwen3-VL text encoder forward methods
+2026-07-22 14:57:22.584 | INFO     | mage_flow.models.modules.mage_vae:_load_encoder:571 - CoDEncoder: loaded 342 keys, missing=0, unexpected=0
+2026-07-22 14:57:22.594 | INFO     | mage_flow.models.modules.mage_vae:_load_decoder:593 - CoDDecoder: loaded 386 params (denoiser + y_embedder.decoder)
+2026-07-22 14:57:22.610 | INFO     | mage_flow.models.utils:load_model:135 - Init DiT model
+2026-07-22 14:57:33.200 | INFO     | mage_flow.models.modules.text_encoder:__init__:444 - TextEncoder attn_type=sdpa -> attn_implementation=sdpa
+2026-07-22 14:57:33.200 | INFO     | mage_flow.models.modules.text_encoder:__init__:446 - init vl model: qwen3
+Loading weights:   0%|          | 0/713 [00:00<?, ?it/s]Loading weights: 100%|██████████| 713/713 [00:00<00:00, 9232.88it/s]
+2026-07-22 14:57:33.744 | INFO     | mage_flow.models.mage_flow:__init__:212 - 4115.745408 M parameters
+warmup
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+/home/Ubuntu/mc-bench/Mage/mage_flow/models/modules/text_encoder.py:255: FutureWarning: `input_embeds` is deprecated and will be removed in version 5.6.0 for `create_causal_mask`. Use `inputs_embeds` instead.
+  attention_mask = create_causal_mask(
+/home/Ubuntu/mc-bench/Mage/mage_flow/models/modules/text_encoder.py:255: FutureWarning: `input_embeds` is deprecated and will be removed in version 5.6.0 for `create_causal_mask`. Use `inputs_embeds` instead.
+  attention_mask = create_causal_mask(
+0 3.3285486650001985
+1 3.276085892000083
+2 3.261601380999764
+3 3.257610338000177
+4 3.2634502360001534
+{
+  "model": "microsoft/Mage-Flow",
+  "load_s": 13.187708479999856,
+  "engine": "mage_flow.MageFlowPipeline+sdpa",
+  "prompt": "A ceramic espresso cup on a sunlit oak table, soft morning light, shallow depth of field, product photography, no text, no watermark, no logo",
+  "runs": [
+    {
+      "latency_s": 3.3285486650001985,
+      "steps": 20
+    },
+    {
+      "latency_s": 3.276085892000083,
+      "steps": 20
+    },
+    {
+      "latency_s": 3.261601380999764,
+      "steps": 20
+    },
+    {
+      "latency_s": 3.257610338000177,
+      "steps": 20
+    },
+    {
+      "latency_s": 3.2634502360001534,
+      "steps": 20
+    }
+  ],
+  "mean_latency_s": 3.277459302400075,
+  "median_latency_s": 3.2634502360001534,
+  "p95_latency_s": 3.276085892000083,
+  "width": 1024,
+  "height": 1024,
+  "steps": 20,
+  "images_per_s": 0.3051143912809848
+}

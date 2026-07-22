@@ -1,0 +1,36 @@
+{
+  "model": "microsoft/Mage-Flow",
+  "load_s": 82.419597265,
+  "engine": "mage_flow+sdpa",
+  "prompt": "A ceramic espresso cup on a sunlit oak table, soft morning light, shallow depth of field, product photography, no text, no watermark, no logo",
+  "runs": [
+    {
+      "latency_s": 5.709375683999951,
+      "steps": 20
+    },
+    {
+      "latency_s": 5.7440479830002005,
+      "steps": 20
+    },
+    {
+      "latency_s": 5.732729718000201,
+      "steps": 20
+    },
+    {
+      "latency_s": 5.7359815100001015,
+      "steps": 20
+    },
+    {
+      "latency_s": 5.7412378550000085,
+      "steps": 20
+    }
+  ],
+  "mean_latency_s": 5.732674550000093,
+  "median_latency_s": 5.7359815100001015,
+  "p95_latency_s": 5.7412378550000085,
+  "width": 1024,
+  "height": 1024,
+  "steps": 20,
+  "images_per_s": 0.17443864836178147,
+  "peak_vram_gb": 18.6767578125
+}

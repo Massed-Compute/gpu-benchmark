@@ -1,0 +1,231 @@
+downloading uv 0.11.31 x86_64-unknown-linux-gnu
+installing to /home/Ubuntu/.local/bin
+  uv
+  uvx
+everything's installed!
+mkdir: cannot create directory ‘/home/Ubuntu/.config/uv’: Permission denied
+ERROR: unable to create receipt directory at /home/Ubuntu/.config/uv
+Cloning into 'Mage'...
+Using CPython 3.12.3 interpreter at: /usr/bin/python3
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+Resolved 32 packages in 853ms
+Downloading sympy (6.0MiB)
+Downloading pillow (6.8MiB)
+Downloading numpy (15.9MiB)
+Downloading setuptools (1.2MiB)
+Downloading networkx (2.0MiB)
+Downloading torchvision (7.1MiB)
+Downloading triton (188.0MiB)
+Downloading nvidia-cusparse-cu12 (206.5MiB)
+Downloading torch (804.7MiB)
+Downloading nvidia-cuda-nvrtc-cu12 (22.6MiB)
+Downloading nvidia-curand-cu12 (53.7MiB)
+Downloading nvidia-nccl-cu12 (276.3MiB)
+Downloading cuda-bindings (11.6MiB)
+Downloading nvidia-cublas-cu12 (374.9MiB)
+Downloading nvidia-cufile-cu12 (1.1MiB)
+Downloading nvidia-cusparselt-cu12 (273.9MiB)
+Downloading nvidia-nvjitlink-cu12 (18.8MiB)
+Downloading nvidia-cudnn-cu12 (674.0MiB)
+Downloading nvidia-cufft-cu12 (190.9MiB)
+Downloading nvidia-nvshmem-cu12 (132.7MiB)
+ Downloaded nvidia-cufile-cu12
+Downloading nvidia-cuda-cupti-cu12 (8.5MiB)
+Downloading nvidia-cusolver-cu12 (150.9MiB)
+ Downloaded cuda-bindings
+ Downloaded nvidia-cuda-cupti-cu12
+ Downloaded torchvision
+ Downloaded pillow
+ Downloaded nvidia-cuda-nvrtc-cu12
+ Downloaded nvidia-nvjitlink-cu12
+ Downloaded setuptools
+ Downloaded nvidia-curand-cu12
+ Downloaded networkx
+ Downloaded numpy
+ Downloaded triton
+ Downloaded sympy
+ Downloaded nvidia-cusparse-cu12
+ Downloaded nvidia-nccl-cu12
+ Downloaded nvidia-nvshmem-cu12
+ Downloaded nvidia-cusolver-cu12
+ Downloaded nvidia-cusparselt-cu12
+ Downloaded nvidia-cufft-cu12
+ Downloaded nvidia-cublas-cu12
+ Downloaded nvidia-cudnn-cu12
+ Downloaded torch
+Prepared 32 packages in 25.53s
+Installed 32 packages in 221ms
+ + cuda-bindings==12.9.4
+ + cuda-pathfinder==1.2.2
+ + cuda-toolkit==12.6.3
+ + filelock==3.29.0
+ + fsspec==2026.4.0
+ + jinja2==3.1.6
+ + markupsafe==3.0.3
+ + mpmath==1.3.0
+ + networkx==3.6.1
+ + numpy==2.4.4
+ + nvidia-cublas-cu12==12.6.4.1
+ + nvidia-cuda-cupti-cu12==12.6.80
+ + nvidia-cuda-nvrtc-cu12==12.6.85
+ + nvidia-cuda-runtime-cu12==12.6.77
+ + nvidia-cudnn-cu12==9.10.2.21
+ + nvidia-cufft-cu12==11.3.0.4
+ + nvidia-cufile-cu12==1.11.1.6
+ + nvidia-curand-cu12==10.3.7.77
+ + nvidia-cusolver-cu12==11.7.1.2
+ + nvidia-cusparse-cu12==12.5.4.2
+ + nvidia-cusparselt-cu12==0.7.1
+ + nvidia-nccl-cu12==2.29.3
+ + nvidia-nvjitlink-cu12==12.6.85
+ + nvidia-nvshmem-cu12==3.4.5
+ + nvidia-nvtx-cu12==12.6.77
+ + pillow==12.2.0
+ + setuptools==78.1.0
+ + sympy==1.14.0
+ + torch==2.13.0+cu126
+ + torchvision==0.28.0+cu126
+ + triton==3.7.1
+ + typing-extensions==4.15.0
+Resolved 87 packages in 401ms
+Downloading brotli (1.4MiB)
+Downloading hf-xet (4.2MiB)
+Downloading tokenizers (3.1MiB)
+Downloading pillow (6.6MiB)
+Downloading pandas (10.4MiB)
+Downloading transformers (9.8MiB)
+Downloading pydantic-core (2.0MiB)
+Downloading diffusers (5.0MiB)
+Downloading pygments (1.2MiB)
+Downloading gradio (29.5MiB)
+Downloading numpy (15.9MiB)
+ Downloaded brotli
+ Downloaded pydantic-core
+ Downloaded tokenizers
+ Downloaded hf-xet
+ Downloaded pygments
+ Downloaded pillow
+ Downloaded diffusers
+ Downloaded numpy
+ Downloaded pandas
+ Downloaded gradio
+ Downloaded transformers
+Prepared 57 packages in 1.40s
+Uninstalled 2 packages in 15ms
+Installed 57 packages in 63ms
+ + accelerate==1.13.0
+ + annotated-doc==0.0.4
+ + annotated-types==0.7.0
+ + anyio==4.14.2
+ + brotli==1.2.0
+ + certifi==2026.7.22
+ + charset-normalizer==3.4.9
+ + click==8.4.2
+ + diffusers==0.38.0
+ + einops==0.8.2
+ + fastapi==0.139.2
+ + gradio==6.20.0
+ + gradio-client==2.5.0
+ + groovy==0.1.2
+ + h11==0.16.0
+ + hf-gradio==0.4.1
+ + hf-xet==1.5.2
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + huggingface-hub==1.24.0
+ + idna==3.18
+ + importlib-metadata==9.0.0
+ + loguru==0.7.3
+ + markdown-it-py==4.2.0
+ + mdurl==0.1.2
+ - numpy==2.4.4
+ + numpy==2.4.3
+ + orjson==3.11.9
+ + packaging==26.2
+ + pandas==3.0.3
+ - pillow==12.2.0
+ + pillow==12.3.0
+ + psutil==7.2.2
+ + pydantic==2.12.5
+ + pydantic-core==2.41.5
+ + pydub==0.25.1
+ + pygments==2.20.0
+ + python-dateutil==2.9.0.post0
+ + python-multipart==0.0.32
+ + pytz==2026.2
+ + pyyaml==6.0.3
+ + regex==2026.7.19
+ + requests==2.34.2
+ + rich==15.0.0
+ + safehttpx==0.1.7
+ + safetensors==0.8.0
+ + semantic-version==2.10.0
+ + shellingham==1.5.4
+ + six==1.17.0
+ + starlette==1.3.1
+ + tokenizers==0.22.2
+ + tomlkit==0.14.0
+ + tqdm==4.69.0
+ + transformers==5.5.0
+ + typer==0.27.0
+ + typing-inspection==0.4.2
+ + urllib3==2.7.0
+ + uvicorn==0.51.0
+ + zipp==4.1.0
+Resolved 1 package in 1ms
+   Building mage-flow @ file:///home/Ubuntu/mc-bench/Mage/mage_flow
+      Built mage-flow @ file:///home/Ubuntu/mc-bench/Mage/mage_flow
+Prepared 1 package in 676ms
+Installed 1 package in 1ms
+ + mage-flow==0.1.0 (from file:///home/Ubuntu/mc-bench/Mage/mage_flow)
+Fetching 43 files:   0%|          | 0/43 [00:00<?, ?it/s]Fetching 43 files:   2%|▏         | 1/43 [00:00<00:05,  7.47it/s]Fetching 43 files:   7%|▋         | 3/43 [00:00<00:10,  4.00it/s]Fetching 43 files:  14%|█▍        | 6/43 [00:00<00:04,  7.45it/s]Fetching 43 files:  21%|██        | 9/43 [00:01<00:04,  7.46it/s]Fetching 43 files:  28%|██▊       | 12/43 [00:01<00:03,  9.85it/s]Fetching 43 files:  33%|███▎      | 14/43 [00:01<00:03,  8.28it/s]Fetching 43 files:  47%|████▋     | 20/43 [00:02<00:01, 12.00it/s]Fetching 43 files:  51%|█████     | 22/43 [00:02<00:01, 12.70it/s]Fetching 43 files:  51%|█████     | 22/43 [00:19<00:01, 12.70it/s]Fetching 43 files:  74%|███████▍  | 32/43 [00:44<00:27,  2.54s/it]Fetching 43 files:  95%|█████████▌| 41/43 [00:58<00:04,  2.12s/it]Fetching 43 files: 100%|██████████| 43/43 [00:58<00:00,  1.36s/it]
+2026-07-22 15:02:26.126 | INFO     | mage_flow.models.mage_flow:patch_text_encoder_forward:218 - Patched Qwen3-VL text encoder forward methods
+2026-07-22 15:02:27.009 | INFO     | mage_flow.models.modules.mage_vae:_load_encoder:571 - CoDEncoder: loaded 342 keys, missing=0, unexpected=0
+2026-07-22 15:02:27.025 | INFO     | mage_flow.models.modules.mage_vae:_load_decoder:593 - CoDDecoder: loaded 386 params (denoiser + y_embedder.decoder)
+2026-07-22 15:02:27.051 | INFO     | mage_flow.models.utils:load_model:135 - Init DiT model
+2026-07-22 15:02:46.161 | INFO     | mage_flow.models.modules.text_encoder:__init__:444 - TextEncoder attn_type=sdpa -> attn_implementation=sdpa
+2026-07-22 15:02:46.161 | INFO     | mage_flow.models.modules.text_encoder:__init__:446 - init vl model: qwen3
+Loading weights:   0%|          | 0/713 [00:00<?, ?it/s]Loading weights:  46%|████▌     | 325/713 [00:00<00:00, 3240.06it/s]Loading weights: 100%|██████████| 713/713 [00:00<00:00, 5864.19it/s]
+2026-07-22 15:02:46.836 | INFO     | mage_flow.models.mage_flow:__init__:212 - 4115.745408 M parameters
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+/home/Ubuntu/mc-bench/Mage/mage_flow/models/modules/text_encoder.py:255: FutureWarning: `input_embeds` is deprecated and will be removed in version 5.6.0 for `create_causal_mask`. Use `inputs_embeds` instead.
+  attention_mask = create_causal_mask(
+/home/Ubuntu/mc-bench/Mage/mage_flow/models/modules/text_encoder.py:255: FutureWarning: `input_embeds` is deprecated and will be removed in version 5.6.0 for `create_causal_mask`. Use `inputs_embeds` instead.
+  attention_mask = create_causal_mask(
+{
+  "model": "microsoft/Mage-Flow",
+  "load_s": 82.419597265,
+  "engine": "mage_flow+sdpa",
+  "prompt": "A ceramic espresso cup on a sunlit oak table, soft morning light, shallow depth of field, product photography, no text, no watermark, no logo",
+  "runs": [
+    {
+      "latency_s": 5.709375683999951,
+      "steps": 20
+    },
+    {
+      "latency_s": 5.7440479830002005,
+      "steps": 20
+    },
+    {
+      "latency_s": 5.732729718000201,
+      "steps": 20
+    },
+    {
+      "latency_s": 5.7359815100001015,
+      "steps": 20
+    },
+    {
+      "latency_s": 5.7412378550000085,
+      "steps": 20
+    }
+  ],
+  "mean_latency_s": 5.732674550000093,
+  "median_latency_s": 5.7359815100001015,
+  "p95_latency_s": 5.7412378550000085,
+  "width": 1024,
+  "height": 1024,
+  "steps": 20,
+  "images_per_s": 0.17443864836178147,
+  "peak_vram_gb": 18.6767578125
+}
