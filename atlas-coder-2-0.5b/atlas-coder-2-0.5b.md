@@ -7,15 +7,21 @@ MC - 2026.07.22
 Live Massed Compute benches for **Siddh07ETH/Atlas-Coder-2-0.5B** (PEFT adapter merged onto Qwen2.5-Coder-0.5B-Instruct).
 
 ## Technique
-Merge LoRA → transformers `generate` single-stream (128 new tokens, 5 repeats after warmup). vLLM rejected adapter-only weights.
-SKU policy: start on the **smallest SKU that fits** (`gpu_1x_a6000`), plus one mid-tier Blackwell run for scale-up. A6000 run uses **SDPA**; Blackwell run is the earlier merged-PEFT capture (default attention path).
+Merge LoRA (`remote_atlas_merge.sh`) → transformers `generate` single-stream (128 new tokens, 5 repeats after warmup). vLLM rejected adapter-only weights.
+
+| Published SKU | Script | Attention |
+|---|---|---|
+| `gpu_1x_a6000` | `scripts/wave5/remote_atlas_a6000.sh` | **SDPA** (`attn_implementation="sdpa"`) |
+| `gpu_1x_pro_6000_blackwell` | `scripts/wave5/remote_atlas_tf.sh` | **default** (no `attn_implementation`) |
+
+These two rows are **not the same attention config** — do not treat tok/s as an apples-to-apples GPU-only comparison.
 
 ## Results
 
 | Engine | SKU | $/hr | Decode tok/s | tok/s per $ |
 |---|---|---:|---:|---:|
 | transformers+SDPA | `gpu_1x_a6000` | 0.57 | 27.1 | 47.5 |
-| transformers | `gpu_1x_pro_6000_blackwell` | 2.19 | 149.0 | 68.0 |
+| transformers (default attn) | `gpu_1x_pro_6000_blackwell` | 2.19 | 149.0 | 68.0 |
 
 ### Screenshots
 
@@ -28,13 +34,13 @@ transformers + SDPA (PEFT merged) · single-stream **27.1** tok/s:
 
 **gpu_1x_pro_6000_blackwell** — RTX PRO 6000 Blackwell 96GB — $2.19/hr
 
-transformers (PEFT merged) · single-stream **149.0** tok/s:
+transformers default attn (PEFT merged) · single-stream **149.0** tok/s:
 ![gpu_1x_pro_6000_blackwell](./images/1xBlackwell-transformers-showcase.png)
 
 ## Conclusion
 
-Peak decode: **149 tok/s** on `gpu_1x_pro_6000_blackwell`.
-Best $/tok among published SKUs: **68.0 tok/s per $** on Blackwell; entry A6000 is **47.5 tok/s per $** at $0.57/hr.
+Peak decode among published rows: **149 tok/s** on `gpu_1x_pro_6000_blackwell` (default attn).
+Entry SKU: **27.1 tok/s** on `gpu_1x_a6000` with SDPA (**47.5 tok/s per $**).
 
 ## Notes
 - HF repo is PEFT adapter; merged onto `Qwen/Qwen2.5-Coder-0.5B-Instruct` before bench.

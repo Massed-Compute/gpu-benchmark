@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Atlas transformers bench after PEFT merge (default attention path).
+# Reproduces the published Blackwell row. For SDPA, use remote_atlas_a6000.sh.
+# Env: OUTDIR MERGED
 set -euo pipefail
 OUTDIR=${OUTDIR:-$HOME/mc-bench/out/atlas-coder-2-0.5b}
 MERGED=${MERGED:-$HOME/mc-bench/models/atlas-coder-2-0.5b-merged}
@@ -14,11 +17,11 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 out = Path(os.environ["OUTDIR"])
 merged = Path(os.environ["MERGED"])
 tok = AutoTokenizer.from_pretrained(merged)
+# Default attention (no attn_implementation=) — matches published Blackwell capture.
 m = AutoModelForCausalLM.from_pretrained(
     merged,
     torch_dtype=torch.bfloat16,
     device_map="auto",
-    attn_implementation="sdpa",
 )
 prompt = "Write a Python function that returns fibonacci(n)."
 inputs = {k: v.to(next(m.parameters()).device) for k, v in tok(prompt, return_tensors="pt").items()}
@@ -37,11 +40,11 @@ run(32)
 runs = [run(128) for _ in range(5)]
 mean = statistics.mean(r["tok_s"] for r in runs)
 c1 = {
-    "engine": "transformers-merged-peft-sdpa",
+    "engine": "transformers-merged-peft",
     "max_concurrency": 1,
     "output_throughput": mean,
     "ttft_measured": False,
-    "note": "PEFT adapter merged onto Qwen2.5-Coder-0.5B-Instruct; single-stream generate + SDPA; TTFT not measured",
+    "note": "PEFT adapter merged onto Qwen2.5-Coder-0.5B-Instruct; single-stream generate; default attn; TTFT not measured",
 }
 (out / "transformers-c1.json").write_text(json.dumps(c1, indent=2) + "\n")
 for c in (8, 32):
@@ -55,8 +58,8 @@ for c in (8, 32):
         {
             "mean_tok_s": mean,
             "runs": runs,
-            "engine": "transformers-merged-peft-sdpa",
-            "attn": "sdpa",
+            "engine": "transformers-merged-peft",
+            "attn": "default",
         },
         indent=2,
     )

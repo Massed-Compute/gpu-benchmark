@@ -31,7 +31,8 @@ Word-free T2I showcase stills from the timed runs: ceramic espresso cup on sunli
 ## Conclusion
 
 Fastest mean: **3.277 s** on `gpu_1x_pro_6000_blackwell` (~1.75× L40S).
-Best latency per dollar: **L40S** at $0.88/hr.
+Best images per dollar: **L40S** (0.174 img/s at $0.88/hr ≈ **0.198 img/s per $** vs Blackwell ≈ **0.139**).
+Best latency per dollar: **Blackwell** (~1.50 s/$ vs L40S ~6.51 s/$).
 
 ## Notes
 - Requires the Microsoft Mage package (not stock Diffusers `DiffusionPipeline`).
