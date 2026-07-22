@@ -5,8 +5,6 @@
   "max_concurrency": 8,
   "output_throughput": 153.88209093237745,
   "single_stream_tok_s_mean": 19.275146216277072,
-  "median_ttft_ms": 3321.9902007812366,
-  "mean_ttft_ms": 3321.9902007812366,
   "mean_tpot_ms": 51.88028089538127,
   "runs": [
     {
@@ -89,5 +87,8 @@
       "new_tokens": 128,
       "tok_s": 19.68245945259828
     }
-  ]
+  ],
+  "mean_e2e_latency_ms": 6643.980401562473,
+  "ttft_measured": false,
+  "note": "TTFT not measured \u2014 mean_e2e_latency_ms is wall-clock chat completion latency"
 }

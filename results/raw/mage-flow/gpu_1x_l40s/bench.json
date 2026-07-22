@@ -1,7 +1,7 @@
 {
   "model": "microsoft/Mage-Flow",
   "load_s": 82.419597265,
-  "engine": "mage_flow+sdpa",
+  "engine": "mage_flow.MageFlowPipeline+sdpa",
   "prompt": "A ceramic espresso cup on a sunlit oak table, soft morning light, shallow depth of field, product photography, no text, no watermark, no logo",
   "runs": [
     {
@@ -32,5 +32,6 @@
   "height": 1024,
   "steps": 20,
   "images_per_s": 0.17443864836178147,
-  "peak_vram_gb": 18.6767578125
+  "peak_vram_gb": 18.6767578125,
+  "attn": "sdpa"
 }

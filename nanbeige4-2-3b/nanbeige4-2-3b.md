@@ -36,8 +36,9 @@ Peak decode: **52.2 tok/s** on `gpu_1x_pro_6000_blackwell`.
 Best $/tok: **34.5 tok/s per $** on `gpu_1x_l40s`.
 
 ## Notes
-- Transformers path only (c8/c32 N/A without vLLM arch support).
+- Transformers path only (c8/c32 N/A without vLLM arch support). TTFT not measured.
 - Entry L40S + Blackwell step-up.
+- Raw `nvidia-smi.txt` on these SKUs was captured after teardown in the first pass (0 MiB) — do not treat as peak VRAM.
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 

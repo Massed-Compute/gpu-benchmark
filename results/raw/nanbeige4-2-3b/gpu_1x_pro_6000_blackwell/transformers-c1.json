@@ -1,0 +1,7 @@
+{
+  "engine": "transformers",
+  "max_concurrency": 1,
+  "output_throughput": 52.21971967874254,
+  "note": "single-stream transformers; arch not in vLLM; TTFT not measured",
+  "ttft_measured": false
+}

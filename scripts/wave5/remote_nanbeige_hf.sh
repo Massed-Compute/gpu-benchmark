@@ -9,7 +9,7 @@ mkdir -p "$OUTDIR" "$HOME/.cache/huggingface" "$HOME/mc-bench"
 export HUGGING_FACE_HUB_TOKEN="$HF_TOKEN" HF_TOKEN="$HF_TOKEN" MODEL OUTDIR
 log(){ echo "[$(date -u +%H:%M:%S)] $*"; }
 
-sudo apt-get update -qq
+sudo apt-get update -qq || true
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-venv python3-pip git curl || true
 python3 -m venv "$HOME/mc-bench/venv-nanbeige"
 # shellcheck disable=SC1091
@@ -21,15 +21,25 @@ pip install -q -U 'transformers==4.42.4' accelerate huggingface_hub sentencepiec
 pip install -q -U setuptools wheel ninja packaging
 # modeling_nanbeige.py imports flash_attn at module load
 pip install -q --no-build-isolation flash-attn || pip install -q flash-attn || true
-# stub if build fails so import check passes; model falls back via try/except if needed
+# Stub only so `import flash_attn` succeeds when the wheel build fails.
+# modeling_nanbeige then takes its non-flash path. If remote code ever calls
+# flash_attn_func / pad helpers, those raise — do not treat stub as a real kernel.
 python3 - <<'STUB'
 import importlib.util, sys
 from pathlib import Path
 if importlib.util.find_spec("flash_attn") is None:
     d = Path(sys.prefix) / "lib" / f"python{sys.version_info.major}.{sys.version_info.minor}" / "site-packages" / "flash_attn"
     d.mkdir(parents=True, exist_ok=True)
-    (d / "__init__.py").write_text("flash_attn_func = None\nflash_attn_varlen_func = None\n")
-    (d / "bert_padding.py").write_text("def index_first_axis(*a, **k): raise RuntimeError('stub')\ndef pad_input(*a, **k): raise RuntimeError('stub')\ndef unpad_input(*a, **k): raise RuntimeError('stub')\n")
+    (d / "__init__.py").write_text(
+        "# Import stub for Nanbeige remote code. Not a real flash-attn build.\n"
+        "flash_attn_func = None\n"
+        "flash_attn_varlen_func = None\n"
+    )
+    (d / "bert_padding.py").write_text(
+        "def index_first_axis(*a, **k):\n    raise RuntimeError('flash_attn stub: not installed')\n"
+        "def pad_input(*a, **k):\n    raise RuntimeError('flash_attn stub: not installed')\n"
+        "def unpad_input(*a, **k):\n    raise RuntimeError('flash_attn stub: not installed')\n"
+    )
     print("installed flash_attn stub")
 else:
     print("flash_attn present")
@@ -69,23 +79,28 @@ def run(max_new=128):
 run(32)
 runs = [run(128) for _ in range(5)]
 mean_tok = statistics.mean(r["tok_s"] for r in runs)
-mean_lat_ms = statistics.mean(r["latency_s"] for r in runs) * 1000
+# Capture VRAM while weights are still resident.
+import subprocess
+(out / "nvidia-smi.txt").write_text(
+    subprocess.check_output(
+        ["nvidia-smi", "--query-gpu=name,memory.used,memory.total", "--format=csv"],
+        text=True,
+    )
+)
 c1 = {
     "engine": "transformers",
     "max_concurrency": 1,
     "output_throughput": mean_tok,
-    "median_ttft_ms": mean_lat_ms / 2,
-    "mean_ttft_ms": mean_lat_ms / 2,
-    "mean_tpot_ms": (1000.0 / mean_tok) if mean_tok else 0,
-    "note": "single-stream transformers; arch not in vLLM",
+    "ttft_measured": False,
+    "note": "single-stream transformers; arch not in vLLM; TTFT not measured",
 }
-(out / "vllm-c1.json").write_text(json.dumps(c1, indent=2))
+(out / "transformers-c1.json").write_text(json.dumps(c1, indent=2) + "\n")
 for c in (8, 32):
     d = dict(c1)
     d["max_concurrency"] = c
     d["output_throughput"] = None
     d["unsupported"] = True
-    (out / f"vllm-c{c}.json").write_text(json.dumps(d, indent=2))
+    (out / f"transformers-c{c}.json").write_text(json.dumps(d, indent=2) + "\n")
 result = {
     "model": model_id,
     "load_s": load_s,
@@ -94,10 +109,9 @@ result = {
     "mean_tok_s": mean_tok,
     "median_tok_s": statistics.median(r["tok_s"] for r in runs),
 }
-(out / "transformers-bench.json").write_text(json.dumps(result, indent=2))
+(out / "transformers-bench.json").write_text(json.dumps(result, indent=2) + "\n")
 print(json.dumps(result, indent=2))
 PY
-nvidia-smi --query-gpu=name,memory.used,memory.total --format=csv | tee "$OUTDIR/nvidia-smi.txt"
 rm -f "$OUTDIR/FAIL"
 echo DONE >"$OUTDIR/DONE"
 log DONE

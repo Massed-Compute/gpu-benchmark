@@ -32,5 +32,6 @@
   "height": 1024,
   "steps": 20,
   "images_per_s": 0.3051143912809848,
-  "peak_vram_gb": 18.8525390625
+  "peak_vram_gb": 18.8525390625,
+  "attn": "sdpa"
 }

@@ -1,2 +1,3 @@
 name, memory.used [MiB], memory.total [MiB]
 NVIDIA L40S, 0 MiB, 46068 MiB
+# NOTE: captured after model teardown — peak VRAM during generate not recorded

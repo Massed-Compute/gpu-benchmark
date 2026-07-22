@@ -34,18 +34,17 @@ c1 = {
     "engine": "transformers-merged-peft",
     "max_concurrency": 1,
     "output_throughput": mean,
-    "median_ttft_ms": 0,
-    "mean_ttft_ms": 0,
-    "note": "PEFT adapter merged onto Qwen2.5-Coder-0.5B-Instruct; single-stream generate",
+    "ttft_measured": False,
+    "note": "PEFT adapter merged onto Qwen2.5-Coder-0.5B-Instruct; single-stream generate; TTFT not measured",
 }
-(out / "vllm-c1.json").write_text(json.dumps(c1, indent=2))
+(out / "transformers-c1.json").write_text(json.dumps(c1, indent=2) + "\n")
 for c in (8, 32):
     d = dict(c1)
     d["max_concurrency"] = c
     d["output_throughput"] = None
     d["unsupported"] = True
-    (out / f"vllm-c{c}.json").write_text(json.dumps(d, indent=2))
-(out / "transformers-bench.json").write_text(json.dumps({"mean_tok_s": mean, "runs": runs}, indent=2))
+    (out / f"transformers-c{c}.json").write_text(json.dumps(d, indent=2) + "\n")
+(out / "transformers-bench.json").write_text(json.dumps({"mean_tok_s": mean, "runs": runs}, indent=2) + "\n")
 (out / "DONE").write_text("DONE\n")
 print("atlas mean", mean)
 PY

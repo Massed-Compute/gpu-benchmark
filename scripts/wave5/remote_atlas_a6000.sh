@@ -78,18 +78,26 @@ run(32)
 runs = [run(128) for _ in range(5)]
 mean = statistics.mean(r["tok_s"] for r in runs)
 med = statistics.median(r["tok_s"] for r in runs)
-result = {"model": "Siddh07ETH/Atlas-Coder-2-0.5B", "base": os.environ["BASE"], "engine": "transformers-merged-peft",
-          "runs": runs, "mean_tok_s": mean, "median_tok_s": med}
+result = {"model": "Siddh07ETH/Atlas-Coder-2-0.5B", "base": os.environ["BASE"], "engine": "transformers-merged-peft-sdpa",
+          "attn": "sdpa", "runs": runs, "mean_tok_s": mean, "median_tok_s": med}
 (out / "transformers-bench.json").write_text(json.dumps(result, indent=2))
-c1 = {"engine": "transformers-merged-peft", "max_concurrency": 1, "output_throughput": mean,
-      "note": "PEFT merged onto Qwen2.5-Coder-0.5B-Instruct; single-stream generate"}
-(out / "vllm-c1.json").write_text(json.dumps(c1, indent=2))
+c1 = {"engine": "transformers-merged-peft-sdpa", "max_concurrency": 1, "output_throughput": mean,
+      "ttft_measured": False,
+      "note": "PEFT merged onto Qwen2.5-Coder-0.5B-Instruct; single-stream generate; TTFT not measured"}
+(out / "transformers-c1.json").write_text(json.dumps(c1, indent=2) + "\n")
 for c in (8, 32):
     d = dict(c1); d["max_concurrency"] = c; d["output_throughput"] = None; d["unsupported"] = True
-    (out / f"vllm-c{c}.json").write_text(json.dumps(d, indent=2))
+    (out / f"transformers-c{c}.json").write_text(json.dumps(d, indent=2) + "\n")
 print(json.dumps(result, indent=2))
+# Capture VRAM while model still resident
+import subprocess
+(out / "nvidia-smi.txt").write_text(
+    subprocess.check_output(
+        ["nvidia-smi", "--query-gpu=name,memory.used,memory.total", "--format=csv"],
+        text=True,
+    )
+)
 PY
-nvidia-smi --query-gpu=name,memory.used,memory.total --format=csv | tee "$OUTDIR/nvidia-smi.txt"
 echo "adapter=$ADAPTER base=$BASE" >"$OUTDIR/merge-note.txt"
 echo "$ADAPTER" >"$OUTDIR/model.txt"
 rm -f "$OUTDIR/FAIL"

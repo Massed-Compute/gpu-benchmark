@@ -1,6 +1,0 @@
-{
-  "engine": "transformers-merged-peft-sdpa",
-  "max_concurrency": 1,
-  "output_throughput": 27.115254568560434,
-  "note": "PEFT merged; transformers generate + SDPA"
-}

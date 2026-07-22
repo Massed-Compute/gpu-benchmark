@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Solar Open2 via Upstage Docker image (preferred) or pip fork fallback.
+# Solar Open2 via Upstage Docker image (working config from live Wave 5 run).
 # Env: HF_TOKEN OUTDIR MODEL TP
 set -euo pipefail
 MODEL=${MODEL:-nota-ai/Solar-Open2-250B-Nota-NVFP4}
@@ -11,7 +11,7 @@ mkdir -p "$OUTDIR" "$HOME/.cache/huggingface" "$HOME/mc-bench"
 export HUGGING_FACE_HUB_TOKEN="$HF_TOKEN" HF_TOKEN="$HF_TOKEN" HF_HUB_ENABLE_HF_TRANSFER=1
 log(){ echo "[$(date -u +%H:%M:%S)] $*"; }
 
-sudo apt-get update -qq
+sudo apt-get update -qq || true
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq curl ca-certificates python3-venv python3-pip || true
 
 USE_DOCKER=0
@@ -19,27 +19,34 @@ if command -v docker >/dev/null 2>&1; then
   USE_DOCKER=1
 fi
 
+# Working flags from published bench: cutlass MoE, TP only (no EP), eager, no custom AR.
+SERVE_ARGS=(
+  "$MODEL"
+  --served-model-name solar-open2-250b
+  --tensor-parallel-size "$TP"
+  --moe-backend cutlass
+  --max-model-len 4096
+  --enforce-eager
+  --disable-custom-all-reduce
+  --default-chat-template-kwargs '{"think_render_option":"preserved"}'
+  --reasoning-parser solar_open2
+  --tool-call-parser solar_open2
+  --enable-auto-tool-choice
+  --host 0.0.0.0 --port 8000
+)
+
 if [[ "$USE_DOCKER" -eq 1 ]]; then
   log "pull upstage/vllm-solar-open2"
   sudo docker pull upstage/vllm-solar-open2
   sudo docker rm -f solar-open2 2>/dev/null || true
-  log "start docker serve $MODEL tp=$TP"
+  log "start docker serve $MODEL tp=$TP moe=cutlass (no EP)"
   sudo docker run -d --name solar-open2 --gpus all --ipc=host \
     -p "$PORT:8000" \
     -e HUGGING_FACE_HUB_TOKEN="$HF_TOKEN" \
     -e HF_TOKEN="$HF_TOKEN" \
     -v "$HOME/.cache/huggingface:/root/.cache/huggingface" \
     upstage/vllm-solar-open2 \
-    "$MODEL" \
-    --served-model-name solar-open2-250b \
-    --tensor-parallel-size "$TP" \
-    --enable-expert-parallel \
-    --moe-backend triton \
-    --default-chat-template-kwargs '{"think_render_option":"preserved"}' \
-    --reasoning-parser solar_open2 \
-    --tool-call-parser solar_open2 \
-    --enable-auto-tool-choice \
-    --host 0.0.0.0 --port 8000
+    "${SERVE_ARGS[@]}"
 else
   log "no docker — install Upstage vLLM fork via uv"
   curl -LsSf https://astral.sh/uv/install.sh | sh || true
@@ -54,11 +61,14 @@ else
     "git+https://github.com/UpstageAI/vllm.git@v0.22.0-solar-open2"
   pkill -f "vllm serve" || true
   sleep 2
+  # port arg for bare vllm uses $PORT
   nohup vllm serve "$MODEL" \
     --served-model-name solar-open2-250b \
     --tensor-parallel-size "$TP" \
-    --enable-expert-parallel \
-    --moe-backend triton \
+    --moe-backend cutlass \
+    --max-model-len 4096 \
+    --enforce-eager \
+    --disable-custom-all-reduce \
     --default-chat-template-kwargs '{"think_render_option":"preserved"}' \
     --reasoning-parser solar_open2 \
     --tool-call-parser solar_open2 \
@@ -130,19 +140,19 @@ doc = {
     "max_concurrency": c,
     "output_throughput": agg,
     "single_stream_tok_s_mean": mean_tok,
-    "median_ttft_ms": mean_lat_ms / 2,
-    "mean_ttft_ms": mean_lat_ms / 2,
-    "mean_tpot_ms": (1000.0 / mean_tok) if mean_tok else 0,
+    "mean_e2e_latency_ms": mean_lat_ms,
+    "ttft_measured": False,
+    "note": "Custom ThreadPool chat harness (not vllm bench serve). TTFT not measured.",
     "runs": runs,
 }
-open(f"{out}/vllm-c{c}.json", "w").write(json.dumps(doc, indent=2))
+open(f"{out}/vllm-c{c}.json", "w").write(json.dumps(doc, indent=2) + "\n")
 print(json.dumps({k: doc[k] for k in doc if k != "runs"}, indent=2))
 PY
 done
 
 nvidia-smi --query-gpu=name,memory.used,memory.total --format=csv | tee "$OUTDIR/nvidia-smi.txt"
 echo "$MODEL" >"$OUTDIR/model.txt"
-echo "tp=$TP docker=$USE_DOCKER" >"$OUTDIR/engine.txt"
+echo "tp=$TP docker=$USE_DOCKER moe=cutlass no-ep enforce-eager" >"$OUTDIR/engine.txt"
 if [[ "$USE_DOCKER" -eq 1 ]]; then sudo docker rm -f solar-open2 || true; else pkill -f "vllm serve" || true; fi
 rm -f "$OUTDIR/FAIL"
 echo DONE >"$OUTDIR/DONE"

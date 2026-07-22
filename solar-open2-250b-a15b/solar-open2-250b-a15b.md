@@ -32,6 +32,7 @@ Peak c32: **592 tok/s** on `gpu_2x_pro_6000_blackwell` (**135.3 tok/s per $**).
 - Serving uses Upstage’s Solar Open2 vLLM image (`upstage/vllm-solar-open2`); stock vLLM lacks `SolarOpen2ForCausalLM`.
 - NVFP4 MoE needs `--moe-backend cutlass` (not `triton`). TP=2 without expert-parallel.
 - Full BF16 weights need roughly 8×80GB; NVFP4 fits 2×96GB.
+- **Not comparable to Laguna / other `vllm bench serve` pages:** this headline is from a custom `ThreadPoolExecutor` OpenAI-chat harness (fixed prompt, `max_tokens=128`), not the pinned random 128/128 `vllm bench serve` profile. TTFT was not measured; the table reports mean end-to-end completion latency.
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 

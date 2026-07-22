@@ -35,6 +35,7 @@ Best latency per dollar: **L40S** at $0.88/hr.
 
 ## Notes
 - Requires the Microsoft Mage package (not stock Diffusers `DiffusionPipeline`).
+- Attention backend forced to **SDPA** (`mage_flow.MageFlowPipeline+sdpa`); flash-attn wheel build failed on Blackwell in this wave.
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 

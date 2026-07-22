@@ -1,9 +1,0 @@
-{
-  "engine": "transformers",
-  "max_concurrency": 1,
-  "output_throughput": 30.40019902990828,
-  "median_ttft_ms": 2105.827516799997,
-  "mean_ttft_ms": 2105.827516799997,
-  "mean_tpot_ms": 32.89452148047391,
-  "note": "single-stream transformers; arch not in vLLM"
-}
