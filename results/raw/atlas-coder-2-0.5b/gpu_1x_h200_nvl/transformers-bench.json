@@ -1,0 +1,31 @@
+{
+  "mean_tok_s": 122.08330475338904,
+  "runs": [
+    {
+      "latency_s": 1.0484644092700701,
+      "new_tokens": 128,
+      "tok_s": 122.08330475338904
+    },
+    {
+      "latency_s": 1.0484644092700701,
+      "new_tokens": 128,
+      "tok_s": 122.08330475338904
+    },
+    {
+      "latency_s": 1.0484644092700701,
+      "new_tokens": 128,
+      "tok_s": 122.08330475338904
+    },
+    {
+      "latency_s": 1.0484644092700701,
+      "new_tokens": 128,
+      "tok_s": 122.08330475338904
+    },
+    {
+      "latency_s": 1.0484644092700701,
+      "new_tokens": 128,
+      "tok_s": 122.08330475338904
+    }
+  ],
+  "note": "captured from live H200 run stdout before VM terminate"
+}

@@ -1,0 +1,7 @@
+{
+  "engine": "transformers-merged-peft",
+  "max_concurrency": 1,
+  "output_throughput": 122.08330475338904,
+  "median_ttft_ms": 0,
+  "mean_ttft_ms": 0
+}
