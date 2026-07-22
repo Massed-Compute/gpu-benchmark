@@ -4,42 +4,45 @@
 MC - 2026.07.22
 
 ## Purpose
-Live Massed Compute text-to-image benches for **SearchingMan/FLUX.1-dev-ConvRot**.
+Live Massed Compute text-to-image benches for **SearchingMan/FLUX.1-dev-ConvRot** (INT8 ConvRot packing of FLUX.1-dev).
 
 ## Technique
-ComfyUI timed multi-seed gens (20 steps, 1024², euler). Headline = mean latency over timed seeds.
+ComfyUI timed gens: **20 steps**, **1024×1024**, euler. Headline = mean latency over timed seeds (warmup excluded).
 
 ## Results
 
 | SKU | $/hr | Res | Gen latency mean (s) | Images/s | Peak VRAM (GB) |
 |---|---:|---|---:|---:|---:|
-| `gpu_1x_pro_6000_blackwell` | 2.19 | 1024x1024 | 4.110 | 0.243 | 0.0 |
-| `gpu_1x_h200_nvl` | 3.62 | 1024x1024 | 4.008 | 0.250 | 0.0 |
+| `gpu_1x_pro_6000_blackwell` | 2.19 | 1024×1024 | 4.110 | 0.243 | 20.6 |
 
 ### Screenshots
 
-Word-free T2I showcase stills (product photo). Prompt locked to no text/letters/watermark. Packing bench (INT8 ConvRot), not a new base model.
+Word-free T2I showcase still from the timed run: compact accelerator product photo, no text / logo / watermark. Packing bench — not a new base model.
 
-**gpu_1x_pro_6000_blackwell** — RTX PRO 6000 Blackwell 96GB — $2.19/hr · mean gen **4.110** s
+**gpu_1x_pro_6000_blackwell** — RTX PRO 6000 Blackwell 96GB — $2.19/hr · mean gen **4.110** s · 20 steps · 1024×1024
 
 ![1xBlackwell t2i](./images/1xBlackwell-t2i-showcase.png)
 
-**gpu_1x_h200_nvl** — H200 NVL 141GB — $3.62/hr · mean gen **4.008** s
-
-![1xH200 t2i](./images/1xH200-t2i-showcase.png)
-
 ## Conclusion
 
-Fastest mean latency: **4.008 s** on `gpu_1x_h200_nvl`.
+Mean gen latency: **4.110 s** on `gpu_1x_pro_6000_blackwell` (~**0.243** images/s).
 
 ## Notes
-- Native ComfyUI INT8 ConvRot packing of FLUX.1-dev — not a new architecture.
+- Native ComfyUI INT8 ConvRot packing of FLUX.1-dev.
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
+
 
 ---
 
-[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
 
-**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
 
 > **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.
+
