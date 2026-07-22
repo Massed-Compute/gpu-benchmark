@@ -9,7 +9,7 @@ When a new HF model drops:
 5. Append the required footer from [writeup-footer.md](./writeup-footer.md) (pricing disclaimer + signup CTA)
 6. Terminate run VMs (default unless `--keep`)
 
-Small models → 1× L40S. Big → 2× Blackwell + 2× H100 (optional +4× L40S).
+Small models → start on the **smallest SKU that fits** (often 1× L40 / L40S / A6000), then optionally one mid/large SKU to show scale-up. Large MoE / multi-GPU models → 1–2 bigger SKUs only (e.g. 2× Blackwell, H200). Do **not** put inventory/capacity/billing launch failures in published writeups — pick working SKUs and ship those numbers.
 
 Brand voice + CTA casing: [massed-compute-design-system.md](./massed-compute-design-system.md). Full DS zip (logos, UI kits): `~/Downloads/Massed Compute Design System 2026-07-15.zip` (unpacked local copy: `~/Downloads/mc-design-system-2026-07-15/`). Repo keeps logos under `shared-images/`.
 

@@ -33,7 +33,6 @@ Best $/tok: **135.3 tok/s per $** on `gpu_2x_pro_6000_blackwell`.
 - Stock vLLM rejects `SolarOpen2ForCausalLM`; used Upstage fork image `upstage/vllm-solar-open2`.
 - NVFP4 requires `--moe-backend cutlass` (not `triton`). Expert-parallel + cutlass failed on this SKU; TP=2 without EP succeeded.
 - BF16 full weights need ~8×80GB; NVFP4 fits 2×96GB.
-- Second multi-GPU SKU (`gpu_2x_h200_nvl` / `gpu_2x_h100_nvl`) unavailable or undersized disk during this wave.
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 ---

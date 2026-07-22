@@ -37,7 +37,7 @@ Best $/tok: **664.6 tok/s per $** on `gpu_1x_h200_nvl`.
 
 ## Notes
 - 33B-A3B MoE agentic coding contender (Apache-2.0).
-- `gpu_1x_h100` unavailable at launch; used `gpu_1x_h200_nvl` ($3.62/hr) as second SKU.
+- SKUs: mid-tier Blackwell + H200 NVL for a small scale-up comparison.
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 ---

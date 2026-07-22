@@ -14,7 +14,6 @@ Merge LoRA → transformers `generate` single-stream (128 new tokens, 5 repeats)
 | Engine | SKU | $/hr | Decode tok/s | tok/s per $ |
 |---|---|---:|---:|---:|
 | transformers | `gpu_1x_pro_6000_blackwell` | 2.19 | 149.0 | 68.0 |
-| transformers | `gpu_1x_h200_nvl` | 3.62 | 122.1 | 33.7 |
 
 ### Screenshots
 
@@ -25,11 +24,6 @@ Terminal-style captures from live Massed runs 2026-07-22 (transformers single-st
 transformers (PEFT merged) · single-stream **149.0** tok/s:
 ![gpu_1x_pro_6000_blackwell](./images/1xBlackwell-transformers-showcase.png)
 
-**gpu_1x_h200_nvl** — H200 NVL 141GB — $3.62/hr
-
-transformers (PEFT merged) · single-stream **122.1** tok/s:
-![gpu_1x_h200_nvl](./images/1xH200-transformers-showcase.png)
-
 ## Conclusion
 
 Peak decode: **149 tok/s** on `gpu_1x_pro_6000_blackwell`.
@@ -37,7 +31,7 @@ Best $/tok: **68.0 tok/s per $** on `gpu_1x_pro_6000_blackwell`.
 
 ## Notes
 - HF repo is PEFT adapter; merged onto `Qwen/Qwen2.5-Coder-0.5B-Instruct` before bench.
-- `gpu_1x_h100` unavailable; used `gpu_1x_h200_nvl` as second SKU.
+- Sub-1B model — one mid-tier SKU is enough to characterize single-stream decode (no multi-SKU ladder).
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 ---

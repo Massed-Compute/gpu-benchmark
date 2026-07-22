@@ -37,7 +37,7 @@ Best $/tok: **34.5 tok/s per $** on `gpu_1x_l40s`.
 
 ## Notes
 - Arch not in vLLM; transformers path only (c8/c32 N/A).
-- `gpu_1x_h100` unavailable; used `gpu_1x_l40s` as second SKU.
+- SKUs: L40S (entry) + Blackwell (step-up).
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 ---

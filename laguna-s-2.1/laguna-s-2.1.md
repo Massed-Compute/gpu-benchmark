@@ -31,7 +31,6 @@ Best $/tok: **274.4 tok/s per $** on `gpu_2x_pro_6000_blackwell`.
 
 ## Notes
 - 118B-A8B MoE; BF16 OOM on 2×96GB — shipped **NVFP4** quant.
-- `gpu_2x_h200_nvl` launch failed (capacity/billing); single SKU this wave.
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 ---

@@ -34,7 +34,6 @@ Fastest mean latency: **4.008 s** on `gpu_1x_h200_nvl`.
 
 ## Notes
 - Native ComfyUI INT8 ConvRot packing of FLUX.1-dev — not a new architecture.
-- `gpu_1x_h100` unavailable; second SKU `gpu_1x_h200_nvl`.
 - Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
 
 ---

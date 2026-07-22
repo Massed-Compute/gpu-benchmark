@@ -199,7 +199,7 @@ if __name__ == "__main__":
         "Solar Open2 250B-A15B",
         "upstage/Solar-Open2-250B",
         ["250B-A15B Hybrid-Attention MoE; agentic; claimed near DeepSeek V4 Flash.",
-         "SKU note: `gpu_1x_h100` / `gpu_2x_h200_nvl` unavailable at launch; see Results SKUs."],
+         "Engine: Upstage vLLM fork + NVFP4 on 2× Blackwell."],
         ["gpu_2x_pro_6000_blackwell", "gpu_2x_h200_nvl"],
     )
     write_llm(
