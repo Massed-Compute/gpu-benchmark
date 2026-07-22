@@ -80,23 +80,35 @@ for i in range(5):
         imgs[0].save(out / "showcase.png")
 
 lat = [r["latency_s"] for r in runs]
+mean_lat = statistics.mean(lat)
 # VRAM while model still loaded
-(out / "nvidia-smi.txt").write_text(
-    subprocess.check_output(
-        ["nvidia-smi", "--query-gpu=name,memory.used,memory.total", "--format=csv"],
-        text=True,
-    )
+smi = subprocess.check_output(
+    ["nvidia-smi", "--query-gpu=name,memory.used,memory.total", "--format=csv"],
+    text=True,
 )
+(out / "nvidia-smi.txt").write_text(smi)
+peak_vram_gb = 0.0
+for line in smi.splitlines():
+    if "MiB" in line and not line.startswith("name"):
+        parts = [x.strip() for x in line.split(",")]
+        if len(parts) >= 2 and "MiB" in parts[1]:
+            peak_vram_gb = float(parts[1].replace("MiB", "").strip()) / 1024.0
+            break
 result = {
     "model": model_id,
     "load_s": load_s,
     "engine": "mage_flow.MageFlowPipeline+sdpa",
     "attn": "sdpa",
     "prompt": prompt,
+    "width": 1024,
+    "height": 1024,
+    "steps": 20,
     "runs": runs,
-    "mean_latency_s": statistics.mean(lat),
+    "mean_latency_s": mean_lat,
     "median_latency_s": statistics.median(lat),
     "p95_latency_s": sorted(lat)[int(0.95 * (len(lat) - 1))],
+    "images_per_s": (1.0 / mean_lat) if mean_lat else 0.0,
+    "peak_vram_gb": peak_vram_gb,
 }
 (out / "bench.json").write_text(json.dumps(result, indent=2) + "\n")
 print(json.dumps(result, indent=2))

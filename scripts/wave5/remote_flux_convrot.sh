@@ -154,6 +154,19 @@ for i, seed in enumerate([11, 22, 33, 44]):
                 (out / "showcase.png").write_bytes(src.read_bytes())
 
 mean = sum(latencies)/len(latencies)
+import subprocess
+smi = subprocess.check_output(
+    ["nvidia-smi", "--query-gpu=name,memory.used,memory.total", "--format=csv"],
+    text=True,
+)
+(out / "nvidia-smi.txt").write_text(smi)
+peak_vram_gb = 0.0
+for line in smi.splitlines():
+    if "MiB" in line and not line.startswith("name"):
+        parts = [x.strip() for x in line.split(",")]
+        if len(parts) >= 2 and "MiB" in parts[1]:
+            peak_vram_gb = float(parts[1].replace("MiB", "").strip()) / 1024.0
+            break
 meta = {
     "model": "SearchingMan/FLUX.1-dev-ConvRot",
     "weight": weight,
@@ -162,12 +175,10 @@ meta = {
     "latencies_s": latencies,
     "mean_latency_s": mean,
     "images_per_s": 1.0/mean if mean else 0,
+    "peak_vram_gb": round(peak_vram_gb, 1),
 }
-(out / "t2i-bench.json").write_text(json.dumps(meta, indent=2))
+(out / "t2i-bench.json").write_text(json.dumps(meta, indent=2) + "\n")
 print(json.dumps(meta, indent=2))
-import subprocess
-(out / "nvidia-smi.txt").write_text(subprocess.check_output(
-    ["nvidia-smi","--query-gpu=name,memory.used,memory.total","--format=csv"], text=True))
 PY
 
 echo DONE >"$OUTDIR/DONE"

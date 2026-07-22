@@ -60,7 +60,12 @@ from pathlib import Path
 from transformers import AutoModelForCausalLM, AutoTokenizer
 out = Path(os.environ["OUTDIR"]); merged = Path(os.environ["MERGED"])
 tok = AutoTokenizer.from_pretrained(merged)
-m = AutoModelForCausalLM.from_pretrained(merged, torch_dtype=torch.bfloat16, device_map="auto")
+m = AutoModelForCausalLM.from_pretrained(
+    merged,
+    torch_dtype=torch.bfloat16,
+    device_map="auto",
+    attn_implementation="sdpa",
+)
 prompt = "Write a Python function that returns fibonacci(n)."
 inputs = {k: v.to(next(m.parameters()).device) for k, v in tok(prompt, return_tensors="pt").items()}
 
@@ -68,7 +73,7 @@ def run(n=128):
     torch.cuda.synchronize()
     t0 = time.perf_counter()
     with torch.inference_mode():
-        o = m.generate(**inputs, max_new_tokens=n, do_sample=False)
+        o = m.generate(**inputs, max_new_tokens=n, do_sample=False, use_cache=True)
     torch.cuda.synchronize()
     dt = time.perf_counter() - t0
     nt = int(o.shape[-1] - inputs["input_ids"].shape[-1])

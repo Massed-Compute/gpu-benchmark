@@ -152,7 +152,8 @@ done
 
 nvidia-smi --query-gpu=name,memory.used,memory.total --format=csv | tee "$OUTDIR/nvidia-smi.txt"
 echo "$MODEL" >"$OUTDIR/model.txt"
-echo "tp=$TP docker=$USE_DOCKER moe=cutlass no-ep enforce-eager" >"$OUTDIR/engine.txt"
+# Match committed provenance format from the published Wave 5 run.
+echo "upstage/vllm-solar-open2 docker; moe_backend=cutlass; tp=$TP; max_model_len=4096" >"$OUTDIR/engine.txt"
 if [[ "$USE_DOCKER" -eq 1 ]]; then sudo docker rm -f solar-open2 || true; else pkill -f "vllm serve" || true; fi
 rm -f "$OUTDIR/FAIL"
 echo DONE >"$OUTDIR/DONE"
