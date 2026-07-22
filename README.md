@@ -105,7 +105,7 @@ The original 2024 Llama 3 suite used [Hugging Face TGI](https://github.com/huggi
 
 Pinned profile for the 2026 runs: random prompts, input=128 / output=128 tokens, request-rate=inf, concurrency 1 / 8 / 32 (headline numbers use concurrency 32). GPUs include RTX PRO 6000 Blackwell, H100, H200 NVL, and L40S. Bench VMs were terminated after each capture.
 The 2026-07-21 wave adds Astrea, Hy3, Ideogram Instant, Motif (partial), Bonsai Q1_0, and Qwen3-VL Heretic, plus a SenseNova showcase refresh. The 2026-07-20 additions also cover agentic coding (Ornith), embodied VLA (MiniCPM-Robot), text-to-image (Krea 2 Turbo), and video rendering (Bernini-R), with modality-appropriate metrics alongside the vLLM/SGLang LLM profile.
-The 2026-07-22 Wave 5 adds Laguna XS/S, Atlas-Coder-2, Nanbeige4.2-3B, Solar Open2 NVFP4, Mage-Flow, and FLUX.1-dev INT8 ConvRot. Some pages use transformers or custom chat harnesses rather than `vllm bench serve` — see each page’s Technique section before comparing across models.
+The 2026-07-22 Wave 5 adds Laguna XS/S, Atlas-Coder-2, Nanbeige4.2-3B, Solar Open2 NVFP4, Mage-Flow, and FLUX.1-dev INT8 ConvRot. Some pages use transformers or custom chat harnesses rather than `vllm bench serve` — see each page’s Technique section before comparing across models. Reproduction scripts for Wave 5 live under [`scripts/wave5/`](./scripts/wave5/README.md).
 
 
 ---

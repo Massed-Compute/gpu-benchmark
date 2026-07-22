@@ -7,26 +7,27 @@ MC - 2026.07.22
 Live Massed Compute inference benches for **nota-ai/Solar-Open2-250B-Nota-NVFP4** (NVFP4 of upstage/Solar-Open2-250B).
 
 ## Technique
-Upstage `vllm-solar-open2` Docker (vLLM 0.22.0). Flags: `--tensor-parallel-size 2 --moe-backend cutlass --max-model-len 4096 --enforce-eager --disable-custom-all-reduce`. Concurrent OpenAI chat completions (`max_tokens=128`); headline = aggregate **output tok/s at concurrency 32**.
+Upstage `vllm-solar-open2` Docker (vLLM 0.22.0). Flags: `--tensor-parallel-size 2 --moe-backend cutlass --max-model-len 4096 --enforce-eager --disable-custom-all-reduce`.
+Headline metric: aggregate **output tok/s** from a custom OpenAI-chat `ThreadPoolExecutor` harness at concurrency 32 (fixed prompt, `max_tokens=128`, `max(c×2, 4)` requests) — **not** the repo’s pinned `vllm bench serve` random 128/128 profile.
 
 ## Results
 
-| Engine | SKU | $/hr | Output tok/s (c32) | Mean e2e latency (ms) | tok/s per $ |
+| Engine | SKU | $/hr | Agg. output tok/s (conc=32) | Mean e2e latency (ms) | tok/s per $ |
 |---|---|---:|---:|---:|---:|
-| vllm-upstage | `gpu_2x_pro_6000_blackwell` | 4.38 | 592.5 | 6894.5 | 135.3 |
+| vllm-upstage + chat harness | `gpu_2x_pro_6000_blackwell` | 4.38 | 592.5 | 6894.5 | 135.3 |
 
 ### Screenshots
 
-Terminal-style serving-bench captures from live Massed runs 2026-07-22 (concurrent chat completions, not T2I).
+Terminal-style serving-bench captures from live Massed runs 2026-07-22 (custom concurrent chat completions, not T2I / not `vllm bench serve`).
 
 **gpu_2x_pro_6000_blackwell** — 2× RTX PRO 6000 Blackwell 96GB — $4.38/hr
 
-Upstage vLLM · NVFP4 · TP=2 · c32 **592.5** output tok/s:
+Upstage vLLM · NVFP4 · TP=2 · conc=32 harness **592.5** aggregate output tok/s:
 ![gpu_2x_pro_6000_blackwell vllm](./images/2xBlackwell-vllm-showcase.png)
 
 ## Conclusion
 
-Peak c32: **592 tok/s** on `gpu_2x_pro_6000_blackwell` (**135.3 tok/s per $**).
+Peak harness throughput at conc=32: **592 tok/s** on `gpu_2x_pro_6000_blackwell` (**135.3 tok/s per $**).
 
 ## Notes
 - Serving uses Upstage’s Solar Open2 vLLM image (`upstage/vllm-solar-open2`); stock vLLM lacks `SolarOpen2ForCausalLM`.

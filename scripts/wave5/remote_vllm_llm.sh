@@ -53,18 +53,27 @@ echo "$MODEL" >"$OUTDIR/model.txt"
 
 for CONC in 1 8 32; do
   log "vllm c$CONC"
-  sudo docker exec vllm-bench vllm bench serve \
+  if ! sudo docker exec vllm-bench vllm bench serve \
     --base-url http://127.0.0.1:8000 --backend openai --endpoint /v1/completions \
     --model "$MODEL" --dataset-name random --random-input-len 128 --random-output-len 128 \
     --num-prompts $(( CONC * 5 )) --max-concurrency "$CONC" --request-rate inf \
-    --save-result --result-dir /tmp --result-filename "vllm-c${CONC}.json" \
-  || sudo docker exec vllm-bench vllm bench serve \
-    --base-url http://127.0.0.1:8000 --backend openai --endpoint /v1/chat/completions \
-    --model "$MODEL" --dataset-name random --random-input-len 128 --random-output-len 128 \
-    --num-prompts $(( CONC * 5 )) --max-concurrency "$CONC" --request-rate inf \
-    --save-result --result-dir /tmp --result-filename "vllm-c${CONC}.json" || true
-  sudo docker cp "vllm-bench:/tmp/vllm-c${CONC}.json" "$OUTDIR/vllm-c${CONC}.json" 2>/dev/null || true
+    --save-result --result-dir /tmp --result-filename "vllm-c${CONC}.json"
+  then
+    log "completions bench failed; trying chat endpoint"
+    sudo docker exec vllm-bench vllm bench serve \
+      --base-url http://127.0.0.1:8000 --backend openai --endpoint /v1/chat/completions \
+      --model "$MODEL" --dataset-name random --random-input-len 128 --random-output-len 128 \
+      --num-prompts $(( CONC * 5 )) --max-concurrency "$CONC" --request-rate inf \
+      --save-result --result-dir /tmp --result-filename "vllm-c${CONC}.json"
+  fi
+  sudo docker cp "vllm-bench:/tmp/vllm-c${CONC}.json" "$OUTDIR/vllm-c${CONC}.json"
 done
+# Require headline concurrency artifact before DONE.
+[[ -s "$OUTDIR/vllm-c32.json" ]] || {
+  echo "missing $OUTDIR/vllm-c32.json after bench" | tee "$OUTDIR/FAIL"
+  sudo docker rm -f vllm-bench >/dev/null 2>&1 || true
+  exit 1
+}
 sudo docker rm -f vllm-bench >/dev/null 2>&1 || true
 echo DONE >"$OUTDIR/DONE"
 log "DONE $OUTDIR"
