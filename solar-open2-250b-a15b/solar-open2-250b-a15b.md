@@ -1,0 +1,53 @@
+# Solar Open2 250B-A15B GPU Benchmark
+
+### Last Edit Date:
+MC - 2026.07.22
+
+## Purpose
+Live Massed Compute inference benches for **nota-ai/Solar-Open2-250B-Nota-NVFP4** (NVFP4 of upstage/Solar-Open2-250B).
+
+## Technique
+Upstage `vllm-solar-open2` Docker (vLLM 0.22.0). Flags: `--tensor-parallel-size 2 --moe-backend cutlass --max-model-len 4096 --enforce-eager --disable-custom-all-reduce`.
+Headline metric: aggregate **output tok/s** from a custom OpenAI-chat `ThreadPoolExecutor` harness at concurrency 32 (fixed prompt, `max_tokens=128`, `max(c×2, 4)` requests) — **not** the repo’s pinned `vllm bench serve` random 128/128 profile.
+
+## Results
+
+| Engine | SKU | $/hr | Agg. output tok/s (conc=32) | Mean e2e latency (ms) | tok/s per $ |
+|---|---|---:|---:|---:|---:|
+| vllm-upstage + chat harness | `gpu_2x_pro_6000_blackwell` | 4.38 | 592.5 | 6894.5 | 135.3 |
+
+### Screenshots
+
+Terminal-style serving-bench captures from live Massed runs 2026-07-22 (custom concurrent chat completions, not T2I / not `vllm bench serve`).
+
+**gpu_2x_pro_6000_blackwell** — 2× RTX PRO 6000 Blackwell 96GB — $4.38/hr
+
+Upstage vLLM · NVFP4 · TP=2 · conc=32 harness **592.5** aggregate output tok/s:
+![gpu_2x_pro_6000_blackwell vllm](./images/2xBlackwell-vllm-showcase.png)
+
+## Conclusion
+
+Peak harness throughput at conc=32: **592 tok/s** on `gpu_2x_pro_6000_blackwell` (**135.3 tok/s per $**).
+
+## Notes
+- Serving uses Upstage’s Solar Open2 vLLM image (`upstage/vllm-solar-open2`); stock vLLM lacks `SolarOpen2ForCausalLM`.
+- NVFP4 MoE needs `--moe-backend cutlass` (not `triton`). TP=2 without expert-parallel.
+- Full BF16 weights need roughly 8×80GB; NVFP4 fits 2×96GB.
+- **Not comparable to Laguna / other `vllm bench serve` pages:** this headline is from a custom `ThreadPoolExecutor` OpenAI-chat harness (fixed prompt, `max_tokens=128`), not the pinned random 128/128 `vllm bench serve` profile. TTFT was not measured; the table reports mean end-to-end completion latency.
+- Numbers from live Massed runs 2026-07-22; disposable bench VMs terminated after capture.
+
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.
+

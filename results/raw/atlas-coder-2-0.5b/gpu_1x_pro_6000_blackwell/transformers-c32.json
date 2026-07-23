@@ -1,0 +1,8 @@
+{
+  "engine": "transformers-merged-peft",
+  "max_concurrency": 32,
+  "output_throughput": null,
+  "note": "PEFT adapter merged onto Qwen2.5-Coder-0.5B-Instruct; single-stream generate",
+  "unsupported": true,
+  "ttft_measured": false
+}

@@ -1,0 +1,34 @@
+{
+  "model": "Nanbeige/Nanbeige4.2-3B",
+  "load_s": 64.09993194100008,
+  "engine": "transformers+device_map_auto",
+  "runs": [
+    {
+      "latency_s": 2.327574132000109,
+      "new_tokens": 128,
+      "tok_s": 54.9928778809757
+    },
+    {
+      "latency_s": 2.3309215600000925,
+      "new_tokens": 128,
+      "tok_s": 54.9139028084647
+    },
+    {
+      "latency_s": 2.614432641999997,
+      "new_tokens": 128,
+      "tok_s": 48.95899704728371
+    },
+    {
+      "latency_s": 2.539220619000048,
+      "new_tokens": 128,
+      "tok_s": 50.409168483519466
+    },
+    {
+      "latency_s": 2.4699146940000674,
+      "new_tokens": 128,
+      "tok_s": 51.823652173469156
+    }
+  ],
+  "mean_tok_s": 52.21971967874254,
+  "median_tok_s": 51.823652173469156
+}

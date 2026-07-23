@@ -1,0 +1,34 @@
+{
+  "engine": "vllm-upstage-solar-open2-docker",
+  "model": "nota-ai/Solar-Open2-250B-Nota-NVFP4",
+  "tp": 2,
+  "max_concurrency": 1,
+  "output_throughput": 20.58844698943088,
+  "single_stream_tok_s_mean": 20.59014033356096,
+  "mean_tpot_ms": 48.566934649301395,
+  "runs": [
+    {
+      "latency_s": 6.29007047999994,
+      "new_tokens": 128,
+      "tok_s": 20.34953350792998
+    },
+    {
+      "latency_s": 6.1930140270001175,
+      "new_tokens": 128,
+      "tok_s": 20.668449876255636
+    },
+    {
+      "latency_s": 6.185468985999933,
+      "new_tokens": 128,
+      "tok_s": 20.693661271233054
+    },
+    {
+      "latency_s": 6.198872414999869,
+      "new_tokens": 128,
+      "tok_s": 20.648916678825163
+    }
+  ],
+  "mean_e2e_latency_ms": 6216.856476999965,
+  "ttft_measured": false,
+  "note": "TTFT not measured \u2014 mean_e2e_latency_ms is wall-clock chat completion latency"
+}

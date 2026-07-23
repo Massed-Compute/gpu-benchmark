@@ -83,6 +83,16 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 - [Qwen3-VL-4B Heretic](./qwen3-vl-4b-heretic/qwen3-vl-4b-heretic.md)
 
+### Wave 5 (2026-07-22)
+
+- [Laguna XS.2](./laguna-xs-2/laguna-xs-2.md)
+- [Laguna S 2.1](./laguna-s-2.1/laguna-s-2.1.md)
+- [Atlas-Coder-2 0.5B](./atlas-coder-2-0.5b/atlas-coder-2-0.5b.md)
+- [Nanbeige4.2 3B](./nanbeige4-2-3b/nanbeige4-2-3b.md)
+- [Solar Open2 250B-A15B (NVFP4)](./solar-open2-250b-a15b/solar-open2-250b-a15b.md)
+- [Mage-Flow](./mage-flow/mage-flow.md)
+- [FLUX.1-dev INT8 ConvRot](./flux1-dev-int8-convrot/flux1-dev-int8-convrot.md)
+
 Each benchmark includes:
 
 - **Model Description**: Overview of the model being tested.
@@ -95,6 +105,7 @@ The original 2024 Llama 3 suite used [Hugging Face TGI](https://github.com/huggi
 
 Pinned profile for the 2026 runs: random prompts, input=128 / output=128 tokens, request-rate=inf, concurrency 1 / 8 / 32 (headline numbers use concurrency 32). GPUs include RTX PRO 6000 Blackwell, H100, H200 NVL, and L40S. Bench VMs were terminated after each capture.
 The 2026-07-21 wave adds Astrea, Hy3, Ideogram Instant, Motif (partial), Bonsai Q1_0, and Qwen3-VL Heretic, plus a SenseNova showcase refresh. The 2026-07-20 additions also cover agentic coding (Ornith), embodied VLA (MiniCPM-Robot), text-to-image (Krea 2 Turbo), and video rendering (Bernini-R), with modality-appropriate metrics alongside the vLLM/SGLang LLM profile.
+The 2026-07-22 Wave 5 adds Laguna XS/S, Atlas-Coder-2, Nanbeige4.2-3B, Solar Open2 NVFP4, Mage-Flow, and FLUX.1-dev INT8 ConvRot. Some pages use transformers or custom chat harnesses rather than `vllm bench serve` — see each page’s Technique section before comparing across models. Reproduction scripts for Wave 5 live under [`scripts/wave5/`](./scripts/wave5/README.md).
 
 
 ---

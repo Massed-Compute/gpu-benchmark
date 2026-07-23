@@ -1,0 +1,17 @@
+{
+  "model": "SearchingMan/FLUX.1-dev-ConvRot",
+  "weight": "FLUX.1-dev-int8_convrot.safetensors",
+  "packing": "INT8 ConvRot (not a new base)",
+  "steps": 20,
+  "width": 1024,
+  "height": 1024,
+  "latencies_s": [
+    4.007613759999913,
+    4.008403241999986,
+    4.008698839999852,
+    4.007066762000022
+  ],
+  "mean_latency_s": 4.007945650999943,
+  "images_per_s": 0.249504381315777,
+  "peak_vram_gb": 20.7
+}

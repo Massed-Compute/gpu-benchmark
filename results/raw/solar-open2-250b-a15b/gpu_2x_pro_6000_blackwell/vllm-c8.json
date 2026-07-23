@@ -1,0 +1,94 @@
+{
+  "engine": "vllm-upstage-solar-open2-docker",
+  "model": "nota-ai/Solar-Open2-250B-Nota-NVFP4",
+  "tp": 2,
+  "max_concurrency": 8,
+  "output_throughput": 153.88209093237745,
+  "single_stream_tok_s_mean": 19.275146216277072,
+  "mean_tpot_ms": 51.88028089538127,
+  "runs": [
+    {
+      "latency_s": 6.694461118999925,
+      "new_tokens": 128,
+      "tok_s": 19.12028432530828
+    },
+    {
+      "latency_s": 6.79334982599994,
+      "new_tokens": 128,
+      "tok_s": 18.841956218728832
+    },
+    {
+      "latency_s": 6.797370838999996,
+      "new_tokens": 128,
+      "tok_s": 18.830810181136282
+    },
+    {
+      "latency_s": 6.8004559759999665,
+      "new_tokens": 128,
+      "tok_s": 18.822267279096437
+    },
+    {
+      "latency_s": 6.804986540000073,
+      "new_tokens": 128,
+      "tok_s": 18.80973595577437
+    },
+    {
+      "latency_s": 6.809481702000085,
+      "new_tokens": 128,
+      "tok_s": 18.797319032725174
+    },
+    {
+      "latency_s": 6.80943499,
+      "new_tokens": 128,
+      "tok_s": 18.797447980335296
+    },
+    {
+      "latency_s": 6.81005439799992,
+      "new_tokens": 128,
+      "tok_s": 18.795738259828436
+    },
+    {
+      "latency_s": 6.5087911939999685,
+      "new_tokens": 128,
+      "tok_s": 19.665709988975355
+    },
+    {
+      "latency_s": 6.499623595999992,
+      "new_tokens": 128,
+      "tok_s": 19.693448106560194
+    },
+    {
+      "latency_s": 6.496319806000201,
+      "new_tokens": 128,
+      "tok_s": 19.703463472006913
+    },
+    {
+      "latency_s": 6.4908963709999625,
+      "new_tokens": 128,
+      "tok_s": 19.719926599333586
+    },
+    {
+      "latency_s": 6.493904651999856,
+      "new_tokens": 128,
+      "tok_s": 19.71079140507264
+    },
+    {
+      "latency_s": 6.496088365999867,
+      "new_tokens": 128,
+      "tok_s": 19.704165459008262
+    },
+    {
+      "latency_s": 6.4952147349999905,
+      "new_tokens": 128,
+      "tok_s": 19.70681574394479
+    },
+    {
+      "latency_s": 6.503252314999827,
+      "new_tokens": 128,
+      "tok_s": 19.68245945259828
+    }
+  ],
+  "mean_e2e_latency_ms": 6643.980401562473,
+  "ttft_measured": false,
+  "note": "TTFT not measured \u2014 mean_e2e_latency_ms is wall-clock chat completion latency"
+}
