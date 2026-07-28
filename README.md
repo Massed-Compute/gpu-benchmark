@@ -38,6 +38,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 - [Qwen2.5 7B Instruct](./qwen2-5-7b-instruct/qwen2-5-7b-instruct.md)
 - [Qwen3 32B](./qwen3-32b/qwen3-32b.md)
 - [Qwen3 30B-A3B (MoE)](./qwen3-30b-a3b/qwen3-30b-a3b.md)
+- [Qwen3.6 35B-A3B](./qwen3.6-35b-a3b/qwen3.6-35b-a3b.md)
 
 ### GLM
 
