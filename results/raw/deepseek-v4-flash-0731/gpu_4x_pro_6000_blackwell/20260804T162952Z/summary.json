@@ -1,0 +1,65 @@
+{
+  "id": "20260804T162952Z-gpu_4x_pro_6000_blackwell",
+  "date": "2026-08-04",
+  "model": {
+    "hf_id": "deepseek-ai/DeepSeek-V4-Flash-0731"
+  },
+  "hardware": {
+    "sku": "gpu_4x_pro_6000_blackwell",
+    "count": 4,
+    "price_usd_per_hour": 8.76,
+    "ip": "216.243.220.37"
+  },
+  "results": [
+    {
+      "engine": "sglang",
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "gpu_count": 4,
+      "price_usd_per_hour": 8.76,
+      "max_concurrency": 1,
+      "metrics": {
+        "request_s": 0.17,
+        "output_tok_s": 14.0,
+        "ttft_ms_mean": 161.91,
+        "ttft_ms_p50": 159.17,
+        "tpot_ms_mean": 77.43,
+        "tpot_ms_p50": 77.8
+      },
+      "raw_stdout_path": "results/raw/deepseek-v4-flash-0731/gpu_4x_pro_6000_blackwell/20260804T162952Z/sglang-c1.txt"
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "gpu_count": 4,
+      "price_usd_per_hour": 8.76,
+      "max_concurrency": 8,
+      "metrics": {
+        "request_s": 1.32,
+        "output_tok_s": 112.0,
+        "ttft_ms_mean": 280.42,
+        "ttft_ms_p50": 161.11,
+        "tpot_ms_mean": 81.72,
+        "tpot_ms_p50": 80.65
+      },
+      "raw_stdout_path": "results/raw/deepseek-v4-flash-0731/gpu_4x_pro_6000_blackwell/20260804T162952Z/sglang-c8.txt"
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "gpu_count": 4,
+      "price_usd_per_hour": 8.76,
+      "max_concurrency": 32,
+      "metrics": {
+        "request_s": 3.61,
+        "output_tok_s": 351.0,
+        "ttft_ms_mean": 642.65,
+        "ttft_ms_p50": 233.34,
+        "tpot_ms_mean": 113.97,
+        "tpot_ms_p50": 103.74
+      },
+      "raw_stdout_path": "results/raw/deepseek-v4-flash-0731/gpu_4x_pro_6000_blackwell/20260804T162952Z/sglang-c32.txt",
+      "screenshot": "deepseek-v4-flash-0731/images/4xBlackwell-sglang-showcase.png"
+    }
+  ],
+  "notes": "SGLang flashinfer_mxfp4; decode CUDA graph disabled; no DSPARK (OOM on graph). vLLM nightly blocked on SM120 (DeepGEMM SF/arch)."
+}

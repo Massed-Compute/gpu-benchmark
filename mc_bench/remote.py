@@ -14,6 +14,9 @@ pip install -q 'openai>=1.40' 'aiohttp' 'numpy' 'transformers' 'datasets' 'pillo
 echo BOOTSTRAP_OK
 '''
 
+# Optimized profile: FP8 KV + prefix cache + large batch.
+# DeepSeek-V4 requires fp8 KV (fp8_ds_mla) — do not fall back to auto KV.
+# VLLM_MAX_MODEL_LEN / VLLM_EXTRA_ARGS optional; wait covers large HF pulls.
 VLLM_SERVE = r'''
 set -euxo pipefail
 MODEL="{model}"
@@ -21,24 +24,51 @@ TP="{tp}"
 PORT="{port}"
 HF_TOKEN="{hf_token}"
 export HUGGING_FACE_HUB_TOKEN="$HF_TOKEN"
-sudo docker rm -f vllm-bench >/dev/null 2>&1 || true
-sudo docker run -d --name vllm-bench --gpus all --shm-size 16g \
-  -e "HUGGING_FACE_HUB_TOKEN=$HF_TOKEN" \
-  -p ${{PORT}}:8000 \
-  -v "$HOME/.cache/huggingface:/root/.cache/huggingface" \
-  ${{VLLM_IMAGE:-vllm/vllm-openai:v0.8.5}} \
-  --model "$MODEL" \
-  --tensor-parallel-size "$TP" \
-  --max-model-len 4096 \
-  --gpu-memory-utilization 0.90
-for i in $(seq 1 180); do
-  if curl -sf "http://127.0.0.1:${{PORT}}/v1/models" >/dev/null; then
-    echo VLLM_READY
-    exit 0
-  fi
-  sleep 10
-done
-sudo docker logs --tail 100 vllm-bench >&2
+IMG="${{VLLM_IMAGE:-vllm/vllm-openai:v0.8.5}}"
+MAX_LEN="${{VLLM_MAX_MODEL_LEN:-8192}}"
+COMMON=(--model "$MODEL" --tensor-parallel-size "$TP" --max-model-len "$MAX_LEN" \
+  --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching \
+  --trust-remote-code --kv-cache-dtype fp8)
+# VL / multimodal: text-only decode bench (set VLLM_TEXT_ONLY_MM=1)
+if [[ "${{VLLM_TEXT_ONLY_MM:-0}}" == "1" ]]; then
+  COMMON+=(--limit-mm-per-prompt '{{"image":0}}')
+fi
+# shellcheck disable=SC2206
+if [[ -n "${{VLLM_EXTRA_ARGS:-}}" ]]; then
+  # intentionally unquoted: space-separated extra flags
+  EXTRA=( ${{VLLM_EXTRA_ARGS}} )
+  COMMON+=("${{EXTRA[@]}}")
+fi
+
+_run() {{
+  sudo docker rm -f vllm-bench >/dev/null 2>&1 || true
+  sudo docker run -d --name vllm-bench --gpus all --shm-size 16g \
+    -e "HUGGING_FACE_HUB_TOKEN=$HF_TOKEN" \
+    -p ${{PORT}}:8000 \
+    -v "$HOME/.cache/huggingface:/root/.cache/huggingface" \
+    "$IMG" \
+    "${{COMMON[@]}}"
+}}
+
+_wait() {{
+  for i in $(seq 1 360); do
+    if curl -sf "http://127.0.0.1:${{PORT}}/v1/models" >/dev/null; then
+      return 0
+    fi
+    if ! sudo docker ps -q -f name=vllm-bench | grep -q .; then
+      return 1
+    fi
+    sleep 10
+  done
+  return 1
+}}
+
+_run
+if _wait; then
+  echo VLLM_READY profile=fp8-kv
+  exit 0
+fi
+sudo docker logs --tail 120 vllm-bench >&2 || true
 exit 1
 '''
 
@@ -101,7 +131,7 @@ sudo docker run -d --name sglang-bench --gpus all --shm-size 16g \
   --tp-size "$TP" \
   --host 0.0.0.0 \
   --port 30000 \
-  --context-length 4096
+  --context-length 8192
 for i in $(seq 1 180); do
   if curl -sf "http://127.0.0.1:${{PORT}}/health" >/dev/null || curl -sf "http://127.0.0.1:${{PORT}}/v1/models" >/dev/null; then
     echo SGLANG_READY

@@ -1,0 +1,183 @@
+615e7d0106219277b331e50bc0c0326e22de963a07b20b29c0e82518e8a4b68c
+
++ MODEL=deepseek-ai/DeepSeek-V4-Flash-0731
++ TP=2
++ PORT=8000
++ HF_TOKEN=hf_REDACTED
++ export HUGGING_FACE_HUB_TOKEN=hf_REDACTED
++ HUGGING_FACE_HUB_TOKEN=hf_REDACTED
++ IMG=vllm/vllm-openai:nightly
++ MAX_LEN=4096
++ COMMON=(--model "$MODEL" --tensor-parallel-size "$TP" --max-model-len "$MAX_LEN" --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching --trust-remote-code --kv-cache-dtype fp8)
++ [[ 0 == \1 ]]
++ [[ -n '' ]]
++ _run
++ sudo docker rm -f vllm-bench
++ sudo docker run -d --name vllm-bench --gpus all --shm-size 16g -e HUGGING_FACE_HUB_TOKEN=hf_REDACTED -p 8000:8000 -v /home/Ubuntu/.cache/huggingface:/root/.cache/huggingface vllm/vllm-openai:nightly --model deepseek-ai/DeepSeek-V4-Flash-0731 --tensor-parallel-size 2 --max-model-len 4096 --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching --trust-remote-code --kv-cache-dtype fp8
++ _wait
+++ seq 1 360
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ return 1
++ sudo docker logs --tail 120 vllm-bench
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]     return func(*args, **kwargs)
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1074, in __init__
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]     super().__init__(
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 108, in __init__
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]     super().__init__(vllm_config)
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=352) Process EngineCore:
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]     return func(*args, **kwargs)
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]     self._init_executor()
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 201, in _init_executor
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]     self.workers = WorkerProc.wait_for_ready(unready_workers)
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 776, in wait_for_ready
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349]     raise e from None
+(EngineCore pid=352) ERROR 08-04 16:07:42 [core.py:1349] Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+(EngineCore pid=352) Traceback (most recent call last):
+(EngineCore pid=352)   File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=352)     self.run()
+(EngineCore pid=352)   File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=352)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1353, in run_engine_core
+(EngineCore pid=352)     raise e
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1318, in run_engine_core
+(EngineCore pid=352)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=352)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=352)     return func(*args, **kwargs)
+(EngineCore pid=352)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1074, in __init__
+(EngineCore pid=352)     super().__init__(
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=352)     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=352)                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 108, in __init__
+(EngineCore pid=352)     super().__init__(vllm_config)
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=352)     return func(*args, **kwargs)
+(EngineCore pid=352)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=352)     self._init_executor()
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 201, in _init_executor
+(EngineCore pid=352)     self.workers = WorkerProc.wait_for_ready(unready_workers)
+(EngineCore pid=352)                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=352)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 776, in wait_for_ready
+(EngineCore pid=352)     raise e from None
+(EngineCore pid=352) Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+(APIServer pid=1) INFO 08-04 16:07:44 [utils.py:612] [shutdown] Process manager: send sigterm to process EngineCore
+(APIServer pid=1) Traceback (most recent call last):
+(APIServer pid=1)   File "/usr/local/bin/vllm", line 10, in <module>
+(APIServer pid=1)     sys.exit(main())
+(APIServer pid=1)              ^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 97, in main
+(APIServer pid=1)     args.dispatch_function(args)
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 152, in cmd
+(APIServer pid=1)     uvloop.run(run_server(args))
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=1)     return __asyncio.run(
+(APIServer pid=1)            ^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=1)     return runner.run(main)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=1)     return self._loop.run_until_complete(task)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=1)     return await main
+(APIServer pid=1)            ^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 764, in run_server
+(APIServer pid=1)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 778, in run_server_worker
+(APIServer pid=1)     async with build_async_engine_client(
+(APIServer pid=1)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=1)     return await anext(self.gen)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 132, in build_async_engine_client
+(APIServer pid=1)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=1)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=1)     return await anext(self.gen)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 168, in build_async_engine_client_from_engine_args
+(APIServer pid=1)     async_llm = AsyncLLM.from_vllm_config(
+(APIServer pid=1)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 220, in from_vllm_config
+(APIServer pid=1)     return cls(
+(APIServer pid=1)            ^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 149, in __init__
+(APIServer pid=1)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(APIServer pid=1)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=1)     return func(*args, **kwargs)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 139, in make_async_mp_client
+(APIServer pid=1)     return AsyncMPClient(*client_args)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=1)     return func(*args, **kwargs)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 987, in __init__
+(APIServer pid=1)     super().__init__(
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 609, in __init__
+(APIServer pid=1)     with launch_core_engines(
+(APIServer pid=1)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=1)     next(self.gen)
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1194, in launch_core_engines
+(APIServer pid=1)     wait_for_engine_startup(
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1253, in wait_for_engine_startup
+(APIServer pid=1)     raise RuntimeError(
+(APIServer pid=1) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
++ exit 1
+++ '[' 1 = 1 ']'
+++ '[' -x /usr/bin/clear_console ']'
+++ /usr/bin/clear_console -q
