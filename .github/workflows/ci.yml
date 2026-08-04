@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout (full history for diff scan)
-        uses: actions/checkout@v6 # nosemgrep: github-actions-mutable-action-tag
+        uses: actions/checkout@v7 # nosemgrep: github-actions-mutable-action-tag
         with:
           fetch-depth: 0
 
