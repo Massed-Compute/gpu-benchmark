@@ -1,0 +1,100 @@
+benchmark_args=Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=30000, ready_check_timeout_sec=60, dataset_name='random', dataset_path='', dataset_offset=0, agentic_max_turns=None, speed_bench_category=None, speed_bench_output_len=512, model='deepseek-ai/DeepSeek-V4-Flash-0731', served_model_name=None, tokenizer=None, num_prompts=5, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=128, random_output_len=128, random_range_ratio=0.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=1, output_file='/home/Ubuntu/mc-bench/sglang-c1.json', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, cache_report=False, seed=42, disable_ignore_eos=False, temperature=0.0, top_p=1.0, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, gsp_group_distribution='uniform', gsp_zipf_alpha=None, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+Waiting up to 60s for http://127.0.0.1:30000/v1/models to become ready...
+Server ready in 0.0s.
+
+WARNING It is recommended to use the `Chat` or `Instruct` model for benchmarking.
+Because when the tokenizer counts the output tokens, if there is gibberish, it might count incorrectly.
+
+Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=30000, ready_check_timeout_sec=60, dataset_name='random', dataset_path='', dataset_offset=0, agentic_max_turns=None, speed_bench_category=None, speed_bench_output_len=512, model='deepseek-ai/DeepSeek-V4-Flash-0731', served_model_name=None, tokenizer=None, num_prompts=5, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=128, random_output_len=128, random_range_ratio=0.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=1, output_file='/home/Ubuntu/mc-bench/sglang-c1.json', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, cache_report=False, seed=42, disable_ignore_eos=False, temperature=0.0, top_p=1.0, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, gsp_group_distribution='uniform', gsp_zipf_alpha=None, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+
+#Input tokens: 370
+#Output tokens: 379
+Starting warmup with 1 sequences...
+Warmup completed with 1 sequences. Starting main benchmark run...
+
+============ Serving Benchmark Result ============
+Backend:                                 sglang    
+Traffic request rate:                    inf       
+Max request concurrency:                 1         
+Successful requests:                     5         
+Benchmark duration (s):                  29.64     
+Total input tokens:                      370       
+Total input text tokens:                 370       
+Total generated tokens:                  379       
+Total generated tokens (retokenized):    379       
+Request throughput (req/s):              0.17      
+Input token throughput (tok/s):          12.48     
+Output token throughput (tok/s):         12.79     
+Peak output token throughput (tok/s):    14.00     
+Peak concurrent requests:                2         
+Total token throughput (tok/s):          25.27     
+Concurrency:                             1.00      
+----------------End-to-End Latency----------------
+Mean E2E Latency (ms):                   5926.69   
+Median E2E Latency (ms):                 5736.23   
+P90 E2E Latency (ms):                    8819.39   
+P95 E2E Latency (ms):                    9060.92   
+P99 E2E Latency (ms):                    9254.14   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          161.91    
+Median TTFT (ms):                        159.17    
+P90 TTFT (ms):                           168.06    
+P95 TTFT (ms):                           168.21    
+P99 TTFT (ms):                           168.32    
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          77.43     
+Median TPOT (ms):                        77.80     
+P90 TPOT (ms):                           78.58     
+P95 TPOT (ms):                           78.62     
+P99 TPOT (ms):                           78.66     
+---------------Inter-Token Latency----------------
+Mean ITL (ms):                           77.07     
+Median ITL (ms):                         76.59     
+P90 ITL (ms):                            79.51     
+P95 ITL (ms):                            81.61     
+P99 ITL (ms):                            89.68     
+Max ITL (ms):                            94.70     
+==================================================
+SGLANG_BENCH_DONE
+
++ MODEL=deepseek-ai/DeepSeek-V4-Flash-0731
++ PORT=30000
++ OUT=/home/Ubuntu/mc-bench/sglang-c1.json
++ CONC=1
++ . /home/Ubuntu/mc-bench/venv/bin/activate
+++ deactivate nondestructive
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV=/home/Ubuntu/mc-bench/venv
+++ VIRTUAL_ENV=/home/Ubuntu/mc-bench/venv
+++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/Ubuntu/mc-bench/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(venv) '
+++ export PS1
+++ VIRTUAL_ENV_PROMPT='(venv) '
+++ export VIRTUAL_ENV_PROMPT
+++ hash -r
++ pip install -q 'sglang[all]'
++ python3 -m sglang.bench_serving --backend sglang --host 127.0.0.1 --port 30000 --model deepseek-ai/DeepSeek-V4-Flash-0731 --dataset-name random --random-input-len 128 --random-output-len 128 --num-prompts 5 --max-concurrency 1 --request-rate inf --output-file /home/Ubuntu/mc-bench/sglang-c1.json
+/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/bench_serving.py:13: FutureWarning: `sglang.bench_serving` is deprecated and will be removed in a future release; use `sglang.benchmark.serving` instead (e.g. `python -m sglang.benchmark.serving`).
+  warnings.warn(
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+ 20%|██        | 1/5 [00:05<00:22,  5.74s/it]
+ 40%|████      | 2/5 [00:10<00:15,  5.16s/it]
+ 60%|██████    | 3/5 [00:12<00:07,  3.60s/it]
+ 80%|████████  | 4/5 [00:20<00:05,  5.37s/it]
+100%|██████████| 5/5 [00:29<00:00,  6.79s/it]
+100%|██████████| 5/5 [00:29<00:00,  5.93s/it]
++ echo SGLANG_BENCH_DONE
