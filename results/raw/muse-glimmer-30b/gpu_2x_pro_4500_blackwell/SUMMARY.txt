@@ -1,0 +1,5 @@
+tg=36.055773
+ts=1.00/1.00
+devices=CUDA0/CUDA1
+peak=[9083, 9713]
+ALL_USED=True

@@ -1,0 +1,66 @@
+=== sample 1 14:44:47 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 0 MiB, 32623 MiB, 0 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 0 MiB, 32623 MiB, 0 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 0 MiB, 32623 MiB, 0 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 0 MiB, 32623 MiB, 0 %
+=== sample 2 14:44:49 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4843 MiB, 32623 MiB, 0 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4411 MiB, 32623 MiB, 49 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4711 MiB, 32623 MiB, 0 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5107 MiB, 32623 MiB, 0 %
+=== sample 3 14:44:51 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4931 MiB, 32623 MiB, 28 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4499 MiB, 32623 MiB, 25 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4799 MiB, 32623 MiB, 22 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5261 MiB, 32623 MiB, 29 %
+=== sample 4 14:44:53 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4931 MiB, 32623 MiB, 28 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4499 MiB, 32623 MiB, 26 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4799 MiB, 32623 MiB, 27 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5261 MiB, 32623 MiB, 29 %
+=== sample 5 14:44:55 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4931 MiB, 32623 MiB, 26 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4499 MiB, 32623 MiB, 26 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4799 MiB, 32623 MiB, 27 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5261 MiB, 32623 MiB, 24 %
+=== sample 6 14:44:57 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4931 MiB, 32623 MiB, 26 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4499 MiB, 32623 MiB, 19 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4799 MiB, 32623 MiB, 20 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5261 MiB, 32623 MiB, 24 %
+=== sample 7 14:44:59 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4931 MiB, 32623 MiB, 23 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4499 MiB, 32623 MiB, 19 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4799 MiB, 32623 MiB, 20 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5261 MiB, 32623 MiB, 27 %
+=== sample 8 14:45:02 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4931 MiB, 32623 MiB, 23 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4499 MiB, 32623 MiB, 26 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4799 MiB, 32623 MiB, 27 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5261 MiB, 32623 MiB, 27 %
+=== sample 9 14:45:04 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4931 MiB, 32623 MiB, 28 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4499 MiB, 32623 MiB, 26 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4799 MiB, 32623 MiB, 26 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5261 MiB, 32623 MiB, 29 %
+=== sample 10 14:45:06 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4931 MiB, 32623 MiB, 28 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4499 MiB, 32623 MiB, 22 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4799 MiB, 32623 MiB, 26 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5261 MiB, 32623 MiB, 22 %
+=== sample 11 14:45:08 ===
+index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+0, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4931 MiB, 32623 MiB, 22 %
+1, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4499 MiB, 32623 MiB, 23 %
+2, NVIDIA RTX PRO 4500 Blackwell Server Edition, 4799 MiB, 32623 MiB, 21 %
+3, NVIDIA RTX PRO 4500 Blackwell Server Edition, 5261 MiB, 32623 MiB, 22 %
