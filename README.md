@@ -26,6 +26,10 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 - [Nemotron 3 Nano 30B (A3B)](./nemotron-3-nano-30b/nemotron-3-nano-30b.md)
 - [Llama 3.1 Nemotron 70B Instruct](./nemotron-70b-instruct/nemotron-70b-instruct.md)
 
+### Muse Glimmer (RTX PRO 4500)
+
+- [Muse Glimmer 30B](./muse-glimmer-30b/muse-glimmer-30b.md)
+
 ### DeepSeek
 
 - [DeepSeek R1 Distill Llama 8B](./deepseek-r1-distill-llama-8b/deepseek-r1-distill-llama-8b.md)
