@@ -1,0 +1,14 @@
+{
+  "sku": "gpu_4x_pro_6000_blackwell",
+  "gpus": 4,
+  "price_usd_hr": 8.76,
+  "tag": "warm87",
+  "duration_s": 8.7,
+  "http": "500",
+  "e2e_s": 831.807,
+  "peak_vram_mib": 97115,
+  "mp4_bytes": 122,
+  "usd_per_clip": 2.0241,
+  "out": "out/gpu_4x_pro_6000_blackwell_warm87_d8.7.mp4",
+  "ffprobe": {}
+}

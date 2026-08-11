@@ -1,0 +1,14 @@
+{
+  "sku": "gpu_1x_pro_6000_blackwell",
+  "gpus": 1,
+  "price_usd_hr": 2.19,
+  "tag": "warm",
+  "duration_s": 5.0,
+  "http": "500",
+  "e2e_s": 39.518,
+  "peak_vram_mib": 75851,
+  "mp4_bytes": 387,
+  "usd_per_clip": 0.024,
+  "cold_load_s": 194,
+  "ffprobe": {}
+}
