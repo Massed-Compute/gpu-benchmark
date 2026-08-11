@@ -1,0 +1,6 @@
+# Captured after llama-bench exited — process VRAM is 0 MiB by design.
+# Use model_size from llama-bench.json for fit claims; this file only records card presence/driver.
+
+name, memory.used [MiB], memory.total [MiB]
+NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB
+NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB
