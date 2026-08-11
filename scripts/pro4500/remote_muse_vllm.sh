@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 # Muse Glimmer via official vLLM muse-glimmer image.
 # MODEL env: HF id (BF16 / FP8 / NVFP4). EXTRA_ARGS optional.
+# Note: --kv-cache-dtype fp8 is on by default (BF16 weights + FP8 KV when MODEL is BF16).
 set -euo pipefail
 MODEL=${MODEL:-meta-models/Muse-Glimmer-30B}
 TP=${TP:-1}
 PORT=${PORT:-8000}
 HF_TOKEN=${HF_TOKEN:-}
 IMG=${VLLM_IMAGE:-vllm/vllm-openai:muse-glimmer}
-OUTDIR=${OUTDIR:-$HOME/mc-bench/out/muse-glimmer-vllm}
+NGPU=${NGPU:-$(nvidia-smi -L | wc -l | tr -d " ")}
+OUTDIR=${OUTDIR:-$HOME/mc-bench/out/muse-glimmer-vllm-${NGPU}x-tp${TP}}
 MAX_LEN=${VLLM_MAX_MODEL_LEN:-8192}
 EXTRA_ARGS=${VLLM_EXTRA_ARGS:-"--generation-config auto --enable-auto-tool-choice --tool-call-parser muse_glimmer --reasoning-parser muse_glimmer"}
+NUM_PROMPTS=${VLLM_NUM_PROMPTS:-160}
 mkdir -p "$OUTDIR" "$HOME/mc-bench/venv" "$HOME/.cache/huggingface"
 export HUGGING_FACE_HUB_TOKEN="$HF_TOKEN" HF_TOKEN="$HF_TOKEN"
 
 log(){ echo "[$(date -u +%H:%M:%S)] $*"; }
 
 sudo apt-get update -qq
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-venv python3-pip curl jq || true
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq \
+  python3-venv python3-pip curl jq docker.io || true
 sudo systemctl enable --now docker || true
 python3 -m venv "$HOME/mc-bench/venv"
 # shellcheck disable=SC1091
@@ -59,7 +63,7 @@ done
 log "VLLM_READY"
 
 for conc in 1 8 32; do
-  log "bench c$conc"
+  log "bench c$conc num_prompts=$NUM_PROMPTS"
   sudo docker exec vllm-bench vllm bench serve \
     --base-url "http://127.0.0.1:8000" \
     --backend openai \
@@ -68,7 +72,7 @@ for conc in 1 8 32; do
     --dataset-name random \
     --random-input-len 128 \
     --random-output-len 128 \
-    --num-prompts $(( conc * 5 )) \
+    --num-prompts "$NUM_PROMPTS" \
     --max-concurrency "$conc" \
     --request-rate inf \
     --save-result \
@@ -78,7 +82,8 @@ for conc in 1 8 32; do
   sudo docker cp "vllm-bench:/tmp/vllm-c${conc}.json" "$OUTDIR/vllm-c${conc}.json" 2>/dev/null || true
 done
 
-nvidia-smi --query-gpu=name,memory.used,memory.total --format=csv | tee "$OUTDIR/nvidia-smi.txt"
+SMI_CSV='index,name,memory.used,memory.total,utilization.gpu'
+nvidia-smi --query-gpu="$SMI_CSV" --format=csv | tee "$OUTDIR/nvidia-smi.txt"
 echo DONE > "$OUTDIR/DONE"
 log "DONE $OUTDIR"
 ls -la "$OUTDIR"

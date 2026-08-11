@@ -18,11 +18,12 @@ Multi-GPU uses **slash** `-ts` / `-dev` (not commas). Verified with live `nvidia
 `Inferact/Muse-Glimmer-30B-NVFP4-W4A4` (~24 GB, ModelOpt W4A4).  
 **Not** a Meta or NVIDIA-published checkpoint — labeled separately. Used only because Meta’s 4-bit is GGUF and the pinned vLLM profile needs a safetensors quant that fits 32 GB.  
 Engine: **vLLM** `vllm/vllm-openai:muse-glimmer` with pinned flags + Muse parsers.  
-Profile: random prompts, input=128, output=128, request-rate=inf, concurrency 1 / 8 / 32. Headline = **c32**.
+Profile: random prompts, input=128, output=128, request-rate=inf, concurrency 1 / 8 / 32, `--num-prompts 160`. Headline = **c32**.  
+Serving flags include `--kv-cache-dtype fp8` (weights stay at the checkpoint precision; KV is FP8).
 
 ### vLLM support (gate check)
 **Confirmed.** Image resolves `MuseGlimmerForConditionalGeneration` with `--tool-call-parser muse_glimmer` / `--reasoning-parser muse_glimmer`.  
-BF16 (`meta-models/Muse-Glimmer-30B`, ~60 GB) **OOM on 2× PRO 4500** during KV init. Needs 4× / larger VRAM for BF16 serve.
+BF16 (`meta-models/Muse-Glimmer-30B`, ~60 GB) did not fit a usable 2× PRO 4500 serve in our attempt (OOM during KV init; fail log not retained). Published BF16 row is **4×** only.
 
 `$ per 1M output tokens = 277.78 / (tok/s per $)`.
 
@@ -51,6 +52,8 @@ Multi-GPU VRAM check (peak MiB during load/bench):
 | vllm | `gpu_1x_pro_4500_blackwell` | 0.76 | 945.8 | 398.7 | 1244.4 | 0.223 |
 
 ## Results — Meta BF16 (vLLM)
+
+BF16 weights with **FP8 KV cache** (`--kv-cache-dtype fp8` in the serve script). Not a pure-BF16 stack.
 
 | Engine | SKU | $/hr | Output tok/s (c32) | TTFT med (ms) | tok/s per $ | $/1M out tokens |
 |---|---|---:|---:|---:|---:|---:|
@@ -85,7 +88,7 @@ llama.cpp · Meta GGUF · layer-split `-ts 1/1` · decode **36.1 tok/s** · peak
 llama.cpp · Meta GGUF · layer-split `-ts 1/1/1/1` · decode **36.0 tok/s** · peak ~4.5–5.3 GB/GPU:
 ![gpu_4x_pro_4500_blackwell llamacpp](./images/4xPRO4500-llamacpp-showcase.png)
 
-vLLM · Meta BF16 TP=4 · **863.9** output tok/s @ c32:
+vLLM · Meta BF16 weights + FP8 KV · TP=4 · **863.9** output tok/s @ c32:
 ![gpu_4x_pro_4500_blackwell vllm](./images/4xPRO4500-vllm-showcase.png)
 
 **gpu_8x_pro_4500_blackwell** — 8× RTX PRO 4500 — $6.08/hr
@@ -99,7 +102,7 @@ llama.cpp · Meta GGUF · layer-split 8-way · decode **35.9 tok/s** · peak ~2.
 
 **Multi-GPU GGUF (re-run, all cards used):** 2× / 4× / 8× layer-split puts weight on every GPU (see VRAM table). Single-stream tg128 stays ~36 tok/s — layer-split on a model that already fits 1× does not buy decode speed; it proves the split and frees headroom per card. Extra GPUs matter for concurrency / BF16, not for this single-stream GGUF decode.
 
-**vLLM serving:** On one 4500, Inferact NVFP4 hits **945.8 tok/s @ c32** (**~1244 tok/s per $**, **~$0.22 per 1M**). Meta BF16 needs **4×** and lands **863.9 tok/s @ c32** (**~284 tok/s per $**). For this card, quantized 1× serving wins on both throughput and dollars — keep precisions labeled.
+**vLLM serving:** On one 4500, Inferact NVFP4 hits **945.8 tok/s @ c32** (**~1244 tok/s per $**, **~$0.22 per 1M**). Meta BF16 weights + FP8 KV need **4×** and land **863.9 tok/s @ c32** (**~284 tok/s per $**). For this card, quantized 1× serving wins on both throughput and dollars — keep precisions labeled.
 
 ## Notes
 

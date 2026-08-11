@@ -1,19 +1,25 @@
 #!/usr/bin/env python3
 """Ghost-watermark showcase PNGs (Massed Compute gpu-benchmark recipe).
 
+Requires: Pillow (PIL).
+
 Prep mark: crop bbox → flat white on alpha.
 Composite: bottom-right, height=46% of base, opacity=5%, margin=2% of base width.
 
+Not idempotent if you overwrite the same file twice — a second pass stacks another
+ghost mark. Prefer writing to a new --out path, or watermark each asset once.
+
 Usage:
   python3 scripts/watermark_showcase.py path/to/showcase.png [...]
-  python3 scripts/watermark_showcase.py --mark shared-images/mark-watermark-white.png slug/images/*.png
+  python3 scripts/watermark_showcase.py --out out.png in.png
+  python3 scripts/watermark_showcase.py --mark shared-images/mark.png slug/images/*.png
 """
 from __future__ import annotations
 
 import argparse
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image  # requires Pillow
 
 
 def to_flat_white_mark(im: Image.Image) -> Image.Image:
@@ -52,14 +58,22 @@ def watermark(base_path: Path, mark_path: Path, out_path: Path | None = None) ->
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("images", nargs="+", type=Path)
+    ap.add_argument("images", nargs="+", type=Path, help="Input showcase PNG(s)")
     ap.add_argument(
         "--mark",
         type=Path,
         default=Path("shared-images/mark-watermark-white.png"),
         help="Flat white mark (or color logo to flatten)",
     )
+    ap.add_argument(
+        "--out",
+        type=Path,
+        default=None,
+        help="Output path (only valid with a single input image)",
+    )
     args = ap.parse_args()
+    if args.out and len(args.images) != 1:
+        raise SystemExit("--out requires exactly one input image")
     if not args.mark.exists():
         alt = Path("shared-images/mark.png")
         if alt.exists():
@@ -67,7 +81,7 @@ def main() -> None:
         else:
             raise SystemExit(f"missing mark: {args.mark}")
     for img in args.images:
-        dest = watermark(img, args.mark)
+        dest = watermark(img, args.mark, out_path=args.out)
         print("watermarked", dest)
 
 
