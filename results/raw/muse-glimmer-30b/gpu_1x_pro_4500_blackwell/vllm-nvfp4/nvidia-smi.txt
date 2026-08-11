@@ -1,0 +1,2 @@
+name, memory.used [MiB], memory.total [MiB]
+NVIDIA RTX PRO 4500 Blackwell Server Edition, 30841 MiB, 32623 MiB

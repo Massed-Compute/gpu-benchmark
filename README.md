@@ -13,6 +13,10 @@ Massed Compute offers scalable GPU cloud for AI research, VFX, data science, and
 
 This repository covers benchmarking LLM inference speeds on different GPUs, including:
 
+### Muse Glimmer
+
+- [Muse Glimmer 30B](./muse-glimmer-30b/muse-glimmer-30b.md)
+
 ### Llama
 
 - [Llama 3 70B](./llama-3/llama-3-70B.md)
