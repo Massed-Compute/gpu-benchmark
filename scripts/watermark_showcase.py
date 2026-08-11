@@ -19,7 +19,9 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from PIL import Image  # requires Pillow
+from PIL import Image  # requires: pillow>=9.1
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def to_flat_white_mark(im: Image.Image) -> Image.Image:
@@ -62,8 +64,8 @@ def main() -> None:
     ap.add_argument(
         "--mark",
         type=Path,
-        default=Path("shared-images/mark-watermark-white.png"),
-        help="Flat white mark (or color logo to flatten)",
+        default=None,
+        help="Flat white mark (or color logo to flatten); default: <repo>/shared-images/mark-watermark-white.png",
     )
     ap.add_argument(
         "--out",
@@ -72,6 +74,11 @@ def main() -> None:
         help="Output path (only valid with a single input image)",
     )
     args = ap.parse_args()
+    if args.mark is None:
+        args.mark = REPO_ROOT / "shared-images" / "mark-watermark-white.png"
+    elif not args.mark.is_absolute():
+        cand = Path(args.mark)
+        args.mark = cand if cand.exists() else (REPO_ROOT / cand)
     if args.out and len(args.images) != 1:
         raise SystemExit("--out requires exactly one input image")
     if not args.mark.exists():
