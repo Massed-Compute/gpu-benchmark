@@ -1,0 +1,109 @@
+
++ MODEL=openai/gpt-oss-20b
++ PORT=30000
++ OUT=/home/Ubuntu/mc-bench/sglang-c1.json
++ CONC=1
++ . /home/Ubuntu/mc-bench/venv/bin/activate
+++ deactivate nondestructive
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV=/home/Ubuntu/mc-bench/venv
+++ VIRTUAL_ENV=/home/Ubuntu/mc-bench/venv
+++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/Ubuntu/mc-bench/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(venv) '
+++ export PS1
+++ VIRTUAL_ENV_PROMPT='(venv) '
+++ export VIRTUAL_ENV_PROMPT
+++ hash -r
++ pip install -q 'sglang[all]'
++ python3 -m sglang.bench_serving --backend sglang --host 127.0.0.1 --port 30000 --model openai/gpt-oss-20b --dataset-name random --random-input-len 128 --random-output-len 128 --num-prompts 5 --max-concurrency 1 --request-rate inf --output-file /home/Ubuntu/mc-bench/sglang-c1.json
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/bench_serving.py", line 10, in <module>
+    from sglang.benchmark.serving import *  # noqa: F401,F403
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/serving.py", line 51, in <module>
+    from sglang.srt.disaggregation.utils import FAKE_BOOTSTRAP_HOST
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/disaggregation/utils.py", line 23, in <module>
+    from sglang.srt.configs.model_config import get_dsa_index_topk
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/configs/model_config.py", line 31, in <module>
+    from sglang.srt.layers.quantization import QUANTIZATION_METHODS
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/quantization/__init__.py", line 21, in <module>
+    from sglang.srt.layers.quantization.auto_round import AutoRoundConfig
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/quantization/auto_round.py", line 12, in <module>
+    from sglang.srt.layers.quantization.utils import get_scalar_types
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/quantization/utils.py", line 15, in <module>
+    from sglang.kernels.ops.quantization.fp8_kernel import scaled_fp8_quant
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/kernels/ops/quantization/fp8_kernel.py", line 33, in <module>
+    from sglang.srt.layers import deep_gemm_wrapper
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/__init__.py", line 1, in <module>
+    from .entrypoint import *
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/entrypoint.py", line 8, in <module>
+    from sglang.srt.layers.deep_gemm_wrapper import compile_utils
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/compile_utils.py", line 17, in <module>
+    from sglang.srt.layers.deep_gemm_wrapper.configurer import ENABLE_JIT_DEEPGEMM
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/configurer.py", line 35, in <module>
+    ENABLE_JIT_DEEPGEMM = _compute_enable_deep_gemm()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/configurer.py", line 28, in _compute_enable_deep_gemm
+    import deep_gemm  # noqa: F401
+    ^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/deep_gemm/__init__.py", line 443, in <module>
+    find_cuda_home()
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/deep_gemm/cuda_helpers.py", line 20, in find_cuda_home
+    assert cuda_home is not None
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError
++ tee /home/Ubuntu/mc-bench/sglang-c1.json
++ python3 -m sglang.bench_serving --backend sglang --host 127.0.0.1 --port 30000 --model openai/gpt-oss-20b --dataset-name random --random-input 128 --random-output 128 --num-prompts 5 --max-concurrency 1 --request-rate inf
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/bench_serving.py", line 10, in <module>
+    from sglang.benchmark.serving import *  # noqa: F401,F403
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/serving.py", line 51, in <module>
+    from sglang.srt.disaggregation.utils import FAKE_BOOTSTRAP_HOST
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/disaggregation/utils.py", line 23, in <module>
+    from sglang.srt.configs.model_config import get_dsa_index_topk
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/configs/model_config.py", line 31, in <module>
+    from sglang.srt.layers.quantization import QUANTIZATION_METHODS
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/quantization/__init__.py", line 21, in <module>
+    from sglang.srt.layers.quantization.auto_round import AutoRoundConfig
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/quantization/auto_round.py", line 12, in <module>
+    from sglang.srt.layers.quantization.utils import get_scalar_types
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/quantization/utils.py", line 15, in <module>
+    from sglang.kernels.ops.quantization.fp8_kernel import scaled_fp8_quant
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/kernels/ops/quantization/fp8_kernel.py", line 33, in <module>
+    from sglang.srt.layers import deep_gemm_wrapper
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/__init__.py", line 1, in <module>
+    from .entrypoint import *
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/entrypoint.py", line 8, in <module>
+    from sglang.srt.layers.deep_gemm_wrapper import compile_utils
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/compile_utils.py", line 17, in <module>
+    from sglang.srt.layers.deep_gemm_wrapper.configurer import ENABLE_JIT_DEEPGEMM
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/configurer.py", line 35, in <module>
+    ENABLE_JIT_DEEPGEMM = _compute_enable_deep_gemm()
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/srt/layers/deep_gemm_wrapper/configurer.py", line 28, in _compute_enable_deep_gemm
+    import deep_gemm  # noqa: F401
+    ^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/deep_gemm/__init__.py", line 443, in <module>
+    find_cuda_home()
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/deep_gemm/cuda_helpers.py", line 20, in find_cuda_home
+    assert cuda_home is not None
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError

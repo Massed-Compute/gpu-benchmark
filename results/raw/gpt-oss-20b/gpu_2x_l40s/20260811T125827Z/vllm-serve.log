@@ -1,0 +1,239 @@
+0b662574100be8eb70a00d2459b6d5c73c127f935f52817c2020a0e4bf6cdfea
+VLLM_READY profile=fp8-kv
+
++ MODEL=openai/gpt-oss-20b
++ TP=2
++ PORT=8000
++ HF_TOKEN=
++ export HUGGING_FACE_HUB_TOKEN=
++ HUGGING_FACE_HUB_TOKEN=
++ IMG=vllm/vllm-openai:nightly
++ MAX_LEN=8192
++ COMMON=(--model "$MODEL" --tensor-parallel-size "$TP" --max-model-len "$MAX_LEN" --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching --trust-remote-code --kv-cache-dtype fp8)
++ [[ 0 == \1 ]]
++ [[ -n '' ]]
++ _run
++ sudo docker rm -f vllm-bench
++ sudo docker run -d --name vllm-bench --gpus all --shm-size 16g -e HUGGING_FACE_HUB_TOKEN= -p 8000:8000 -v /home/Ubuntu/.cache/huggingface:/root/.cache/huggingface vllm/vllm-openai:nightly --model openai/gpt-oss-20b --tensor-parallel-size 2 --max-model-len 8192 --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching --trust-remote-code --kv-cache-dtype fp8
+Unable to find image 'vllm/vllm-openai:nightly' locally
+nightly: Pulling from vllm/vllm-openai
+cf57d2112d89: Pulling fs layer
+c567a87f21d2: Pulling fs layer
+0b3b5bd92824: Pulling fs layer
+70f87b6ed43e: Pulling fs layer
+526d5438c009: Pulling fs layer
+ca23732c742f: Pulling fs layer
+27d773bf5f97: Pulling fs layer
+62b2a3c509b5: Pulling fs layer
+d08003b39484: Pulling fs layer
+173879669727: Pulling fs layer
+57032b2e9f9a: Pulling fs layer
+8c19a0241db7: Pulling fs layer
+18a02ec5e7c0: Pulling fs layer
+58be3a6c0388: Pulling fs layer
+6f4c7b232d50: Pulling fs layer
+8ec8983efd61: Pulling fs layer
+d8c094310752: Pulling fs layer
+33c931bb091a: Pulling fs layer
+18485500305a: Pulling fs layer
+0b3fedd26e53: Pulling fs layer
+57032b2e9f9a: Waiting
+58be3a6c0388: Waiting
+18a02ec5e7c0: Waiting
+6f4c7b232d50: Waiting
+18485500305a: Waiting
+8c19a0241db7: Waiting
+33c931bb091a: Waiting
+0b3fedd26e53: Waiting
+d8c094310752: Waiting
+8ec8983efd61: Waiting
+ca23732c742f: Waiting
+526d5438c009: Waiting
+70f87b6ed43e: Waiting
+27d773bf5f97: Waiting
+d08003b39484: Waiting
+62b2a3c509b5: Waiting
+9dfe13836628: Pulling fs layer
+8f9d4c3f512e: Pulling fs layer
+173879669727: Waiting
+f94b00c3371e: Pulling fs layer
+bdeed46aa296: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+faa2c1a2576e: Pulling fs layer
+f073d3c8c8fd: Pulling fs layer
+f4a74d39e383: Pulling fs layer
+0868906c562f: Pulling fs layer
+161d8f6a5f83: Pulling fs layer
+8f9d4c3f512e: Waiting
+f4a74d39e383: Waiting
+1ff3a37fb23d: Pulling fs layer
+f073d3c8c8fd: Waiting
+f94b00c3371e: Waiting
+0868906c562f: Waiting
+faa2c1a2576e: Waiting
+4f4fb700ef54: Waiting
+bdeed46aa296: Waiting
+1ff3a37fb23d: Waiting
+c567a87f21d2: Verifying Checksum
+c567a87f21d2: Download complete
+cf57d2112d89: Verifying Checksum
+cf57d2112d89: Download complete
+70f87b6ed43e: Verifying Checksum
+70f87b6ed43e: Download complete
+526d5438c009: Verifying Checksum
+526d5438c009: Download complete
+27d773bf5f97: Verifying Checksum
+27d773bf5f97: Download complete
+ca23732c742f: Download complete
+0b3b5bd92824: Verifying Checksum
+0b3b5bd92824: Download complete
+cf57d2112d89: Pull complete
+173879669727: Verifying Checksum
+173879669727: Download complete
+c567a87f21d2: Pull complete
+57032b2e9f9a: Verifying Checksum
+57032b2e9f9a: Download complete
+8c19a0241db7: Download complete
+18a02ec5e7c0: Verifying Checksum
+18a02ec5e7c0: Download complete
+62b2a3c509b5: Verifying Checksum
+62b2a3c509b5: Download complete
+58be3a6c0388: Verifying Checksum
+58be3a6c0388: Download complete
+6f4c7b232d50: Verifying Checksum
+6f4c7b232d50: Download complete
+8ec8983efd61: Verifying Checksum
+8ec8983efd61: Download complete
+0b3b5bd92824: Pull complete
+70f87b6ed43e: Pull complete
+526d5438c009: Pull complete
+ca23732c742f: Pull complete
+27d773bf5f97: Pull complete
+d08003b39484: Verifying Checksum
+d08003b39484: Download complete
+18485500305a: Verifying Checksum
+18485500305a: Download complete
+0b3fedd26e53: Verifying Checksum
+0b3fedd26e53: Download complete
+62b2a3c509b5: Pull complete
+9dfe13836628: Verifying Checksum
+9dfe13836628: Download complete
+8f9d4c3f512e: Download complete
+f94b00c3371e: Verifying Checksum
+f94b00c3371e: Download complete
+bdeed46aa296: Verifying Checksum
+bdeed46aa296: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+faa2c1a2576e: Verifying Checksum
+faa2c1a2576e: Download complete
+33c931bb091a: Verifying Checksum
+33c931bb091a: Download complete
+f073d3c8c8fd: Verifying Checksum
+f073d3c8c8fd: Download complete
+f4a74d39e383: Verifying Checksum
+f4a74d39e383: Download complete
+0868906c562f: Verifying Checksum
+0868906c562f: Download complete
+161d8f6a5f83: Verifying Checksum
+161d8f6a5f83: Download complete
+1ff3a37fb23d: Download complete
+d8c094310752: Verifying Checksum
+d8c094310752: Download complete
+d08003b39484: Pull complete
+173879669727: Pull complete
+57032b2e9f9a: Pull complete
+8c19a0241db7: Pull complete
+18a02ec5e7c0: Pull complete
+58be3a6c0388: Pull complete
+6f4c7b232d50: Pull complete
+8ec8983efd61: Pull complete
+d8c094310752: Pull complete
+33c931bb091a: Pull complete
+18485500305a: Pull complete
+0b3fedd26e53: Pull complete
+9dfe13836628: Pull complete
+8f9d4c3f512e: Pull complete
+f94b00c3371e: Pull complete
+bdeed46aa296: Pull complete
+4f4fb700ef54: Pull complete
+faa2c1a2576e: Pull complete
+f073d3c8c8fd: Pull complete
+f4a74d39e383: Pull complete
+0868906c562f: Pull complete
+161d8f6a5f83: Pull complete
+1ff3a37fb23d: Pull complete
+Digest: sha256:cec2df507519b5a2c4d9870524f86a2a100fae79cb689d1ce11f3d4da2f4ffad
+Status: Downloaded newer image for vllm/vllm-openai:nightly
++ _wait
+++ seq 1 360
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ grep -q .
++ sudo docker ps -q -f name=vllm-bench
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ return 0
++ echo VLLM_READY profile=fp8-kv
++ exit 0
