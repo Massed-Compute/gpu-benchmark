@@ -62,7 +62,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Image / Video
 
-- [MiniMax H3 FL2VA (1×/2×/4× Blackwell)](./minimax-h3/minimax-h3.md)
+- [MiniMax H3 (FL2VA / ComfyUI Ref2VA / Atlántida)](./minimax-h3/minimax-h3.md)
 - [Krea 2 Turbo](./krea-2-turbo/krea-2-turbo.md)
 - [Bernini-R 14B](./bernini-r-14b/bernini-r-14b.md)
 

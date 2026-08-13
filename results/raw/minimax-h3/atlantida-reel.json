@@ -1,0 +1,67 @@
+{
+  "source": "http://64.247.196.28:8190/ captured 2026-08-13",
+  "host_ip": "64.247.196.28",
+  "host_card_from_comparison": "L40S (45458 MiB, Ada sm_89) — same IP as l40s tier in comfyui-ref2va-comparison.json",
+  "page_subtitle_card": "4x RTX 6000 Ada (page copy; 48 GB Ada class). Trust comparison nvidia-smi (L40S) over the HTML subtitle until a driver dump is attached.",
+  "page_title": "MiniMax H3 — 20.000 Leguas de Viaje Submarino / La Atlántida",
+  "operating_point_from_page": {
+    "resolution": "1344x768",
+    "steps": 25,
+    "sampler": "res_multistep + simple",
+    "sigma_shift": "12/3",
+    "attention": "SageAttention",
+    "gpu_count_claimed": 4
+  },
+  "mp4_metadata_checkpoint": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+  "mp4_probe": {
+    "05_INT8_default_Comfy.mp4": {"duration_s": 5.17, "size": "1344x768", "fps": 24, "audio": "aac 32 kHz stereo", "bytes": 1201711},
+    "ATL_2_revelacion.mp4": {"duration_s": 8.71, "size": "1344x768", "fps": 24, "audio": "aac 32 kHz stereo", "bytes": 1920929}
+  },
+  "film_shots": [
+    {"id": "ATL_01_pasillo", "title": "Nemo en el pasillo con la lampara", "wall_s": 1047, "vram_gb": 47.4, "audio_db": -39.4},
+    {"id": "ATL_02_casco", "title": "Le sellan el casco de cobre", "wall_s": 1107, "vram_gb": 47.4, "audio_db": -37.6},
+    {"id": "ATL_03_esclusa", "title": "La esclusa se inunda, se abre la escotilla", "wall_s": 1057, "vram_gb": 47.4, "audio_db": -25.9},
+    {"id": "ATL_04_primerpaso", "title": "Primer paso en el fondo marino", "wall_s": 1102, "vram_gb": 47.4, "audio_db": -33.7},
+    {"id": "ATL_1_ascenso", "title": "El ascenso por la ladera volcanica", "wall_s": 1087, "vram_gb": 43.4, "audio_db": -38.2},
+    {"id": "ATL_2_revelacion", "title": "La revelacion de la ciudad", "wall_s": 1152, "vram_gb": 43.4, "audio_db": -33.1},
+    {"id": "ATL_3_columnas", "title": "Entre las columnas doricas", "wall_s": 1102, "vram_gb": 43.4, "audio_db": -33.8},
+    {"id": "ATL_08_portico", "title": "El portico del templo", "wall_s": 1052, "vram_gb": 47.4, "audio_db": -35.7},
+    {"id": "ATL_4_inscripcion", "title": "ATLANTIS grabado en el basalto", "wall_s": 1147, "vram_gb": 43.4, "audio_db": -24.1},
+    {"id": "ATL_10_general", "title": "Plano general: los buzos ante la ciudad", "wall_s": 1112, "vram_gb": 47.4, "audio_db": -32.3},
+    {"id": "ATL_11_regreso", "title": "El regreso hacia el Nautilus", "wall_s": 1057, "vram_gb": 47.4, "audio_db": -29.8},
+    {"id": "ATL_12_nemo", "title": "Nemo sin casco - la ultima linea", "wall_s": 1107, "vram_gb": 47.4, "audio_db": -33.0}
+  ],
+  "film_shots_mean_wall_s": 1094.1,
+  "dramatic_shots": [
+    {"id": "DRM_13_temblor", "title": "El temblor - el volcan despierta", "wall_s": 1552, "vram_gb": 45.4, "audio_db": -15.5},
+    {"id": "DRM_14_derrumbe", "title": "La columna se derrumba", "wall_s": 1648, "vram_gb": 45.4, "audio_db": -14.0},
+    {"id": "DRM_15_atrapado", "title": "Atrapado bajo la piedra", "wall_s": 1562, "vram_gb": 45.4, "audio_db": -22.4},
+    {"id": "DRM_16_escape", "title": "El escape hacia el Nautilus", "wall_s": 1633, "vram_gb": 45.4, "audio_db": -15.3}
+  ],
+  "dramatic_shots_mean_wall_s": 1598.8,
+  "config_ab": [
+    {"id": "01_BF16_maxima_calidad", "label": "BF16 completo", "wall_s": 791, "vram_gb": 46.9, "weight_gb": 61.7, "notes": "seed 20000"},
+    {"id": "01b_BF16_toma2", "label": "BF16 completo - toma 2", "wall_s": 997, "vram_gb": 46.2, "weight_gb": 61.7, "notes": "seed 777777"},
+    {"id": "02_pruned_BF16", "label": "pruned BF16", "wall_s": 320, "vram_gb": 47.2, "weight_gb": 37.5},
+    {"id": "03_Q8_0", "label": "GGUF Q8_0", "wall_s": 356, "vram_gb": 46.3, "weight_gb": 33.6},
+    {"id": "04_FP8_nativo_Ada", "label": "FP8 nativo Ada", "wall_s": 616, "vram_gb": 46.3, "weight_gb": 19.5, "notes": "page: no existe en A6000"},
+    {"id": "05_INT8_default_Comfy", "label": "INT8 pruned", "wall_s": 486, "vram_gb": 46.4, "weight_gb": 19.5, "notes": "fastest non-turbo on this board"},
+    {"id": "06_Q5_K_M", "label": "GGUF Q5_K_M", "wall_s": 796, "vram_gb": 39.2, "weight_gb": 22.3},
+    {"id": "07_Q4_K_M", "label": "GGUF Q4_K_M", "wall_s": 771, "vram_gb": 34.3, "weight_gb": 18.5},
+    {"id": "08_Q3_K_M_minimo", "label": "GGUF Q3_K_M", "wall_s": 361, "vram_gb": 35.2, "weight_gb": 14.5},
+    {"id": "09_Turbo_8steps_rapido", "label": "Turbo LoRA 8 steps", "wall_s": 212, "vram_gb": 46.5, "notes": "euler"},
+    {"id": "10_Turbo_4steps_max_vel", "label": "Turbo LoRA 4 steps", "wall_s": 166, "vram_gb": 46.3, "notes": "euler; audio degraded"},
+    {"id": "LARGO_BF16_209f", "label": "BF16 largo 8.71s", "wall_s": 1528, "vram_gb": 46.8, "notes": "209 frames; 4 GPUs as VRAM pool"}
+  ],
+  "other": [
+    {"id": "MULTISHOT_10s_3planos", "wall_s": 1542, "vram_gb": 43.9, "audio_db": -15.7, "notes": "10.8s, three shots in one generation"},
+    {"id": "ONESHOT_14s_3planos", "wall_s": 2479, "vram_gb": 34.4, "audio_db": -13.9}
+  ],
+  "assembled": {
+    "trailer_s": 58,
+    "teaser_s": 38,
+    "film_runtime": "1:44",
+    "film_shots": 12
+  },
+  "method_warning": "Page used SageAttention. Series B (comfyui-ref2va-comparison.json) rejected Sage on L40S at SSIM 0.858 vs production default. Do not treat Atlántida wall times as the production INT8 20-step operating point."
+}
