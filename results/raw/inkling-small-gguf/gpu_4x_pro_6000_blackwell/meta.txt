@@ -1,0 +1,4 @@
+QUANT=Q8_0
+MODEL_REL=Inkling-Small-GGUF/Q8_0
+build_commit=unknown
+build_commit_note=Original capture JSON reports build_commit=unknown; remote_inkling_gguf.sh now writes LLAMA_REV from git rev-parse HEAD and samples nvidia-smi during the run.
