@@ -1,0 +1,36 @@
+BOOTSTRAP_OK
+
++ sudo apt-get update -qq
++ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-venv python3-pip git curl jq
++ sudo systemctl enable --now docker
+Synchronizing state of docker.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable docker
++ mkdir -p /home/Ubuntu/mc-bench /home/Ubuntu/.cache/huggingface
++ python3 -m venv /home/Ubuntu/mc-bench/venv
++ . /home/Ubuntu/mc-bench/venv/bin/activate
+++ deactivate nondestructive
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV=/home/Ubuntu/mc-bench/venv
+++ VIRTUAL_ENV=/home/Ubuntu/mc-bench/venv
+++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/Ubuntu/mc-bench/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(venv) '
+++ export PS1
+++ VIRTUAL_ENV_PROMPT='(venv) '
+++ export VIRTUAL_ENV_PROMPT
+++ hash -r
++ pip install -q -U pip wheel
++ pip install -q 'openai>=1.40' aiohttp numpy transformers datasets pillow pandas
++ echo BOOTSTRAP_OK

@@ -17,6 +17,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 - [Muse Glimmer 30B](./muse-glimmer-30b/muse-glimmer-30b.md)
 - [Inkling-Small GGUF (1×/2×/4× Blackwell)](./inkling-small-gguf/inkling-small-gguf.md)
+- [DeepSeek-V4-Flash-0731 (4× Blackwell SGLang)](./deepseek-v4-flash-0731/deepseek-v4-flash-0731.md)
 
 ### Llama
 

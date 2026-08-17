@@ -1,0 +1,274 @@
+cc857c890ea9ba4316a472e44f141fc11c472f392cff8b4192873e27071cfadb
+cbaa99c62401dd0989a3cce4920b48b559cd46b637757564c9d6a765011f4f34
+
++ MODEL=deepseek-ai/DeepSeek-V4-Flash-0731
++ TP=1
++ PORT=8000
++ HF_TOKEN=hf_REDACTED
++ export HUGGING_FACE_HUB_TOKEN=hf_REDACTED
++ HUGGING_FACE_HUB_TOKEN=hf_REDACTED
++ IMG=vllm/vllm-openai:nightly
++ COMMON=(--model "$MODEL" --tensor-parallel-size "$TP" --max-model-len 8192 --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching --trust-remote-code)
++ [[ 0 == \1 ]]
++ _run --kv-cache-dtype fp8
++ extra=('--kv-cache-dtype' 'fp8')
++ local extra
++ sudo docker rm -f vllm-bench
++ sudo docker run -d --name vllm-bench --gpus all --shm-size 16g -e HUGGING_FACE_HUB_TOKEN=hf_REDACTED -p 8000:8000 -v /home/Ubuntu/.cache/huggingface:/root/.cache/huggingface vllm/vllm-openai:nightly --model deepseek-ai/DeepSeek-V4-Flash-0731 --tensor-parallel-size 1 --max-model-len 8192 --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching --trust-remote-code --kv-cache-dtype fp8
++ _wait
+++ seq 1 180
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ return 1
++ echo 'FP8 KV profile failed; retrying without --kv-cache-dtype fp8'
+FP8 KV profile failed; retrying without --kv-cache-dtype fp8
++ sudo docker logs --tail 80 vllm-bench
+(EngineCore pid=232)     self.experts = FusedMoEFactory(
+(EngineCore pid=232)                    ^^^^^^^^^^^^^^^^
+(EngineCore pid=232)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/layer.py", line 372, in FusedMoEFactory
+(EngineCore pid=232)     routed_experts = routed_experts_cls(
+(EngineCore pid=232)                      ^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=232)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/routed_experts.py", line 173, in __init__
+(EngineCore pid=232)     self.quant_method.create_weights(layer=self, **moe_quant_params)
+(EngineCore pid=232)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/quantization/mxfp4.py", line 626, in create_weights
+(EngineCore pid=232)     torch.zeros(
+(EngineCore pid=232)   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_device.py", line 122, in __torch_function__
+(EngineCore pid=232)     return func(*args, **kwargs)
+(EngineCore pid=232)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=232) torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 139.80 GiB of which 771.12 MiB is free. Including non-PyTorch memory, this process has 139.04 GiB memory in use. Of the allocated memory 138.37 GiB is allocated by PyTorch, and 4.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[rank0]:[W804 15:33:08.386277519 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+(APIServer pid=1) INFO 08-04 15:33:09 [utils.py:612] [shutdown] Process manager: send sigterm to process EngineCore
+(APIServer pid=1) Traceback (most recent call last):
+(APIServer pid=1)   File "/usr/local/bin/vllm", line 10, in <module>
+(APIServer pid=1)     sys.exit(main())
+(APIServer pid=1)              ^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 97, in main
+(APIServer pid=1)     args.dispatch_function(args)
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 152, in cmd
+(APIServer pid=1)     uvloop.run(run_server(args))
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=1)     return __asyncio.run(
+(APIServer pid=1)            ^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=1)     return runner.run(main)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=1)     return self._loop.run_until_complete(task)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=1)     return await main
+(APIServer pid=1)            ^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 764, in run_server
+(APIServer pid=1)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 778, in run_server_worker
+(APIServer pid=1)     async with build_async_engine_client(
+(APIServer pid=1)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=1)     return await anext(self.gen)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 132, in build_async_engine_client
+(APIServer pid=1)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=1)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=1)     return await anext(self.gen)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 168, in build_async_engine_client_from_engine_args
+(APIServer pid=1)     async_llm = AsyncLLM.from_vllm_config(
+(APIServer pid=1)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 220, in from_vllm_config
+(APIServer pid=1)     return cls(
+(APIServer pid=1)            ^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 149, in __init__
+(APIServer pid=1)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(APIServer pid=1)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=1)     return func(*args, **kwargs)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 139, in make_async_mp_client
+(APIServer pid=1)     return AsyncMPClient(*client_args)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=1)     return func(*args, **kwargs)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 987, in __init__
+(APIServer pid=1)     super().__init__(
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 609, in __init__
+(APIServer pid=1)     with launch_core_engines(
+(APIServer pid=1)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=1)     next(self.gen)
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1194, in launch_core_engines
+(APIServer pid=1)     wait_for_engine_startup(
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1253, in wait_for_engine_startup
+(APIServer pid=1)     raise RuntimeError(
+(APIServer pid=1) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
++ _run
++ extra=()
++ local extra
++ sudo docker rm -f vllm-bench
++ sudo docker run -d --name vllm-bench --gpus all --shm-size 16g -e HUGGING_FACE_HUB_TOKEN=hf_REDACTED -p 8000:8000 -v /home/Ubuntu/.cache/huggingface:/root/.cache/huggingface vllm/vllm-openai:nightly --model deepseek-ai/DeepSeek-V4-Flash-0731 --tensor-parallel-size 1 --max-model-len 8192 --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching --trust-remote-code
++ _wait
+++ seq 1 180
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 180)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ return 1
++ sudo docker logs --tail 100 vllm-bench
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/utils.py", line 62, in initialize_model
+(EngineCore pid=230)     model = model_class(vllm_config=vllm_config, prefix=prefix)
+(EngineCore pid=230)             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v4/nvidia/model.py", line 1475, in __init__
+(EngineCore pid=230)     self.model = self.model_cls(
+(EngineCore pid=230)                  ^^^^^^^^^^^^^^^
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v4/nvidia/model.py", line 1059, in __init__
+(EngineCore pid=230)     self.start_layer, self.end_layer, self.layers = make_layers(
+(EngineCore pid=230)                                                     ^^^^^^^^^^^^
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/utils.py", line 812, in make_layers
+(EngineCore pid=230)     + get_offloader().wrap_modules(
+(EngineCore pid=230)       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/offloader/base.py", line 104, in wrap_modules
+(EngineCore pid=230)     return list(modules_generator)
+(EngineCore pid=230)            ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/utils.py", line 813, in <genexpr>
+(EngineCore pid=230)     layer_fn(prefix=f"{prefix}.{idx}") for idx in range(start_layer, end_layer)
+(EngineCore pid=230)     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v4/nvidia/model.py", line 1061, in <lambda>
+(EngineCore pid=230)     lambda prefix: DeepseekV4DecoderLayer(
+(EngineCore pid=230)                    ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v4/nvidia/model.py", line 832, in __init__
+(EngineCore pid=230)     self.attn = _select_dsv4_attn_cls(vllm_config)(
+(EngineCore pid=230)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v4/nvidia/flashmla.py", line 40, in __init__
+(EngineCore pid=230)     super().__init__(*args, **kwargs)
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v4/attention.py", line 315, in __init__
+(EngineCore pid=230)     self.kv_cache_dtype, self.kv_cache_torch_dtype = _resolve_dsv4_kv_cache_dtype(
+(EngineCore pid=230)                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=230)   File "/usr/local/lib/python3.12/dist-packages/vllm/models/deepseek_v4/attention.py", line 105, in _resolve_dsv4_kv_cache_dtype
+(EngineCore pid=230)     assert kv_cache_dtype.startswith("fp8"), (
+(EngineCore pid=230)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=230) AssertionError: DeepseekV4 fp8_ds_mla layout only supports fp8 kv-cache, got auto
+[rank0]:[W804 15:33:56.032190867 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+(APIServer pid=1) INFO 08-04 15:33:57 [utils.py:612] [shutdown] Process manager: send sigterm to process EngineCore
+(APIServer pid=1) Traceback (most recent call last):
+(APIServer pid=1)   File "/usr/local/bin/vllm", line 10, in <module>
+(APIServer pid=1)     sys.exit(main())
+(APIServer pid=1)              ^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 97, in main
+(APIServer pid=1)     args.dispatch_function(args)
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 152, in cmd
+(APIServer pid=1)     uvloop.run(run_server(args))
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=1)     return __asyncio.run(
+(APIServer pid=1)            ^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=1)     return runner.run(main)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=1)     return self._loop.run_until_complete(task)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=1)     return await main
+(APIServer pid=1)            ^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 764, in run_server
+(APIServer pid=1)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 778, in run_server_worker
+(APIServer pid=1)     async with build_async_engine_client(
+(APIServer pid=1)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=1)     return await anext(self.gen)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 132, in build_async_engine_client
+(APIServer pid=1)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=1)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=1)     return await anext(self.gen)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 168, in build_async_engine_client_from_engine_args
+(APIServer pid=1)     async_llm = AsyncLLM.from_vllm_config(
+(APIServer pid=1)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 220, in from_vllm_config
+(APIServer pid=1)     return cls(
+(APIServer pid=1)            ^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/async_llm.py", line 149, in __init__
+(APIServer pid=1)     self.engine_core = EngineCoreClient.make_async_mp_client(
+(APIServer pid=1)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=1)     return func(*args, **kwargs)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 139, in make_async_mp_client
+(APIServer pid=1)     return AsyncMPClient(*client_args)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(APIServer pid=1)     return func(*args, **kwargs)
+(APIServer pid=1)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 987, in __init__
+(APIServer pid=1)     super().__init__(
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py", line 609, in __init__
+(APIServer pid=1)     with launch_core_engines(
+(APIServer pid=1)          ^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=1)   File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+(APIServer pid=1)     next(self.gen)
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1194, in launch_core_engines
+(APIServer pid=1)     wait_for_engine_startup(
+(APIServer pid=1)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1253, in wait_for_engine_startup
+(APIServer pid=1)     raise RuntimeError(
+(APIServer pid=1) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
++ exit 1
+++ '[' 1 = 1 ']'
+++ '[' -x /usr/bin/clear_console ']'
+++ /usr/bin/clear_console -q
