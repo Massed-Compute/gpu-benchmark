@@ -1,0 +1,74 @@
+1b9fb915053150820063ffa4f70313c911dd54b7c8da5678e07f8fe67b64079f
+VLLM_READY profile=fp8-kv
+
++ MODEL=openai/gpt-oss-20b
++ TP=1
++ PORT=8000
++ HF_TOKEN=
++ export HUGGING_FACE_HUB_TOKEN=
++ HUGGING_FACE_HUB_TOKEN=
++ IMG=vllm/vllm-openai:nightly
++ MAX_LEN=8192
++ COMMON=(--model "$MODEL" --tensor-parallel-size "$TP" --max-model-len "$MAX_LEN" --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching --trust-remote-code --kv-cache-dtype fp8)
++ [[ 0 == \1 ]]
++ [[ -n '' ]]
++ _run
++ sudo docker rm -f vllm-bench
++ sudo docker run -d --name vllm-bench --gpus all --shm-size 16g -e HUGGING_FACE_HUB_TOKEN= -p 8000:8000 -v /home/Ubuntu/.cache/huggingface:/root/.cache/huggingface vllm/vllm-openai:nightly --model openai/gpt-oss-20b --tensor-parallel-size 1 --max-model-len 8192 --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --enable-prefix-caching --trust-remote-code --kv-cache-dtype fp8
++ _wait
+++ seq 1 360
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ grep -q .
++ sudo docker ps -q -f name=vllm-bench
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ sudo docker ps -q -f name=vllm-bench
++ grep -q .
++ sleep 10
++ for i in $(seq 1 360)
++ curl -sf http://127.0.0.1:8000/v1/models
++ return 0
++ echo VLLM_READY profile=fp8-kv
++ exit 0

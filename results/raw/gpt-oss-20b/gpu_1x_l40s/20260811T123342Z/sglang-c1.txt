@@ -1,0 +1,119 @@
+benchmark_args=Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=30000, ready_check_timeout_sec=60, dataset_name='random', dataset_path='', dataset_offset=0, agentic_max_turns=None, speed_bench_category=None, speed_bench_output_len=512, model='openai/gpt-oss-20b', served_model_name=None, tokenizer=None, num_prompts=5, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=128, random_output_len=128, random_range_ratio=0.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=1, output_file='/home/Ubuntu/mc-bench/sglang-c1.json', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, cache_report=False, seed=42, disable_ignore_eos=False, temperature=0.0, top_p=1.0, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, gsp_group_distribution='uniform', gsp_zipf_alpha=None, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+Waiting up to 60s for http://127.0.0.1:30000/v1/models to become ready...
+Server ready in 0.0s.
+Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=30000, ready_check_timeout_sec=60, dataset_name='random', dataset_path='', dataset_offset=0, agentic_max_turns=None, speed_bench_category=None, speed_bench_output_len=512, model='openai/gpt-oss-20b', served_model_name=None, tokenizer=None, num_prompts=5, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=128, random_output_len=128, random_range_ratio=0.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=1, output_file='/home/Ubuntu/mc-bench/sglang-c1.json', output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, cache_report=False, seed=42, disable_ignore_eos=False, temperature=0.0, top_p=1.0, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, gsp_group_distribution='uniform', gsp_zipf_alpha=None, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+
+benchmark_args=Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=30000, ready_check_timeout_sec=60, dataset_name='random', dataset_path='', dataset_offset=0, agentic_max_turns=None, speed_bench_category=None, speed_bench_output_len=512, model='openai/gpt-oss-20b', served_model_name=None, tokenizer=None, num_prompts=5, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=128, random_output_len=128, random_range_ratio=0.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=1, output_file=None, output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, cache_report=False, seed=42, disable_ignore_eos=False, temperature=0.0, top_p=1.0, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, gsp_group_distribution='uniform', gsp_zipf_alpha=None, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+Waiting up to 60s for http://127.0.0.1:30000/v1/models to become ready...
+Server ready in 0.0s.
+Namespace(backend='sglang', base_url=None, host='127.0.0.1', port=30000, ready_check_timeout_sec=60, dataset_name='random', dataset_path='', dataset_offset=0, agentic_max_turns=None, speed_bench_category=None, speed_bench_output_len=512, model='openai/gpt-oss-20b', served_model_name=None, tokenizer=None, num_prompts=5, sharegpt_output_len=None, sharegpt_context_len=None, random_input_len=128, random_output_len=128, random_range_ratio=0.0, image_count=1, image_resolution='1080p', random_image_count=False, image_format='jpeg', image_content='random', request_rate=inf, use_trace_timestamps=False, max_concurrency=1, output_file=None, output_details=False, print_requests=False, disable_tqdm=False, disable_stream=False, return_logprob=False, top_logprobs_num=0, token_ids_logprob=None, logprob_start_len=-1, return_routed_experts=False, cache_report=False, seed=42, disable_ignore_eos=False, temperature=0.0, top_p=1.0, extra_request_body=None, apply_chat_template=False, profile=False, plot_throughput=False, profile_activities=['CPU', 'GPU'], profile_start_step=None, profile_steps=None, profile_num_steps=None, profile_by_stage=False, profile_stages=None, profile_output_dir=None, profile_prefix=None, lora_name=None, lora_request_distribution='uniform', lora_zipf_alpha=1.5, prompt_suffix='', pd_separated=False, profile_prefill_url=None, profile_decode_url=None, flush_cache=False, warmup_requests=1, tokenize_prompt=False, gsp_num_groups=64, gsp_prompts_per_group=16, gsp_system_prompt_len=2048, gsp_question_len=128, gsp_output_len=256, gsp_range_ratio=1.0, gsp_fast_prepare=False, gsp_send_routing_key=False, gsp_num_turns=1, gsp_ordered=False, gsp_group_distribution='uniform', gsp_zipf_alpha=None, mooncake_slowdown_factor=1.0, mooncake_num_rounds=1, mooncake_workload='conversation', fake_prefill=False, tag=None, header=None)
+
+
++ MODEL=openai/gpt-oss-20b
++ PORT=30000
++ OUT=/home/Ubuntu/mc-bench/sglang-c1.json
++ CONC=1
++ . /home/Ubuntu/mc-bench/venv/bin/activate
+++ deactivate nondestructive
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV=/home/Ubuntu/mc-bench/venv
+++ VIRTUAL_ENV=/home/Ubuntu/mc-bench/venv
+++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/Ubuntu/mc-bench/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(venv) '
+++ export PS1
+++ VIRTUAL_ENV_PROMPT='(venv) '
+++ export VIRTUAL_ENV_PROMPT
+++ hash -r
++ pip install -q 'sglang[all]'
++ python3 -m sglang.bench_serving --backend sglang --host 127.0.0.1 --port 30000 --model openai/gpt-oss-20b --dataset-name random --random-input-len 128 --random-output-len 128 --num-prompts 5 --max-concurrency 1 --request-rate inf --output-file /home/Ubuntu/mc-bench/sglang-c1.json
+/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/bench_serving.py:13: FutureWarning: `sglang.bench_serving` is deprecated and will be removed in a future release; use `sglang.benchmark.serving` instead (e.g. `python -m sglang.benchmark.serving`).
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Ignoring corrupted tree cache file /home/Ubuntu/.cache/huggingface/hub/models--openai--gpt-oss-20b/trees/6cee5e81ee83917806bbde320786a8fb61efebee.json: [Errno 13] Permission denied: '/home/Ubuntu/.cache/huggingface/hub/models--openai--gpt-oss-20b/trees/6cee5e81ee83917806bbde320786a8fb61efebee.json'
+Ignoring corrupted tree cache file /home/Ubuntu/.cache/huggingface/hub/models--openai--gpt-oss-20b/trees/6cee5e81ee83917806bbde320786a8fb61efebee.json: [Errno 13] Permission denied: '/home/Ubuntu/.cache/huggingface/hub/models--openai--gpt-oss-20b/trees/6cee5e81ee83917806bbde320786a8fb61efebee.json'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/bench_serving.py", line 22, in <module>
+    cli_main()
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/serving.py", line 2724, in cli_main
+    run_benchmark(args)
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/serving.py", line 2091, in run_benchmark
+    input_requests = get_dataset(args, tokenizer, model_id)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/datasets/__init__.py", line 46, in get_dataset
+    return dataset.load(tokenizer=tokenizer, model_id=model_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/datasets/random.py", line 45, in load
+    return sample_random_requests(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/datasets/random.py", line 89, in sample_random_requests
+    dataset_path = download_and_cache_hf_file(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/utils.py", line 94, in download_and_cache_hf_file
+    return hf_hub_download(repo_id=repo_id, filename=filename, repo_type=repo_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1019, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1196, in _hf_hub_download_to_cache_dir
+    os.makedirs(os.path.dirname(blob_path), exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+PermissionError: [Errno 13] Permission denied: '/home/Ubuntu/.cache/huggingface/hub/datasets--anon8231489123--ShareGPT_Vicuna_unfiltered'
++ python3 -m sglang.bench_serving --backend sglang --host 127.0.0.1 --port 30000 --model openai/gpt-oss-20b --dataset-name random --random-input 128 --random-output 128 --num-prompts 5 --max-concurrency 1 --request-rate inf
++ tee /home/Ubuntu/mc-bench/sglang-c1.json
+/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/bench_serving.py:13: FutureWarning: `sglang.bench_serving` is deprecated and will be removed in a future release; use `sglang.benchmark.serving` instead (e.g. `python -m sglang.benchmark.serving`).
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Ignoring corrupted tree cache file /home/Ubuntu/.cache/huggingface/hub/models--openai--gpt-oss-20b/trees/6cee5e81ee83917806bbde320786a8fb61efebee.json: [Errno 13] Permission denied: '/home/Ubuntu/.cache/huggingface/hub/models--openai--gpt-oss-20b/trees/6cee5e81ee83917806bbde320786a8fb61efebee.json'
+Ignoring corrupted tree cache file /home/Ubuntu/.cache/huggingface/hub/models--openai--gpt-oss-20b/trees/6cee5e81ee83917806bbde320786a8fb61efebee.json: [Errno 13] Permission denied: '/home/Ubuntu/.cache/huggingface/hub/models--openai--gpt-oss-20b/trees/6cee5e81ee83917806bbde320786a8fb61efebee.json'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/bench_serving.py", line 22, in <module>
+    cli_main()
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/serving.py", line 2724, in cli_main
+    run_benchmark(args)
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/serving.py", line 2091, in run_benchmark
+    input_requests = get_dataset(args, tokenizer, model_id)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/datasets/__init__.py", line 46, in get_dataset
+    return dataset.load(tokenizer=tokenizer, model_id=model_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/datasets/random.py", line 45, in load
+    return sample_random_requests(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/datasets/random.py", line 89, in sample_random_requests
+    dataset_path = download_and_cache_hf_file(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/sglang/benchmark/utils.py", line 94, in download_and_cache_hf_file
+    return hf_hub_download(repo_id=repo_id, filename=filename, repo_type=repo_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1019, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/Ubuntu/mc-bench/venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1196, in _hf_hub_download_to_cache_dir
+    os.makedirs(os.path.dirname(blob_path), exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+PermissionError: [Errno 13] Permission denied: '/home/Ubuntu/.cache/huggingface/hub/datasets--anon8231489123--ShareGPT_Vicuna_unfiltered'

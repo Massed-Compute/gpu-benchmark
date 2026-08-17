@@ -1,0 +1,96 @@
+{
+  "id": "20260811T125827Z-gpu_2x_l40s",
+  "date": "2026-08-11",
+  "model": {
+    "hf_id": "openai/gpt-oss-20b"
+  },
+  "hardware": {
+    "sku": "gpu_2x_l40s",
+    "count": 2,
+    "price_usd_per_hour": 1.76
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_2x_l40s",
+      "gpu_count": 2,
+      "price_usd_per_hour": 1.76,
+      "max_concurrency": 1,
+      "metrics": {
+        "request_s": 1.47,
+        "output_tok_s": 188.76,
+        "ttft_ms_mean": 128.62,
+        "ttft_ms_p50": 21.65,
+        "tpot_ms_mean": 4.32,
+        "tpot_ms_p50": 4.32
+      },
+      "raw_stdout_path": "results/raw/gpt-oss-20b/gpu_2x_l40s/20260811T125827Z/vllm-c1.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_2x_l40s",
+      "gpu_count": 2,
+      "price_usd_per_hour": 1.76,
+      "max_concurrency": 8,
+      "metrics": {
+        "request_s": 7.62,
+        "output_tok_s": 975.3,
+        "ttft_ms_mean": 50.9,
+        "ttft_ms_p50": 52.08,
+        "tpot_ms_mean": 7.85,
+        "tpot_ms_p50": 7.97
+      },
+      "raw_stdout_path": "results/raw/gpt-oss-20b/gpu_2x_l40s/20260811T125827Z/vllm-c8.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_2x_l40s",
+      "gpu_count": 2,
+      "price_usd_per_hour": 1.76,
+      "max_concurrency": 32,
+      "metrics": {
+        "request_s": 19.33,
+        "output_tok_s": 2474.29,
+        "ttft_ms_mean": 111.4,
+        "ttft_ms_p50": 104.28,
+        "tpot_ms_mean": 12.12,
+        "tpot_ms_p50": 12.05
+      },
+      "raw_stdout_path": "results/raw/gpt-oss-20b/gpu_2x_l40s/20260811T125827Z/vllm-c32.txt",
+      "screenshot": "gpt-oss-20b/images/2xL40S-vllm-showcase.png"
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_2x_l40s",
+      "gpu_count": 2,
+      "price_usd_per_hour": 1.76,
+      "max_concurrency": 1,
+      "metrics": {},
+      "raw_stdout_path": "results/raw/gpt-oss-20b/gpu_2x_l40s/20260811T125827Z/sglang-c1.txt",
+      "status": "failed",
+      "failure": "SGLang bench failed; see raw_stdout_path / serve log. No showcase produced."
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_2x_l40s",
+      "gpu_count": 2,
+      "price_usd_per_hour": 1.76,
+      "max_concurrency": 8,
+      "metrics": {},
+      "raw_stdout_path": "results/raw/gpt-oss-20b/gpu_2x_l40s/20260811T125827Z/sglang-c8.txt",
+      "status": "failed",
+      "failure": "SGLang bench failed; see raw_stdout_path / serve log. No showcase produced."
+    },
+    {
+      "engine": "sglang",
+      "sku": "gpu_2x_l40s",
+      "gpu_count": 2,
+      "price_usd_per_hour": 1.76,
+      "max_concurrency": 32,
+      "metrics": {},
+      "raw_stdout_path": "results/raw/gpt-oss-20b/gpu_2x_l40s/20260811T125827Z/sglang-c32.txt",
+      "status": "failed",
+      "failure": "SGLang bench failed; see raw_stdout_path / serve log. No showcase produced."
+    }
+  ]
+}
