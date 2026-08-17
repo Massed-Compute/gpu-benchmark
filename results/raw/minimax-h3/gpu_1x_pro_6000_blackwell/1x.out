@@ -1,0 +1,40 @@
+5c37014ad167b91cba1f5454ee44d82b37b9adc77debac7e63b3eb2a6ed36d7d
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (52) Empty reply from server
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+wait_15 [32mINFO[0m [90m08-06 16:34:33[0m [90m[diffusion_model_runner.py:243][0m Model runner: Model loaded successfully. [32mINFO[0m [90m08-06 16:34:33[0m [90m[diffusion_model_runner.py:264][0m Enabling offloader backend: ModelLevelOffloadBackend
+Mem:           141Gi       111Gi       918Mi        15Mi        29Gi        29Gi
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+cold_load=194 ready=1
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x6120a3962a40] moov atom not found
+out/gpu_1x_pro_6000_blackwell_warm_d5.0.mp4: Invalid data found when processing input
+{
+  "sku": "gpu_1x_pro_6000_blackwell",
+  "gpus": 1,
+  "price_usd_hr": 2.19,
+  "tag": "warm",
+  "duration_s": 5.0,
+  "http": "500",
+  "e2e_s": 39.518,
+  "peak_vram_mib": 75851,
+  "mp4_bytes": 387,
+  "usd_per_clip": 0.024,
+  "cold_load_s": 194,
+  "ffprobe": {}
+}
+1X_DONE e2e=39.518 http=500 peak=75851

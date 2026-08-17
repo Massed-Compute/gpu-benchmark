@@ -1,0 +1,34 @@
+{
+  "model": "MiniMaxAI/MiniMax-H3",
+  "partition": "FL2VA",
+  "engine": "vllm-omni:minimax-h3",
+  "task": "t2va",
+  "locked_shape": {
+    "width": 1344,
+    "height": 768,
+    "aspect_ratio": "16:9",
+    "fps": 24,
+    "num_inference_steps": 50,
+    "flow_shift": 12,
+    "audio_flow_shift": 3.0,
+    "seed": 1101
+  },
+  "durations_s": [
+    5.0,
+    8.7
+  ],
+  "ladder": [
+    "gpu_1x_pro_6000_blackwell",
+    "gpu_2x_pro_6000_blackwell",
+    "gpu_4x_pro_6000_blackwell"
+  ],
+  "metrics": [
+    "cold_load_s",
+    "warm_e2e_s",
+    "peak_vram_mib",
+    "mp4_bytes",
+    "ffprobe_v_a",
+    "usd_per_clip"
+  ],
+  "metrics_note": "cold_load_s only present on 1\u00d7 JSON; s_per_clip not captured"
+}

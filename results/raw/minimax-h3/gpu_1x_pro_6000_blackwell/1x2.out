@@ -1,0 +1,47 @@
+0472fbf6d6659a2ce95332c5553b76504cebd998d9f5a026c7376a190a9f818d
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (56) Recv failure: Connection reset by peer
+curl: (7) Failed to connect to 127.0.0.1 port 8091 after 0 ms: Couldn't connect to server
+DIED
+[0;36m(APIServer pid=1)[0;0m            ^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+[0;36m(APIServer pid=1)[0;0m     return self._loop.run_until_complete(task)
+[0;36m(APIServer pid=1)[0;0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+[0;36m(APIServer pid=1)[0;0m   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+[0;36m(APIServer pid=1)[0;0m     return await main
+[0;36m(APIServer pid=1)[0;0m            ^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 459, in omni_run_server
+[0;36m(APIServer pid=1)[0;0m     await omni_run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+[0;36m(APIServer pid=1)[0;0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 486, in omni_run_server_worker
+[0;36m(APIServer pid=1)[0;0m     async with build_async_omni(
+[0;36m(APIServer pid=1)[0;0m                ^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+[0;36m(APIServer pid=1)[0;0m     return await anext(self.gen)
+[0;36m(APIServer pid=1)[0;0m            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 630, in build_async_omni
+[0;36m(APIServer pid=1)[0;0m     async with build_async_omni_from_stage_config(
+[0;36m(APIServer pid=1)[0;0m                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+[0;36m(APIServer pid=1)[0;0m     return await anext(self.gen)
+[0;36m(APIServer pid=1)[0;0m            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 696, in build_async_omni_from_stage_config
+[0;36m(APIServer pid=1)[0;0m     async_omni = AsyncOmni(model=model, **kwargs)
+[0;36m(APIServer pid=1)[0;0m                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 147, in __init__
+[0;36m(APIServer pid=1)[0;0m     OmniBase.__init__(self, model=model, **kwargs)
+[0;36m(APIServer pid=1)[0;0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/omni_base.py", line 178, in __init__
+[0;36m(APIServer pid=1)[0;0m     self.engine = AsyncOmniEngine(
+[0;36m(APIServer pid=1)[0;0m                   ^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/async_omni_engine.py", line 283, in __init__
+[0;36m(APIServer pid=1)[0;0m     self._wait_for_orchestrator_init(startup_future, startup_timeout)
+[0;36m(APIServer pid=1)[0;0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/async_omni_engine.py", line 471, in _wait_for_orchestrator_init
+[0;36m(APIServer pid=1)[0;0m     startup_future.result(
+[0;36m(APIServer pid=1)[0;0m   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+[0;36m(APIServer pid=1)[0;0m     return self.__get_result()
+[0;36m(APIServer pid=1)[0;0m            ^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=1)[0;0m   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+[0;36m(APIServer pid=1)[0;0m     raise self._exception
+[0;36m(APIServer pid=1)[0;0m RuntimeError: Orchestrator initialization failed: 

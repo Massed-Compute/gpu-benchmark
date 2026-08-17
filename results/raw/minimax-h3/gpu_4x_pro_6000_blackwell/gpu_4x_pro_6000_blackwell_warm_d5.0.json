@@ -1,0 +1,32 @@
+{
+  "sku": "gpu_4x_pro_6000_blackwell",
+  "gpus": 4,
+  "price_usd_hr": 8.76,
+  "tag": "warm",
+  "duration_s": 5.0,
+  "http": "200",
+  "e2e_s": 188.69,
+  "peak_vram_mib": 96325,
+  "mp4_bytes": 4702712,
+  "usd_per_clip": 0.4591,
+  "out": "out/gpu_4x_pro_6000_blackwell_warm_d5.0.mp4",
+  "ffprobe": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1344,
+        "height": 768,
+        "duration": "5.166667"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "32000",
+        "channels": 2,
+        "duration": "5.207000"
+      }
+    ]
+  }
+}

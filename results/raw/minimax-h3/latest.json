@@ -1,0 +1,64 @@
+{
+  "id": "20260806-minimax-h3",
+  "date": "2026-08-06",
+  "model": {
+    "hf_id": "MiniMaxAI/MiniMax-H3",
+    "partition": "FL2VA"
+  },
+  "prompt": "A compact GPU accelerator module on a clean desk in soft daylight, camera slowly pushes in, subtle ambient room tone, no text no logos no watermarks.",
+  "shape": {
+    "width": 1344,
+    "height": 768,
+    "fps": 24,
+    "steps": 50,
+    "seed": 1101,
+    "flow_shift": 12,
+    "audio_flow_shift": 3.0
+  },
+  "engine": "vllm/vllm-omni:minimax-h3",
+  "results": [
+    {
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "price": 2.19,
+      "duration_s": 5.0,
+      "status": "fail",
+      "notes": "FLASH_ATTN FA4 coord error; TRTLLM_ATTN orchestrator init failed on 144 GiB host RAM CPU-offload path"
+    },
+    {
+      "sku": "gpu_2x_pro_6000_blackwell",
+      "price": 4.38,
+      "duration_s": 5.0,
+      "e2e_s": 379.165,
+      "peak_vram_mib": 79317,
+      "usd_per_clip": 0.4613,
+      "http": 200
+    },
+    {
+      "sku": "gpu_2x_pro_6000_blackwell",
+      "price": 4.38,
+      "duration_s": 8.7,
+      "e2e_s": 813.924,
+      "peak_vram_mib": 88457,
+      "usd_per_clip": 0.9903,
+      "http": 200
+    },
+    {
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "price": 8.76,
+      "duration_s": 5.0,
+      "e2e_s": 188.69,
+      "peak_vram_mib": 96325,
+      "usd_per_clip": 0.4591,
+      "http": 200
+    },
+    {
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "price": 8.76,
+      "duration_s": 8.7,
+      "e2e_s": 831.807,
+      "peak_vram_mib": 97115,
+      "http": 500,
+      "status": "fail"
+    }
+  ]
+}
