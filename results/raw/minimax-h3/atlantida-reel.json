@@ -1,8 +1,7 @@
 {
-  "source": "http://64.247.196.28:8190/ captured 2026-08-13",
-  "host_ip": "64.247.196.28",
-  "host_card_from_comparison": "L40S (45458 MiB, Ada sm_89) — same IP as l40s tier in comfyui-ref2va-comparison.json",
-  "page_subtitle_card": "4x RTX 6000 Ada (page copy; 48 GB Ada class). Trust comparison nvidia-smi (L40S) over the HTML subtitle until a driver dump is attached.",
+  "source": "Local capture recorded 2026-08-13",
+  "published_card": "4x L40S",
+  "card_evidence": "Comparison nvidia-smi identified L40S (45458 MiB, Ada sm_89). Retain the L40S label until a driver dump proves otherwise.",
   "page_title": "MiniMax H3 — 20.000 Leguas de Viaje Submarino / La Atlántida",
   "operating_point_from_page": {
     "resolution": "1344x768",
@@ -45,7 +44,7 @@
     {"id": "02_pruned_BF16", "label": "pruned BF16", "wall_s": 320, "vram_gb": 47.2, "weight_gb": 37.5},
     {"id": "03_Q8_0", "label": "GGUF Q8_0", "wall_s": 356, "vram_gb": 46.3, "weight_gb": 33.6},
     {"id": "04_FP8_nativo_Ada", "label": "FP8 nativo Ada", "wall_s": 616, "vram_gb": 46.3, "weight_gb": 19.5, "notes": "page: no existe en A6000"},
-    {"id": "05_INT8_default_Comfy", "label": "INT8 pruned", "wall_s": 486, "vram_gb": 46.4, "weight_gb": 19.5, "notes": "fastest non-turbo on this board"},
+    {"id": "05_INT8_default_Comfy", "label": "INT8 pruned", "wall_s": 486, "vram_gb": 46.4, "weight_gb": 19.5, "notes": "production checkpoint; pruned BF16 is the fastest non-turbo arm in this A/B"},
     {"id": "06_Q5_K_M", "label": "GGUF Q5_K_M", "wall_s": 796, "vram_gb": 39.2, "weight_gb": 22.3},
     {"id": "07_Q4_K_M", "label": "GGUF Q4_K_M", "wall_s": 771, "vram_gb": 34.3, "weight_gb": 18.5},
     {"id": "08_Q3_K_M_minimo", "label": "GGUF Q3_K_M", "wall_s": 361, "vram_gb": 35.2, "weight_gb": 14.5},

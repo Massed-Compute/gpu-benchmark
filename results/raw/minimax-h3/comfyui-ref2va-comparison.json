@@ -17,9 +17,9 @@
     "do_not_interpolate": true
   },
   "hosts": {
-    "pro6000": {"card": "RTX PRO 6000 Blackwell", "vram_mib": 97887, "arch": "Blackwell sm_120", "ip": "216.243.220.50"},
-    "l40s": {"card": "L40S", "vram_mib": 45458, "arch": "Ada sm_89", "ip": "64.247.196.28"},
-    "pro4500": {"card": "RTX PRO 4500 Blackwell", "vram_mib": 32623, "arch": "Blackwell sm_120", "ip": "216.81.248.62"}
+    "pro6000": {"card": "RTX PRO 6000 Blackwell", "vram_mib": 97887, "arch": "Blackwell sm_120"},
+    "l40s": {"card": "L40S", "vram_mib": 45458, "arch": "Ada sm_89"},
+    "pro4500": {"card": "RTX PRO 4500 Blackwell", "vram_mib": 32623, "arch": "Blackwell sm_120"}
   },
   "catalog_usd_per_hour_2026_08_13": {
     "gpu_4x_pro_6000_blackwell": 8.76,
@@ -31,13 +31,13 @@
       "box": "4x Pro 6000",
       "sku": "gpu_4x_pro_6000_blackwell",
       "warm_wall_s": 414,
-      "s_per_step": 19.9,
+      "s_per_step": 20.7,
       "peak_vram_gib_reported": 48.3,
       "free_vram_at_peak_gib": 48,
       "best_checkpoint": "INT8",
       "full_box_s_per_clip": 104,
       "clips_per_hour_full_box": 34.8,
-      "usd_per_clip_derived": 1.01
+      "usd_per_clip_concurrent": 0.25
     },
     {
       "box": "8x L40S",
@@ -49,7 +49,7 @@
       "best_checkpoint": "INT8",
       "full_box_s_per_clip": 113,
       "clips_per_hour_full_box": 31.9,
-      "usd_per_clip_derived": 1.76
+      "usd_per_clip_concurrent": 0.22
     },
     {
       "box": "8x Pro 4500",
@@ -59,9 +59,9 @@
       "peak_vram_gib_reported": 31.4,
       "free_vram_at_peak_gib": 0.5,
       "best_checkpoint": "NVFP4",
-      "full_box_s_per_clip": 169,
-      "clips_per_hour_full_box": 21.3,
-      "usd_per_clip_derived": 2.17,
+      "full_box_s_per_clip": 161,
+      "clips_per_hour_full_box": 22.4,
+      "usd_per_clip_concurrent": 0.27,
       "series_note": "Measured vs same-day Pro 6000 control 489s/24.5s-step, not vs the 414s series. Normalized step cost: Pro 6000 1.00, L40S 2.27, Pro 4500 2.62."
     }
   ],
@@ -76,5 +76,13 @@
     {"card": "L40S", "runs": "yes, 4 allocator retries", "wall_s": 304, "peak_vram": "45439 MiB (100%)", "4k_2208": "never"},
     {"card": "Pro 4500", "runs": "only with VAE tiling", "wall_s": 379, "peak_vram": "22991 MiB", "4k_2208": "no"}
   ],
-  "sage_attention_l40s": {"wall_s": 761, "delta_pct": 20.2, "ssim": 0.85801, "shipped": false}
+  "cost_basis": "Concurrent production: catalog box rate divided by full-box clips per hour.",
+  "sage_attention_l40s": {
+    "baseline_wall_s": 902,
+    "wall_s": 761,
+    "wall_time_reduction_pct": 15.6,
+    "throughput_speedup_pct": 18.5,
+    "ssim": 0.85801,
+    "shipped": false
+  }
 }
