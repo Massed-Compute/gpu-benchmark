@@ -1,0 +1,60 @@
+{
+  "id": "20260818-gpu_1x_l40s",
+  "date": "2026-08-18",
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B-FP8"
+  },
+  "hardware": {
+    "sku": "gpu_1x_l40s",
+    "count": 1,
+    "price_usd_per_hour": 0.88
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 18.64508001119177,
+        "ttft_ms_p50": 68.29614299999776,
+        "ttft_ms_mean": 86.0930314000143,
+        "tpot_ms_p50": 53.371405259841545,
+        "tpot_ms_mean": 53.37547134960635,
+        "request_s": 0.1456646875874357
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 152.71150842151263,
+        "ttft_ms_p50": 269.3029255000283,
+        "ttft_ms_mean": 264.1925493749909,
+        "tpot_ms_p50": 50.65057771653533,
+        "tpot_ms_mean": 50.70414107519689,
+        "request_s": 1.1930586595430674
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 405.85323490128553,
+        "ttft_ms_p50": 761.8317704999527,
+        "ttft_ms_mean": 1436.0789733874797,
+        "tpot_ms_p50": 62.51550870472347,
+        "tpot_ms_mean": 62.212151175492146,
+        "request_s": 3.170728397666293
+      },
+      "screenshot": "qwen3.8-27b/images/1xL40S-vllm-showcase.png"
+    }
+  ]
+}

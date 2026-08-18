@@ -1,0 +1,60 @@
+{
+  "id": "20260818-gpu_1x_pro_6000_blackwell",
+  "date": "2026-08-18",
+  "model": {
+    "hf_id": "Qwen/Qwen3.8-27B"
+  },
+  "hardware": {
+    "sku": "gpu_1x_pro_6000_blackwell",
+    "count": 1,
+    "price_usd_per_hour": 2.19
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 25.96757425959123,
+        "ttft_ms_p50": 58.688617999905546,
+        "ttft_ms_mean": 73.34598779998487,
+        "tpot_ms_p50": 38.29192428346558,
+        "tpot_ms_mean": 38.232679077165855,
+        "request_s": 0.2028716739030565
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 195.35278085452484,
+        "ttft_ms_p50": 201.1136590000433,
+        "ttft_ms_mean": 197.56423370000675,
+        "tpot_ms_p50": 39.654752685038595,
+        "tpot_ms_mean": 39.70618788976366,
+        "request_s": 1.5261936004259753
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 625.0934972419763,
+        "ttft_ms_p50": 601.8267614999786,
+        "ttft_ms_mean": 618.1613555875003,
+        "tpot_ms_p50": 46.838711881890035,
+        "tpot_ms_mean": 46.67669241437009,
+        "request_s": 4.8835429472029395
+      },
+      "screenshot": "qwen3.8-27b/images/1xBlackwell-vllm-showcase.png"
+    }
+  ]
+}

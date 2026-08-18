@@ -1,0 +1,60 @@
+{
+  "id": "20260818-gpu_1x_pro_6000_blackwell",
+  "date": "2026-08-18",
+  "model": {
+    "hf_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4"
+  },
+  "hardware": {
+    "sku": "gpu_1x_pro_6000_blackwell",
+    "count": 1,
+    "price_usd_per_hour": 2.19
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 270.161680562553,
+        "ttft_ms_p50": 21.171107000100164,
+        "ttft_ms_mean": 60.754212400047436,
+        "tpot_ms_p50": 3.2508954173222517,
+        "tpot_ms_mean": 3.250249817322254,
+        "request_s": 2.110638129394945
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 1128.644582907672,
+        "ttft_ms_p50": 66.74103699998568,
+        "ttft_ms_mean": 119.40995437498998,
+        "tpot_ms_p50": 6.186636960630341,
+        "tpot_ms_mean": 6.1965848728346415,
+        "request_s": 8.817535803966187
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 2541.09512229755,
+        "ttft_ms_p50": 209.48644999998578,
+        "ttft_ms_mean": 184.0750817312511,
+        "tpot_ms_p50": 11.182472314960417,
+        "tpot_ms_mean": 11.224011668110252,
+        "request_s": 19.85230564294961
+      },
+      "screenshot": "nemotron-3.5-lightning-30b/images/1xBlackwell-vllm-showcase.png"
+    }
+  ]
+}

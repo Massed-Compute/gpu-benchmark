@@ -1,0 +1,60 @@
+{
+  "id": "20260818-gpu_1x_DGX_A100",
+  "date": "2026-08-18",
+  "model": {
+    "hf_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4"
+  },
+  "hardware": {
+    "sku": "gpu_1x_DGX_A100",
+    "count": 1,
+    "price_usd_per_hour": 1.38
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_DGX_A100",
+      "gpu_count": 1,
+      "price_usd_per_hour": 1.38,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 190.689200244587,
+        "ttft_ms_p50": 38.95572600004016,
+        "ttft_ms_mean": 105.05388260007749,
+        "tpot_ms_p50": 4.42002092125859,
+        "tpot_ms_mean": 4.455262461417121,
+        "request_s": 1.489759376910836
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_DGX_A100",
+      "gpu_count": 1,
+      "price_usd_per_hour": 1.38,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 900.4938273677272,
+        "ttft_ms_p50": 110.0481910000326,
+        "ttft_ms_mean": 174.68835060000742,
+        "tpot_ms_p50": 7.587658874016361,
+        "tpot_ms_mean": 7.572334870669388,
+        "request_s": 7.035108026310369
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_DGX_A100",
+      "gpu_count": 1,
+      "price_usd_per_hour": 1.38,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 2100.7536000565037,
+        "ttft_ms_p50": 243.93933549993108,
+        "ttft_ms_mean": 270.8987635999833,
+        "tpot_ms_p50": 13.172341913385985,
+        "tpot_ms_mean": 13.191883840698804,
+        "request_s": 16.412137500441435
+      },
+      "screenshot": "nemotron-3.5-lightning-30b/images/1xA100-vllm-showcase.png"
+    }
+  ]
+}
