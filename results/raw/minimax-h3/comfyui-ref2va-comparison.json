@@ -1,0 +1,88 @@
+{
+  "source": "gpu_comparison.md (local capture 2026-08-13)",
+  "note": "ComfyUI production operating point. Separate series from vllm-omni FL2VA (plan.json) and from the Atlántida reel. Do not divide wall times across series.",
+  "task": "MiniMax-H3 reference-conditioned video (Ref2VA) through ComfyUI",
+  "operating_point": {
+    "resolution": "1344x768",
+    "frames": 192,
+    "duration_s": 8.0,
+    "fps": 24,
+    "sampler_steps": 20,
+    "checkpoint": "pruned-INT8 Ref2VA",
+    "conditioning": "4 reference images + 1 audio window"
+  },
+  "h200": {
+    "benchmarked": false,
+    "vram_mib_onboarded": 143771,
+    "do_not_interpolate": true
+  },
+  "hosts": {
+    "pro6000": {"card": "RTX PRO 6000 Blackwell", "vram_mib": 97887, "arch": "Blackwell sm_120"},
+    "l40s": {"card": "L40S", "vram_mib": 45458, "arch": "Ada sm_89"},
+    "pro4500": {"card": "RTX PRO 4500 Blackwell", "vram_mib": 32623, "arch": "Blackwell sm_120"}
+  },
+  "catalog_usd_per_hour_2026_08_13": {
+    "gpu_4x_pro_6000_blackwell": 8.76,
+    "gpu_8x_l40s": 7.04,
+    "gpu_8x_pro_4500_blackwell": 6.08
+  },
+  "h3_clip_generation": [
+    {
+      "box": "4x Pro 6000",
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "warm_wall_s": 414,
+      "s_per_step": 20.7,
+      "peak_vram_gib_reported": 48.3,
+      "free_vram_at_peak_gib": 48,
+      "best_checkpoint": "INT8",
+      "full_box_s_per_clip": 104,
+      "clips_per_hour_full_box": 34.8,
+      "usd_per_clip_concurrent": 0.25
+    },
+    {
+      "box": "8x L40S",
+      "sku": "gpu_8x_l40s",
+      "warm_wall_s": 902,
+      "s_per_step": 45.1,
+      "peak_vram_gib_reported": 39.7,
+      "free_vram_at_peak_gib": 5.8,
+      "best_checkpoint": "INT8",
+      "full_box_s_per_clip": 113,
+      "clips_per_hour_full_box": 31.9,
+      "usd_per_clip_concurrent": 0.22
+    },
+    {
+      "box": "8x Pro 4500",
+      "sku": "gpu_8x_pro_4500_blackwell",
+      "warm_wall_s": 1285,
+      "s_per_step": 64.3,
+      "peak_vram_gib_reported": 31.4,
+      "free_vram_at_peak_gib": 0.5,
+      "best_checkpoint": "NVFP4",
+      "full_box_s_per_clip": 161,
+      "clips_per_hour_full_box": 22.4,
+      "usd_per_clip_concurrent": 0.27,
+      "series_note": "Measured vs same-day Pro 6000 control 489s/24.5s-step, not vs the 414s series. Normalized step cost vs that control: Pro 6000 1.00, L40S 1.84 (45.1/24.5), Pro 4500 2.62 (64.3/24.5). L40S vs the 414s/20.7s series would be 2.18; that denominator is not used here."
+    }
+  ],
+  "staged_weight_set_gib_warm": {"dit": 20.0, "video_vae": 5.0, "audio_vae": 0.6, "total": 24.9},
+  "checkpoint_wall_s": {
+    "pruned_int8_convrot": {"pro6000": 414, "l40s": 902, "pro4500": 1384},
+    "pruned_fp8": {"pro6000": 432, "l40s": 941, "pro4500": null},
+    "pruned_nvfp4": {"pro6000": 405, "l40s": 1055, "pro4500": 1285}
+  },
+  "seedvr2_1104_short_edge": [
+    {"card": "Pro 6000", "runs": true, "wall_s": 166, "peak_vram": "48 GiB", "4k_2208": "yes, 901s tiled, 61 GiB"},
+    {"card": "L40S", "runs": "yes, 4 allocator retries", "wall_s": 304, "peak_vram": "45439 MiB (100%)", "4k_2208": "never"},
+    {"card": "Pro 4500", "runs": "only with VAE tiling", "wall_s": 379, "peak_vram": "22991 MiB", "4k_2208": "no"}
+  ],
+  "cost_basis": "Concurrent production: catalog box rate divided by full-box clips per hour.",
+  "sage_attention_l40s": {
+    "baseline_wall_s": 902,
+    "wall_s": 761,
+    "wall_time_reduction_pct": 15.6,
+    "throughput_speedup_pct": 18.5,
+    "ssim": 0.85801,
+    "shipped": false
+  }
+}
