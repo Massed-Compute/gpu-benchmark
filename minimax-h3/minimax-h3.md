@@ -60,9 +60,9 @@ Peak `nvidia-smi` is the allocator filling the card, not the job size. Staged wa
 | 8× Pro 4500 | `gpu_8x_pro_4500_blackwell` | 6.08 | **1285 s** B | 64.3 B | **NVFP4** | 22.4 | $0.27 |
 | 8× H200 | `gpu_8x_h200_nvl` | 28.96 | **not measured** | — | INT8 (predicted) | — | — |
 
-<sup>B</sup> Pro 4500 series used a same-day Pro 6000 control of **489 s / 24.5 s per step**, not 414 s. Normalized step cost: Pro 6000 **1.00**, L40S **2.27**, Pro 4500 **2.62**. A naive 64.3÷45.1 overstates the 4500 vs L40S gap by ~23%.
+<sup>B</sup> Pro 4500 series used a same-day Pro 6000 control of **489 s / 24.5 s per step**, not 414 s. Normalized step cost vs that control: Pro 6000 **1.00**, L40S **1.84** (45.1÷24.5), Pro 4500 **2.62** (64.3÷24.5). Against the 414 s / 20.7 s series, L40S would be 45.1÷20.7 = **2.18** — a different denominator, not used here.
 
-Eight L40S land within **8%** of four Pro 6000 on clips/hour (31.9 vs 34.8) and cost less per concurrent clip ($0.22 vs $0.25). Scaling is flat: 8-way L40S was slightly *faster* per step than solo.
+Eight L40S land within **8%** of four Pro 6000 on clips/hour (31.9 vs 34.8) and cost less per concurrent clip ($0.22 vs $0.25).
 
 **Checkpoint ranking inverts by card** (same geometry):
 

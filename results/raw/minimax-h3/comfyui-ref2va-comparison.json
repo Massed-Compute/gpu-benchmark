@@ -62,7 +62,7 @@
       "full_box_s_per_clip": 161,
       "clips_per_hour_full_box": 22.4,
       "usd_per_clip_concurrent": 0.27,
-      "series_note": "Measured vs same-day Pro 6000 control 489s/24.5s-step, not vs the 414s series. Normalized step cost: Pro 6000 1.00, L40S 2.27, Pro 4500 2.62."
+      "series_note": "Measured vs same-day Pro 6000 control 489s/24.5s-step, not vs the 414s series. Normalized step cost vs that control: Pro 6000 1.00, L40S 1.84 (45.1/24.5), Pro 4500 2.62 (64.3/24.5). L40S vs the 414s/20.7s series would be 2.18; that denominator is not used here."
     }
   ],
   "staged_weight_set_gib_warm": {"dit": 20.0, "video_vae": 5.0, "audio_vae": 0.6, "total": 24.9},
