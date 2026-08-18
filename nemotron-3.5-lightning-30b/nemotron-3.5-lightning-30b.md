@@ -45,7 +45,7 @@ Best $/tok: **1528.9 tok/s per $** on `gpu_1x_l40s` / **vllm** (A100 is 1522.3, 
 ## Notes
 - Exact weights: official NVFP4. BF16 is the 80 GB research dump; not served here.
 - Smallest live coupon fit was **1× L40S** (48 GB). `gpu_1x_pro_4500_blackwell` and `gpu_1x_h100` launches failed (4500 not on coupon list; H100 no capacity).
-- 80 GB row launched as **`gpu_1x_DGX_A100`** ($1.38, 16 vCPU / 120 GiB / 1 TB, us-east-1). `nvidia-smi` reported `A100-SXM4-80GB`, the same GPU string as **`gpu_1x_A100_SXM4`** (also $1.38; 14 vCPU / 100 GiB / 625 GB, us-central-3). This capture is the DGX listing; a rerun can use either $1.38 80 GB A100.
+- 80 GB row launched as **`gpu_1x_DGX_A100`** ($1.38, 16 vCPU / 120 GiB / 1 TB, us-east-1). `nvidia-smi` reported `A100-SXM4-80GB`, the same GPU string as **`gpu_1x_A100_SXM4`** (also $1.38; 14 vCPU / 100 GiB / 625 GB, us-central-3). Rerun this capture on `gpu_1x_DGX_A100`. Do not treat the SXM4 listing as proven equivalent — host RAM, CPU, disk, and region differ.
 - Numbers from live Massed runs 2026-08-18; bench VMs terminated after capture.
 
 ---

@@ -38,11 +38,11 @@ vllm — 613.8 output tok/s @ c32:
 
 ## Conclusion
 
-On exact BF16, Blackwell (**625.1** tok/s) and A100 (**613.8**) are within **2%** on a single run; Blackwell costs **59%** more per hour ($2.19 vs $1.38). Buy the A100 for the 80 GB BF16 job. L40S is a different checkpoint (official FP8) and wins tok/s per $ at **461.2**.
+On exact BF16, Blackwell (**625.1** tok/s) and A100 (**613.8**) are within **2%** on a single run; Blackwell costs **59%** more per hour ($2.19 vs $1.38). Buy **`gpu_1x_DGX_A100`** for the 80 GB BF16 job. L40S is a different checkpoint (official FP8) and wins tok/s per $ at **461.2**.
 
 ## Notes
 - Exact BF16 does not fit 48 GB. Smallest coupon fit is official FP8 on 1× L40S — not the same weights as the other two rows.
-- `gpu_1x_h100` launch failed (no capacity). 80 GB row launched as **`gpu_1x_DGX_A100`** ($1.38, 16 vCPU / 120 GiB / 1 TB, us-east-1). `nvidia-smi` reported `A100-SXM4-80GB`, the same GPU string as **`gpu_1x_A100_SXM4`** (also $1.38; 14 vCPU / 100 GiB / 625 GB, us-central-3). This capture is the DGX listing; a rerun can use either $1.38 80 GB A100.
+- `gpu_1x_h100` launch failed (no capacity). 80 GB row launched as **`gpu_1x_DGX_A100`** ($1.38, 16 vCPU / 120 GiB / 1 TB, us-east-1). `nvidia-smi` reported `A100-SXM4-80GB`, the same GPU string as **`gpu_1x_A100_SXM4`** (also $1.38; 14 vCPU / 100 GiB / 625 GB, us-central-3). Rerun this capture on `gpu_1x_DGX_A100`. Do not treat the SXM4 listing as proven equivalent — host RAM, CPU, disk, and region differ.
 - Numbers from live Massed runs 2026-08-18; bench VMs terminated after capture.
 
 ---

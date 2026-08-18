@@ -16,7 +16,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 ### Newest
 
 - [Nemotron 3.5 Lightning 30B (L40S / A100 / Blackwell)](./nemotron-3.5-lightning-30b/nemotron-3.5-lightning-30b.md)
-- [Qwen3.8 27B (L40S FP8 / A100 / Blackwell)](./qwen3.8-27b/qwen3.8-27b.md)
+- [Qwen3.8 27B (L40S FP8 / A100 BF16 / Blackwell BF16)](./qwen3.8-27b/qwen3.8-27b.md)
 - [gpt-oss-20b (L40S / 2×L40S / H200)](./gpt-oss-20b/gpt-oss-20b.md)
 
 ### Muse Glimmer
