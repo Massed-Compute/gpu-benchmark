@@ -1,0 +1,60 @@
+{
+  "id": "20260818-gpu_1x_l40s",
+  "date": "2026-08-18",
+  "model": {
+    "hf_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4"
+  },
+  "hardware": {
+    "sku": "gpu_1x_l40s",
+    "count": 1,
+    "price_usd_per_hour": 0.88
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 178.0017643201089,
+        "ttft_ms_p50": 35.74552499992478,
+        "ttft_ms_mean": 92.75409819997549,
+        "tpot_ms_p50": 4.927232889764221,
+        "tpot_ms_mean": 4.929294475590809,
+        "request_s": 1.3906387837508507
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 669.6129371719019,
+        "ttft_ms_p50": 110.51459899999827,
+        "ttft_ms_mean": 167.67492412499223,
+        "tpot_ms_p50": 10.678985192913121,
+        "tpot_ms_mean": 10.712821725590516,
+        "request_s": 5.231351071655483
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 1345.423443022262,
+        "ttft_ms_p50": 232.0190249999996,
+        "ttft_ms_mean": 243.01788121249928,
+        "tpot_ms_p50": 21.889858031496317,
+        "tpot_ms_mean": 22.031844456102373,
+        "request_s": 10.511120648611422
+      },
+      "screenshot": "nemotron-3.5-lightning-30b/images/1xL40S-vllm-showcase.png"
+    }
+  ]
+}
