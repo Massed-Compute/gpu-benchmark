@@ -13,37 +13,36 @@ L40S needed `--max-num-seqs 64` (Mamba cache block cap).
 
 ## Results
 
-| Engine | SKU | $/hr | Output tok/s (c32) | TTFT med (ms) | tok/s per $ | $/1M out tokens |
-|---|---|---:|---:|---:|---:|---:|
-| vllm | `gpu_1x_l40s` | 0.88 | 405.9 | 761.8 | 461.2 | 0.602 |
-| vllm | `gpu_1x_pro_6000_blackwell` | 2.19 | 625.1 | 601.8 | 285.4 | 0.973 |
-| vllm | `gpu_1x_DGX_A100` | 1.38 | 613.8 | 948.3 | 444.8 | 0.624 |
+| Engine | SKU | Weights | $/hr | Output tok/s (c32) | TTFT med (ms) | tok/s per $ | $/1M out tokens |
+|---|---|---|---:|---:|---:|---:|---:|
+| vllm | `gpu_1x_l40s` | FP8 | 0.88 | 405.9 | 761.8 | 461.2 | 0.602 |
+| vllm | `gpu_1x_pro_6000_blackwell` | BF16 | 2.19 | 625.1 | 601.8 | 285.4 | 0.973 |
+| vllm | `gpu_1x_DGX_A100` | BF16 | 1.38 | 613.8 | 948.3 | 444.8 | 0.624 |
 
 ### Screenshots
 
-**gpu_1x_l40s** — $0.88/hr
+**gpu_1x_l40s** — $0.88/hr — official FP8
 
 vllm — 405.9 output tok/s @ c32:
 ![gpu_1x_l40s vllm](./images/1xL40S-vllm-showcase.png)
 
-**gpu_1x_pro_6000_blackwell** — $2.19/hr
+**gpu_1x_pro_6000_blackwell** — $2.19/hr — exact BF16
 
 vllm — 625.1 output tok/s @ c32:
 ![gpu_1x_pro_6000_blackwell vllm](./images/1xBlackwell-vllm-showcase.png)
 
-**gpu_1x_DGX_A100** — $1.38/hr
+**gpu_1x_DGX_A100** — $1.38/hr — exact BF16
 
 vllm — 613.8 output tok/s @ c32:
 ![gpu_1x_DGX_A100 vllm](./images/1xA100-vllm-showcase.png)
 
 ## Conclusion
 
-Peak c32 output throughput: **625 tok/s** on `gpu_1x_pro_6000_blackwell` with **vllm** (BF16).
-Best $/tok: **461.2 tok/s per $** on `gpu_1x_l40s` / **vllm** (official FP8).
+On exact BF16, Blackwell (**625.1** tok/s) and A100 (**613.8**) are within **2%** on a single run; Blackwell costs **59%** more per hour ($2.19 vs $1.38). Buy the A100 for the 80 GB BF16 job. L40S is a different checkpoint (official FP8) and wins tok/s per $ at **461.2**.
 
 ## Notes
-- Exact BF16 does not fit 48 GB. Smallest coupon fit is official FP8 on 1× L40S.
-- `gpu_1x_h100` launch failed (no capacity); 80 GB row is **1× DGX A100**.
+- Exact BF16 does not fit 48 GB. Smallest coupon fit is official FP8 on 1× L40S — not the same weights as the other two rows.
+- `gpu_1x_h100` launch failed (no capacity). 80 GB row launched as **`gpu_1x_DGX_A100`** ($1.38, 16 vCPU / 120 GiB / 1 TB, us-east-1). `nvidia-smi` reported `A100-SXM4-80GB`, the same GPU string as **`gpu_1x_A100_SXM4`** (also $1.38; 14 vCPU / 100 GiB / 625 GB, us-central-3). This capture is the DGX listing; a rerun can use either $1.38 80 GB A100.
 - Numbers from live Massed runs 2026-08-18; bench VMs terminated after capture.
 
 ---
