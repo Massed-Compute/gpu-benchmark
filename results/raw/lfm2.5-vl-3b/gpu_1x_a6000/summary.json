@@ -1,0 +1,60 @@
+{
+  "id": "20260825-gpu_1x_a6000",
+  "date": "2026-08-25",
+  "model": {
+    "hf_id": "LiquidAI/LFM2.5-VL-3B"
+  },
+  "hardware": {
+    "sku": "gpu_1x_a6000",
+    "count": 1,
+    "price_usd_per_hour": 0.57
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_a6000",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.57,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 100.66295746128813,
+        "ttft_ms_p50": 37.80106700003216,
+        "ttft_ms_mean": 143.79589380002926,
+        "tpot_ms_p50": 8.880817283464088,
+        "tpot_ms_mean": 8.87655559842524,
+        "request_s": 0.7864293551663135
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_a6000",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.57,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 756.5347929468325,
+        "ttft_ms_p50": 89.54793599997402,
+        "ttft_ms_mean": 172.17502479999212,
+        "tpot_ms_p50": 9.289584562991887,
+        "tpot_ms_mean": 9.29273088287397,
+        "request_s": 5.9104280698971285
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_a6000",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.57,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 2593.029542924195,
+        "ttft_ms_p50": 253.89841650002154,
+        "ttft_ms_mean": 228.51604781249932,
+        "tpot_ms_p50": 10.419805818897895,
+        "tpot_ms_mean": 10.606817986515773,
+        "request_s": 20.258043304095274
+      },
+      "screenshot": "lfm2.5-vl-3b/images/1xA6000-vllm-showcase.png"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "20260825-gpu_1x_l40s",
+  "date": "2026-08-25",
+  "model": {
+    "hf_id": "LiquidAI/LFM2.5-VL-3B"
+  },
+  "hardware": {
+    "sku": "gpu_1x_l40s",
+    "count": 1,
+    "price_usd_per_hour": 0.88
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 1,
+      "metrics": {
+        "output_tok_s": 116.15044380789658,
+        "ttft_ms_p50": 16.64732599999752,
+        "ttft_ms_mean": 63.72847239999828,
+        "tpot_ms_p50": 8.176096779527507,
+        "tpot_ms_mean": 8.173645466141837,
+        "request_s": 0.907425342249192
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 8,
+      "metrics": {
+        "output_tok_s": 897.8617280551117,
+        "ttft_ms_p50": 35.954565000025696,
+        "ttft_ms_mean": 40.044092724996005,
+        "tpot_ms_p50": 8.665889440944792,
+        "tpot_ms_mean": 8.655507278543276,
+        "request_s": 7.01454475043056
+      }
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_l40s",
+      "gpu_count": 1,
+      "price_usd_per_hour": 0.88,
+      "max_concurrency": 32,
+      "metrics": {
+        "output_tok_s": 3112.043982899332,
+        "ttft_ms_p50": 77.69130799997015,
+        "ttft_ms_mean": 114.55370700000032,
+        "tpot_ms_p50": 9.40624491732284,
+        "tpot_ms_mean": 9.434495868602353,
+        "request_s": 24.312843616401032
+      },
+      "screenshot": "lfm2.5-vl-3b/images/1xL40S-vllm-showcase.png"
+    }
+  ]
+}
