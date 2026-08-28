@@ -15,6 +15,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [LFM2.5 VL 3B (A6000 / L40S / Blackwell)](./lfm2.5-vl-3b/lfm2.5-vl-3b.md)
 - [Nemotron 3.5 Lightning 30B (L40S / A100 / Blackwell)](./nemotron-3.5-lightning-30b/nemotron-3.5-lightning-30b.md)
 - [Qwen3.8 27B (L40S FP8 / A100 BF16 / Blackwell BF16)](./qwen3.8-27b/qwen3.8-27b.md)
 - [gpt-oss-20b (L40S / 2×L40S / H200)](./gpt-oss-20b/gpt-oss-20b.md)
@@ -76,6 +77,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Image / Multimodal
 
+- [LFM2.5 VL 3B](./lfm2.5-vl-3b/lfm2.5-vl-3b.md)
 - [Ideogram v4 Instant](./ideogram-v4-instant/ideogram-v4-instant.md)
 - [SenseNova-U1 Infographic V3](./sensenova-u1-8b-mot-infographic-v3/sensenova-u1-8b-mot-infographic-v3.md)
 
