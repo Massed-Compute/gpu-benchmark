@@ -63,6 +63,5 @@ A100 and Blackwell are within **1%** on c32 throughput (616 vs 624). Blackwell c
 
 > **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.
 
-![Massed Compute disclaimer](./images/disclaimer.png)
-
-[Author terms on Hugging Face](https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED)
+> [!WARNING]
+> **Disclaimer.** This page is a Massed Compute speed-and-cost bench for `OBLITERATUS/Qwen3.8-27B-OBLITERATED`. We did not train these weights. The checkpoint is an uncensored derivative of Qwen3.8-27B — stock refusal filters have been removed. Publishing tok/s here is not an endorsement of unrestricted use. If you launch it, you are responsible for prompts, outputs, and downstream use. Author terms: [Hugging Face model card](https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED).
