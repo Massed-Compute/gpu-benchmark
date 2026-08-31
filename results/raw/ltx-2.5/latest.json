@@ -1,0 +1,52 @@
+{
+  "date": "2026-08-31",
+  "hf_id": "Lightricks/LTX-2.5",
+  "engine": "ltx-pipelines.distilled",
+  "checkpoint": "ltx-2.5-22b-distilled-transformer-bf16",
+  "locked": {
+    "height": 1024,
+    "width": 1536,
+    "num_frames": 121,
+    "fps": 24,
+    "seed": 42,
+    "prompt": "A compact GPU accelerator module on a clean desk in soft daylight, camera slowly pushes in, quiet fan whir and room tone, no text no logos no watermarks."
+  },
+  "driver": "580.126.16",
+  "image": 184,
+  "headline": "warm DistilledPipeline T2V, native BF16, no fp8-cast",
+  "runs": [
+    {
+      "sku": "gpu_1x_l40s",
+      "usd_hr": 0.88,
+      "gpu": "NVIDIA L40S 46068 MiB",
+      "warm_s": 106.698,
+      "cold_s": 108.169,
+      "peak_vram_gib": 43.83,
+      "usd_per_clip": 0.0261,
+      "clips_per_hr": 33.74,
+      "status": "ok"
+    },
+    {
+      "sku": "gpu_1x_DGX_A100",
+      "usd_hr": 1.38,
+      "gpu": "NVIDIA A100-SXM4-80GB 81920 MiB",
+      "warm_s": 90.296,
+      "cold_s": 95.302,
+      "peak_vram_gib": 47.05,
+      "usd_per_clip": 0.0346,
+      "clips_per_hr": 39.87,
+      "status": "ok"
+    },
+    {
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "usd_hr": 2.19,
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell 97887 MiB",
+      "warm_s": 54.688,
+      "cold_s": 59.16,
+      "peak_vram_gib": 47.27,
+      "usd_per_clip": 0.0333,
+      "clips_per_hr": 65.83,
+      "status": "ok"
+    }
+  ]
+}
