@@ -32,26 +32,23 @@ All three muxes: H.264 1536×1024, 121 frames, 24 fps, AAC stereo ~5.01 s.
 
 ### Smoke clips
 
-These **are** the timed warm runs (H.264 + AAC, 1536×1024, 121 frames, 24 fps, seed 42). Same prompt on every SKU. Play the file — a still is only the poster.
+These **are** the timed warm runs (H.264 + AAC, 1536×1024, 121 frames, 24 fps, seed 42). Same prompt on every SKU. Preview still is a frame from that clip; the link under it is the full smoke MP4.
 
 **1× L40S** — $0.88/hr — DistilledPipeline — warm **106.7 s** / **$0.026** per clip.
 
-<video controls width="720" poster="./images/1xL40S-distilled-showcase.png" src="./images/1xL40S-distilled-smoke.mp4">
-</video>
+[![1× L40S smoke preview](./images/1xL40S-distilled-showcase.png)](./images/1xL40S-distilled-smoke.mp4)
 
 [1× L40S smoke clip (mp4)](./images/1xL40S-distilled-smoke.mp4)
 
 **1× DGX A100** — $1.38/hr — DistilledPipeline — warm **90.3 s** / **$0.035** per clip.
 
-<video controls width="720" poster="./images/1xA100-distilled-showcase.png" src="./images/1xA100-distilled-smoke.mp4">
-</video>
+[![1× A100 smoke preview](./images/1xA100-distilled-showcase.png)](./images/1xA100-distilled-smoke.mp4)
 
 [1× A100 smoke clip (mp4)](./images/1xA100-distilled-smoke.mp4)
 
 **1× RTX PRO 6000 Blackwell** — $2.19/hr — DistilledPipeline — warm **54.7 s** / **$0.033** per clip.
 
-<video controls width="720" poster="./images/1xBlackwell-distilled-showcase.png" src="./images/1xBlackwell-distilled-smoke.mp4">
-</video>
+[![1× Blackwell smoke preview](./images/1xBlackwell-distilled-showcase.png)](./images/1xBlackwell-distilled-smoke.mp4)
 
 [1× Blackwell smoke clip (mp4)](./images/1xBlackwell-distilled-smoke.mp4)
 
