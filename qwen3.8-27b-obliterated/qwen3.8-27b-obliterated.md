@@ -6,24 +6,6 @@ MC - 2026.08.31
 ## Purpose
 Live Massed Compute inference benches for **OBLITERATUS/Qwen3.8-27B-OBLITERATED** (exact BF16, ~27B, native VL). Official weights, text-decode throughput profile (MM image limit 0).
 
-## Disclaimer
-
-> This model has had safety guardrails surgically removed. It will comply with requests that stock Qwen3.8-27B would refuse. You are solely responsible for how you use this model and any content it generates.
-
-From the [Hugging Face model card](https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED):
-
-**Who this is for**
-- Alignment researchers studying refusal geometry and safety robustness
-- Red-teamers evaluating post-training safety against weight surgery
-- AI safety evaluators who need an unrestricted baseline
-- Local-first users who want full control over their own hardware
-
-**Who this is NOT for**
-- Anyone seeking to cause real-world harm to real people
-- Anyone without the technical understanding to use uncensored models responsibly
-
-This page is a throughput bench only. It is not an endorsement of unrestricted use.
-
 ## Technique
 Pinned profile: random prompts, input=128, output=128, request-rate=inf, concurrency 1 / 8 / 16 / 32 / 64. Headlines use **c32**.
 
@@ -80,3 +62,29 @@ A100 and Blackwell are within **1%** on c32 throughput (616 vs 624). Blackwell c
 **[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
 
 > **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.
+
+<table>
+<tr>
+<td bgcolor="#FF0000" width="100%">
+<h2><font color="#FFFFFF">⚠️ DISCLAIMER</font></h2>
+<p><font color="#FFFFFF"><b>This model has had safety guardrails surgically removed. It will comply with requests that stock Qwen3.8-27B would refuse. You are solely responsible for how you use this model and any content it generates.</b></font></p>
+<p><font color="#FFFFFF">From the <a href="https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED"><font color="#FFFFFF"><u>Hugging Face model card</u></font></a>.</font></p>
+<p><font color="#FFFFFF"><b>Who this is for</b></font></p>
+<ul>
+<li><font color="#FFFFFF">Alignment researchers studying refusal geometry and safety robustness</font></li>
+<li><font color="#FFFFFF">Red-teamers evaluating post-training safety against weight surgery</font></li>
+<li><font color="#FFFFFF">AI safety evaluators who need an unrestricted baseline</font></li>
+<li><font color="#FFFFFF">Local-first users who want full control over their own hardware</font></li>
+</ul>
+<p><font color="#FFFFFF"><b>Who this is NOT for</b></font></p>
+<ul>
+<li><font color="#FFFFFF">Anyone seeking to cause real-world harm to real people</font></li>
+<li><font color="#FFFFFF">Anyone without the technical understanding to use uncensored models responsibly</font></li>
+</ul>
+<p><font color="#FFFFFF"><b>This page is a throughput bench only. It is not an endorsement of unrestricted use.</b></font></p>
+</td>
+</tr>
+</table>
+
+> [!CAUTION]
+> **DISCLAIMER** — This model has had safety guardrails surgically removed. It will comply with requests that stock Qwen3.8-27B would refuse. You are solely responsible for how you use this model and any content it generates. This page is a throughput bench only.
