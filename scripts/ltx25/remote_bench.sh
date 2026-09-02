@@ -15,18 +15,18 @@ FPS=${FPS:-24}
 SEED=${SEED:-42}
 PROMPT=${PROMPT:-'A compact GPU accelerator module on a clean desk in soft daylight, camera slowly pushes in, quiet fan whir and room tone, no text no logos no watermarks.'}
 
-export HF_TOKEN HUGGING_FACE_HUB_TOKEN="$HF_TOKEN" HF_HUB_ENABLE_HF_TRANSFER=1
+export HF_TOKEN HUGGING_FACE_HUB_TOKEN="$HF_TOKEN" HF_HUB_ENABLE_HF_TRANSFER=1 HF_XET_HIGH_PERFORMANCE=1
 mkdir -p "$OUTDIR" "$HOME/.cache/huggingface"
 printf '%s\n' "$HF_TOKEN" > "$HOME/.cache/huggingface/token"
 chmod 600 "$HOME/.cache/huggingface/token"
 
 log(){ echo "[$(date -u +%H:%M:%S)] $*"; }
 
-if ! command -v uv >/dev/null 2>&1; then
-  curl -LsSf https://astral.sh/uv/install.sh | sh
-  export PATH="$HOME/.local/bin:$PATH"
-fi
 export PATH="$HOME/.local/bin:$PATH"
+if ! command -v uv >/dev/null 2>&1; then
+  curl -LsSf https://astral.sh/uv/install.sh | sh || true
+fi
+command -v uv >/dev/null
 
 sudo apt-get update -qq
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq \
