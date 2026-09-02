@@ -1,0 +1,12 @@
+{
+  "model_id": "OBLITERATUS/Qwen3.8-27B-OBLITERATED",
+  "max_concurrency": 32,
+  "metrics": {
+    "output_tok_s": 616.21,
+    "request_s": 4.81,
+    "ttft_ms_mean": 949.5,
+    "ttft_ms_p50": 954.9,
+    "tpot_ms_mean": 44.84,
+    "tpot_ms_p50": 44.73
+  }
+}

@@ -47,21 +47,28 @@ vllm — 745.0 output tok/s @ c32:
 Peak c32 output throughput: **745 tok/s** on `gpu_1x_h100` with **vllm**.
 Best tok/s per $: **446.5** on `gpu_1x_DGX_A100` / **vllm**.
 
-A100 and Blackwell are within **1%** on c32 throughput (616 vs 624). Blackwell costs more per hour; H100 buys **+21%** tok/s vs A100 and the lowest TTFT (569 ms).
+A100 and Blackwell are within **1.2%** on c32 throughput (616.2 vs 623.5). Blackwell costs more per hour; H100 buys **+21%** tok/s vs A100 and the lowest TTFT (569 ms).
 
 ## Notes
 - Exact published BF16 (~54 GB). 1× L40S skipped — not a same-checkpoint row.
 - Hopper/Blackwell default `max_num_seqs=1024` died on Mamba cache (H100 333 blocks, Blackwell 594). Cap 256.
-- A100 c32 (616) matches stock Qwen3.8-27B BF16 on the same SKU (614) within noise.
+- A100 c32 (616.2) sits 0.38% from stock Qwen3.8-27B BF16 on the same SKU (613.8). That stock page documents `--max-model-len 8192 --reasoning-parser qwen3 --limit-mm-per-prompt` with no `--kv-cache-dtype`; this page sets **fp8 KV** on every row. The comparison is indicative, not a controlled A/B.
 - Numbers from live Massed runs 2026-08-31; bench VMs terminated after capture.
-
----
-
-[![Massed Compute](../shared-images/logo-horizontal-on-light.png)](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)
-
-**[LAUNCH GPU OR CPU INSTANCE](https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark)**
-
-> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.
+- Raw: `results/raw/qwen3.8-27b-obliterated/`.
 
 > [!WARNING]
 > **Disclaimer.** This page is a Massed Compute speed-and-cost bench for `OBLITERATUS/Qwen3.8-27B-OBLITERATED`. We did not train these weights. The checkpoint is an uncensored derivative of Qwen3.8-27B — stock refusal filters have been removed. Publishing tok/s here is not an endorsement of unrestricted use. If you launch it, you are responsible for prompts, outputs, and downstream use. Author terms: [Hugging Face model card](https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED).
+
+---
+
+<p align="center">
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
+</p>
+
+<p align="center">
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+</p>
+
+> **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.

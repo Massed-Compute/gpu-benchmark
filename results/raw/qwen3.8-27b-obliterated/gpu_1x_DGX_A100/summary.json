@@ -1,0 +1,95 @@
+{
+  "id": "20260831T145510Z-gpu_1x_DGX_A100",
+  "date": "2026-08-31",
+  "model": {
+    "hf_id": "OBLITERATUS/Qwen3.8-27B-OBLITERATED"
+  },
+  "hardware": {
+    "sku": "gpu_1x_DGX_A100",
+    "count": 1,
+    "price_usd_per_hour": 1.38
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_DGX_A100",
+      "gpu_count": 1,
+      "price_usd_per_hour": 1.38,
+      "max_concurrency": 1,
+      "metrics": {
+        "request_s": 0.22,
+        "output_tok_s": 28.11,
+        "ttft_ms_mean": 79.61,
+        "ttft_ms_p50": 63.31,
+        "tpot_ms_mean": 35.22,
+        "tpot_ms_p50": 35.22
+      },
+      "raw_stdout_path": "results/raw/qwen3.8-27b-obliterated/gpu_1x_DGX_A100/vllm-c1.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_DGX_A100",
+      "gpu_count": 1,
+      "price_usd_per_hour": 1.38,
+      "max_concurrency": 8,
+      "metrics": {
+        "request_s": 1.6,
+        "output_tok_s": 204.67,
+        "ttft_ms_mean": 291.19,
+        "ttft_ms_p50": 292.5,
+        "tpot_ms_mean": 37.09,
+        "tpot_ms_p50": 37.01
+      },
+      "raw_stdout_path": "results/raw/qwen3.8-27b-obliterated/gpu_1x_DGX_A100/vllm-c8.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_DGX_A100",
+      "gpu_count": 1,
+      "price_usd_per_hour": 1.38,
+      "max_concurrency": 16,
+      "metrics": {
+        "request_s": 2.91,
+        "output_tok_s": 373.1,
+        "ttft_ms_mean": 505.36,
+        "ttft_ms_p50": 511.24,
+        "tpot_ms_mean": 39.23,
+        "tpot_ms_p50": 39.13
+      },
+      "raw_stdout_path": "results/raw/qwen3.8-27b-obliterated/gpu_1x_DGX_A100/vllm-c16.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_DGX_A100",
+      "gpu_count": 1,
+      "price_usd_per_hour": 1.38,
+      "max_concurrency": 32,
+      "metrics": {
+        "request_s": 4.81,
+        "output_tok_s": 616.21,
+        "ttft_ms_mean": 949.5,
+        "ttft_ms_p50": 954.9,
+        "tpot_ms_mean": 44.84,
+        "tpot_ms_p50": 44.73
+      },
+      "raw_stdout_path": "results/raw/qwen3.8-27b-obliterated/gpu_1x_DGX_A100/vllm-c32.txt",
+      "screenshot": "qwen3.8-27b-obliterated/images/1xA100-vllm-showcase.png"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_DGX_A100",
+      "gpu_count": 1,
+      "price_usd_per_hour": 1.38,
+      "max_concurrency": 64,
+      "metrics": {
+        "request_s": 7.22,
+        "output_tok_s": 924.29,
+        "ttft_ms_mean": 1758.04,
+        "ttft_ms_p50": 1901.28,
+        "tpot_ms_mean": 55.9,
+        "tpot_ms_p50": 54.73
+      },
+      "raw_stdout_path": "results/raw/qwen3.8-27b-obliterated/gpu_1x_DGX_A100/vllm-c64.txt"
+    }
+  ]
+}
