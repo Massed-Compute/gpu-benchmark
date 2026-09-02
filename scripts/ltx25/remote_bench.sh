@@ -5,7 +5,7 @@ set -euo pipefail
 
 SKU=${SKU:?set SKU e.g. gpu_1x_l40s}
 HF_TOKEN=${HF_TOKEN:?set HF_TOKEN}
-OUTDIR=${OUTDIR:-$HOME/mc-bench/out/ltx25}
+OUTDIR=${OUTDIR:-$HOME/mc-bench/out/ltx25/$SKU}
 REPO_DIR=${REPO_DIR:-$HOME/mc-bench/LTX-2}
 MODELS=${MODELS:-$REPO_DIR/models/ltx-2.5}
 HEIGHT=${HEIGHT:-1024}

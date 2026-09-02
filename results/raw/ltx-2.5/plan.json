@@ -11,9 +11,8 @@
     "prompt": "A compact GPU accelerator module on a clean desk in soft daylight, camera slowly pushes in, quiet fan whir and room tone, no text no logos no watermarks."
   },
   "ladder": [
-    {"tier": "smallest", "sku": "gpu_1x_l40s", "usd_hr": 0.88, "uuid": "c147acc8-75bb-4d88-8f62-8857ad7edc47", "name": "mc-bench-ltx25-l40s"},
-    {"tier": "medium", "sku": "gpu_1x_DGX_A100", "usd_hr": 1.38, "uuid": "77c811e4-e7ff-4451-b201-21c1ed6364d3", "name": "mc-bench-ltx25-a100"},
-    {"tier": "compare", "sku": "gpu_1x_pro_6000_blackwell", "usd_hr": 2.19, "uuid": "169f2f5f-287b-4746-8405-710d8c97d664", "name": "mc-bench-ltx25-bwk"}
-  ],
-  "do_not_touch": {"name": "ltx-25", "uuid": "2558dace-053c-421a-8327-d22329b0a681", "ip": "216.243.220.73"}
+    {"tier": "smallest", "sku": "gpu_1x_l40s", "usd_hr": 0.88, "name": "mc-bench-ltx25-l40s"},
+    {"tier": "medium", "sku": "gpu_1x_DGX_A100", "usd_hr": 1.38, "name": "mc-bench-ltx25-a100"},
+    {"tier": "compare", "sku": "gpu_1x_pro_6000_blackwell", "usd_hr": 2.19, "name": "mc-bench-ltx25-bwk"}
+  ]
 }
