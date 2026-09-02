@@ -1,0 +1,12 @@
+{
+  "model_id": "zai-org/GLM-5.3-Flash",
+  "max_concurrency": 32,
+  "metrics": {
+    "output_tok_s": 546.77,
+    "request_s": 4.27,
+    "ttft_ms_mean": 1983.32,
+    "ttft_ms_p50": 531.14,
+    "tpot_ms_mean": 43.35,
+    "tpot_ms_p50": 42.46
+  }
+}
