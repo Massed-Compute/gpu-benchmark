@@ -1,0 +1,95 @@
+{
+  "id": "20260831T135307Z-gpu_8x_H100_SXM5",
+  "date": "2026-08-31",
+  "model": {
+    "hf_id": "zai-org/GLM-5.3-Flash"
+  },
+  "hardware": {
+    "sku": "gpu_8x_H100_SXM5",
+    "count": 8,
+    "price_usd_per_hour": 25.12
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_8x_H100_SXM5",
+      "gpu_count": 8,
+      "price_usd_per_hour": 25.12,
+      "max_concurrency": 1,
+      "metrics": {
+        "request_s": 1.16,
+        "output_tok_s": 147.98,
+        "ttft_ms_mean": 78.8,
+        "ttft_ms_p50": 49.1,
+        "tpot_ms_mean": 6.19,
+        "tpot_ms_p50": 6.13
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_8x_H100_SXM5/vllm-c1.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_8x_H100_SXM5",
+      "gpu_count": 8,
+      "price_usd_per_hour": 25.12,
+      "max_concurrency": 8,
+      "metrics": {
+        "request_s": 3.74,
+        "output_tok_s": 478.5,
+        "ttft_ms_mean": 851.14,
+        "ttft_ms_p50": 209.85,
+        "tpot_ms_mean": 10.14,
+        "tpot_ms_p50": 9.26
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_8x_H100_SXM5/vllm-c8.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_8x_H100_SXM5",
+      "gpu_count": 8,
+      "price_usd_per_hour": 25.12,
+      "max_concurrency": 16,
+      "metrics": {
+        "request_s": 8.13,
+        "output_tok_s": 1040.77,
+        "ttft_ms_mean": 519.2,
+        "ttft_ms_p50": 199.6,
+        "tpot_ms_mean": 11.39,
+        "tpot_ms_p50": 11.17
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_8x_H100_SXM5/vllm-c16.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_8x_H100_SXM5",
+      "gpu_count": 8,
+      "price_usd_per_hour": 25.12,
+      "max_concurrency": 32,
+      "metrics": {
+        "request_s": 5.45,
+        "output_tok_s": 698.01,
+        "ttft_ms_mean": 2639.61,
+        "ttft_ms_p50": 321.2,
+        "tpot_ms_mean": 25.38,
+        "tpot_ms_p50": 15.24
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_8x_H100_SXM5/vllm-c32.txt",
+      "screenshot": "glm-5.3-flash/images/8xH100-vllm-showcase.png"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_8x_H100_SXM5",
+      "gpu_count": 8,
+      "price_usd_per_hour": 25.12,
+      "max_concurrency": 64,
+      "metrics": {
+        "request_s": 14.25,
+        "output_tok_s": 1824.02,
+        "ttft_ms_mean": 1818.05,
+        "ttft_ms_p50": 370.58,
+        "tpot_ms_mean": 21.01,
+        "tpot_ms_p50": 17.49
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_8x_H100_SXM5/vllm-c64.txt"
+    }
+  ]
+}

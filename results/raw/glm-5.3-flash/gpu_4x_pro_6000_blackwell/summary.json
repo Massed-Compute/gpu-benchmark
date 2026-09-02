@@ -1,0 +1,95 @@
+{
+  "id": "20260831T141444Z-gpu_4x_pro_6000_blackwell",
+  "date": "2026-08-31",
+  "model": {
+    "hf_id": "zai-org/GLM-5.3-Flash"
+  },
+  "hardware": {
+    "sku": "gpu_4x_pro_6000_blackwell",
+    "count": 4,
+    "price_usd_per_hour": 8.76
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "gpu_count": 4,
+      "price_usd_per_hour": 8.76,
+      "max_concurrency": 1,
+      "metrics": {
+        "request_s": 0.67,
+        "output_tok_s": 86.24,
+        "ttft_ms_mean": 100.68,
+        "ttft_ms_p50": 71.71,
+        "tpot_ms_mean": 10.89,
+        "tpot_ms_p50": 10.82
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_4x_pro_6000_blackwell/vllm-c1.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "gpu_count": 4,
+      "price_usd_per_hour": 8.76,
+      "max_concurrency": 8,
+      "metrics": {
+        "request_s": 1.33,
+        "output_tok_s": 169.62,
+        "ttft_ms_mean": 2763.23,
+        "ttft_ms_p50": 305.04,
+        "tpot_ms_mean": 25.76,
+        "tpot_ms_p50": 21.4
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_4x_pro_6000_blackwell/vllm-c8.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "gpu_count": 4,
+      "price_usd_per_hour": 8.76,
+      "max_concurrency": 16,
+      "metrics": {
+        "request_s": 2.92,
+        "output_tok_s": 374.25,
+        "ttft_ms_mean": 1640.87,
+        "ttft_ms_p50": 317.73,
+        "tpot_ms_mean": 30.15,
+        "tpot_ms_p50": 29.43
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_4x_pro_6000_blackwell/vllm-c16.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "gpu_count": 4,
+      "price_usd_per_hour": 8.76,
+      "max_concurrency": 32,
+      "metrics": {
+        "request_s": 4.27,
+        "output_tok_s": 546.77,
+        "ttft_ms_mean": 1983.32,
+        "ttft_ms_p50": 531.14,
+        "tpot_ms_mean": 43.35,
+        "tpot_ms_p50": 42.46
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_4x_pro_6000_blackwell/vllm-c32.txt",
+      "screenshot": "glm-5.3-flash/images/4xBlackwell-vllm-showcase.png"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_4x_pro_6000_blackwell",
+      "gpu_count": 4,
+      "price_usd_per_hour": 8.76,
+      "max_concurrency": 64,
+      "metrics": {
+        "request_s": 5.92,
+        "output_tok_s": 757.92,
+        "ttft_ms_mean": 1427.6,
+        "ttft_ms_p50": 987.34,
+        "tpot_ms_mean": 73.47,
+        "tpot_ms_p50": 65.34
+      },
+      "raw_stdout_path": "results/raw/glm-5.3-flash/gpu_4x_pro_6000_blackwell/vllm-c64.txt"
+    }
+  ]
+}
