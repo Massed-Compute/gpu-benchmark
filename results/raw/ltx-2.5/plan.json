@@ -1,0 +1,18 @@
+{
+  "hf_id": "Lightricks/LTX-2.5",
+  "engine": "ltx-pipelines.distilled",
+  "checkpoint": "ltx-2.5-22b-distilled-transformer-bf16",
+  "locked": {
+    "height": 1024,
+    "width": 1536,
+    "num_frames": 121,
+    "fps": 24,
+    "seed": 42,
+    "prompt": "A compact GPU accelerator module on a clean desk in soft daylight, camera slowly pushes in, quiet fan whir and room tone, no text no logos no watermarks."
+  },
+  "ladder": [
+    {"tier": "smallest", "sku": "gpu_1x_l40s", "usd_hr": 0.88, "name": "mc-bench-ltx25-l40s"},
+    {"tier": "medium", "sku": "gpu_1x_DGX_A100", "usd_hr": 1.38, "name": "mc-bench-ltx25-a100"},
+    {"tier": "compare", "sku": "gpu_1x_pro_6000_blackwell", "usd_hr": 2.19, "name": "mc-bench-ltx25-bwk"}
+  ]
+}
