@@ -15,6 +15,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [Qwen3.8 27B OBLITERATED (A100 / Blackwell / H100)](./qwen3.8-27b-obliterated/qwen3.8-27b-obliterated.md)
 - [GLM 5.3 Flash (4× Blackwell / 8× H100)](./glm-5.3-flash/glm-5.3-flash.md)
 - [LFM2.5 VL 3B (A6000 / L40S / Blackwell)](./lfm2.5-vl-3b/lfm2.5-vl-3b.md)
 - [Nemotron 3.5 Lightning 30B (L40S / A100 / Blackwell)](./nemotron-3.5-lightning-30b/nemotron-3.5-lightning-30b.md)
@@ -55,6 +56,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 - [Qwen3 30B-A3B (MoE)](./qwen3-30b-a3b/qwen3-30b-a3b.md)
 - [Qwen3.6 35B-A3B](./qwen3.6-35b-a3b/qwen3.6-35b-a3b.md)
 - [Qwen3.8 27B](./qwen3.8-27b/qwen3.8-27b.md)
+- [Qwen3.8 27B OBLITERATED](./qwen3.8-27b-obliterated/qwen3.8-27b-obliterated.md)
 
 ### GLM
 
