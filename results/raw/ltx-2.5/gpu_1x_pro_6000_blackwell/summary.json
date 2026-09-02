@@ -9,10 +9,10 @@
       "label": "cold",
       "status": "ok",
       "exit_code": 0,
-      "wall_s": 59.16,
+      "wall_s": 61.026,
       "peak_vram_mib": 48405.0,
       "peak_vram_gib": 47.27,
-      "mp4": "/home/Ubuntu/mc-bench/out/ltx25/cold.mp4",
+      "mp4": "/home/Ubuntu/mc-bench/out/ltx25/gpu_1x_pro_6000_blackwell/cold.mp4",
       "mp4_bytes": 926710,
       "height": 1024,
       "width": 1536,
@@ -136,7 +136,7 @@
           }
         ],
         "format": {
-          "filename": "/home/Ubuntu/mc-bench/out/ltx25/cold.mp4",
+          "filename": "/home/Ubuntu/mc-bench/out/ltx25/gpu_1x_pro_6000_blackwell/cold.mp4",
           "nb_streams": 2,
           "nb_programs": 0,
           "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
@@ -161,10 +161,10 @@
       "label": "warm",
       "status": "ok",
       "exit_code": 0,
-      "wall_s": 54.688,
+      "wall_s": 52.925,
       "peak_vram_mib": 48405.0,
       "peak_vram_gib": 47.27,
-      "mp4": "/home/Ubuntu/mc-bench/out/ltx25/warm.mp4",
+      "mp4": "/home/Ubuntu/mc-bench/out/ltx25/gpu_1x_pro_6000_blackwell/warm.mp4",
       "mp4_bytes": 926710,
       "height": 1024,
       "width": 1536,
@@ -288,7 +288,7 @@
           }
         ],
         "format": {
-          "filename": "/home/Ubuntu/mc-bench/out/ltx25/warm.mp4",
+          "filename": "/home/Ubuntu/mc-bench/out/ltx25/gpu_1x_pro_6000_blackwell/warm.mp4",
           "nb_streams": 2,
           "nb_programs": 0,
           "format_name": "mov,mp4,m4a,3gp,3g2,mj2",

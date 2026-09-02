@@ -15,6 +15,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [LTX 2.5 Distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
 - [LFM2.5 VL 3B (A6000 / L40S / Blackwell)](./lfm2.5-vl-3b/lfm2.5-vl-3b.md)
 - [Nemotron 3.5 Lightning 30B (L40S / A100 / Blackwell)](./nemotron-3.5-lightning-30b/nemotron-3.5-lightning-30b.md)
 - [Qwen3.8 27B (L40S FP8 / A100 BF16 / Blackwell BF16)](./qwen3.8-27b/qwen3.8-27b.md)
@@ -71,7 +72,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Image / Video
 
-- [LTX 2.5 distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
+- [LTX 2.5 Distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
 - [MiniMax H3 (FL2VA / ComfyUI Ref2VA / Atlántida)](./minimax-h3/minimax-h3.md)
 - [Krea 2 Turbo](./krea-2-turbo/krea-2-turbo.md)
 - [Bernini-R 14B](./bernini-r-14b/bernini-r-14b.md)
