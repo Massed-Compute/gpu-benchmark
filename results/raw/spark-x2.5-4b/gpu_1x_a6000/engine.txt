@@ -1,0 +1,1 @@
+vllm/vllm-openai:latest + vllm-spark2-5-plugin
