@@ -39,13 +39,16 @@ vllm — 3422.9 output tok/s @ c32:
 
 ## Conclusion
 
-Smallest fit is **`gpu_1x_a6000`** at **2825** tok/s per $ (**1610** tok/s at $0.57/hr). L40S is **20%** faster and **70%** more per hour, so A6000 still wins cost. Blackwell is the throughput card: **3423** tok/s, **2.1×** A6000, **1.8×** L40S, worst tok/s per $ of the three. Buy A6000 unless the job is latency-bound (Blackwell TTFT 98 ms vs A6000 180 ms).
+Smallest fit is **`gpu_1x_a6000`** at **2825** tok/s per $ (**1610** tok/s at $0.57/hr). L40S is **20%** faster and **70%** more per hour, so A6000 still wins cost. Blackwell is the throughput card: **3423** tok/s, **2.1×** A6000, **1.8×** L40S, worst tok/s per $ of the three.
+
+Buy A6000 for packed serving and for a chat box billed by the hour. Use Blackwell when 32-way TTFT matters (c32 p99 113 ms vs A6000 342 ms) or a single-user tail (c1 p99 21 ms vs A6000 120 ms). Do not treat the c32 medians (98 ms vs 180 ms) as interactive latency.
 
 ## Notes
 - 4.1B BF16 (~8.3 GB weights) fits 48 GB; A6000 at $0.57 is the least expensive live SKU that ran it. Multi-GPU is not warranted.
 - Same checkpoint on all three rows. Did not bench the advertised 1M context window.
 - Serving used `vllm-spark2-5-plugin` inside `vllm/vllm-openai:latest`. First stock-latest start failed with `Spark2_5ForCausalLM` unsupported.
 - nvidia-smi at serve-ready: A6000 44420/49140 MiB, L40S 41815/46068 MiB, Blackwell 89971/97887 MiB.
+- Showcase tables are measured vLLM serving-bench fields only (TTFT mean/p50/p99, TPOT mean/p50/p99, output_throughput). No synthesized min/max or p90.
 - SGLang not captured this wave.
 - Numbers from live Massed runs 2026-09-08; bench VMs terminated after capture.
 - Raw: `results/raw/spark-x2.5-4b/`.

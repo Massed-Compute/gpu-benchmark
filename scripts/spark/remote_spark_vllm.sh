@@ -26,20 +26,26 @@ sudo docker rm -f vllm-bench >/dev/null 2>&1 || true
 log "pull $VLLM_IMAGE"
 sudo docker pull "$VLLM_IMAGE"
 
+[[ "$TP" =~ ^[0-9]+$ ]] || { echo "TP must be an integer"; exit 1; }
+[[ "$MAX_MODEL_LEN" =~ ^[0-9]+$ ]] || { echo "MAX_MODEL_LEN must be an integer"; exit 1; }
+
 log "start vLLM $MODEL with spark2_5 plugin tp=$TP maxlen=$MAX_MODEL_LEN"
 sudo docker run -d --name vllm-bench --gpus all --ipc=host --shm-size 16g \
   --entrypoint bash \
   -e HUGGING_FACE_HUB_TOKEN="$HF_TOKEN" \
   -e HF_TOKEN="$HF_TOKEN" \
   -e VLLM_PLUGINS=spark2_5 \
+  -e MODEL="$MODEL" \
+  -e TP="$TP" \
+  -e MAX_MODEL_LEN="$MAX_MODEL_LEN" \
   -p 8000:8000 \
   -v "$HOME/.cache/huggingface:/root/.cache/huggingface" \
   "$VLLM_IMAGE" \
-  -lc "pip install -q vllm-spark2-5-plugin && \
-    vllm serve ${MODEL} --host 0.0.0.0 --port 8000 --trust-remote-code \
-      --served-model-name ${MODEL} --tensor-parallel-size ${TP} \
-      --max-model-len ${MAX_MODEL_LEN} --gpu-memory-utilization 0.90 \
-      --enable-prefix-caching --tool-call-parser spark25 --reasoning-parser qwen3"
+  -lc 'pip install -q vllm-spark2-5-plugin && \
+    vllm serve "$MODEL" --host 0.0.0.0 --port 8000 --trust-remote-code \
+      --served-model-name "$MODEL" --tensor-parallel-size "$TP" \
+      --max-model-len "$MAX_MODEL_LEN" --gpu-memory-utilization 0.90 \
+      --enable-prefix-caching --tool-call-parser spark25 --reasoning-parser qwen3'
 
 ready=0
 for i in $(seq 1 480); do
