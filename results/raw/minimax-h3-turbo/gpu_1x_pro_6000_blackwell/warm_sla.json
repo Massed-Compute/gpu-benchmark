@@ -1,0 +1,19 @@
+{
+  "sku": "gpu_1x_pro_6000_blackwell",
+  "label": "warm_sla",
+  "status": "fail",
+  "exit_code": 1,
+  "wall_s": 128.565,
+  "peak_vram_mib": 16829.0,
+  "peak_vram_gib": 16.43,
+  "mp4": null,
+  "mp4_bytes": 0,
+  "height": 768,
+  "width": 1344,
+  "num_frames": 124,
+  "fps": 24,
+  "seed": 42,
+  "engine": "lightx2v minimax_h3 t2av",
+  "lora": "warm_sla",
+  "ffprobe": {}
+}
