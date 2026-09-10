@@ -36,6 +36,12 @@ A 2026-08-31 capture of the same locked clip gave **106.7 s** on L40S (**+14.0%*
 
 First clip costs **6–9×** a later clip because of the ~66 GiB pull (L40S $0.14 / 9.6 min, A100 $0.21 / 9.3 min, Blackwell $0.29 / 7.9 min). Wait per 1 s of output: L40S 18.6× realtime, A100 18.2×, Blackwell 10.5×. Blackwell is **1.77×** faster than L40S on the warm clip.
 
+### Three-GPU comparison
+
+[ltx-2.5-three-gpu-comparison.mp4](./assets/ltx-2.5-three-gpu-comparison.mp4)
+
+On-screen **$/clip** and “less than a nickel per clip” are **after warm-up**. The first clip is 6–9× that (L40S $0.14, A100 $0.21, Blackwell $0.29).
+
 | Clips in one sitting | L40S $ | A100 $ | Blackwell $ |
 |---:|---:|---:|---:|
 | 1 | 0.14 | 0.21 | 0.29 |
