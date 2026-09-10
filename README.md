@@ -64,6 +64,10 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 - [GLM 5.3 Flash](./glm-5.3-flash/glm-5.3-flash.md)
 - [GLM-4.7-Flash](./glm-4.7-flash/glm-4.7-flash.md)
 
+### Spark
+
+- [Spark-X2.5-4B](./spark-x2.5-4b/spark-x2.5-4b.md)
+
 ### Ornith
 
 - [Ornith 1.0 9B](./ornith-1.0-9b/ornith-1.0-9b.md)
