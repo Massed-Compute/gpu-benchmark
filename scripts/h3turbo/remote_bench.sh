@@ -11,6 +11,7 @@ LX="$ROOT/LightX2V"
 PROMPT_SHORT="${PROMPT:-A compact GPU accelerator module on a clean desk in soft daylight, camera slowly pushes in, quiet fan whir and room tone, no text no logos no watermarks.}"
 SEED="${SEED:-42}"
 LOG="$HOME/h3turbo-bench.log"
+export PROMPT_SHORT SEED
 exec > >(tee -a "$LOG") 2>&1
 log(){ echo "[$(date -u +%H:%M:%S)] $*"; }
 
@@ -23,6 +24,7 @@ export PYTHONPATH="$LX${PYTHONPATH:+:$PYTHONPATH}"
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
 REWRITE="$OUT/rewritten_prompt.txt"
+export REWRITE
 log "rewrite prompt (8B VL LoRA)"
 python3 "$MODELS/rewriter-8b/infer.py" \
   --base-model "$MODELS/Qwen3-VL-8B-Instruct" \
@@ -32,12 +34,14 @@ python3 "$MODELS/rewriter-8b/infer.py" \
   --resolution 16:9 \
   --greedy \
   --output "$REWRITE" \
-  || python3 - <<PY
+  || python3 - <<'PY'
 from pathlib import Path
-Path("$REWRITE").write_text("""integrated_multimodal_description: [Shot 1] $PROMPT_SHORT
-overall_soundscape: Quiet fan whir and room tone.
-non_diegetic_music: N/A
-""")
+import os
+Path(os.environ["REWRITE"]).write_text(
+    "integrated_multimodal_description: [Shot 1] "
+    + os.environ["PROMPT_SHORT"]
+    + "\noverall_soundscape: Quiet fan whir and room tone.\nnon_diegetic_music: N/A\n"
+)
 print("rewriter failed; using structured fallback")
 PY
 PROMPT="$(cat "$REWRITE")"
@@ -74,10 +78,10 @@ run_one() {
   t1=$(date +%s.%N)
   kill "$smi_pid" 2>/dev/null || true
   wait "$smi_pid" 2>/dev/null || true
-  python3 - "$OUT" "$label" "$SKU" "$rc" "$t0" "$t1" "$mp4" <<'PY'
+  python3 - "$OUT" "$label" "$SKU" "$rc" "$t0" "$t1" "$mp4" "$SEED" <<'PY'
 import csv, json, os, subprocess, sys
 from pathlib import Path
-outdir, label, sku, rc, t0, t1, mp4 = sys.argv[1:8]
+outdir, label, sku, rc, t0, t1, mp4, seed = sys.argv[1:9]
 rc = int(rc)
 wall = float(t1) - float(t0)
 peak = 0.0
@@ -115,9 +119,9 @@ blob = {
     "mp4": str(p) if p.exists() else None,
     "mp4_bytes": p.stat().st_size if p.exists() else 0,
     "height": 768, "width": 1344, "num_frames": 124,
-    "fps": 24, "seed": 42,
+    "fps": 24, "seed": int(seed),
     "engine": "lightx2v minimax_h3 t2av",
-    "lora": label,
+    "lora": os.environ.get("LORA_NAME") or None,
     "ffprobe": ffprobe,
 }
 Path(outdir, f"{label}.json").write_text(json.dumps(blob, indent=2) + "\n")
@@ -147,8 +151,9 @@ import json, sys
 from pathlib import Path
 outdir, sku = Path(sys.argv[1]), sys.argv[2]
 rows = []
-for p in sorted(outdir.glob("*.json")):
-    if p.name in ("summary.json",):
+for name in ("cold_4step.json", "warm_4step.json", "warm_8step.json", "warm_sla.json"):
+    p = outdir / name
+    if not p.exists():
         continue
     try:
         rows.append(json.loads(p.read_text()))
@@ -158,7 +163,12 @@ summary = {
     "sku": sku,
     "engine": "lightx2v",
     "hf_id": "lightx2v/Minimax-h3-Turbo",
-    "checkpoint": "minimax_h3_fl2v_turbo_4step_v1.2_768p_bf16",
+    "checkpoint_by_label": {
+        "cold_4step": "minimax_h3_fl2v_turbo_4step_v1.2_768p_bf16",
+        "warm_4step": "minimax_h3_fl2v_turbo_4step_v1.2_768p_bf16",
+        "warm_8step": "minimax_h3_fl2v_turbo_8step_v1.0_768p_bf16",
+        "warm_sla": "minimax_h3_turbo_sla_4step_768p",
+    },
     "addons": [
         "FL2VA Turbo 4-step v1.2 768p",
         "FL2VA Turbo 8-step v1.0 768p",

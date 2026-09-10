@@ -1,5 +1,6 @@
 {
   "infer_steps": 5,
+  "_comment": "infer_steps is LightX2V scheduler ticks (denoising steps + 1), not the marketing 4-step LoRA name. ComfyUI path is 0/4 and is the published ladder.",
   "target_video_length": 124,
   "target_height": 768,
   "target_width": 1344,

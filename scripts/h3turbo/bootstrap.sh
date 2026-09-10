@@ -5,7 +5,11 @@ set -euo pipefail
 export PATH="$HOME/.local/bin:$PATH"
 export HF_HUB_ENABLE_HF_TRANSFER=1
 export HF_XET_HIGH_PERFORMANCE=1
-export HUGGING_FACE_HUB_TOKEN="${HF_TOKEN:-$(cat "$HOME/.cache/huggingface/token" 2>/dev/null || true)}"
+export HUGGING_FACE_HUB_TOKEN="${HF_TOKEN:-}"
+if [[ -z "$HUGGING_FACE_HUB_TOKEN" && -f "$HOME/.cache/huggingface/token" ]]; then
+  tok=$(tr -d '[:space:]' < "$HOME/.cache/huggingface/token")
+  HUGGING_FACE_HUB_TOKEN=$tok
+fi
 export HF_TOKEN="${HUGGING_FACE_HUB_TOKEN:-}"
 SKU="${SKU:-unknown}"
 ADDONS_HEAVY="${ADDONS_HEAVY:-0}"

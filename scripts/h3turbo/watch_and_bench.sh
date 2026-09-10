@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# After DONE_WEIGHTS, start remote_bench on each host once.
+# After hosts are up, start the ComfyUI 4-step runner once per host.
 # MC_BENCH_HOSTS='ip:sku:heavy ip:sku:heavy'  heavy is 0 or 1
 set -euo pipefail
 KEY="${MC_BENCH_SSH_KEY:-$HOME/.ssh/songtree_massedcompute}"
@@ -16,11 +16,11 @@ while true; do
     rest=${row#*:}
     sku=${rest%%:*}
     heavy=${rest#*:}
-    marker=$("${SSH[@]}" "Ubuntu@$ip" 'if [[ -f ~/mc-bench/out/h3turbo/DONE ]]; then echo BENCH_DONE; elif [[ -f ~/mc-bench/out/h3turbo/DONE_WEIGHTS ]]; then echo WEIGHTS_DONE; elif pgrep -f "[r]emote_bench.sh" >/dev/null; then echo BENCH_RUN; else echo WAIT; fi' || echo DOWN)
+    marker=$("${SSH[@]}" "Ubuntu@$ip" 'if [[ -f ~/mc-bench/out/h3turbo/DONE ]] || [[ -f ~/mc-bench/out/h3-turbo-comfy/DONE ]]; then echo BENCH_DONE; elif pgrep -f "[r]emote_comfy_4step.sh" >/dev/null || pgrep -f "[r]emote_bench.sh" >/dev/null; then echo BENCH_RUN; elif [[ -f ~/mc-bench/out/h3turbo/DONE_WEIGHTS ]]; then echo WEIGHTS_DONE; else echo WAIT; fi' || echo DOWN)
     echo "$(date -u +%H:%M:%S) $sku $ip $marker"
     if [[ "$marker" == "WEIGHTS_DONE" ]]; then
-      "${SCP[@]}" "$HERE/remote_bench.sh" "Ubuntu@$ip:~/mc-bench/scripts/remote_bench.sh"
-      "${SSH[@]}" "Ubuntu@$ip" "chmod +x ~/mc-bench/scripts/remote_bench.sh; nohup env SKU=$sku ADDONS_HEAVY=$heavy bash ~/mc-bench/scripts/remote_bench.sh >~/h3turbo-bench.log 2>&1 & echo BENCH_PID=\$!"
+      "${SCP[@]}" "$HERE/remote_bench.sh" "$HERE/remote_comfy_4step.sh" "Ubuntu@$ip:~/mc-bench/scripts/"
+      "${SSH[@]}" "Ubuntu@$ip" "chmod +x ~/mc-bench/scripts/*.sh; rm -f ~/mc-bench/out/h3turbo/DONE_WEIGHTS; nohup env SKU=$sku ADDONS_HEAVY=$heavy bash ~/mc-bench/scripts/remote_comfy_4step.sh >~/h3turbo-bench.log 2>&1 & echo BENCH_PID=\$!"
     fi
     [[ "$marker" == "BENCH_DONE" ]] || all_done=0
   done

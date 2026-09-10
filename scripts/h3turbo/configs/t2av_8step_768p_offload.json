@@ -1,5 +1,6 @@
 {
   "infer_steps": 9,
+  "_comment": "infer_steps is LightX2V scheduler ticks (denoising steps + 1), not the marketing 8-step LoRA name.",
   "target_video_length": 124,
   "target_height": 768,
   "target_width": 1344,

@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# Push bootstrap + configs to a booted mc-bench-h3turbo-* VM and start downloads.
+# Push the ComfyUI 4-step runner (the credited path) to a booted mc-bench-h3turbo-* VM.
 set -euo pipefail
 KEY="${MC_BENCH_SSH_KEY:-$HOME/.ssh/songtree_massedcompute}"
-HF_TOKEN="${HF_TOKEN:-$(cat "$HOME/.cache/huggingface/token")}"
+HF_TOKEN="${HF_TOKEN:-}"
+if [[ -z "$HF_TOKEN" ]]; then
+  tok=$(tr -d '[:space:]' < "$HOME/.cache/huggingface/token")
+  HF_TOKEN=$tok
+fi
 IP="${1:?ip}"
 SKU="${2:?sku}"
 HEAVY="${3:-0}"
@@ -20,10 +24,10 @@ for i in $(seq 1 90); do
   [[ "$i" -eq 90 ]] && { echo "no ssh"; exit 1; }
 done
 
-"${SSH[@]}" "Ubuntu@$IP" "mkdir -p ~/h3turbo-configs ~/mc-bench/scripts"
+"${SSH[@]}" "Ubuntu@$IP" "mkdir -p ~/h3turbo-configs ~/mc-bench/scripts ~/.cache/huggingface"
 "${SCP[@]}" "$HERE"/configs/*.json "Ubuntu@$IP:~/h3turbo-configs/"
-"${SCP[@]}" "$HERE/bootstrap.sh" "$HERE/remote_bench.sh" "Ubuntu@$IP:~/mc-bench/scripts/"
-"${SSH[@]}" "Ubuntu@$IP" "chmod +x ~/mc-bench/scripts/*.sh && mkdir -p ~/.cache/huggingface"
-printf '%s' "$HF_TOKEN" | "${SSH[@]}" "Ubuntu@$IP" "cat > ~/.cache/huggingface/token && chmod 600 ~/.cache/huggingface/token"
-"${SSH[@]}" "Ubuntu@$IP" "nohup env SKU=$SKU ADDONS_HEAVY=$HEAVY HF_TOKEN=\$(cat ~/.cache/huggingface/token) bash ~/mc-bench/scripts/bootstrap.sh >~/h3turbo-bootstrap.log 2>&1 & echo BOOTSTRAP_PID=\$!"
-echo "started bootstrap $SKU $IP heavy=$HEAVY"
+"${SCP[@]}" "$HERE/bootstrap.sh" "$HERE/remote_bench.sh" "$HERE/remote_comfy_4step.sh" "Ubuntu@$IP:~/mc-bench/scripts/"
+"${SSH[@]}" "Ubuntu@$IP" "chmod +x ~/mc-bench/scripts/*.sh && install -m 600 /dev/null ~/.cache/huggingface/token"
+printf '%s' "$HF_TOKEN" | "${SSH[@]}" "Ubuntu@$IP" "cat > ~/.cache/huggingface/token"
+"${SSH[@]}" "Ubuntu@$IP" "nohup env SKU=$SKU ADDONS_HEAVY=$HEAVY bash ~/mc-bench/scripts/remote_comfy_4step.sh >~/h3turbo-bench.log 2>&1 & echo BENCH_PID=\$!"
+echo "started comfy 4-step $SKU $IP heavy=$HEAVY"

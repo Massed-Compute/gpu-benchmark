@@ -74,6 +74,7 @@ Do not buy L40S for this graph. It is **$0.001**/clip above A6000 and still **1.
 - Setup: image 184, ~15 min launch-to-first-OK clip (weights ~45 GB). Runner: `scripts/h3turbo/remote_comfy_4step.sh`.
 - Native LightX2V (2026-09-04) peaked at ~17 GiB VRAM but needed ~125 GiB host RAM. A6000/L40S failed that engine. Those stills remain at `images/1xA100-lightx2v-showcase.png` and `images/1xBlackwell-lightx2v-showcase.png` and are **not** this ladder.
 - Capture 2026-09-08. Disposable bench VMs from this ladder were terminated after numbers were saved.
+- L40S list rate rose from $0.88 to $0.97 on 2026-09-08. Older pages still show $0.88 as of their capture date.
 - Raw: `results/raw/minimax-h3-turbo/comfyui/`.
 
 ---

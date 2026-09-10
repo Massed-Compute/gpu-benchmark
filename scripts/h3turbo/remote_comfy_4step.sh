@@ -6,7 +6,8 @@ set -euo pipefail
 
 HF_TOKEN=${HF_TOKEN:-}
 if [[ -z "$HF_TOKEN" && -f "$HOME/.cache/huggingface/token" ]]; then
-  HF_TOKEN=$(tr -d '[:space:]' <"$HOME/.cache/huggingface/token")
+  tok=$(tr -d '[:space:]' <"$HOME/.cache/huggingface/token")
+  HF_TOKEN=$tok
 fi
 OUTDIR=${OUTDIR:-$HOME/mc-bench/out/h3-turbo-comfy}
 COMFY="$HOME/mc-bench/ComfyUI"
@@ -70,7 +71,7 @@ dirs = {
 }
 for p in dirs.values():
     p.mkdir(parents=True, exist_ok=True)
-token = os.environ.get("HF_TOKEN") or True
+token = os.environ.get("HF_TOKEN") or None
 
 jobs = [
     ("Comfy-Org/MiniMax-H3", f"diffusion_models/{os.environ['UNET']}", dirs["diffusion_models"] / os.environ["UNET"]),
@@ -88,15 +89,15 @@ for repo, rel, dest in jobs:
     dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.exists() or dest.is_symlink():
         dest.unlink()
-    shutil.copy2(p, dest)
+    try:
+        os.link(p, dest)
+    except OSError:
+        os.replace(p, dest)
     print("ok", dest, dest.stat().st_size, flush=True)
 print("WEIGHTS_OK", flush=True)
 PY
 echo WEIGHTS_OK >"$OUTDIR/WEIGHTS_OK"
 df -h / | tee "$OUTDIR/disk-after-weights.txt"
-fi
-
-unset HF_TOKEN HUGGING_FACE_HUB_TOKEN
 
 # shellcheck disable=SC1091
 . "$HOME/mc-bench/venv/bin/activate"
@@ -104,6 +105,11 @@ log "align torch torchvision torchaudio (same CUDA wheel)"
 pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130 || \
   pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 python -c "import torch, torchaudio; print('torch', torch.__version__, 'cuda', torch.version.cuda, 'ta', torchaudio.__version__, flush=True)"
+fi
+
+unset HF_TOKEN HUGGING_FACE_HUB_TOKEN
+# shellcheck disable=SC1091
+. "$HOME/mc-bench/venv/bin/activate"
 
 log "start ComfyUI"
 pkill -f "python.*main.py" >/dev/null 2>&1 || true
@@ -198,6 +204,12 @@ def wait(pid, timeout=3600):
             time.sleep(2)
             continue
         if pid in hist:
+            st = (hist[pid].get("status") or {})
+            if not st.get("completed"):
+                time.sleep(2)
+                continue
+            if st.get("status_str") not in (None, "success"):
+                raise RuntimeError(f"{pid} status={st}")
             return hist[pid]
         time.sleep(2)
     raise TimeoutError(f"{pid} last={last_err}")
@@ -320,15 +332,9 @@ def copy_video(hist, dest_name):
                     dest = out / dest_name
                     dest.write_bytes(src.read_bytes())
                     return dest
-    # glob newest mp4
-    candidates = sorted((Path.home() / "mc-bench/ComfyUI/output").rglob("*.mp4"), key=lambda p: p.stat().st_mtime, reverse=True)
-    if candidates:
-        dest = out / dest_name
-        dest.write_bytes(candidates[0].read_bytes())
-        return dest
-    return None
+    raise FileNotFoundError(f"no video in history for {dest_name}")
 
-vid = copy_video(hist_warm, "warm_4step.mp4") or copy_video(hist_cold, "warm_4step.mp4")
+vid = copy_video(hist_warm, "warm_4step.mp4")
 still = out / "showcase.png"
 if vid and vid.exists():
     subprocess.run(
