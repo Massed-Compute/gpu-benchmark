@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # LTX-2.5 DistilledPipeline T2V bench on a disposable mc-bench-ltx25-* VM.
-# Locked clip: 1024x1536, 121 frames, 24 fps, seed 42, official distilled BF16 pack.
+# Locked clip: 1536x1024, 121 frames, 24 fps, seed 42, official distilled BF16 pack.
 set -euo pipefail
 
 SKU=${SKU:?set SKU e.g. gpu_1x_l40s}
@@ -17,8 +17,13 @@ PROMPT=${PROMPT:-'A compact GPU accelerator module on a clean desk in soft dayli
 
 export HF_TOKEN HUGGING_FACE_HUB_TOKEN="$HF_TOKEN" HF_HUB_ENABLE_HF_TRANSFER=1 HF_XET_HIGH_PERFORMANCE=1
 mkdir -p "$OUTDIR" "$HOME/.cache/huggingface"
-printf '%s\n' "$HF_TOKEN" > "$HOME/.cache/huggingface/token"
-chmod 600 "$HOME/.cache/huggingface/token"
+token_file="$HOME/.cache/huggingface/token"
+if [[ ! -s "$token_file" ]]; then
+  install -m 600 /dev/null "$token_file"
+  printf '%s\n' "$HF_TOKEN" > "$token_file"
+else
+  chmod 600 "$token_file"
+fi
 
 log(){ echo "[$(date -u +%H:%M:%S)] $*"; }
 
@@ -36,6 +41,8 @@ if [[ ! -d "$REPO_DIR/.git" ]]; then
   git clone --depth 1 https://github.com/Lightricks/LTX-2.git "$REPO_DIR"
 fi
 cd "$REPO_DIR"
+git rev-parse HEAD | tee "$OUTDIR/ltx2-commit.txt"
+git log -1 --format='%ci %s' | tee -a "$OUTDIR/ltx2-commit.txt"
 
 log "uv sync"
 if ! uv sync --extra natten; then
@@ -76,7 +83,7 @@ run_one() {
   local mp4="$OUTDIR/${label}.mp4"
   local logf="$OUTDIR/${label}.log"
   local vramf="$OUTDIR/${label}.vram.csv"
-  rm -f "$mp4"
+  rm -f "$mp4" "$OUTDIR/${label}.json" "$OUTDIR/${label}.png" "$OUTDIR/${label}_fp8.json" "$OUTDIR/${label}_fp8.png"
   : > "$vramf"
   local smi_pid=""
   (
@@ -171,8 +178,9 @@ import json, sys
 from pathlib import Path
 outdir, sku = Path(sys.argv[1]), sys.argv[2]
 rows = []
-for p in sorted(outdir.glob("*.json")):
-    if p.name in ("summary.json", "plan.json"):
+for name in ("cold.json", "warm.json", "cold_fp8.json", "warm_fp8.json"):
+    p = outdir / name
+    if not p.exists():
         continue
     try:
         rows.append(json.loads(p.read_text()))
@@ -184,5 +192,18 @@ summary = {"sku": sku, "engine": "ltx-pipelines.distilled", "hf_id": "Lightricks
 print("wrote", outdir / "summary.json")
 PY
 
-log "done"
-touch "$OUTDIR/DONE"
+ok=0
+for p in "$OUTDIR/warm.json" "$OUTDIR/warm_fp8.json"; do
+  [[ -s "$p" ]] || continue
+  if python3 -c 'import json,sys; sys.exit(0 if json.load(open(sys.argv[1])).get("status")=="ok" else 1)' "$p"; then
+    ok=1
+  fi
+done
+if [[ $ok -eq 1 ]]; then
+  echo DONE >"$OUTDIR/DONE"
+  log "done"
+else
+  echo FAIL >"$OUTDIR/FAIL"
+  log "no successful warm run"
+  exit 1
+fi

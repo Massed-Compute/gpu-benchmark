@@ -29,7 +29,7 @@ Hourly sticker is the wrong unit. The job peaks at 44–47 GiB on every card.
 | 1 | 0.14 | 0.21 | 0.29 |
 | 10 | 0.35 | 0.53 | 0.58 |
 | 20 | 0.57 | 0.88 | 0.90 |
-| 50 | 1.26 | 1.94 | 1.87 |
+| 50 | 1.26 | 1.93 | 1.87 |
 
 ## Failures / changes
 

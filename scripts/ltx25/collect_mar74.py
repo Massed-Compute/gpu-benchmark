@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
-"""Build MAR-74 capture table + peak util from pulled SKU dirs."""
+"""Rebuild a generated capture table from pulled SKU dirs.
+
+Writes capture-table.generated.md / .json only. Never overwrites the
+hand-written capture-table.md / .json this page cites as provenance.
+"""
 from __future__ import annotations
 
 import csv
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -35,14 +40,40 @@ def peak_util(vram_csv: Path) -> float | None:
     return peak
 
 
+def load_ok(d: Path, name: str) -> dict | None:
+    p = d / name
+    if not p.exists():
+        return None
+    try:
+        blob = json.loads(p.read_text())
+    except json.JSONDecodeError:
+        return None
+    if blob.get("status") != "ok":
+        return None
+    return blob
+
+
+def load_pair(d: Path) -> tuple[dict, dict | None, str] | None:
+    warm = load_ok(d, "warm.json")
+    cold = load_ok(d, "cold.json")
+    kind = "bf16"
+    if warm is None:
+        warm = load_ok(d, "warm_fp8.json")
+        cold = load_ok(d, "cold_fp8.json")
+        kind = "fp8"
+    if warm is None:
+        return None
+    return warm, cold, kind
+
+
 def main() -> None:
     rows = []
     for sku, usd_hr in LIST.items():
         d = DAY / sku
-        warm = json.loads((d / "warm.json").read_text()) if (d / "warm.json").exists() else None
-        cold = json.loads((d / "cold.json").read_text()) if (d / "cold.json").exists() else None
-        if not warm:
+        pair = load_pair(d)
+        if not pair:
             continue
+        warm, cold, kind = pair
         wall = float(warm["wall_s"])
         usd_clip = wall * usd_hr / 3600.0
         rows.append(
@@ -54,23 +85,37 @@ def main() -> None:
                 "cold_s": cold["wall_s"] if cold else None,
                 "peak_vram_gib": warm.get("peak_vram_gib"),
                 "peak_vram_mib": warm.get("peak_vram_mib"),
-                "peak_gpu_util_pct": peak_util(d / "warm.vram.csv"),
+                "peak_gpu_util_pct": peak_util(d / "warm.vram.csv")
+                if kind == "bf16"
+                else peak_util(d / "warm_fp8.vram.csv"),
                 "usd_per_clip": round(usd_clip, 4),
                 "clips_per_hr": round(3600.0 / wall, 2),
+                "mp4": f"results/raw/ltx-2.5/mar-74-2026-09-02/{sku}/warm.mp4"
+                if kind == "bf16"
+                else f"results/raw/ltx-2.5/mar-74-2026-09-02/{sku}/warm_fp8.mp4",
                 "mp4_bytes": warm.get("mp4_bytes"),
                 "status": warm.get("status"),
-                "failures": [],
+                "quant": kind,
             }
         )
     DAY.mkdir(parents=True, exist_ok=True)
-    (DAY / "capture-table.json").write_text(json.dumps({"date": "2026-09-02", "ticket": "MAR-74", "rows": rows}, indent=2) + "\n")
-    md = ["# MAR-74 capture table 2026-09-02", "", "| SKU | $/hr list | Warm s | Cold s | VRAM | Peak util | $/clip | Clips/hr | Status |", "|---|---:|---:|---:|---:|---:|---:|---:|---|"]
+    out_json = DAY / "capture-table.generated.json"
+    out_md = DAY / "capture-table.generated.md"
+    out_json.write_text(json.dumps({"date": "2026-09-02", "rows": rows}, indent=2) + "\n")
+    md = [
+        "# Generated capture table 2026-09-02",
+        "",
+        "Machine output. The page cites `capture-table.md`, not this file.",
+        "",
+        "| SKU | $/hr list | Warm s | Cold s | VRAM | Peak util | $/clip | Clips/hr | Quant | Status |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---|---|",
+    ]
     for r in rows:
         md.append(
-            f"| {r['label']} | {r['usd_hr_list']:.2f} | {r['warm_s']:.3f} | {r['cold_s'] if r['cold_s'] is not None else ''} | {r['peak_vram_gib']} GiB | {r['peak_gpu_util_pct']} | {r['usd_per_clip']:.4f} | {r['clips_per_hr']:.1f} | {r['status']} |"
+            f"| {r['label']} | {r['usd_hr_list']:.2f} | {r['warm_s']:.3f} | {r['cold_s'] if r['cold_s'] is not None else ''} | {r['peak_vram_gib']} GiB | {r['peak_gpu_util_pct']} | {r['usd_per_clip']:.4f} | {r['clips_per_hr']:.1f} | {r['quant']} | {r['status']} |"
         )
-    (DAY / "capture-table.md").write_text("\n".join(md) + "\n")
-    print("wrote", DAY / "capture-table.md")
+    out_md.write_text("\n".join(md) + "\n")
+    print("wrote", out_md, file=sys.stderr)
 
 
 if __name__ == "__main__":

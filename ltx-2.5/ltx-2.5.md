@@ -1,7 +1,7 @@
 # LTX-2.5 Distilled GPU Benchmark
 
 ### Last Edit Date:
-MC - 2026.09.02
+MC - 2026.09.10
 
 ## Purpose
 Live Massed Compute benches for **Lightricks/LTX-2.5 Distilled** two-stage text-to-video (audio+video). Official `ltx-pipelines.distilled` path, exact BF16 split pack. Disposable `mc-bench-ltx-*` VMs only. Protected studio `ltx-25` was not used.
@@ -26,6 +26,8 @@ Catalog `$/hr` from live inventory **2026-09-02** (re-checked 2026-09-02 before 
 | `gpu_1x_DGX_A100` | 1.38 | 91.664 | 103.777 | 47.05 / 80.00 GiB | 100% | 0.0351 | 39.3 | 9.27 min | OK |
 | `gpu_1x_pro_6000_blackwell` | 2.19 | **52.925** | 61.026 | 47.27 / 95.59 GiB | 100% | 0.0322 | **68.0** | 7.90 min | OK |
 
+A 2026-08-31 capture of the same locked clip gave **106.7 s** on L40S (12.3% slower than this 93.599 s wall), 90.3 s on A100 (+1.5% vs this run), and 54.7 s on Blackwell (−3.2%). Treat a single-run wall as about ±10%.
+
 **Who should rent which card.** The job peaks at 44–47 GiB on every card. Hourly sticker is the wrong unit.
 
 - **Waiting on the clip → 1× RTX PRO 6000 Blackwell.** Ten clips: 15.8 min / $0.58 vs L40S 23.6 min / $0.35. Extra $0.23 buys ~8 minutes. Break-even human wage: **$1.80/hr**.
@@ -39,7 +41,7 @@ First clip costs **6–9×** a later clip because of the ~66 GiB pull (L40S $0.1
 | 1 | 0.14 | 0.21 | 0.29 |
 | 10 | 0.35 | 0.53 | 0.58 |
 | 20 | 0.57 | 0.88 | 0.90 |
-| 50 | 1.26 | 1.94 | 1.87 |
+| 50 | 1.26 | 1.93 | 1.87 |
 
 All three muxes: H.264 1536×1024, 121 frames, 24 fps, AAC stereo ~5.01 s. These **are** the timed warm runs from 2026-09-02.
 
