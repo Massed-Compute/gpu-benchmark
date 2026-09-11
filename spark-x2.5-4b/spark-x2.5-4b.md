@@ -1,14 +1,14 @@
 # Spark-X2.5-4B GPU Benchmark
 
 ### Last Edit Date:
-MC - 2026.09.08
+MC - 2026.09.11
 
 ## Purpose
 Live Massed Compute vLLM benches for **XHToken/Spark-X2.5-4B** (4.1B Apache 2.0, hybrid SWA + full attention). Exact BF16 weights on every SKU. Decode profile only — native 1M context was **not** benched.
 
 ## Technique
 Pinned profile: random prompts, input=128, output=128, request-rate=inf, concurrency 1 / 8 / 32. Headlines use **c32**.
-Engine: **vLLM** `vllm/vllm-openai:v0.28.0` + [`vllm-spark2-5-plugin`](https://pypi.org/project/vllm-spark2-5-plugin/) (`VLLM_PLUGINS=spark2_5`), `--trust-remote-code --max-model-len 8192 --gpu-memory-utilization 0.90 --tool-call-parser spark25 --reasoning-parser qwen3`.
+Engine: **vLLM** `vllm/vllm-openai:v0.28.0` + [`vllm-spark2-5-plugin`](https://pypi.org/project/vllm-spark2-5-plugin/) (`VLLM_PLUGINS=spark2_5`), `--trust-remote-code --max-model-len 8192 --gpu-memory-utilization 0.90 --tool-call-parser spark25 --reasoning-parser qwen3 --enable-prefix-caching` (this capture; the runner no longer sets it).
 
 This capture pulled the floating `vllm-openai` tag on 2026-09-08 and identified that pull as v0.28.0. The runner now pins `:v0.28.0`. Serve used prefix-caching; c1/c8/c32 shared one process and `vllm bench serve --dataset-name random` replays prompts, so c8/c32 TTFT means sit below the median. Output tok/s is still the headline. Future runs omit prefix-caching.
 

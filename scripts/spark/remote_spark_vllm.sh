@@ -65,7 +65,8 @@ nvidia-smi --query-gpu=name,memory.used,memory.total --format=csv | tee "$OUTDIR
 echo "$MODEL" >"$OUTDIR/model.txt"
 {
   echo "image=$VLLM_IMAGE"
-  sudo docker inspect --format '{{json .RepoDigests}}' vllm-bench 2>/dev/null || true
+  echo "digests=$(sudo docker image inspect --format '{{json .RepoDigests}}' "$VLLM_IMAGE")"
+  echo "image_id=$(sudo docker inspect --format '{{.Image}}' vllm-bench)"
   sudo docker exec vllm-bench vllm --version 2>/dev/null || true
   sudo docker exec vllm-bench pip show vllm-spark2-5-plugin 2>/dev/null | awk '/^(Name|Version|Summary):/' || true
 } | tee "$OUTDIR/engine.txt"
