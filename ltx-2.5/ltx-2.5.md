@@ -1,13 +1,13 @@
 # LTX-2.5 Distilled GPU Benchmark
 
 ### Last Edit Date:
-MC - 2026.09.10
+MC - 2026.09.11
 
 ## Purpose
 Live Massed Compute benches for **Lightricks/LTX-2.5 Distilled** two-stage text-to-video (audio+video). Official `ltx-pipelines.distilled` path, exact BF16 split pack. Disposable `mc-bench-ltx-*` VMs only. Protected studio `ltx-25` was not used.
 
 ## Technique
-Engine: `uv sync --extra natten` from [Lightricks/LTX-2](https://github.com/Lightricks/LTX-2), `python -m ltx_pipelines.distilled`. Checkpoint: `ltx-2.5-22b-distilled-transformer-bf16` + Gemma 4 12B TE + DiffVAE + audio VAE + spatial x2 upscaler (~66 GiB on disk). Native BF16, no `fp8-cast`, no CPU offload flag.
+Engine: `uv sync --extra natten` from [Lightricks/LTX-2](https://github.com/Lightricks/LTX-2), `python -m ltx_pipelines.distilled`. Capture logs record **`ltx-core==1.3.0`** / **`ltx-pipelines==1.3.0`**. Checkpoint: `ltx-2.5-22b-distilled-transformer-bf16` + Gemma 4 12B TE + DiffVAE + audio VAE + spatial x2 upscaler (~66 GiB on disk). Native BF16, no `fp8-cast`, no CPU offload flag.
 
 Locked clip (same on every SKU): **1536×1024**, **121 frames**, **24 fps** (**5.041667 s**), seed **42**. Stage 1 is 8 steps at 768×512; stage 2 is 3 steps at 1536×1024. Image 184, driver **580.126.16**.
 
@@ -26,7 +26,7 @@ Catalog `$/hr` from live inventory **2026-09-02** (re-checked 2026-09-02 before 
 | `gpu_1x_DGX_A100` | 1.38 | 91.664 | 103.777 | 47.05 / 80.00 GiB | 100% | 0.0351 | 39.3 | 9.27 min | OK |
 | `gpu_1x_pro_6000_blackwell` | 2.19 | **52.925** | 61.026 | 47.27 / 95.59 GiB | 100% | 0.0322 | **68.0** | 7.90 min | OK |
 
-A 2026-08-31 capture of the same locked clip gave **106.7 s** on L40S (12.3% slower than this 93.599 s wall), 90.3 s on A100 (+1.5% vs this run), and 54.7 s on Blackwell (−3.2%). Treat a single-run wall as about ±10%.
+A 2026-08-31 capture of the same locked clip gave **106.7 s** on L40S (**+14.0%** vs this 93.599 s wall), **90.3 s** on A100 (**−1.5%**), and **54.7 s** on Blackwell (**+3.3%**). Treat a single-run wall as about ±15%.
 
 **Who should rent which card.** The job peaks at 44–47 GiB on every card. Hourly sticker is the wrong unit.
 
