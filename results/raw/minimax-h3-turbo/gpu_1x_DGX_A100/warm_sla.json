@@ -14,6 +14,6 @@
   "fps": 24,
   "seed": 42,
   "engine": "lightx2v minimax_h3 t2av",
-  "lora": "warm_sla",
+  "lora": "minimax_h3_turbo_sla_4step_768p",
   "ffprobe": {}
 }

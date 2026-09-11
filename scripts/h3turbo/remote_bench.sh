@@ -49,6 +49,12 @@ log "prompt ready ($(wc -c < "$REWRITE") bytes)"
 
 run_one() {
   local label=$1 cfg=$2
+  case "$label" in
+    cold_4step|warm_4step) export LORA_NAME=minimax_h3_fl2v_turbo_4step_v1.2_768p_bf16 ;;
+    warm_8step) export LORA_NAME=minimax_h3_fl2v_turbo_8step_v1.0_768p_bf16 ;;
+    warm_sla) export LORA_NAME=minimax_h3_turbo_sla_4step_768p ;;
+    *) export LORA_NAME="" ;;
+  esac
   local mp4="$OUT/${label}.mp4"
   local logf="$OUT/${label}.log"
   local vramf="$OUT/${label}.vram.csv"

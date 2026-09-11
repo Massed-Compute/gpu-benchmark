@@ -2,7 +2,12 @@
   "sku": "gpu_1x_DGX_A100",
   "engine": "lightx2v",
   "hf_id": "lightx2v/Minimax-h3-Turbo",
-  "checkpoint": "minimax_h3_fl2v_turbo_4step_v1.2_768p_bf16",
+  "checkpoint_by_label": {
+    "cold_4step": "minimax_h3_fl2v_turbo_4step_v1.2_768p_bf16",
+    "warm_4step": "minimax_h3_fl2v_turbo_4step_v1.2_768p_bf16",
+    "warm_8step": "minimax_h3_fl2v_turbo_8step_v1.0_768p_bf16",
+    "warm_sla": "minimax_h3_turbo_sla_4step_768p"
+  },
   "addons": [
     "FL2VA Turbo 4-step v1.2 768p",
     "FL2VA Turbo 8-step v1.0 768p",
@@ -29,7 +34,7 @@
       "fps": 24,
       "seed": 42,
       "engine": "lightx2v minimax_h3 t2av",
-      "lora": "cold_4step",
+      "lora": "minimax_h3_fl2v_turbo_4step_v1.2_768p_bf16",
       "ffprobe": {
         "streams": [
           {
@@ -180,7 +185,7 @@
       "fps": 24,
       "seed": 42,
       "engine": "lightx2v minimax_h3 t2av",
-      "lora": "warm_4step",
+      "lora": "minimax_h3_fl2v_turbo_4step_v1.2_768p_bf16",
       "ffprobe": {
         "streams": [
           {
@@ -331,7 +336,7 @@
       "fps": 24,
       "seed": 42,
       "engine": "lightx2v minimax_h3 t2av",
-      "lora": "warm_8step",
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_768p_bf16",
       "ffprobe": {
         "streams": [
           {
@@ -482,7 +487,7 @@
       "fps": 24,
       "seed": 42,
       "engine": "lightx2v minimax_h3 t2av",
-      "lora": "warm_sla",
+      "lora": "minimax_h3_turbo_sla_4step_768p",
       "ffprobe": {}
     }
   ]

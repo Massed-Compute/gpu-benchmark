@@ -92,7 +92,7 @@ for repo, rel, dest in jobs:
     try:
         os.link(p, dest)
     except OSError:
-        os.replace(p, dest)
+        shutil.move(p, dest)
     print("ok", dest, dest.stat().st_size, flush=True)
 print("WEIGHTS_OK", flush=True)
 PY
@@ -206,6 +206,8 @@ def wait(pid, timeout=3600):
         if pid in hist:
             st = (hist[pid].get("status") or {})
             if not st.get("completed"):
+                if st.get("status_str") == "error":
+                    raise RuntimeError(f"{pid} status={st}")
                 time.sleep(2)
                 continue
             if st.get("status_str") not in (None, "success"):
