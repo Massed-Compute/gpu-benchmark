@@ -1,0 +1,336 @@
+2026-09-14T15:37:06Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:06.672, NVIDIA A100 80GB PCIe, 0 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:11Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:11.715, NVIDIA A100 80GB PCIe, 0 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:16Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:16.757, NVIDIA A100 80GB PCIe, 0 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:21Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:21.800, NVIDIA A100 80GB PCIe, 0 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:26Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:26.842, NVIDIA A100 80GB PCIe, 0 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:31Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:31.888, NVIDIA A100 80GB PCIe, 0 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:36Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:36.930, NVIDIA A100 80GB PCIe, 0 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:41Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:41.977, NVIDIA A100 80GB PCIe, 2 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:47Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:47.027, NVIDIA A100 80GB PCIe, 4 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:52Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:52.070, NVIDIA A100 80GB PCIe, 4 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:37:57Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:37:57.115, NVIDIA A100 80GB PCIe, 4 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:02Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:02.158, NVIDIA A100 80GB PCIe, 4 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:07Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:07.203, NVIDIA A100 80GB PCIe, 4 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:12Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:12.247, NVIDIA A100 80GB PCIe, 7909 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:17Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:17.290, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:22Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:22.332, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:27Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:27.373, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:32Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:32.418, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:37Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:37.494, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:42Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:42.545, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:47Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:47.592, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:52Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:52.644, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:38:57Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:38:57.692, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:02Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:02.738, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:07Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:07.788, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:12Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:12.841, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:17Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:17.886, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:22Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:22.934, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:27Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:27.981, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:33Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:33.026, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:38Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:38.098, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:43Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:43.969, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:48Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:49.014, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:39:54Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:39:55.284, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:40:00Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:00.335, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 22 %
+---
+2026-09-14T15:40:05Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:05.383, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 22 %
+---
+2026-09-14T15:40:10Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:10.429, NVIDIA A100 80GB PCIe, 68189 MiB, 81920 MiB, 27 %
+---
+2026-09-14T15:40:15Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:15.474, NVIDIA A100 80GB PCIe, 67785 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:40:20Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:20.518, NVIDIA A100 80GB PCIe, 67785 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:40:25Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:25.562, NVIDIA A100 80GB PCIe, 70157 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:40:30Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:30.607, NVIDIA A100 80GB PCIe, 70157 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:40:35Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:35.652, NVIDIA A100 80GB PCIe, 70157 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:40:40Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:40.704, NVIDIA A100 80GB PCIe, 70157 MiB, 81920 MiB, 9 %
+---
+2026-09-14T15:40:45Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:45.755, NVIDIA A100 80GB PCIe, 70157 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:40:50Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:50.799, NVIDIA A100 80GB PCIe, 70161 MiB, 81920 MiB, 41 %
+---
+2026-09-14T15:40:55Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:40:55.844, NVIDIA A100 80GB PCIe, 70161 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:41:00Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:00.888, NVIDIA A100 80GB PCIe, 70161 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:41:05Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:05.933, NVIDIA A100 80GB PCIe, 70161 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:41:10Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:10.975, NVIDIA A100 80GB PCIe, 70163 MiB, 81920 MiB, 38 %
+---
+2026-09-14T15:41:16Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:16.022, NVIDIA A100 80GB PCIe, 70163 MiB, 81920 MiB, 38 %
+---
+2026-09-14T15:41:21Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:21.063, NVIDIA A100 80GB PCIe, 70163 MiB, 81920 MiB, 19 %
+---
+2026-09-14T15:41:26Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:26.106, NVIDIA A100 80GB PCIe, 70163 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:41:31Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:31.148, NVIDIA A100 80GB PCIe, 70165 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:41:36Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:36.196, NVIDIA A100 80GB PCIe, 70165 MiB, 81920 MiB, 13 %
+---
+2026-09-14T15:41:41Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:41.241, NVIDIA A100 80GB PCIe, 70167 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:41:46Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:46.291, NVIDIA A100 80GB PCIe, 70167 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:41:51Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:51.338, NVIDIA A100 80GB PCIe, 70167 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:41:56Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:41:56.388, NVIDIA A100 80GB PCIe, 70167 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:42:01Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:01.433, NVIDIA A100 80GB PCIe, 72467 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:42:06Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:06.475, NVIDIA A100 80GB PCIe, 70761 MiB, 81920 MiB, 10 %
+---
+2026-09-14T15:42:11Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:11.517, NVIDIA A100 80GB PCIe, 73465 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:42:16Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:16.562, NVIDIA A100 80GB PCIe, 73667 MiB, 81920 MiB, 44 %
+---
+2026-09-14T15:42:21Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:21.605, NVIDIA A100 80GB PCIe, 73903 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:42:26Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:26.649, NVIDIA A100 80GB PCIe, 74857 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:42:31Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:31.691, NVIDIA A100 80GB PCIe, 75281 MiB, 81920 MiB, 92 %
+---
+2026-09-14T15:42:36Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:36.734, NVIDIA A100 80GB PCIe, 75149 MiB, 81920 MiB, 6 %
+---
+2026-09-14T15:42:41Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:41.777, NVIDIA A100 80GB PCIe, 75171 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:42:46Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:46.819, NVIDIA A100 80GB PCIe, 75171 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:42:51Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:51.869, NVIDIA A100 80GB PCIe, 75171 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:42:56Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:42:56.910, NVIDIA A100 80GB PCIe, 75171 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:43:01Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:01.952, NVIDIA A100 80GB PCIe, 75177 MiB, 81920 MiB, 92 %
+---
+2026-09-14T15:43:06Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:06.995, NVIDIA A100 80GB PCIe, 75177 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:43:12Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:12.035, NVIDIA A100 80GB PCIe, 75177 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:43:17Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:17.074, NVIDIA A100 80GB PCIe, 75177 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:43:22Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:22.116, NVIDIA A100 80GB PCIe, 75317 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:43:27Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:27.158, NVIDIA A100 80GB PCIe, 75337 MiB, 81920 MiB, 96 %
+---
+2026-09-14T15:43:32Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:32.200, NVIDIA A100 80GB PCIe, 75337 MiB, 81920 MiB, 38 %
+---
+2026-09-14T15:43:37Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:37.241, NVIDIA A100 80GB PCIe, 75337 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:43:42Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:42.281, NVIDIA A100 80GB PCIe, 75337 MiB, 81920 MiB, 0 %
+---
+2026-09-14T15:43:47Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:47.325, NVIDIA A100 80GB PCIe, 75805 MiB, 81920 MiB, 96 %
+---
+2026-09-14T15:43:52Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:52.371, NVIDIA A100 80GB PCIe, 75805 MiB, 81920 MiB, 96 %
+---
+2026-09-14T15:43:57Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:43:57.416, NVIDIA A100 80GB PCIe, 75809 MiB, 81920 MiB, 97 %
+---
+2026-09-14T15:44:02Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:44:02.461, NVIDIA A100 80GB PCIe, 75809 MiB, 81920 MiB, 97 %
+---
+2026-09-14T15:44:07Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:44:07.510, NVIDIA A100 80GB PCIe, 75809 MiB, 81920 MiB, 43 %
+---

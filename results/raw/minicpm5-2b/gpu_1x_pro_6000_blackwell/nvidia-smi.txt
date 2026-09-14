@@ -1,0 +1,4 @@
+name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+NVIDIA RTX PRO 6000 Blackwell Server Edition, 89727 MiB, 97887 MiB, 0 %
+name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+NVIDIA RTX PRO 6000 Blackwell Server Edition, 89877 MiB, 97887 MiB, 0 %
