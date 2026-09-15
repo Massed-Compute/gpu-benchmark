@@ -15,6 +15,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [Spark-X2.5-4B (A6000 / L40S / Blackwell)](./spark-x2.5-4b/spark-x2.5-4b.md)
 - [MiniMax-H3 Turbo (A6000 / L40S / Blackwell ComfyUI)](./minimax-h3-turbo/minimax-h3-turbo.md)
 - [LTX 2.5 Distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
 - [Qwen3.8 27B OBLITERATED (A100 / Blackwell / H100)](./qwen3.8-27b-obliterated/qwen3.8-27b-obliterated.md)
@@ -64,6 +65,10 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 - [GLM 5.3 Flash](./glm-5.3-flash/glm-5.3-flash.md)
 - [GLM-4.7-Flash](./glm-4.7-flash/glm-4.7-flash.md)
+
+### Spark
+
+- [Spark-X2.5-4B](./spark-x2.5-4b/spark-x2.5-4b.md)
 
 ### Ornith
 
