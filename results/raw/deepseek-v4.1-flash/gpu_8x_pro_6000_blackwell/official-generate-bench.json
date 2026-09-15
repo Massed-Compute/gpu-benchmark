@@ -1,0 +1,37 @@
+{
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "engine": "official-generate.py+tp8",
+  "mode": "single-stream",
+  "load_s": 34.16365161899989,
+  "max_new_tokens": 128,
+  "world_size": 8,
+  "runs": [
+    {
+      "latency_s": 13.175654087000112,
+      "new_tokens": 128,
+      "tok_s": 9.714887712959348
+    },
+    {
+      "latency_s": 13.147114069999816,
+      "new_tokens": 128,
+      "tok_s": 9.735976984643429
+    },
+    {
+      "latency_s": 13.08913751199998,
+      "new_tokens": 128,
+      "tok_s": 9.77910117321718
+    },
+    {
+      "latency_s": 13.164409506000084,
+      "new_tokens": 128,
+      "tok_s": 9.723185832350481
+    },
+    {
+      "latency_s": 13.137535433999801,
+      "new_tokens": 128,
+      "tok_s": 9.743075529123779
+    }
+  ],
+  "mean_tok_s": 9.739245446458844,
+  "median_tok_s": 9.735976984643429
+}

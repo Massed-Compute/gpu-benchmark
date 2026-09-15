@@ -1,0 +1,7 @@
+deepseek-ai/DeepSeek-V4.1-Flash
+harness=scripts/deepseek-v4.1-flash/time_bench.py wrapping inference/generate.py (torchrun --nproc-per-node 8)
+ckpt=TP8 --expert-dtype fp4
+runtime_image=lmsysorg/sglang@sha256:d6e7288627be8b02be88e4bba38e73f6d50e2826869f753c13a4c4385ab3eda9
+sglang=0.5.19 (CUDA runtime only; serve cannot load model_type=deepseek_v41)
+tilelang=0.1.12
+capture=2026-09-10
