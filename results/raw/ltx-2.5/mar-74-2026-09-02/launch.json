@@ -1,0 +1,27 @@
+{
+  "ticket": "MAR-74",
+  "date": "2026-09-02",
+  "locked": {
+    "height": 1024,
+    "width": 1536,
+    "num_frames": 121,
+    "fps": 24,
+    "duration_s": 5.041667,
+    "seed": 42,
+    "prompt": "A compact GPU accelerator module on a clean desk in soft daylight, camera slowly pushes in, quiet fan whir and room tone, no text no logos no watermarks.",
+    "checkpoint": "ltx-2.5-22b-distilled-transformer-bf16"
+  },
+  "list_usd_hr": {
+    "gpu_1x_l40s": 0.88,
+    "gpu_1x_DGX_A100": 1.38,
+    "gpu_1x_pro_6000_blackwell": 2.19
+  },
+  "list_source": "gpu_inventory_list 2026-09-02",
+  "vms": {
+    "gpu_1x_l40s": {"name": "mc-bench-ltx-l40s"},
+    "gpu_1x_DGX_A100": {"name": "mc-bench-ltx-a100"},
+    "gpu_1x_pro_6000_blackwell": {"name": "mc-bench-ltx-bwk"}
+  },
+  "protected_left_alone": ["ltx-25"],
+  "imageId": 184
+}
