@@ -15,6 +15,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [MiniMax-H3 Turbo (A6000 / L40S / Blackwell ComfyUI)](./minimax-h3-turbo/minimax-h3-turbo.md)
 - [LTX 2.5 Distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
 - [Qwen3.8 27B OBLITERATED (A100 / Blackwell / H100)](./qwen3.8-27b-obliterated/qwen3.8-27b-obliterated.md)
 - [GLM 5.3 Flash (4× Blackwell / 8× H100)](./glm-5.3-flash/glm-5.3-flash.md)
@@ -76,6 +77,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Image / Video
 
+- [MiniMax-H3 Turbo](./minimax-h3-turbo/minimax-h3-turbo.md)
 - [LTX 2.5 Distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
 - [MiniMax H3 (FL2VA / ComfyUI Ref2VA / Atlántida)](./minimax-h3/minimax-h3.md)
 - [Krea 2 Turbo](./krea-2-turbo/krea-2-turbo.md)
