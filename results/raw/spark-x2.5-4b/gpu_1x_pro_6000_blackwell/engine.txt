@@ -1,0 +1,2 @@
+vllm/vllm-openai:v0.28.0 + vllm-spark2-5-plugin
+capture 2026-09-08 pulled the floating vllm-openai tag; page identifies that pull as v0.28.0. Runner now pins v0.28.0.

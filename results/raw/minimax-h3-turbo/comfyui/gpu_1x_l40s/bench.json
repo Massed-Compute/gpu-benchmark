@@ -1,0 +1,25 @@
+{
+  "engine": "ComfyUI + MiniMax-H3 core nodes + LightX2V 4-step Turbo LoRA v1.2",
+  "base": "Comfy-Org/MiniMax-H3 minimax_h3_fl2va_pruned_int8_convrot",
+  "lora": "minimax_h3_fl2v_turbo_4step_v1.2_768p_comfyui_bf16.safetensors",
+  "text_encoder": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+  "lock": {
+    "width": 1344,
+    "height": 768,
+    "steps": 4,
+    "frames": 124,
+    "fps": 24.0,
+    "seed": 42,
+    "sampler": "euler",
+    "scheduler": "simple",
+    "video_flow_shift": 6.0,
+    "audio_flow_shift": 3.0
+  },
+  "gpu_name": "NVIDIA L40S",
+  "cold_s": 103.357,
+  "warm_s": 99.303,
+  "peak_vram_gb": 39.68,
+  "vram_total_gb": 45.0,
+  "video": "/home/Ubuntu/mc-bench/out/h3-turbo-comfy/warm_4step.mp4",
+  "still": "/home/Ubuntu/mc-bench/out/h3-turbo-comfy/showcase.png"
+}

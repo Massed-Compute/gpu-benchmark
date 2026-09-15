@@ -17,6 +17,10 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 - [Nex-N2.5-mini (A100 / Blackwell)](./nex-n2.5-mini/nex-n2.5-mini.md)
 - [MiniCPM5 2B (A6000 / L40S / Blackwell)](./minicpm5-2b/minicpm5-2b.md)
+- [DeepSeek V4.1 Flash (8× Blackwell / 8× H100)](./deepseek-v4.1-flash/deepseek-v4.1-flash.md)
+- [Spark-X2.5-4B (A6000 / L40S / Blackwell)](./spark-x2.5-4b/spark-x2.5-4b.md)
+- [MiniMax-H3 Turbo (A6000 / L40S / Blackwell ComfyUI)](./minimax-h3-turbo/minimax-h3-turbo.md)
+- [LTX 2.5 Distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
 - [Qwen3.8 27B OBLITERATED (A100 / Blackwell / H100)](./qwen3.8-27b-obliterated/qwen3.8-27b-obliterated.md)
 - [GLM 5.3 Flash (4× Blackwell / 8× H100)](./glm-5.3-flash/glm-5.3-flash.md)
 - [LFM2.5 VL 3B (A6000 / L40S / Blackwell)](./lfm2.5-vl-3b/lfm2.5-vl-3b.md)
@@ -46,6 +50,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### DeepSeek
 
+- [DeepSeek V4.1 Flash](./deepseek-v4.1-flash/deepseek-v4.1-flash.md)
 - [DeepSeek R1 Distill Llama 8B](./deepseek-r1-distill-llama-8b/deepseek-r1-distill-llama-8b.md)
 - [DeepSeek R1 Distill Qwen 32B](./deepseek-r1-distill-qwen-32b/deepseek-r1-distill-qwen-32b.md)
 - [DeepSeek R1 Distill Llama 70B](./deepseek-r1-distill-llama-70b/deepseek-r1-distill-llama-70b.md)
@@ -65,6 +70,10 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 - [GLM 5.3 Flash](./glm-5.3-flash/glm-5.3-flash.md)
 - [GLM-4.7-Flash](./glm-4.7-flash/glm-4.7-flash.md)
 
+### Spark
+
+- [Spark-X2.5-4B](./spark-x2.5-4b/spark-x2.5-4b.md)
+
 ### Ornith
 
 - [Ornith 1.0 9B](./ornith-1.0-9b/ornith-1.0-9b.md)
@@ -77,6 +86,8 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Image / Video
 
+- [MiniMax-H3 Turbo](./minimax-h3-turbo/minimax-h3-turbo.md)
+- [LTX 2.5 Distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
 - [MiniMax H3 (FL2VA / ComfyUI Ref2VA / Atlántida)](./minimax-h3/minimax-h3.md)
 - [Krea 2 Turbo](./krea-2-turbo/krea-2-turbo.md)
 - [Bernini-R 14B](./bernini-r-14b/bernini-r-14b.md)
