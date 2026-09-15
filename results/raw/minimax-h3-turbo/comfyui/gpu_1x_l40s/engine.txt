@@ -1,0 +1,4 @@
+ComfyUI efa6c8f (comfyanonymous/ComfyUI)
+torch 2.14.0+cu130
+flags: --listen 127.0.0.1 --port 8188 --cache-none
+nodes: MiniMaxH3ImageToVideo + MiniMaxH3SigmaShift + LoraLoaderModelOnly
