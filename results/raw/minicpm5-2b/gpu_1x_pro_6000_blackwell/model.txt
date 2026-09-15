@@ -1,0 +1,1 @@
+openbmb/MiniCPM5-2B

@@ -1,0 +1,4 @@
+name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+NVIDIA A100 80GB PCIe, 75171 MiB, 81920 MiB, 0 %
+name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+NVIDIA A100 80GB PCIe, 75809 MiB, 81920 MiB, 0 %

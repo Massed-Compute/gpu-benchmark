@@ -1,0 +1,4 @@
+image=vllm/vllm-openai:nightly
+vllm/vllm-openai@sha256:78c73c96fb74cdbee0f6d90d8ba756540a2385668a35f565f73dbab1da461099
+INFO 09-14 15:37:01 [importing.py:74] Triton is installed but 0 active driver(s) found (expected 1). Disabling Triton to prevent runtime errors.
+INFO 09-14 15:37:01 [importing.py:98] Triton not installed or not compatible; certain GPU-related functions will not be available.

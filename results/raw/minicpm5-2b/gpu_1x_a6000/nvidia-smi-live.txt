@@ -1,0 +1,220 @@
+2026-09-14T15:02:07Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:07.289, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:12Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:12.376, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:17Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:17.464, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:22Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:22.540, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:27Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:27.616, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:32Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:32.693, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:37Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:37.775, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:42Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:42.853, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:47Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:47.925, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:52Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:52.998, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:02:58Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:02:58.072, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:03Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:03.146, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:08Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:08.238, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:13Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:13.316, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:18Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:18.398, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:23Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:23.483, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:28Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:28.576, NVIDIA RTX A6000, 1 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:33Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:33.665, NVIDIA RTX A6000, 1038 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:38Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:38.734, NVIDIA RTX A6000, 5296 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:43Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:43.810, NVIDIA RTX A6000, 5296 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:48Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:48.880, NVIDIA RTX A6000, 5296 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:03:53Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:53.956, NVIDIA RTX A6000, 5296 MiB, 49140 MiB, 49 %
+---
+2026-09-14T15:03:59Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:03:59.028, NVIDIA RTX A6000, 5428 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:04Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:04.095, NVIDIA RTX A6000, 5428 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:09Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:09.169, NVIDIA RTX A6000, 5428 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:14Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:14.236, NVIDIA RTX A6000, 5624 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:19Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:19.305, NVIDIA RTX A6000, 6066 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:24Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:24.375, NVIDIA RTX A6000, 6258 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:29Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:29.442, NVIDIA RTX A6000, 6258 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:34Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:34.515, NVIDIA RTX A6000, 6660 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:39Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:39.587, NVIDIA RTX A6000, 6366 MiB, 49140 MiB, 18 %
+---
+2026-09-14T15:04:44Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:44.664, NVIDIA RTX A6000, 6926 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:49Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:49.743, NVIDIA RTX A6000, 44200 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:04:54Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:54.844, NVIDIA RTX A6000, 44280 MiB, 49140 MiB, 16 %
+---
+2026-09-14T15:04:59Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:04:59.916, NVIDIA RTX A6000, 44586 MiB, 49140 MiB, 9 %
+---
+2026-09-14T15:05:04Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:04.987, NVIDIA RTX A6000, 44724 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:05:10Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:10.058, NVIDIA RTX A6000, 44724 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:05:15Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:15.127, NVIDIA RTX A6000, 44724 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:05:20Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:20.205, NVIDIA RTX A6000, 44724 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:05:25Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:25.296, NVIDIA RTX A6000, 44724 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:05:30Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:30.383, NVIDIA RTX A6000, 44724 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:05:35Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:35.462, NVIDIA RTX A6000, 44724 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:05:40Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:40.543, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 91 %
+---
+2026-09-14T15:05:45Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:45.619, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:05:50Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:50.695, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:05:55Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:05:55.771, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:06:00Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:06:00.843, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:06:05Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:06:05.913, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:06:10Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:06:10.994, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 92 %
+---
+2026-09-14T15:06:16Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:06:16.069, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:06:21Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:06:21.154, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:06:26Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:06:26.224, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:06:31Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:06:31.300, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:06:36Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:06:36.396, NVIDIA RTX A6000, 44726 MiB, 49140 MiB, 0 %
+---
+2026-09-14T15:06:41Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:06:41.485, NVIDIA RTX A6000, 44804 MiB, 49140 MiB, 90 %
+---

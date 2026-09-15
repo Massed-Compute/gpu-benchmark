@@ -1,0 +1,156 @@
+2026-09-14T14:57:20Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:57:20.923, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:57:25Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:57:26.007, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:57:31Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:57:31.081, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:57:36Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:57:36.158, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:57:41Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:57:41.229, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:57:46Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:57:46.306, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:57:51Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:57:51.368, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:57:56Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:57:56.433, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:01Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:01.497, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:06Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:06.580, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:11Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:11.641, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:16Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:16.716, NVIDIA L40S, 1225 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:21Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:21.787, NVIDIA L40S, 5483 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:26Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:26.846, NVIDIA L40S, 5483 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:31Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:31.907, NVIDIA L40S, 5483 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:36Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:36.965, NVIDIA L40S, 5615 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:42Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:42.035, NVIDIA L40S, 5615 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:47Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:47.110, NVIDIA L40S, 5615 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:58:52Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:52.190, NVIDIA L40S, 5939 MiB, 46068 MiB, 94 %
+---
+2026-09-14T14:58:57Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:58:57.271, NVIDIA L40S, 6445 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:59:02Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:02.335, NVIDIA L40S, 6847 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:59:07Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:07.395, NVIDIA L40S, 6525 MiB, 46068 MiB, 21 %
+---
+2026-09-14T14:59:12Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:12.474, NVIDIA L40S, 7113 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:59:17Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:17.536, NVIDIA L40S, 41893 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:59:22Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:22.610, NVIDIA L40S, 42017 MiB, 46068 MiB, 16 %
+---
+2026-09-14T14:59:27Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:27.675, NVIDIA L40S, 42031 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:59:32Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:32.734, NVIDIA L40S, 42031 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:59:37Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:37.800, NVIDIA L40S, 42031 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:59:42Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:42.862, NVIDIA L40S, 42031 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:59:47Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:47.919, NVIDIA L40S, 42033 MiB, 46068 MiB, 95 %
+---
+2026-09-14T14:59:52Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:52.983, NVIDIA L40S, 42033 MiB, 46068 MiB, 0 %
+---
+2026-09-14T14:59:58Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 14:59:58.040, NVIDIA L40S, 42033 MiB, 46068 MiB, 0 %
+---
+2026-09-14T15:00:03Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:00:03.095, NVIDIA L40S, 42033 MiB, 46068 MiB, 0 %
+---
+2026-09-14T15:00:08Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:00:08.154, NVIDIA L40S, 42033 MiB, 46068 MiB, 0 %
+---
+2026-09-14T15:00:13Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:00:13.222, NVIDIA L40S, 42035 MiB, 46068 MiB, 96 %
+---
+2026-09-14T15:00:18Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:00:18.287, NVIDIA L40S, 42035 MiB, 46068 MiB, 0 %
+---
+2026-09-14T15:00:23Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:00:23.349, NVIDIA L40S, 42035 MiB, 46068 MiB, 0 %
+---
+2026-09-14T15:00:28Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:00:28.416, NVIDIA L40S, 42035 MiB, 46068 MiB, 0 %
+---
+2026-09-14T15:00:33Z
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/14 15:00:33.487, NVIDIA L40S, 42109 MiB, 46068 MiB, 96 %
+---
