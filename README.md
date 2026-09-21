@@ -15,6 +15,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [Qwen-Image-2.1 (A6000 / A100 / Blackwell)](./qwen-image-2.1/qwen-image-2.1.md)
 - [Laya (A6000 / L40S / Blackwell)](./laya/laya.md)
 - [Ternary Bonsai 2 27B GGUF (A6000 / L40S / Blackwell)](./ternary-bonsai-2-27b-gguf/ternary-bonsai-2-27b-gguf.md)
 - [Nex-N2.5-mini (A100 / Blackwell)](./nex-n2.5-mini/nex-n2.5-mini.md)
@@ -88,6 +89,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Image / Video
 
+- [Qwen-Image-2.1 (A6000 / A100 / Blackwell)](./qwen-image-2.1/qwen-image-2.1.md)
 - [MiniMax-H3 Turbo](./minimax-h3-turbo/minimax-h3-turbo.md)
 - [LTX 2.5 Distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
 - [MiniMax H3 (FL2VA / ComfyUI Ref2VA / Atlántida)](./minimax-h3/minimax-h3.md)
