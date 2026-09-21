@@ -1,0 +1,4 @@
+torch 2.14.0+cu130
+cuda 13.0
+gpu NVIDIA RTX A6000
+transformers 5.17.0

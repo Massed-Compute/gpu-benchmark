@@ -1,0 +1,6 @@
+sku=gpu_1x_a6000
+repo=convaiinnovations/laya
+checkpoint=english-default
+p50_ms=44.985
+decisions_per_s=22.230
+peak_mib=2329.1

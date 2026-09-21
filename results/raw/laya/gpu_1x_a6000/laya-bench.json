@@ -1,0 +1,39 @@
+{
+  "sku": "gpu_1x_a6000",
+  "repo": "convaiinnovations/laya",
+  "checkpoint": "english-default model.safetensors",
+  "encoder": "answerdotai/ModernBERT-large (config in encoder/)",
+  "harness": "RLAgent.system_one single-stream, 20 warmup + 200 timed, CUDA sync both sides",
+  "n_warmup": 20,
+  "n_timed": 200,
+  "latency_ms_p50": 44.98469899999691,
+  "latency_ms_p95": 51.0761549999188,
+  "latency_ms_mean": 45.8486234250222,
+  "latency_ms_min": 43.41777399986313,
+  "latency_ms_max": 53.654797000035614,
+  "decisions_per_s": 22.229780841705058,
+  "peak_allocated_mib": 2329.1259765625,
+  "peak_allocated_gib": 2.2745370864868164,
+  "gpu": "NVIDIA RTX A6000",
+  "torch": "2.14.0+cu130",
+  "sample_answers": {
+    "department": {
+      "type": "choice",
+      "choice": "billing",
+      "confidence": 0.8751
+    },
+    "urgency": {
+      "type": "score",
+      "score": 1.3569,
+      "confidence": 0.0425
+    },
+    "churn_threat": {
+      "type": "noul",
+      "noul": 0.8229
+    },
+    "refund_requested": {
+      "type": "noul",
+      "noul": 0.8437
+    }
+  }
+}

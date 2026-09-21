@@ -1,0 +1,33 @@
+=== sample 1 14:19:19 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:19.466, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 0 %
+=== sample 2 14:19:21 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:21.494, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 0 %
+=== sample 3 14:19:23 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:23.537, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 0 %
+=== sample 4 14:19:25 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:25.581, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 0 %
+=== sample 5 14:19:27 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:27.623, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 0 %
+=== sample 6 14:19:29 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:29.675, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 0 %
+=== sample 7 14:19:31 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:31.726, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 0 %
+=== sample 8 14:19:33 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:33.780, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 0 %
+=== sample 9 14:19:35 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:35.833, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 0 %
+=== sample 10 14:19:37 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:37.885, NVIDIA RTX PRO 6000 Blackwell Server Edition, 3219 MiB, 97887 MiB, 58 %
+=== sample 11 14:19:39 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:39.907, NVIDIA RTX PRO 6000 Blackwell Server Edition, 3219 MiB, 97887 MiB, 3 %

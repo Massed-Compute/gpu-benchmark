@@ -15,6 +15,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [Laya (A6000 / L40S / Blackwell)](./laya/laya.md)
 - [Nex-N2.5-mini (A100 / Blackwell)](./nex-n2.5-mini/nex-n2.5-mini.md)
 - [MiniCPM5 2B (A6000 / L40S / Blackwell)](./minicpm5-2b/minicpm5-2b.md)
 - [DeepSeek V4.1 Flash (8× Blackwell / 8× H100)](./deepseek-v4.1-flash/deepseek-v4.1-flash.md)
@@ -97,6 +98,10 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 - [LFM2.5 VL 3B](./lfm2.5-vl-3b/lfm2.5-vl-3b.md)
 - [Ideogram v4 Instant](./ideogram-v4-instant/ideogram-v4-instant.md)
 - [SenseNova-U1 Infographic V3](./sensenova-u1-8b-mot-infographic-v3/sensenova-u1-8b-mot-infographic-v3.md)
+
+### Classification / decisions
+
+- [Laya](./laya/laya.md)
 
 ### Creative writing
 
