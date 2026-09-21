@@ -9,9 +9,9 @@ OUTDIR=${OUTDIR:-$HOME/mc-bench/out/laya/${SKU}/english-default}
 mkdir -p "$OUTDIR" "$HOME/mc-bench/models" "$HOME/mc-bench/venv"
 export HUGGING_FACE_HUB_TOKEN="${HF_TOKEN:-}" HF_TOKEN="${HF_TOKEN:-}" REPO OUTDIR SKU
 
-if [[ -z "${HF_TOKEN:-}" && -f "$HOME/.cache/huggingface/token" ]]; then
-  HF_TOKEN=$(tr -d '[:space:]' < "$HOME/.cache/huggingface/token")
-  export HF_TOKEN HUGGING_FACE_HUB_TOKEN="$HF_TOKEN"
+if [[ -z "${HUGGING_FACE_HUB_TOKEN:-}" && -f "$HOME/.cache/huggingface/token" ]]; then
+  tok=$(tr -d '[:space:]' < "$HOME/.cache/huggingface/token")
+  export HUGGING_FACE_HUB_TOKEN="$tok"
 fi
 
 log(){ echo "[$(date -u +%H:%M:%S)] $*"; }

@@ -44,7 +44,7 @@ transformers · same checkpoint · p50 **10.2 ms** · **98.0** decisions/s:
 
 Smallest launched fit is **`gpu_1x_a6000`**. Best value on this harness is **`gpu_1x_l40s`** at **72.2 decisions per $** (14.3 ms p50). Blackwell is the latency card: **10.2 ms** p50 / **98.0** decisions/s, about **4.4×** A6000 throughput and **1.4×** L40S, worst value of the three versus L40S.
 
-L40S listed at **$0.97/hr** (rate moved from $0.88 on 2026-09-08).
+L40S listed at **$0.97/hr** (rate rose from $0.88 to $0.97 on 2026-09-08).
 
 ## Notes
 - Weights: repo-root `model.safetensors` (~843 MB) + `encoder/` config (`answerdotai/ModernBERT-large`). `multilingual/` and `typed-decisions/` checkpoints were not run.
