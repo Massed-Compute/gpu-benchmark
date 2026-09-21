@@ -15,6 +15,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [Qwen-Image-2.1 (A6000 / A100 / Blackwell)](./qwen-image-2.1/qwen-image-2.1.md)
 - [Nex-N2.5-mini (A100 / Blackwell)](./nex-n2.5-mini/nex-n2.5-mini.md)
 - [MiniCPM5 2B (A6000 / L40S / Blackwell)](./minicpm5-2b/minicpm5-2b.md)
 - [DeepSeek V4.1 Flash (8× Blackwell / 8× H100)](./deepseek-v4.1-flash/deepseek-v4.1-flash.md)
@@ -86,6 +87,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Image / Video
 
+- [Qwen-Image-2.1 (A6000 / A100 / Blackwell)](./qwen-image-2.1/qwen-image-2.1.md)
 - [MiniMax-H3 Turbo](./minimax-h3-turbo/minimax-h3-turbo.md)
 - [LTX 2.5 Distilled T2V (L40S / A100 / Blackwell)](./ltx-2.5/ltx-2.5.md)
 - [MiniMax H3 (FL2VA / ComfyUI Ref2VA / Atlántida)](./minimax-h3/minimax-h3.md)
