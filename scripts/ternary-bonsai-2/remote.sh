@@ -11,10 +11,11 @@ OUTDIR=${OUTDIR:-$HOME/mc-bench/out/ternary-bonsai-2-27b-gguf/${SKU}/PQ2_0}
 mkdir -p "$OUTDIR" "$HOME/mc-bench/models" "$HOME/mc-bench/venv" "$HOME/mc-bench/llama-build"
 export HUGGING_FACE_HUB_TOKEN="${HF_TOKEN:-}" HF_TOKEN="${HF_TOKEN:-}" REPO GGUF OUTDIR SKU
 
-if [[ -z "${HF_TOKEN:-}" && -f "$HOME/.cache/huggingface/token" ]]; then
-  HF_TOKEN=$(tr -d '[:space:]' < "$HOME/.cache/huggingface/token")
-  export HF_TOKEN HUGGING_FACE_HUB_TOKEN="$HF_TOKEN"
+if [[ -z "${HUGGING_FACE_HUB_TOKEN:-}" && -f "$HOME/.cache/huggingface/token" ]]; then
+  tok=$(tr -d '[:space:]' < "$HOME/.cache/huggingface/token")
+  export HUGGING_FACE_HUB_TOKEN="$tok"
 fi
+# huggingface_hub reads HUGGING_FACE_HUB_TOKEN from the file or env
 
 log(){ echo "[$(date -u +%H:%M:%S)] $*"; }
 

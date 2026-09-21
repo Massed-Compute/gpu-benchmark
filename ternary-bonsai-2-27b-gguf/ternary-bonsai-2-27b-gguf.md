@@ -44,7 +44,7 @@ llama.cpp CUDA · same GGUF · output token throughput **124.8 tok/s**:
 
 Smallest launched fit is **`gpu_1x_a6000`** at **117.1 tok/s per $** (**66.7** output tok/s at $0.57/hr). Highest output token throughput is **124.8 tok/s** on `gpu_1x_pro_6000_blackwell` (~1.8× A6000 decode, worst tok/s per $ of the three). L40S is the middle card: **75.1 tok/s** at $0.97/hr.
 
-L40S listed at **$0.97/hr** (rate moved from $0.88 on 2026-09-08).
+L40S listed at **$0.97/hr** (rate rose from $0.88 to $0.97 on 2026-09-08).
 
 ## Notes
 - Exact published weights: `Ternary-Bonsai-2-27B-PQ2_0.gguf` (~7.21 GB, 2.13 bpw). `PTQ1_0` and F16 packs in the same repo were not run.

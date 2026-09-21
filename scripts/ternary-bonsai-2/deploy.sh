@@ -24,11 +24,12 @@ done
 "${SCP[@]}" "$HERE/remote.sh" "Ubuntu@$IP:~/mc-bench/scripts/remote_ternary_bonsai2.sh"
 "${SSH[@]}" "Ubuntu@$IP" "chmod +x ~/mc-bench/scripts/*.sh && install -m 600 /dev/null ~/.cache/huggingface/token"
 
-if [[ -z "${HF_TOKEN:-}" && -f "$HOME/.cache/huggingface/token" ]]; then
-  HF_TOKEN=$(tr -d '[:space:]' < "$HOME/.cache/huggingface/token")
+if [[ -z "${HUGGING_FACE_HUB_TOKEN:-}" && -f "$HOME/.cache/huggingface/token" ]]; then
+  tok=$(tr -d '[:space:]' < "$HOME/.cache/huggingface/token")
+  export HUGGING_FACE_HUB_TOKEN="$tok"
 fi
-if [[ -n "${HF_TOKEN:-}" ]]; then
-  printf '%s' "$HF_TOKEN" | "${SSH[@]}" "Ubuntu@$IP" "cat > ~/.cache/huggingface/token"
+if [[ -n "${HUGGING_FACE_HUB_TOKEN:-}" ]]; then
+  printf '%s' "$HUGGING_FACE_HUB_TOKEN" | "${SSH[@]}" "Ubuntu@$IP" "cat > ~/.cache/huggingface/token"
 fi
 
 "${SSH[@]}" "Ubuntu@$IP" "nohup env SKU=$SKU CUDA_ARCHS=$CUDA_ARCHS bash ~/mc-bench/scripts/remote_ternary_bonsai2.sh >~/mc-bench/bench.log 2>&1 & echo BENCH_PID=\$!"
