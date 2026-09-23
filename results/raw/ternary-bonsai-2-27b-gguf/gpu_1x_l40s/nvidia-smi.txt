@@ -1,0 +1,399 @@
+=== sample 1 14:14:56 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:14:56.304, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 2 14:14:58 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:14:58.331, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 3 14:15:00 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:00.356, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 4 14:15:02 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:02.378, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 5 14:15:04 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:04.400, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 6 14:15:06 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:06.422, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 7 14:15:08 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:08.446, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 8 14:15:10 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:10.468, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 9 14:15:12 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:12.489, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 10 14:15:14 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:14.510, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 11 14:15:16 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:16.533, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 12 14:15:18 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:18.556, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 13 14:15:20 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:20.578, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 14 14:15:22 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:22.598, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 15 14:15:24 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:24.620, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 16 14:15:26 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:26.645, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 17 14:15:28 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:28.669, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 18 14:15:30 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:30.691, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 19 14:15:32 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:32.713, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 20 14:15:34 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:34.738, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 21 14:15:36 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:36.760, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 22 14:15:38 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:38.784, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 23 14:15:40 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:40.807, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 24 14:15:42 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:42.829, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 25 14:15:44 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:44.852, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 26 14:15:46 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:46.875, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 27 14:15:48 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:48.896, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 28 14:15:50 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:50.918, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 29 14:15:52 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:52.942, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 30 14:15:54 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:54.966, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 31 14:15:56 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:56.989, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 32 14:15:58 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:15:59.010, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 33 14:16:01 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:01.033, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 34 14:16:03 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:03.055, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 35 14:16:05 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:05.081, NVIDIA L40S, 1 MiB, 46068 MiB, 0 %
+=== sample 36 14:16:07 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:07.160, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 37 14:16:09 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:09.192, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 38 14:16:11 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:11.226, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 39 14:16:13 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:13.274, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 40 14:16:15 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:15.328, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 41 14:16:17 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:17.364, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 42 14:16:19 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:19.414, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 43 14:16:21 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:21.456, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 44 14:16:23 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:23.491, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 45 14:16:25 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:25.522, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 46 14:16:27 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:27.561, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 47 14:16:29 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:29.603, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 48 14:16:31 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:31.645, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 49 14:16:33 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:33.681, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 50 14:16:35 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:35.721, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 51 14:16:37 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:37.779, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 52 14:16:39 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:39.821, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 53 14:16:41 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:41.859, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 54 14:16:43 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:43.903, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 55 14:16:45 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:45.947, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 56 14:16:47 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:47.982, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 57 14:16:49 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:50.016, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 58 14:16:52 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:52.055, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 59 14:16:54 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:54.106, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 60 14:16:56 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:56.144, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 61 14:16:58 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:16:58.184, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 62 14:17:00 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:00.220, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 63 14:17:02 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:02.257, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 64 14:17:04 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:04.297, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 65 14:17:06 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:06.330, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 66 14:17:08 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:08.369, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 67 14:17:10 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:10.407, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 68 14:17:12 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:12.444, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 69 14:17:14 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:14.481, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 70 14:17:16 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:16.534, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 71 14:17:18 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:18.827, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 72 14:17:20 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:20.870, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 73 14:17:22 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:22.919, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 74 14:17:24 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:24.960, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 75 14:17:26 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:26.995, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 76 14:17:29 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:29.032, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 77 14:17:31 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:31.062, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 78 14:17:33 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:33.095, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 79 14:17:35 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:35.135, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 80 14:17:37 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:37.181, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 81 14:17:39 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:39.218, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 82 14:17:41 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:41.260, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 83 14:17:43 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:43.307, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 84 14:17:45 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:45.339, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 85 14:17:47 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:47.372, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 86 14:17:49 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:49.406, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 87 14:17:51 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:51.446, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 88 14:17:53 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:53.493, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 89 14:17:55 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:55.529, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 90 14:17:57 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:57.562, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 91 14:17:59 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:17:59.597, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 92 14:18:01 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:01.635, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 93 14:18:03 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:03.681, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 94 14:18:05 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:05.715, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 95 14:18:07 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:07.750, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 96 14:18:09 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:09.788, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 97 14:18:11 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:11.831, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 98 14:18:13 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:13.866, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 99 14:18:15 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:15.903, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 100 14:18:17 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:17.939, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 101 14:18:19 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:20.003, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 102 14:18:22 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:22.074, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 103 14:18:24 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:24.126, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 104 14:18:26 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:26.185, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 105 14:18:28 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:28.222, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 106 14:18:30 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:30.265, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 107 14:18:32 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:32.296, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 108 14:18:34 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:34.327, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 109 14:18:36 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:36.358, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 110 14:18:38 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:38.389, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 111 14:18:40 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:40.417, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 112 14:18:42 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:42.458, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 113 14:18:44 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:44.515, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 114 14:18:46 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:46.557, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 115 14:18:48 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:48.593, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 116 14:18:50 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:50.627, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 117 14:18:52 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:52.662, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 118 14:18:54 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:54.707, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 119 14:18:56 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:56.742, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 120 14:18:58 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:18:58.785, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 121 14:19:00 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:00.827, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 122 14:19:02 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:02.859, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 123 14:19:04 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:04.890, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 124 14:19:06 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:06.921, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 125 14:19:08 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:08.950, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 126 14:19:10 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:10.981, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 127 14:19:12 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:13.012, NVIDIA L40S, 0 MiB, 46068 MiB, 0 %
+=== sample 128 14:19:15 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:15.042, NVIDIA L40S, 6975 MiB, 46068 MiB, 26 %
+=== sample 129 14:19:17 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:17.065, NVIDIA L40S, 7787 MiB, 46068 MiB, 96 %
+=== sample 130 14:19:19 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:19.089, NVIDIA L40S, 7347 MiB, 46068 MiB, 99 %
+=== sample 131 14:19:21 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:21.117, NVIDIA L40S, 7347 MiB, 46068 MiB, 99 %
+=== sample 132 14:19:23 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:23.145, NVIDIA L40S, 7347 MiB, 46068 MiB, 99 %
+=== sample 133 14:19:25 ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/09/21 14:19:25.174, NVIDIA L40S, 7347 MiB, 46068 MiB, 99 %
