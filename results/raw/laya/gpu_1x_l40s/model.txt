@@ -1,0 +1,6 @@
+sku=gpu_1x_l40s
+repo=convaiinnovations/laya
+checkpoint=english-default
+p50_ms=14.277
+decisions_per_s=70.044
+peak_mib=2329.1

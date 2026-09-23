@@ -1,0 +1,39 @@
+{
+  "sku": "gpu_1x_pro_6000_blackwell",
+  "repo": "convaiinnovations/laya",
+  "checkpoint": "english-default model.safetensors",
+  "encoder": "answerdotai/ModernBERT-large (config in encoder/)",
+  "harness": "RLAgent.system_one single-stream, 20 warmup + 200 timed, CUDA sync both sides",
+  "n_warmup": 20,
+  "n_timed": 200,
+  "latency_ms_p50": 10.205998499941416,
+  "latency_ms_p95": 11.188038000000233,
+  "latency_ms_mean": 10.402417720007406,
+  "latency_ms_min": 9.925479999992604,
+  "latency_ms_max": 12.75869800019791,
+  "decisions_per_s": 97.98159386421037,
+  "peak_allocated_mib": 2353.0087890625,
+  "peak_allocated_gib": 2.2978601455688477,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "torch": "2.14.0+cu130",
+  "sample_answers": {
+    "department": {
+      "type": "choice",
+      "choice": "billing",
+      "confidence": 0.8744
+    },
+    "urgency": {
+      "type": "score",
+      "score": 1.3876,
+      "confidence": 0.0406
+    },
+    "churn_threat": {
+      "type": "noul",
+      "noul": 0.8241
+    },
+    "refund_requested": {
+      "type": "noul",
+      "noul": 0.8447
+    }
+  }
+}

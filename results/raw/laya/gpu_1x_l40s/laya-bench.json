@@ -1,0 +1,39 @@
+{
+  "sku": "gpu_1x_l40s",
+  "repo": "convaiinnovations/laya",
+  "checkpoint": "english-default model.safetensors",
+  "encoder": "answerdotai/ModernBERT-large (config in encoder/)",
+  "harness": "RLAgent.system_one single-stream, 20 warmup + 200 timed, CUDA sync both sides",
+  "n_warmup": 20,
+  "n_timed": 200,
+  "latency_ms_p50": 14.276650500050891,
+  "latency_ms_p95": 16.90607600016847,
+  "latency_ms_mean": 14.665763455001297,
+  "latency_ms_min": 14.125521999858393,
+  "latency_ms_max": 19.34229699986645,
+  "decisions_per_s": 70.04444074584829,
+  "peak_allocated_mib": 2329.1259765625,
+  "peak_allocated_gib": 2.2745370864868164,
+  "gpu": "NVIDIA L40S",
+  "torch": "2.14.0+cu130",
+  "sample_answers": {
+    "department": {
+      "type": "choice",
+      "choice": "billing",
+      "confidence": 0.8756
+    },
+    "urgency": {
+      "type": "score",
+      "score": 1.3595,
+      "confidence": 0.0445
+    },
+    "churn_threat": {
+      "type": "noul",
+      "noul": 0.8235
+    },
+    "refund_requested": {
+      "type": "noul",
+      "noul": 0.8437
+    }
+  }
+}

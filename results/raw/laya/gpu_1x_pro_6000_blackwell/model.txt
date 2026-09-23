@@ -1,0 +1,6 @@
+sku=gpu_1x_pro_6000_blackwell
+repo=convaiinnovations/laya
+checkpoint=english-default
+p50_ms=10.206
+decisions_per_s=97.982
+peak_mib=2353.0
