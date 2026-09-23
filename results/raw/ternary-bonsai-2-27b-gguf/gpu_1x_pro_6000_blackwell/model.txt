@@ -1,0 +1,8 @@
+sku=gpu_1x_pro_6000_blackwell
+repo=prism-ml/Ternary-Bonsai-2-27B-gguf
+gguf=Ternary-Bonsai-2-27B-PQ2_0.gguf
+file=Ternary-Bonsai-2-27B-PQ2_0.gguf
+bytes=7206168928
+flash_attn=1
+cuda_image=nvidia/cuda:12.8.0-devel-ubuntu24.04
+cuda_digest=sha256:9a8fffc32a955361aa66d754e7a0cda2513052eaf5aaf8f3ba69b80578d1c6a9
