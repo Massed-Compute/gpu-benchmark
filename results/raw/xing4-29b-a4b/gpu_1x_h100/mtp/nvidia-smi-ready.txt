@@ -1,0 +1,2 @@
+name, memory.used [MiB], memory.total [MiB], driver_version
+NVIDIA H100 PCIe, 73307 MiB, 81559 MiB, 580.126.16

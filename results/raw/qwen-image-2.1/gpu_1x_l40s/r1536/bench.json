@@ -1,0 +1,24 @@
+{
+  "model": "Qwen/Qwen-Image-2.1",
+  "engine": "diffusers.QwenImage21Pipeline",
+  "dtype": "bfloat16",
+  "prompt": "A ceramic espresso cup on a sunlit oak table, soft morning light, shallow depth of field, product photography, no text, no watermark, no logo",
+  "load_s": 64.46482660199999,
+  "warmup_steps": 2,
+  "timed_steps": 40,
+  "versions": {
+    "torch": "2.11.0+cu126",
+    "diffusers": "0.41.0.dev0",
+    "transformers": "5.17.0",
+    "diffusers_commit": "4ac08e940880fa906c36b944a42f420db4e24b26",
+    "cuda": "12.6",
+    "gpu": "NVIDIA L40S"
+  },
+  "results": [
+    {
+      "resolution": "1536x1536",
+      "error": "oom",
+      "detail": "CUDA out of memory. Tried to allocate 2.53 GiB. GPU 0 has a total capacity of 44.39 GiB of which 933.38 MiB is free. Including non-PyTorch memory, this process has 43.47 GiB memory in use. Of the allocated memory 39.97 GiB is allocated by PyTorch, and 3.01 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/do"
+    }
+  ]
+}
