@@ -93,6 +93,8 @@ fi
 log VLLM_READY
 echo "$USED_LEN" >"$OUTDIR/max-model-len.txt"
 nvidia-smi --query-gpu=name,memory.used,memory.total,driver_version --format=csv | tee "$OUTDIR/nvidia-smi-ready.txt"
+# First table captures wrote "mtp=off" and omitted tp (those servers are tp=1).
+# This writer records mtp=0 for off and an explicit tp= line.
 {
   echo "image=$VLLM_IMAGE"
   echo "max_model_len=$USED_LEN"

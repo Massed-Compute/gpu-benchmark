@@ -48,6 +48,8 @@ At 1024×1024, lowest cost per still is the L40S at **$0.00445** ($0.97/hr × 16
 - Visual stack is a 7B DiT plus a Qwen3-VL text encoder. Full BF16 load at 1024 used about **39 GiB**, so 32GB cards were not launched.
 - `gpu_1x_a6000_spot` ($0.50/hr) and `gpu_1x_a6000_low_ram` ($0.55/hr) were not launched. Among the three cards in the table, L40S is the lowest cost per 1024 still.
 - 2048 OOM on A6000 and L40S is the failed `pipe()` after the 1024 runs succeeded. No CPU offload.
+- `results/raw/qwen-image-2.1/<sku>/nvidia-smi.txt` is a full `nvidia-smi` taken while a 1024 run was on GPU. The table’s 2048 peak comes from the same 2-second query log stored in `bench.json`.
+- Numbers from live Massed runs 2026-09-29.
 
 ### Same-day checks
 
@@ -58,8 +60,6 @@ Same runner, same prompt, same 40 steps. Not mixed into the table.
 1536×1536: A6000 and L40S OOM. Blackwell mean **25.650** s, peak VRAM **49.21 GiB** (`nvidia-smi` max 50393 MiB / 1024), **$0.0156** per still.
 
 `gpu_1x_DGX_A100` at **$1.38/hr**, cu126. 1024 mean **14.783** s, peak VRAM **39.45 GiB**, **$0.00567** per still. 2048 mean **77.988** s, peak VRAM **64.25 GiB**, **$0.0299** per still. The 1024 still costs more than the L40S row. The 2048 still costs less than the Blackwell 2048 row and takes longer.
-- `results/raw/qwen-image-2.1/<sku>/nvidia-smi.txt` is a full `nvidia-smi` taken while a 1024 run was on GPU. The table’s 2048 peak comes from the same 2-second query log stored in `bench.json`.
-- Numbers from live Massed runs 2026-09-29.
 
 ---
 
