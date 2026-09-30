@@ -41,7 +41,7 @@ vLLM · `XingChen-AGI/Xing4.0-29B-A4B` · c32 **745.0** output tok/s · TTFT med
 
 ## Conclusion
 
-Smallest single GPU that can hold the BF16 pack is **`gpu_1x_a100`** at **$1.35/hr**, and it is also the c32 winner in the table: **833.3** output tok/s, **617.2** tok/s per $. H100 is faster at concurrency 1 (**110.2** vs A100 **88.6** output tok/s) and has the lowest table c32 TTFT (**313.5** ms), then falls behind at c32 (**710.6** tok/s) at **$2.73/hr**. Blackwell concurrency 1 is **105.5** output tok/s, ahead of the A100. Its table c32 is **745.0** tok/s, median TTFT **224.2** ms, **340.2** tok/s per $, **$0.817** per 1M output tokens. An earlier same-day capture on this card stalled at **417.1** tok/s and **4516.0** ms median TTFT. That run is not the table row.
+Smallest single GPU that can hold the BF16 pack is **`gpu_1x_a100`** at **$1.35/hr**, and it is also the c32 winner in the table: **833.3** output tok/s, **617.2** tok/s per $. H100 is faster at concurrency 1 (**110.2** vs A100 **88.6** output tok/s), then falls behind at c32 (**710.6** tok/s, median TTFT **313.5** ms) at **$2.73/hr**. Blackwell concurrency 1 is **105.5** output tok/s, ahead of the A100. Its table c32 is **745.0** tok/s with the lowest table c32 TTFT (**224.2** ms), **340.2** tok/s per $, **$0.817** per 1M output tokens. An earlier same-day capture on this card stalled at **417.1** tok/s and **4516.0** ms median TTFT. That run is not the table row.
 
 ## Notes
 - BF16 weights are **31,215,028,352** parameters, about **58.1 GiB**. A 48GB card cannot hold that pack. `gpu_1x_a6000`, `gpu_1x_l40s`, and `gpu_1x_l40` were not launched.
@@ -67,7 +67,7 @@ Repeat of the A100 and H100 table profile on new VMs. First number is the c32 af
 
 Each of those four runs completed 160 prompts and failed 0.
 
-MTP on, one speculative token, same 8192 context, new process after the repeat. Speculative acceptance on the c32 run was **8.59%** (A100), **5.46%** (H100), and **8.07%** (Blackwell). c32 output tok/s: A100 **391.4**, H100 **428.0**, Blackwell **351.5**. Slower than the MTP-off repeat above. Random 128-token prompts are a poor match for this draft head.
+MTP on, one speculative token, same 8192 context, new process after the repeat. Speculative acceptance on the c32 run was **8.59%** (A100), **5.46%** (H100), and **8.07%** (Blackwell). c32 output tok/s: A100 **391.4**, H100 **428.0**, Blackwell **351.5**. Slower than the MTP-off runs. Random 128-token prompts are a poor match for this draft head.
 
 ---
 
