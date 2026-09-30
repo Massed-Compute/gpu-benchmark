@@ -1,0 +1,11 @@
+image=quay.io/xingchen-agi/xingchen-inference-vllm:v0.29.1rc1-xing4_0
+max_model_len=8192
+prefix_caching=off
+mtp=0
+tp=2
+kv_cache_dtype=default
+gpu_memory_utilization=0.92
+max_num_batched_tokens=16384
+digests=["quay.io/xingchen-agi/xingchen-inference-vllm@sha256:05a2d31748cdcda8002f21ffc93183e880adea41b14e3ecc5917b348570ffc6b"]
+image_id=sha256:fa4d6fa4e01dfa1b51318a6c34c1f16b5750b135204bed3393d3f754f190ea36
+0.29.1rc1.dev187+gaf1c01499

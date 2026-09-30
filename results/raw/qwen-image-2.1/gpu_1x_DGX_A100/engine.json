@@ -1,0 +1,8 @@
+{
+  "torch": "2.11.0+cu126",
+  "diffusers": "0.41.0.dev0",
+  "transformers": "5.17.0",
+  "diffusers_commit": "4ac08e940880fa906c36b944a42f420db4e24b26",
+  "cuda": "12.6",
+  "gpu": "NVIDIA A100-SXM4-80GB"
+}
