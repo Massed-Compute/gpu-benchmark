@@ -1,0 +1,11 @@
+sku: gpu_1x_a6000
+model: Cloudflare/clef
+dtype: bfloat16
+result: load failed
+error: CUDA out of memory during Qwen3_5ForConditionalGeneration.from_pretrained
+gpu_capacity_gib: 47.40
+pytorch_allocated_gib: 47.08
+pytorch_process_gib: 47.34
+allocation_that_failed_mib: 60
+disk_safetensors_gib: 51.19
+note: Safetensor bytes are 51.19 GiB, above the 47.40 GiB A6000 capacity. The load OOM matches the file size; it is not a doubled copy of a smaller model. L40S is the same 48GB class and was not launched.
