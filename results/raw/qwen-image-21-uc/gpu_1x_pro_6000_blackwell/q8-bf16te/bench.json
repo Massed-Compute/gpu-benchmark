@@ -1,0 +1,104 @@
+{
+  "model": "abenzerps/Qwen-Image-2.1-Uncensored-GGUF",
+  "file": "qwen-image-2.1-UC-Q8_0.gguf",
+  "text_encoder": "qwen3vl_8b_bf16.safetensors",
+  "vae": "qwen_image_2.1_vae_bf16.safetensors",
+  "engine": "ComfyUI UnetLoaderGGUF + TextEncodeQwenImage21 + KSampler",
+  "sku": "gpu_1x_pro_6000_blackwell",
+  "prompt": "ceramic espresso cup on sunlit oak, shallow depth of field, no text in the image.",
+  "steps": 40,
+  "cfg": 1.0,
+  "sampler": "euler",
+  "scheduler": "simple",
+  "seed": 42,
+  "warmup_n": 2,
+  "timed_n": 5,
+  "clock": "ComfyUI execution_start to execution_success; wall_s is the HTTP wait",
+  "torch": "2.14.1+cu130",
+  "comfy_rev": "7a5dad695fe1cae25efcb2550530fb20ef68da3d",
+  "gguf_rev": "373048b8403a7820620065210a691263d4da0a61",
+  "peak_vram_mib": 24489.0,
+  "results": [
+    {
+      "width": 1024,
+      "height": 1024,
+      "steps": 40,
+      "warmup": [
+        {
+          "wall_s": 15.084,
+          "execution_s": 14.022
+        },
+        {
+          "wall_s": 14.235,
+          "execution_s": 13.286
+        }
+      ],
+      "timed": [
+        {
+          "wall_s": 14.019,
+          "execution_s": 12.901
+        },
+        {
+          "wall_s": 14.02,
+          "execution_s": 12.788
+        },
+        {
+          "wall_s": 14.023,
+          "execution_s": 12.988
+        },
+        {
+          "wall_s": 14.022,
+          "execution_s": 12.954
+        },
+        {
+          "wall_s": 14.023,
+          "execution_s": 13.078
+        }
+      ],
+      "mean_s": 12.942,
+      "p50_s": 12.954,
+      "images_per_s": 0.077269
+    },
+    {
+      "width": 2048,
+      "height": 2048,
+      "steps": 40,
+      "warmup": [
+        {
+          "wall_s": 50.207,
+          "execution_s": 49.109
+        },
+        {
+          "wall_s": 50.068,
+          "execution_s": 48.956
+        }
+      ],
+      "timed": [
+        {
+          "wall_s": 50.363,
+          "execution_s": 49.446
+        },
+        {
+          "wall_s": 50.212,
+          "execution_s": 49.318
+        },
+        {
+          "wall_s": 50.067,
+          "execution_s": 49.125
+        },
+        {
+          "wall_s": 50.058,
+          "execution_s": 49.12
+        },
+        {
+          "wall_s": 50.069,
+          "execution_s": 49.046
+        }
+      ],
+      "mean_s": 49.211,
+      "p50_s": 49.125,
+      "images_per_s": 0.020321
+    }
+  ],
+  "errors": []
+}
