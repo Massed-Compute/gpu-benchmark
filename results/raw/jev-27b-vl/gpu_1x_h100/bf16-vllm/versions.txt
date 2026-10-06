@@ -1,0 +1,7 @@
+vllm 0.31.0
+torch 2.13.0+cu130
+cuda 13.0
+transformers 5.17.0
+gpu NVIDIA H100 PCIe
+revision f34b598d4ef4bcefd337bee8d8e7ddd3b7733ccc
+safetensors_bytes 56014508552
