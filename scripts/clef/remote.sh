@@ -3,18 +3,13 @@
 # Headline: p50 systemone latency (ms) and decisions/s. Not token throughput.
 # One systemone() call is one decision (three typed questions per forward).
 # Workloads: text state, then the same questions with one generated image.
-# Token is read from ~/.cache/huggingface/token (mode 600). Never pass it on argv.
+# A public snapshot. If ~/.cache/huggingface/token exists, huggingface_hub reads that file itself.
 # Env: SKU
 set -euo pipefail
 SKU=${SKU:?set SKU e.g. gpu_1x_a6000}
 REPO=${REPO:-Cloudflare/clef}
 OUTDIR=${OUTDIR:-$HOME/mc-bench/out/clef/${SKU}/bf16-systemone}
 mkdir -p "$OUTDIR" "$HOME/mc-bench/models" "$HOME/mc-bench/venv"
-
-if [[ -z "${HF_TOKEN:-}" && -f "$HOME/.cache/huggingface/token" ]]; then
-  HF_TOKEN=$(tr -d '[:space:]' < "$HOME/.cache/huggingface/token")
-  export HF_TOKEN HUGGING_FACE_HUB_TOKEN="$HF_TOKEN"
-fi
 
 log(){ echo "[$(date -u +%H:%M:%S)] $*"; }
 
@@ -39,7 +34,6 @@ from huggingface_hub import snapshot_download
 snapshot_download(
     os.environ.get("REPO", "Cloudflare/clef"),
     local_dir=os.path.expanduser("~/mc-bench/models/clef"),
-    token=(os.environ.get("HF_TOKEN") or None),
 )
 print("ok")
 PY
