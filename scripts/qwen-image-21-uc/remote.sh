@@ -7,6 +7,8 @@
 set -euo pipefail
 SKU=${SKU:?set SKU e.g. gpu_1x_a6000}
 REPO=${REPO:-abenzerps/Qwen-Image-2.1-Uncensored-GGUF}
+REVISION=${REVISION:-6b34e59458d3eb7ba6a6f86a116aed5253dc02c3}
+export REVISION
 UNET=${UNET:-qwen-image-2.1-UC-Q8_0.gguf}
 TE=${TE:-qwen3vl_8b_bf16.safetensors}
 VAE=${VAE:-qwen_image_2.1_vae_bf16.safetensors}
@@ -77,7 +79,7 @@ for rel, dest_dir in jobs:
         print("have", dest.name, dest.stat().st_size, flush=True)
         continue
     print("fetch", rel, flush=True)
-    got = Path(hf_hub_download(repo_id=repo, filename=rel)).resolve(strict=True)
+    got = Path(hf_hub_download(repo_id=repo, filename=rel, revision=os.environ["REVISION"])).resolve(strict=True)
     if dest.is_symlink() or dest.exists():
         dest.unlink()
     try:

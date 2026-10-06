@@ -7,7 +7,7 @@ MC - 2026.10.06
 Live Massed Compute text-to-image benches for [abenzerps/Qwen-Image-2.1-Uncensored-GGUF](https://huggingface.co/abenzerps/Qwen-Image-2.1-Uncensored-GGUF), file `qwen-image-2.1-UC-Q8_0.gguf` (Q8_0, 7.59 GB) with the repo’s BF16 text encoder and BF16 VAE. ComfyUI path. Indicative next to the [official BF16 diffusers page](./../qwen-image-2.1/qwen-image-2.1.md): same prompt and 40 steps, different engine and weights.
 
 ## Technique
-ComfyUI `7a5dad695fe1cae25efcb2550530fb20ef68da3d` and leejet/ComfyUI-GGUF `373048b8403a7820620065210a691263d4da0a61`. Torch `2.14.1+cu130`. Graph: `UnetLoaderGGUF`, `CLIPLoader` (`qwen_image`, BF16 text encoder), `VAELoader`, `QwenImage21Cache`, `TextEncodeQwenImage21`, `KSampler` (euler, simple, cfg 1, 40 steps, seed 42), `VAEDecode`. The Comfy template’s default is 25 steps. This run uses 40 so the step count matches the BF16 page. Each resolution gets 2 warmup calls, then 5 timed calls. The clock is ComfyUI `execution_start` to `execution_success`. Comfy is started with `--cache-none` so a repeated prompt still runs. Runner: `scripts/qwen-image-21-uc/remote.sh`.
+ComfyUI `7a5dad695fe1cae25efcb2550530fb20ef68da3d`, leejet/ComfyUI-GGUF `373048b8403a7820620065210a691263d4da0a61`, weights revision `6b34e59458d3eb7ba6a6f86a116aed5253dc02c3`. Torch `2.14.1+cu130`. Graph: `UnetLoaderGGUF`, `CLIPLoader` (`qwen_image`, BF16 text encoder), `VAELoader`, `QwenImage21Cache`, `TextEncodeQwenImage21`, `KSampler` (euler, simple, cfg 1, 40 steps, seed 42), `VAEDecode`. The Comfy template’s default is 25 steps. This run uses 40 so the step count matches the BF16 page. Each resolution gets 2 warmup calls, then 5 timed calls. The clock is ComfyUI `execution_start` to `execution_success`. Comfy is started with `--cache-none` so a repeated prompt still runs. Runner: `scripts/qwen-image-21-uc/remote.sh`.
 
 ## Results
 
@@ -46,7 +46,7 @@ One 1024×1024 still from `gpu_1x_a6000`. Same stack, 40 steps, seed 42. Not inc
 
 ## Conclusion
 
-At 1024×1024, lowest cost per still is the L40S at **$0.00592** ($0.97/hr × 21.988 s), versus **$0.00662** on the A6000 and **$0.00787** on Blackwell. L40S is **1.9×** the A6000. Blackwell’s mean is **12.942 s** (**3.2×** the A6000, **1.6×** the L40S) and is the speed card.
+At 1024×1024, lowest cost per still is the L40S at **$0.00592** ($0.97/hr × 21.988 s), versus **$0.00662** on the A6000 and **$0.00787** on Blackwell. L40S is **1.9×** the A6000. Blackwell’s mean is **12.942 s** (**3.2×** the A6000, **1.7×** the L40S) and is the speed card.
 
 2048×2048 fits all three. Lowest cost per still is still the L40S at **$0.02396**, versus **$0.02416** on the A6000 and **$0.02994** on Blackwell. Blackwell’s 2048 mean is **49.211 s** (**3.1×** the A6000).
 
