@@ -32,14 +32,17 @@ def render(raw_json: Path, dest: Path) -> None:
     data = json.loads(raw_json.read_text())
     text = data["text"]
     sku = data["sku"]
-    price = {"gpu_1x_A100_SXM4": "1.38", "gpu_1x_pro_6000_blackwell": "2.19"}[sku]
+    prices = {"gpu_1x_A100_SXM4": "1.38", "gpu_1x_pro_6000_blackwell": "2.19"}
+    if sku not in prices:
+        raise SystemExit(f"no list price for {sku}")
+    price = prices[sku]
     gib = text["peak_allocated_mib"] / 1024.0
     img = Image.new("RGB", (900, 228), BG)
     draw = ImageDraw.Draw(img)
     title = load_font(18)
     body = load_font(16)
     draw.text((25, 22), f"transformers  |  {sku}", font=title, fill=ACCENT)
-    draw.text((25, 50), f"transformers | {sku} | Cloudflare/clef", font=body, fill=FG)
+    draw.text((25, 50), "Cloudflare/clef  |  text state", font=body, fill=FG)
     draw.text((25, 72), f"$ {price}/hr   allocated {gib:.2f} GiB", font=body, fill=MUTED)
     rows = (
         f"p50 latency   {text['latency_ms_p50']:.3f} ms",

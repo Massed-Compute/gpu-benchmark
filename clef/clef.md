@@ -7,7 +7,7 @@ MC - 2026.10.06
 Live Massed Compute latency benches for [Cloudflare/clef](https://huggingface.co/Cloudflare/clef) at revision `2f3de3dd85f379784083b0814d997ab627200f0c` (BF16). Clef is a multimodal decision model. One forward returns probabilities for typed questions. It does not generate text. Headlines are **p50 `systemone` latency (ms)** and **decisions/s**, not token throughput.
 
 ## Technique
-Hugging Face snapshot of `Cloudflare/clef`, `systemone()` from the repo (`joint_schema_model.py`). Single-stream, 20 CUDA-sync warmups + 200 timed calls. One call is one decision and contains three questions (choice, score, noul). Two workloads, same questions: a text state, then that state plus one generated 512×512 image. Runner: `scripts/clef/remote.sh`.
+Hugging Face snapshot of `Cloudflare/clef` at `revision=2f3de3dd85f379784083b0814d997ab627200f0c`, `systemone()` from the repo (`joint_schema_model.py`). Single-stream, 20 CUDA-sync warmups + 200 timed calls. One call is one decision and contains three questions (choice, score, noul). Two workloads, same questions: a text state, then that state plus one generated 512×512 image. decisions/s is 1000/p50. This capture built each request inside the timed region. Runner: `scripts/clef/remote.sh`.
 
 Video inputs and batch sizes above 1 were not run.
 
@@ -19,17 +19,17 @@ Text state is the headline workload.
 
 | Engine | SKU | $/hr | p50 latency (ms) | p95 latency (ms) | Decisions/s | Decisions per $ | Allocated VRAM (GiB) |
 |---|---|---:|---:|---:|---:|---:|---:|
-| transformers | `gpu_1x_A100_SXM4` | 1.38 | 270.8 | 271.4 | 3.693 | 2.68 | 51.31 |
-| transformers | `gpu_1x_pro_6000_blackwell` | 2.19 | 168.1 | 174.2 | 5.949 | 2.72 | 51.33 |
+| transformers | `gpu_1x_A100_SXM4` | 1.38 | 270.8 | 271.4 | 3.693 | 9634 | 51.31 |
+| transformers | `gpu_1x_pro_6000_blackwell` | 2.19 | 168.1 | 174.2 | 5.949 | 9779 | 51.33 |
 
 Same questions with one image:
 
 | Engine | SKU | $/hr | p50 latency (ms) | p95 latency (ms) | Decisions/s | Decisions per $ | Allocated VRAM (GiB) |
 |---|---|---:|---:|---:|---:|---:|---:|
-| transformers | `gpu_1x_A100_SXM4` | 1.38 | 406.4 | 407.1 | 2.461 | 1.79 | 51.39 |
-| transformers | `gpu_1x_pro_6000_blackwell` | 2.19 | 242.3 | 243.4 | 4.128 | 1.88 | 51.42 |
+| transformers | `gpu_1x_A100_SXM4` | 1.38 | 406.4 | 407.1 | 2.461 | 6420 | 51.39 |
+| transformers | `gpu_1x_pro_6000_blackwell` | 2.19 | 242.3 | 243.4 | 4.128 | 6786 | 51.42 |
 
-Allocated VRAM = `torch.cuda.max_memory_allocated` MiB / 1024 after that workload's timed loop. Decisions per $ = decisions/s ÷ list $/hr.
+Allocated VRAM = `torch.cuda.max_memory_allocated` MiB / 1024 after that workload's timed loop. Decisions per $ = decisions/s × 3600 ÷ list $/hr.
 
 Live `nvidia-smi` during the timed text loop: A100 **53109 MiB** used of 81920, Blackwell **53263 MiB** used of 97887.
 
@@ -51,7 +51,7 @@ transformers · same checkpoint · p50 **168.1 ms** · **5.949** decisions/s:
 
 Smallest launched fit is **`gpu_1x_A100_SXM4`**. The A6000 load failed: safetensors on disk are **51.19 GiB**, and a successful load on both larger cards held **51.195 GiB**. The A6000 reports **47.40 GiB** usable, and PyTorch died at **47.08 GiB** allocated. The L40S was not launched. It is the same 48GB class.
 
-On the text workload, Blackwell is the latency card: **168.1 ms** p50 / **5.949** decisions/s, **1.6×** the A100 rate. Text value is **2.68** vs **2.72** decisions per dollar, too close to name a winner. On the image workload Blackwell is also faster (**4.128** vs **2.461** decisions/s, **1.6×**) and higher value (**1.88** vs **1.79** decisions per dollar).
+On the text workload, Blackwell is the latency card: **168.1 ms** p50 / **5.949** decisions/s, **1.6×** the A100 rate. Text value is **9779** vs **9634** decisions per dollar, too close to name a winner. On the image workload Blackwell is also faster (**4.128** vs **2.461** decisions/s, **1.7×**) and higher value (**6786** vs **6420** decisions per dollar).
 
 L40S listed at **$0.97/hr** (rate rose from $0.88 to $0.97 on 2026-09-08). It was not used for this model.
 

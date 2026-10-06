@@ -8,6 +8,7 @@
 set -euo pipefail
 SKU=${SKU:?set SKU e.g. gpu_1x_a6000}
 REPO=${REPO:-Cloudflare/clef}
+REVISION=${REVISION:-2f3de3dd85f379784083b0814d997ab627200f0c}
 OUTDIR=${OUTDIR:-$HOME/mc-bench/out/clef/${SKU}/bf16-systemone}
 mkdir -p "$OUTDIR" "$HOME/mc-bench/models" "$HOME/mc-bench/venv"
 
@@ -15,30 +16,31 @@ log(){ echo "[$(date -u +%H:%M:%S)] $*"; }
 
 sudo apt-get update -qq
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq \
-  python3.12-venv python3-pip curl git jq || true
+  python3.12-venv python3-pip curl git jq
 if [[ ! -x "$HOME/mc-bench/venv/bin/python" ]]; then
   python3 -m venv "$HOME/mc-bench/venv"
 fi
 # shellcheck disable=SC1091
 . "$HOME/mc-bench/venv/bin/activate"
 pip install -q -U pip
-pip install -q 'transformers==5.10.2' accelerate safetensors huggingface_hub pillow
 pip install -q torch==2.14.1 torchvision --index-url https://download.pytorch.org/whl/cu130
+pip install -q 'transformers==5.10.2' accelerate safetensors huggingface_hub pillow
 
 MODEL_DIR="$HOME/mc-bench/models/clef"
+export REPO OUTDIR SKU MODEL_DIR REVISION
 if [[ ! -f "$MODEL_DIR/joint_head.safetensors" ]]; then
   log "snapshot $REPO"
   python - <<'PY'
 import os
 from huggingface_hub import snapshot_download
 snapshot_download(
-    os.environ.get("REPO", "Cloudflare/clef"),
+    os.environ["REPO"],
+    revision=os.environ["REVISION"],
     local_dir=os.path.expanduser("~/mc-bench/models/clef"),
 )
 print("ok")
 PY
 fi
-export REPO OUTDIR SKU MODEL_DIR
 
 python3 - <<'PY' | tee "$OUTDIR/torch-version.txt"
 import torch, transformers
@@ -61,12 +63,10 @@ import sys
 sys.path.insert(0, model_dir)
 from joint_schema_model import load_release_model, systemone
 
-from huggingface_hub import HfApi
-
 sku = os.environ["SKU"]
 outdir = Path(os.environ["OUTDIR"])
 repo = os.environ.get("REPO", "Cloudflare/clef")
-sha = HfApi().model_info(repo).sha
+sha = os.environ["REVISION"]
 
 log_path = outdir / "nvidia-smi.txt"
 smi_csv = "timestamp,name,memory.used,memory.total,utilization.gpu"
@@ -126,9 +126,10 @@ def time_calls(make_request, label, n_warmup=20, n_timed=200):
     sample_smi(f"{label}-live-start")
     times = []
     for i in range(n_timed):
+        req = make_request()
         torch.cuda.synchronize()
         t0 = time.perf_counter()
-        systemone(model, processor, make_request())
+        systemone(model, processor, req)
         torch.cuda.synchronize()
         times.append((time.perf_counter() - t0) * 1000.0)
         if i == n_timed // 2:
