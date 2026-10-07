@@ -6,6 +6,10 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
+REPO_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(REPO_ROOT / "scripts"))
+from watermark_showcase import watermark
+
 BG = (42, 10, 28)
 FG = (235, 230, 232)
 ACCENT = (120, 210, 170)
@@ -77,6 +81,7 @@ def render(raw_dir: Path, sku: str, subtitle: str, dest: Path) -> None:
     )
     dest.parent.mkdir(parents=True, exist_ok=True)
     img.save(dest, "PNG")
+    watermark(dest, REPO_ROOT / "shared-images" / "mark-watermark-white.png")
     print(dest)
 
 

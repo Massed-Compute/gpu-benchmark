@@ -57,6 +57,7 @@ The least expensive launched card that held the pack is **`gpu_1x_pro_6000_black
 Concurrency 1 output tok/s: Blackwell **139.9**, H200 **154.7**, 2× A100 **93.7**. Each c32 row completed 160 prompts and failed 0.
 
 ## Notes
+- The H200 and Blackwell captures came from an earlier runner revision, before it recorded `attention_backend` and `kv_cache_dtype` in `versions.txt`; those capture files are preserved unchanged. The settings are recorded in each final `serve.log`: [H200 launch arguments (line 7) and auto-selected FlashAttention (line 22)](../results/raw/kolibri-1/gpu_1x_h200_nvl/fp8-vllm/serve.log), and [Blackwell launch arguments (line 7) and selected Triton backend (line 22)](../results/raw/kolibri-1/gpu_1x_pro_6000_blackwell/fp8-vllm/serve.log). Both used fp8 KV. The current runner records these settings for future captures; these rows have not been rerun.
 - `serve-attempt1.log` on H200 and Blackwell are failed first starts (H200 FlashInfer sampler / nvcc, Blackwell FlashInfer XQA), not a shorter-context retry. The published rows all ran at `--max-model-len 8192`.
 - `nvidia-smi` memory.used while the server was up, divided by 1024: Blackwell **88.44 GiB** of **95.59 GiB**, H200 **129.14 GiB** of **140.40 GiB**, each A100 **74.55 GiB** of **80.00 GiB**.
 - A single 80GB card cannot hold this working set. `gpu_1x_A100_SXM4` at **$1.38/hr** was not launched. 48GB cards, including L40S, were not launched. L40S list rate rose from $0.88 to $0.97 on 2026-09-08; L40S had no capacity on the capture day.

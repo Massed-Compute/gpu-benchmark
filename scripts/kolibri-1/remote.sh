@@ -4,17 +4,18 @@
 # vllm bench serve (random 128 in / 128 out, ignore-eos, prefix caching off).
 # The clock is client wall time against a long-lived server, including HTTP.
 # c1, c8, and c32 share that server. Prompts are the vLLM random dataset.
-# Env: SKU. Tensor parallel comes from TP (2 on the A100 SKU, otherwise 1).
+# Env: SKU. Tensor parallel comes from TP (A100 SKU GPU count, otherwise 1).
 # Optional MAX_LEN (default 8192). A failed server start fails the run.
 set -euo pipefail
 SKU=${SKU:?set SKU}
+SKU_LOWER=$(printf '%s' "$SKU" | tr '[:upper:]' '[:lower:]')
 REPO=${REPO:-Aleph-Alpha/Kolibri-1}
 REVISION=${REVISION:-35bc4d3be745502227a67247de77d70e691614ee}
 MAX_LEN=${MAX_LEN:-8192}
-# TP is the tensor-parallel size. The 2× A100 row is TP 2 unless the caller set TP.
+# TP is the tensor-parallel size. Preserve caller overrides; infer A100 GPU count.
 if [[ -z "${TP:-}" ]]; then
-  if [[ "$SKU" == *a100* ]]; then
-    TP=2
+  if [[ "$SKU_LOWER" == *a100* && "$SKU_LOWER" =~ ^gpu_([1-9][0-9]*)x_ ]]; then
+    TP=${BASH_REMATCH[1]}
   else
     TP=1
   fi
@@ -87,7 +88,7 @@ start_serve() {
   # FlashAttention (fp8 KV needs FA3 on SM90 or FA4 on SM100), and FlashInfer
   # attention JIT needs nvcc, so A100 is Triton with bfloat16 KV.
   local attn_args=()
-  case "$SKU" in
+  case "$SKU_LOWER" in
     *a100*)
       ATTN_BACKEND="${ATTN_BACKEND:-TRITON_ATTN}"
       KV_DTYPE="${KV_DTYPE:-bfloat16}"
@@ -108,14 +109,19 @@ start_serve() {
   fi
   echo "kv_cache_dtype $KV_DTYPE" | tee -a "$OUTDIR/versions.txt"
   export VLLM_USE_FLASHINFER_SAMPLER=0
-  # ~/.config is often root-owned. A bare mkdir does not fix that PermissionError.
-  if [[ -e "$HOME/.config" && ! -w "$HOME/.config" ]] || [[ -e "$HOME/.config/vllm" && ! -w "$HOME/.config/vllm" ]]; then
-    sudo chown -R "$(id -u):$(id -g)" "$HOME/.config"
+  # Fix only vLLM's directory, without prompting or aborting an unattended bench.
+  # The published captures continued despite an unwritable config directory.
+  if ! mkdir -p "$HOME/.config/vllm" 2>/dev/null || [[ ! -w "$HOME/.config/vllm" ]]; then
+    if [[ -d "$HOME/.config/vllm" ]] && sudo -n chown "$(id -u):$(id -g)" "$HOME/.config/vllm" && [[ -w "$HOME/.config/vllm" ]]; then
+      log "fixed vLLM config directory ownership"
+    else
+      log "warning: vLLM config directory is not writable; continuing without changing ~/.config ownership"
+    fi
   fi
-  mkdir -p "$HOME/.config/vllm"
+  # An unset backend has no args; preserve that under nounset on older Bash too.
   vllm serve "$MODEL_DIR" \
     --served-model-name "$REPO" \
-    "${attn_args[@]}" \
+    ${attn_args[@]+"${attn_args[@]}"} \
     --tensor-parallel-size "$TP" \
     --max-model-len "$MAX_LEN" \
     --gpu-memory-utilization 0.92 \
