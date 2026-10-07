@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # autotrust/JEV-27B-VL bench on one GPU.
 # System 1: POST /v1/decide (thinking off, strategy single). Headline is p50 latency and decisions/s.
-#   Single-stream: 20 warmup + 200 timed, text then image. Each request has a unique state.
+#   Single-stream: 20 warmup + 200 timed, text then image. Text state strings differ.
+#   Image requests reuse one PNG. The multimodal processor cache stays at the vLLM default (on).
 #   Concurrent: 400 requests at client concurrency 8 (the server cap). decisions/s = completed / wall time.
 # System 2: vllm bench serve, random 128 in / 128 out, c1 and c8.
 # Prefix caching is off (the author's serve.sh turns it on); every timed request still has unique text.
@@ -39,6 +40,12 @@ pip install -q huggingface_hub pillow requests
 
 if [[ ! -f "$MODEL_DIR/.revision" ]] || [[ "$(cat "$MODEL_DIR/.revision")" != "$REVISION" ]]; then
   log "snapshot $REPO@$REVISION"
+  case "$MODEL_DIR" in
+    "$HOME/mc-bench/models/"*) ;;
+    *) log "refusing to clear model dir outside ~/mc-bench/models"; exit 1 ;;
+  esac
+  rm -rf -- "$MODEL_DIR"
+  mkdir -p "$MODEL_DIR"
   python - <<'PY'
 import os
 from huggingface_hub import snapshot_download
@@ -69,7 +76,8 @@ VLLM_USE_FLASHINFER_SAMPLER=0 python "$MODEL_DIR/serve_decide.py" --model "$MODE
   --limit-mm-per-prompt '{"image": 8}' --max-num-seqs 8 --trust-request-chat-template \
   --port 8000 > "$OUTDIR/serve.log" 2>&1 &
 SERVE_PID=$!
-trap 'kill $SERVE_PID 2>/dev/null || true; kill ${SMI_PID:-0} 2>/dev/null || true' EXIT
+SMI_PID=
+trap 'kill "$SERVE_PID" 2>/dev/null || true; if [[ -n ${SMI_PID:-} ]]; then kill "$SMI_PID" 2>/dev/null || true; fi' EXIT
 
 for i in $(seq 1 180); do
   if curl -sf localhost:8000/v1/models >/dev/null; then break; fi
@@ -85,7 +93,7 @@ nvidia-smi --query-gpu=timestamp,memory.used,utilization.gpu,memory.total --form
 SMI_PID=$!
 
 python - <<'PY'
-import base64, io, json, os, statistics, time
+import base64, io, json, os, statistics, threading, time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -94,7 +102,14 @@ from PIL import Image, ImageDraw
 
 out = Path(os.environ["OUTDIR"])
 URL = "http://localhost:8000/v1/decide"
-S = requests.Session()
+_tls = threading.local()
+
+def session():
+    s = getattr(_tls, "session", None)
+    if s is None:
+        s = requests.Session()
+        _tls.session = s
+    return s
 
 img = Image.new("RGB", (448, 448), (235, 235, 235))
 d = ImageDraw.Draw(img)
@@ -117,7 +132,7 @@ def image_req(i):
 
 def call(body):
     t0 = time.perf_counter()
-    r = S.post(URL, json=body, timeout=300)
+    r = session().post(URL, json=body, timeout=300)
     dt = time.perf_counter() - t0
     r.raise_for_status()
     j = r.json()

@@ -29,18 +29,30 @@ def load_font(size: int):
     return ImageFont.load_default()
 
 
+def vllm_version(raw_json: Path) -> str:
+    versions = raw_json.parent / "versions.txt"
+    if not versions.is_file():
+        raise SystemExit(f"missing {versions}; refusing to hardcode a vLLM version")
+    for line in versions.read_text().splitlines():
+        parts = line.split()
+        if parts and parts[0] == "vllm" and len(parts) >= 2:
+            return parts[1]
+    raise SystemExit(f"no vllm version in {versions}")
+
+
 def render(raw_json: Path, dest: Path) -> None:
     data = json.loads(raw_json.read_text())
     sku = data["sku"]
     if sku not in PRICES:
         raise SystemExit(f"no list price for {sku}")
+    version = vllm_version(raw_json)
     single = data["text"]["single"]
     c8 = data["text"]["c8"]
     img = Image.new("RGB", (900, 228), BG)
     draw = ImageDraw.Draw(img)
     title = load_font(18)
     body = load_font(16)
-    draw.text((25, 22), f"vLLM 0.31.0  |  {sku}", font=title, fill=ACCENT)
+    draw.text((25, 22), f"vLLM {version}  |  {sku}", font=title, fill=ACCENT)
     draw.text((25, 50), "autotrust/JEV-27B-VL  |  System 1 text decision", font=body, fill=FG)
     draw.text((25, 72), f"$ {PRICES[sku]}/hr   BF16", font=body, fill=MUTED)
     rows = (

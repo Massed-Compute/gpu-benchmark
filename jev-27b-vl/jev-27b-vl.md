@@ -14,7 +14,7 @@ System 1 requests use `thinking: "off"` and `strategy: "single"`, so each call i
 - **Text:** a 3-option `choice` (route a support ticket). About 53 prompt tokens.
 - **Image:** a `noul` yes/no question about one generated 448×448 PNG sent as a base64 data URL. About 237 prompt tokens.
 
-Every request has a unique state string. The clock is client wall time per HTTP request on the same VM, including JSON and image upload. Single stream: 20 warmup + 200 timed calls in sequence. decisions/s at c1 = 200 / wall time of those calls. Concurrent: 16 warmup, then 400 requests at client concurrency 8 (the server cap). decisions/s at c8 = 400 / wall time.
+This capture sent one PNG for every image request. vLLM's multimodal processor cache was left on, so the image p50s can understate a feed of new frames. Text requests still use a distinct state string. The clock is client wall time per HTTP request on the same VM, including JSON and image upload. Single stream: 20 warmup + 200 timed calls in sequence. decisions/s at c1 = 200 / wall time of those calls. Concurrent: 16 warmup, then 400 requests at client concurrency 8 (the server cap). decisions/s at c8 = 400 / wall time.
 
 System 2: `vllm bench serve`, random dataset, 128 input / 128 output tokens, `--ignore-eos`. c1 is 10 prompts and c8 is 40 prompts. Concurrency above 8 was not run because the server caps at 8 sequences.
 
@@ -73,7 +73,7 @@ Least expensive launched fit is **`gpu_1x_a100`** at $1.35/hr. The BF16 safetens
 
 Blackwell is both the System 1 speed card and the System 1 value card. Text p50 is **58.6 ms**, against 156.4 ms on the A100 and 164.4 ms on the H100. At c8 it serves **52.306** text decisions/s, **2.1×** the A100 and **2.0×** the H100, and leads decisions per dollar at **85982** against the A100's 66989. Image decisions follow the same order: **23.276**/s at c8, **1.9×** the A100.
 
-The H100 is not faster than the A100 for single-stream System 1 in this build (164.4 vs 156.4 ms text p50). Blackwell's System 2 median TTFT at c1 is also about half the other two cards (59.5 ms vs 112.6 / 110.9 ms). The Blackwell lead holds across both measurements, but this capture does not isolate the cause.
+The H100 is not faster than the A100 for single-stream System 1 in this build (164.4 vs 156.4 ms text p50). Blackwell's System 2 median TTFT at c1 is 59.5 ms, against 112.6 ms on the A100 and 110.9 ms on the H100, from `--num-prompts 10`. The A100 and H100 environments differed: both logged a PermissionError on `~/.config/vllm`, and the H100 logged a FlashInfer GDN prefill JIT compile, so that TTFT gap is a small-sample observation from those runs.
 
 For System 2 text generation, the H100 has the highest output rate (**207.51** tok/s at c8, **33.21** ms TPOT). The A100 is the best value at **518567** output tokens per dollar. The three cards are within 7% of each other at c8.
 
