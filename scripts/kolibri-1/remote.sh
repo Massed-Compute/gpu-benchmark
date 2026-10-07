@@ -1,16 +1,24 @@
 #!/usr/bin/env bash
-# Aleph-Alpha/Kolibri-1 FP8 bench on one GPU.
+# Aleph-Alpha/Kolibri-1 FP8 bench.
 # Weights are float8_e4m3fn. Headline is sustained output token throughput from
 # vllm bench serve (random 128 in / 128 out, ignore-eos, prefix caching off).
 # The clock is client wall time against a long-lived server, including HTTP.
 # c1, c8, and c32 share that server. Prompts are the vLLM random dataset.
-# Env: SKU. Optional MAX_LEN (default 8192; one retry at 4096 is a separate run).
+# Env: SKU. Tensor parallel comes from TP (2 on the A100 SKU, otherwise 1).
+# Optional MAX_LEN (default 8192). A failed server start fails the run.
 set -euo pipefail
 SKU=${SKU:?set SKU}
 REPO=${REPO:-Aleph-Alpha/Kolibri-1}
 REVISION=${REVISION:-35bc4d3be745502227a67247de77d70e691614ee}
 MAX_LEN=${MAX_LEN:-8192}
-TP=${TP:-1}
+# TP is the tensor-parallel size. The 2× A100 row is TP 2 unless the caller set TP.
+if [[ -z "${TP:-}" ]]; then
+  if [[ "$SKU" == *a100* ]]; then
+    TP=2
+  else
+    TP=1
+  fi
+fi
 OUTDIR=${OUTDIR:-$HOME/mc-bench/out/kolibri-1/${SKU}/fp8-vllm}
 MODEL_DIR="$HOME/mc-bench/models/kolibri-1"
 export REPO REVISION OUTDIR SKU MODEL_DIR MAX_LEN
@@ -39,7 +47,7 @@ fi
 # shellcheck disable=SC1091
 . "$HOME/mc-bench/venv/bin/activate"
 pip install -q -U pip
-pip install -q 'aleph-alpha-inference>=1' huggingface_hub
+pip install -q 'aleph-alpha-inference==1.0.0' huggingface_hub
 
 if [[ ! -f "$MODEL_DIR/.revision" ]] || [[ "$(cat "$MODEL_DIR/.revision")" != "$REVISION" ]]; then
   log "snapshot $REPO@$REVISION"
@@ -72,25 +80,42 @@ find "$MODEL_DIR" -name '*.safetensors' -printf '%s\n' | awk '{s+=$1} END {print
 start_serve() {
   log "serve max_model_len=$MAX_LEN tp=$TP"
   # FlashInfer's sampler JIT needs nvcc, which this image does not ship.
-  # Blackwell has no FlashAttention candidate, and its FlashInfer XQA kernel
-  # is missing, so it uses Triton with fp8 KV. A100 (SM80) cannot store fp8
-  # KV on Triton (needs SM89) or FlashAttention (fp8 KV needs FA3 on SM90 or
-  # FA4 on SM100). FlashInfer attention JIT needs nvcc, which this image does
-  # not ship. A100 therefore uses Triton with bfloat16 KV.
-  if [[ "${SKU}" == *a100* ]]; then
-    ATTN_BACKEND="${ATTN_BACKEND:-TRITON_ATTN}"
-    KV_DTYPE="${KV_DTYPE:-bfloat16}"
+  # gpu_1x_h200_nvl omits --attention-backend unless ATTN_BACKEND is set, so
+  # vLLM auto-selects FlashAttention. Blackwell has no FlashAttention candidate
+  # and its FlashInfer XQA kernel is missing, so it is forced to Triton with
+  # fp8 KV. A100 (SM80) cannot store fp8 KV on Triton (needs SM89) or
+  # FlashAttention (fp8 KV needs FA3 on SM90 or FA4 on SM100), and FlashInfer
+  # attention JIT needs nvcc, so A100 is Triton with bfloat16 KV.
+  local attn_args=()
+  case "$SKU" in
+    *a100*)
+      ATTN_BACKEND="${ATTN_BACKEND:-TRITON_ATTN}"
+      KV_DTYPE="${KV_DTYPE:-bfloat16}"
+      ;;
+    *pro_6000_blackwell*)
+      ATTN_BACKEND="${ATTN_BACKEND:-TRITON_ATTN}"
+      KV_DTYPE="${KV_DTYPE:-fp8}"
+      ;;
+    *)
+      KV_DTYPE="${KV_DTYPE:-fp8}"
+      ;;
+  esac
+  if [[ -n "${ATTN_BACKEND:-}" ]]; then
+    attn_args=(--attention-backend "$ATTN_BACKEND")
+    echo "attention_backend $ATTN_BACKEND" | tee -a "$OUTDIR/versions.txt"
+  else
+    echo "attention_backend unset" | tee -a "$OUTDIR/versions.txt"
   fi
-  ATTN_BACKEND="${ATTN_BACKEND:-TRITON_ATTN}"
-  KV_DTYPE="${KV_DTYPE:-fp8}"
-  export VLLM_USE_FLASHINFER_SAMPLER=0
-  export VLLM_ATTENTION_BACKEND="$ATTN_BACKEND"
-  mkdir -p "$HOME/.config/vllm"
-  echo "attention_backend $ATTN_BACKEND" | tee -a "$OUTDIR/versions.txt"
   echo "kv_cache_dtype $KV_DTYPE" | tee -a "$OUTDIR/versions.txt"
+  export VLLM_USE_FLASHINFER_SAMPLER=0
+  # ~/.config is often root-owned. A bare mkdir does not fix that PermissionError.
+  if [[ -e "$HOME/.config" && ! -w "$HOME/.config" ]] || [[ -e "$HOME/.config/vllm" && ! -w "$HOME/.config/vllm" ]]; then
+    sudo chown -R "$(id -u):$(id -g)" "$HOME/.config"
+  fi
+  mkdir -p "$HOME/.config/vllm"
   vllm serve "$MODEL_DIR" \
     --served-model-name "$REPO" \
-    --attention-backend "$ATTN_BACKEND" \
+    "${attn_args[@]}" \
     --tensor-parallel-size "$TP" \
     --max-model-len "$MAX_LEN" \
     --gpu-memory-utilization 0.92 \
@@ -111,22 +136,20 @@ wait_serve() {
   return 1
 }
 
-start_serve
-trap 'kill $SERVE_PID 2>/dev/null || true; kill ${SMI_PID:-0} 2>/dev/null || true' EXIT
-if ! wait_serve; then
-  log "server failed at max_model_len=$MAX_LEN; retry 4096"
-  tail -40 "$OUTDIR/serve.log" || true
-  kill "$SERVE_PID" 2>/dev/null || true
-  wait "$SERVE_PID" 2>/dev/null || true
-  MAX_LEN=4096
-  echo "max_model_len_retry $MAX_LEN" | tee -a "$OUTDIR/versions.txt"
-  mv "$OUTDIR/serve.log" "$OUTDIR/serve-8192.log" || true
-  start_serve
-  if ! wait_serve; then
-    log "server exited"
-    tail -80 "$OUTDIR/serve.log"
-    exit 1
+cleanup() {
+  if [[ -n "${SERVE_PID:-}" ]]; then
+    kill "$SERVE_PID" 2>/dev/null || true
   fi
+  if [[ -n "${SMI_PID:-}" ]]; then
+    kill "$SMI_PID" 2>/dev/null || true
+  fi
+}
+trap cleanup EXIT
+start_serve
+if ! wait_serve; then
+  log "server exited at max_model_len=$MAX_LEN"
+  tail -80 "$OUTDIR/serve.log" || true
+  exit 1
 fi
 log "ready"
 
@@ -173,8 +196,8 @@ for conc in (1, 8, 32):
         continue
     data = json.loads(p.read_text())
     thr = data.get("output_throughput")
-    print(f"c{conc} output_throughput {thr}")
-    if not thr:
+    print(f"c{conc} output_throughput {thr} completed {data.get('completed')} failed {data.get('failed')}")
+    if not thr or data.get("failed") != 0 or data.get("completed") != conc * 5:
         ok = False
 if not ok:
     raise SystemExit(1)
@@ -182,7 +205,8 @@ PY
 
 echo ok > "$OUTDIR/DONE"
 log "done"
-kill "$SMI_PID" 2>/dev/null || true
-kill "$SERVE_PID" 2>/dev/null || true
+cleanup
 trap - EXIT
-wait "$SERVE_PID" 2>/dev/null || true
+if [[ -n "${SERVE_PID:-}" ]]; then
+  wait "$SERVE_PID" 2>/dev/null || true
+fi

@@ -33,6 +33,16 @@ def row(path: Path, conc: int) -> dict:
     }
 
 
+def max_model_len(raw_dir: Path) -> str:
+    versions = raw_dir / "versions.txt"
+    if versions.is_file():
+        for line in versions.read_text().splitlines():
+            key, _, value = line.partition(" ")
+            if key == "max_model_len" and value.strip():
+                return value.strip()
+    return "8192"
+
+
 def render(raw_dir: Path, sku: str, subtitle: str, dest: Path) -> None:
     rows = [row(raw_dir, c) for c in (1, 8, 32)]
     img = Image.new("RGB", (1400, 720), BG)
@@ -61,7 +71,7 @@ def render(raw_dir: Path, sku: str, subtitle: str, dest: Path) -> None:
         y += 64
     draw.text(
         (48, 560),
-        "c32 is the headline. Prefix cache off. max-model-len 8192.",
+        f"c32 is the headline. Prefix cache off. max-model-len {max_model_len(raw_dir)}.",
         font=small,
         fill=MUTED,
     )
