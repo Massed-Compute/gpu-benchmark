@@ -1,0 +1,11 @@
+vllm 0.29.0
+torch 2.13.0+cu130
+cuda 13.0
+gpu NVIDIA A100 80GB PCIe count 2
+aleph-alpha-inference 1.0.0
+revision 35bc4d3be745502227a67247de77d70e691614ee
+max_model_len 8192
+tensor_parallel 2
+safetensors_bytes 78841467208
+attention_backend TRITON_ATTN
+kv_cache_dtype bfloat16
