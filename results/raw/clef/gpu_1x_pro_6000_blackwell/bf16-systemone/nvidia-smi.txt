@@ -1,0 +1,21 @@
+=== after-load ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 13:03:40.791, NVIDIA RTX PRO 6000 Blackwell Server Edition, 53091 MiB, 97887 MiB, 0 %
+=== text-live-start ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 13:03:45.420, NVIDIA RTX PRO 6000 Blackwell Server Edition, 53263 MiB, 97887 MiB, 88 %
+=== text-live-mid ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 13:04:02.673, NVIDIA RTX PRO 6000 Blackwell Server Edition, 53263 MiB, 97887 MiB, 89 %
+=== text-live-end ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 13:04:19.326, NVIDIA RTX PRO 6000 Blackwell Server Edition, 53263 MiB, 97887 MiB, 86 %
+=== image-live-start ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 13:04:24.625, NVIDIA RTX PRO 6000 Blackwell Server Edition, 53435 MiB, 97887 MiB, 90 %
+=== image-live-mid ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 13:04:49.122, NVIDIA RTX PRO 6000 Blackwell Server Edition, 53435 MiB, 97887 MiB, 90 %
+=== image-live-end ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 13:05:13.147, NVIDIA RTX PRO 6000 Blackwell Server Edition, 53435 MiB, 97887 MiB, 90 %
