@@ -1,0 +1,97 @@
+{
+  "model": "Cloudflare/clef",
+  "revision": "2f3de3dd85f379784083b0814d997ab627200f0c",
+  "sku": "gpu_1x_A100_SXM4",
+  "dtype": "bfloat16",
+  "harness": "systemone single-stream, 20 warmup + 200 timed, CUDA sync both sides",
+  "allocated_after_load_gib": 51.195,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.10.2",
+  "text": {
+    "label": "text",
+    "n_warmup": 20,
+    "n_timed": 200,
+    "questions_per_call": 3,
+    "latency_ms_p50": 270.751,
+    "latency_ms_p95": 271.373,
+    "latency_ms_min": 270.483,
+    "latency_ms_max": 273.485,
+    "decisions_per_s": 3.693,
+    "peak_allocated_mib": 52537.0,
+    "peak_allocated_gib": 51.306,
+    "smoke_answers": {
+      "department": {
+        "type": "choice",
+        "choice": "technical",
+        "confidence": 0.9173,
+        "probabilities": {
+          "billing": 0.0827,
+          "technical": 0.9173
+        }
+      },
+      "urgency": {
+        "type": "score",
+        "score": 1.8174,
+        "confidence": 0.8636,
+        "legend": {
+          "0": "Can wait",
+          "1": "This week",
+          "2": "Today"
+        },
+        "probabilities": {
+          "0": 0.0461,
+          "1": 0.0903,
+          "2": 0.8636
+        }
+      },
+      "outage": {
+        "type": "noul",
+        "noul": 0.8977
+      }
+    }
+  },
+  "image": {
+    "label": "image",
+    "n_warmup": 20,
+    "n_timed": 200,
+    "questions_per_call": 3,
+    "latency_ms_p50": 406.398,
+    "latency_ms_p95": 407.11,
+    "latency_ms_min": 405.99,
+    "latency_ms_max": 408.45,
+    "decisions_per_s": 2.461,
+    "peak_allocated_mib": 52628.3,
+    "peak_allocated_gib": 51.395,
+    "smoke_answers": {
+      "department": {
+        "type": "choice",
+        "choice": "technical",
+        "confidence": 0.9312,
+        "probabilities": {
+          "billing": 0.0688,
+          "technical": 0.9312
+        }
+      },
+      "urgency": {
+        "type": "score",
+        "score": 1.7932,
+        "confidence": 0.8482,
+        "legend": {
+          "0": "Can wait",
+          "1": "This week",
+          "2": "Today"
+        },
+        "probabilities": {
+          "0": 0.0551,
+          "1": 0.0967,
+          "2": 0.8482
+        }
+      },
+      "outage": {
+        "type": "noul",
+        "noul": 0.9141
+      }
+    }
+  }
+}

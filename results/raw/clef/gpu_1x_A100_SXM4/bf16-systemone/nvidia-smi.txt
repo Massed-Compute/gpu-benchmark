@@ -1,0 +1,21 @@
+=== after-load ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 12:53:15.979, NVIDIA A100-SXM4-80GB, 52943 MiB, 81920 MiB, 0 %
+=== text-live-start ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 12:53:22.310, NVIDIA A100-SXM4-80GB, 53109 MiB, 81920 MiB, 97 %
+=== text-live-mid ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 12:53:49.701, NVIDIA A100-SXM4-80GB, 53109 MiB, 81920 MiB, 97 %
+=== text-live-end ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 12:54:16.522, NVIDIA A100-SXM4-80GB, 53109 MiB, 81920 MiB, 99 %
+=== image-live-start ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 12:54:25.206, NVIDIA A100-SXM4-80GB, 53211 MiB, 81920 MiB, 100 %
+=== image-live-mid ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 12:55:06.280, NVIDIA A100-SXM4-80GB, 53211 MiB, 81920 MiB, 100 %
+=== image-live-end ===
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/06 12:55:46.540, NVIDIA A100-SXM4-80GB, 53211 MiB, 81920 MiB, 100 %
