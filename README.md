@@ -16,6 +16,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 ### Newest
 
 - [Kolibri-1 FP8 (Blackwell / 2× A100 / H200)](./kolibri-1/kolibri-1.md)
+- [JEV-27B-VL (A100 / H100 / Blackwell)](./jev-27b-vl/jev-27b-vl.md)
 - [Xing4.0-29B-A4B (A100 / H100 / Blackwell)](./xing4-29b-a4b/xing4-29b-a4b.md)
 - [Qwen-Image-2.1 (A6000 / L40S / Blackwell)](./qwen-image-2.1/qwen-image-2.1.md)
 - [Laya (A6000 / L40S / Blackwell)](./laya/laya.md)
