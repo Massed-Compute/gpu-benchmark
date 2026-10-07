@@ -7,7 +7,7 @@ MC - 2026.10.06
 Live Massed Compute latency benches for [Cloudflare/clef](https://huggingface.co/Cloudflare/clef) at revision `2f3de3dd85f379784083b0814d997ab627200f0c` (BF16). Clef is a multimodal decision model. One forward returns probabilities for typed questions. It does not generate text. Headlines are **p50 `systemone` latency (ms)** and **decisions/s**, not token throughput.
 
 ## Technique
-Hugging Face snapshot of `Cloudflare/clef` at `revision=2f3de3dd85f379784083b0814d997ab627200f0c`, `systemone()` from the repo (`joint_schema_model.py`). Single-stream, 20 CUDA-sync warmups + 200 timed calls. One call is one decision and contains three questions (choice, score, noul). Two workloads, same questions: a text state, then that state plus one generated 512×512 image. decisions/s is 1000/p50. This capture built each request inside the timed region. Runner: `scripts/clef/remote.sh`.
+Hugging Face snapshot of `Cloudflare/clef` at `revision=2f3de3dd85f379784083b0814d997ab627200f0c`, `systemone()` from the repo (`joint_schema_model.py`). Single-stream, 20 CUDA-sync warmups + 200 timed calls. One call is one decision and contains three questions (choice, score, noul). Two workloads, same questions: a text state, then that state plus one generated 512×512 image. Decisions/s is 1000/p50, not completed calls over elapsed time. This capture built each request inside the timed region. Runner: `scripts/clef/remote.sh`.
 
 Video inputs and batch sizes above 1 were not run.
 
@@ -61,6 +61,7 @@ L40S listed at **$0.97/hr** (rate rose from $0.88 to $0.97 on 2026-09-08). It wa
 - Cheaper card that might fit and was not launched: `gpu_1x_a100` ($1.35), out of stock at capture. `gpu_1x_DGX_A100` is the same $1.38 as the SXM and was not launched. `gpu_1x_a6000_low_ram` ($0.55) is still 48GB VRAM. Out of stock and too small: `gpu_1x_A30` ($0.35), `gpu_1x_a5000` ($0.44).
 - H100 ($2.73, 80GB) was not launched. Blackwell at $2.19 already has 96GB.
 - Smoke answers on the sample ticket: department=technical, urgency near "today", outage likely. The image workload returned the same labels. Not an accuracy eval.
+- Published p50 still includes request build inside the clock, because this capture was not re-run.
 - Raw: `results/raw/clef/<sku>/bf16-systemone/` (`clef-bench.json`, live `nvidia-smi.txt`, `DONE` on the two successful SKUs).
 - Bench VMs terminated after capture.
 
