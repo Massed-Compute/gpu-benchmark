@@ -1,0 +1,11 @@
+vllm 0.32.0
+torch 2.13.0+cu130
+cuda 13.0
+gpu NVIDIA H100 PCIe count 1
+revision 896c2d454672476a7b45dcc5e3f0c700a0218577
+max_model_len 8192
+tensor_parallel 1
+quantization bf16
+safetensors_bytes 70425903448
+attention_backend FLASH_ATTN
+kv_cache_dtype fp8
