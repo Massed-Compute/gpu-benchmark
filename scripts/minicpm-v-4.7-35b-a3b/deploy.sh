@@ -19,7 +19,8 @@ if [[ -f "$TOKEN_SRC" ]]; then
 fi
 "${SCP[@]}" "$ROOT/remote.sh" "Ubuntu@${HOST}:mc-bench/bin/remote.sh"
 SKU_Q=$(printf '%q' "$SKU")
-"${SSH[@]}" "chmod 700 ~/mc-bench/bin/remote.sh && nohup env SKU=${SKU_Q} bash ~/mc-bench/bin/remote.sh > ~/mc-bench/logs/minicpm-v-4.7-35b-a3b-${SKU_Q}.log 2>&1 < /dev/null & echo pid \$!"
+# setsid detaches the bench from this SSH session so the session can exit.
+"${SSH[@]}" "chmod 700 ~/mc-bench/bin/remote.sh && setsid nohup env SKU=${SKU_Q} bash ~/mc-bench/bin/remote.sh > ~/mc-bench/logs/minicpm-v-4.7-35b-a3b-${SKU_Q}.log 2>&1 < /dev/null & echo pid \$!"
 echo "Remote run is detached under nohup."
 echo "Poll log:  ssh -i ${KEY} Ubuntu@${HOST} 'tail -n 30 ~/mc-bench/logs/minicpm-v-4.7-35b-a3b-${SKU}.log'"
 echo "Poll done: ssh -i ${KEY} Ubuntu@${HOST} 'test -f ~/mc-bench/out/minicpm-v-4.7-35b-a3b/${SKU}/bf16-vllm/DONE && echo DONE'"

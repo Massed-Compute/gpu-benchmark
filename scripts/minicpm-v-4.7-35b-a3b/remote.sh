@@ -112,8 +112,9 @@ start_serve() {
   fi
   echo "kv_cache_dtype $KV_DTYPE" | tee -a "$OUTDIR/versions.txt"
   export VLLM_USE_FLASHINFER_SAMPLER=0
-  if [[ -e "$HOME/.config" && ! -w "$HOME/.config" ]] || [[ -e "$HOME/.config/vllm" && ! -w "$HOME/.config/vllm" ]]; then
-    sudo chown -R "$(id -u):$(id -g)" "$HOME/.config"
+  # Narrow, non-interactive. A password prompt would fail the run under set -e.
+  if [[ -e "$HOME/.config/vllm" && ! -w "$HOME/.config/vllm" ]]; then
+    sudo -n chown "$(id -u):$(id -g)" "$HOME/.config/vllm" || true
   fi
   mkdir -p "$HOME/.config/vllm"
   vllm serve "$MODEL_DIR" \

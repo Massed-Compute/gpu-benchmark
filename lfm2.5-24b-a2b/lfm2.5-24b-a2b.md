@@ -65,12 +65,13 @@ Concurrency 1 output tok/s: L40S **115.7**, A100 **136.3**, Blackwell **152.2**.
 ---
 
 <p align="center">
- <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
- <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
- </a>
+  <a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">
+    <img src="../shared-images/logo-horizontal-on-light.png" alt="Massed Compute" height="56"/>
+  </a>
 </p>
+
 <p align="center">
- <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
+  <strong><a href="https://massedcompute.com/?utm_source=github.com&utm_campaign=gpu-benchmark">LAUNCH GPU OR CPU INSTANCE</a></strong>
 </p>
 
 > **Pricing note:** Listed `$/hr` rates are point-in-time from the capture date. Confirm live pricing in the marketplace before you launch — rates can change. Pay only for the hours you use.
