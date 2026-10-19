@@ -59,7 +59,7 @@ Concurrency 1 output tok/s: L40S **115.7**, A100 **136.3**, Blackwell **152.2**.
 ## Notes
 - `nvidia-smi` memory.used while the server was up, divided by 1024: L40S **41.12 GiB** of **44.99 GiB**, A100 **73.36 GiB** of **80.00 GiB**, Blackwell **87.60 GiB** of **95.59 GiB**.
 - L40S `serve-attempt1.log` is the failed first start (FlashInfer prefill JIT, no nvcc), not a shorter-context retry. The published L40S row forced Triton and ran at `--max-model-len 8192`.
-- Cheaper 48GB cards were in stock on 2026-10-19 and were not launched: `gpu_1x_a6000` **$0.57/hr**, `gpu_1x_a6000_low_ram` **$0.55/hr**, `gpu_1x_l40` **$0.86/hr**, `gpu_1x_6000_ada` **$0.79/hr**. `gpu_1x_a100` at **$1.35/hr** had no capacity. L40S list rate has been **$0.97** since 2026-09-08.
+- Cheaper 48GB cards were in stock on 2026-10-19 and were not launched: `gpu_1x_a6000` **$0.57/hr**, `gpu_1x_a6000_low_ram` **$0.55/hr**, `gpu_1x_l40` **$0.86/hr**, `gpu_1x_6000_ada` **$0.79/hr**. `gpu_1x_a100` at **$1.35/hr** had no capacity. The L40S list rate rose from $0.88 to $0.97 on 2026-09-08. This page uses $0.97.
 - Numbers from live Massed runs 2026-10-19; bench VMs terminated after capture.
 
 ---
