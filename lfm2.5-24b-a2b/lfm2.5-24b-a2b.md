@@ -1,7 +1,7 @@
 # LFM2.5-24B-A2B GPU Benchmark
 
 ### Last Edit Date:
-MC - 2026.10.19
+MC - 2026.10.21
 
 ## Purpose
 Live Massed Compute vLLM benches for [LiquidAI/LFM2.5-24B-A2B](https://huggingface.co/LiquidAI/LFM2.5-24B-A2B) revision `1769516ac588c4c558089c94f27d96b0dc67b183`. Architecture `Lfm2MoeForCausalLM` (`lfm2_moe`). The repo ships no modeling Python, and vLLM 0.32.0 registers that class, so the server does not pass `--trust-remote-code`. Weights are BF16. Measured safetensors are **47,944,143,456** bytes (**44.65 GiB**). `gpu_1x_l40s` serves those weights with online `--quantization fp8`. The A100 and Blackwell rows serve BF16.
@@ -50,7 +50,7 @@ vLLM · Triton (forced) · BF16 · fp8 KV · c32 **1378.7** output tok/s · TTFT
 
 ## Conclusion
 
-Yes. A single 48GB L40S holds this model when the BF16 checkpoint is served with online FP8. That is the least expensive launched card, at **$0.97/hr**. Its c32 output throughput is **1077.1** tok/s, **1110.4** tok/s per $, **$0.250** per 1M output tokens.
+The least expensive launched card is a single 48GB L40S at **$0.97/hr**, serving the BF16 checkpoint with online FP8. Its c32 output throughput is **1077.1** tok/s, **1110.4** tok/s per $, **$0.250** per 1M output tokens.
 
 Against the BF16 rows, that FP8 L40S is the value high and the throughput low. `gpu_1x_A100_SXM4` at **$1.38/hr** is the c32 throughput high in this set: **1415.3** tok/s (**1025.6** tok/s per $, **$0.271** per 1M). Blackwell at **$2.19/hr** landed at **1378.7** tok/s and the lowest median TTFT, **101.9** ms (**629.5** tok/s per $, **$0.441** per 1M). Those three rows do not share quantization or KV dtype, so the gaps are indicative.
 

@@ -9,12 +9,13 @@
 # Optional MAX_LEN (default 8192). A failed server start fails the run.
 set -euo pipefail
 SKU=${SKU:?set SKU}
+SKU_LOWER=$(printf '%s' "$SKU" | tr '[:upper:]' '[:lower:]')
 REPO=${REPO:-LiquidAI/LFM2.5-24B-A2B}
 REVISION=${REVISION:-1769516ac588c4c558089c94f27d96b0dc67b183}
 VLLM_VERSION=${VLLM_VERSION:-0.32.0}
 MAX_LEN=${MAX_LEN:-8192}
 TP=${TP:-1}
-if [[ "$SKU" == *l40s* ]]; then
+if [[ "$SKU_LOWER" == *l40s* ]]; then
   VARIANT=fp8-vllm
   QUANT=fp8
 else
@@ -88,19 +89,28 @@ start_serve() {
   # missing, so it is forced to Triton with fp8 KV. A100 (SM80) cannot store
   # fp8 KV on Triton (needs SM89) or FlashAttention (fp8 KV needs FA3 on SM90
   # or FA4 on SM100), and FlashInfer attention JIT needs nvcc, so A100 is
-  # Triton with bfloat16 KV.
+  # Triton with bfloat16 KV. A6000 is the same Ampere constraint. L40 and
+  # 6000 Ada are SM89, same as L40S, so they get Triton with fp8 KV. Hopper
+  # (H100, including NVL, and H200) is forced to FlashAttention so fp8 KV
+  # uses FA3. Every other SKU is forced to Triton: an unset backend on L40S
+  # auto-picked FlashInfer and died on the missing nvcc.
   local attn_args=()
   local quant_args=()
-  case "$SKU" in
-    *a100*|*A100*)
+  case "$SKU_LOWER" in
+    *a100*|*a6000*)
       ATTN_BACKEND="${ATTN_BACKEND:-TRITON_ATTN}"
       KV_DTYPE="${KV_DTYPE:-bfloat16}"
       ;;
-    *l40s*|*pro_6000_blackwell*)
+    *h100*|*h200*)
+      ATTN_BACKEND="${ATTN_BACKEND:-FLASH_ATTN}"
+      KV_DTYPE="${KV_DTYPE:-fp8}"
+      ;;
+    *l40*|*6000_ada*|*pro_6000_blackwell*)
       ATTN_BACKEND="${ATTN_BACKEND:-TRITON_ATTN}"
       KV_DTYPE="${KV_DTYPE:-fp8}"
       ;;
     *)
+      ATTN_BACKEND="${ATTN_BACKEND:-TRITON_ATTN}"
       KV_DTYPE="${KV_DTYPE:-fp8}"
       ;;
   esac
@@ -137,8 +147,53 @@ start_serve() {
 wait_serve() {
   local i
   for i in $(seq 1 240); do
-    if curl -sf localhost:8000/v1/models >/dev/null; then return 0; fi
     if ! kill -0 "$SERVE_PID" 2>/dev/null; then return 1; fi
+    # These runners target Linux. Require the new API process to own the
+    # listener, even if an older server advertises exactly the same model.
+    if python - "$SERVE_PID" "$REPO" <<'PY'
+import json
+import os
+import sys
+from pathlib import Path
+from urllib.request import ProxyHandler, build_opener
+
+def ready(pid, model):
+    proc = Path("/proc")
+    sockets = set()
+    for fd in (proc / pid / "fd").iterdir():
+        try:
+            sockets.add(os.readlink(fd))
+        except OSError:
+            continue  # An unrelated descriptor may close while we inspect it.
+    owns_port = False
+    for protocol in ("tcp", "tcp6"):
+        table = proc / "net" / protocol
+        if not table.exists():
+            continue
+        for line in table.read_text().splitlines()[1:]:
+            fields = line.split()
+            if (fields[1].rsplit(":", 1)[1] == "1F40"
+                    and fields[3] == "0A"
+                    and "socket:[" + fields[9] + "]" in sockets):
+                owns_port = True
+    if not owns_port:
+        return False
+    opener = build_opener(ProxyHandler({}))
+    with opener.open("http://127.0.0.1:8000/v1/models", timeout=3) as response:
+        data = json.load(response)
+    return any(item.get("id") == model for item in data.get("data", []))
+
+try:
+    is_ready = ready(sys.argv[1], sys.argv[2])
+except (OSError, ValueError, KeyError, IndexError, TypeError, AttributeError):
+    is_ready = False
+raise SystemExit(0 if is_ready else 1)
+PY
+    then
+      # The process can exit during the HTTP request. Never accept that result.
+      if kill -0 "$SERVE_PID" 2>/dev/null; then return 0; fi
+      return 1
+    fi
     sleep 10
   done
   return 1
