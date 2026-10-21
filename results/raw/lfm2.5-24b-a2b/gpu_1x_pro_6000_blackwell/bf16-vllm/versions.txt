@@ -1,0 +1,11 @@
+vllm 0.32.0
+torch 2.13.0+cu130
+cuda 13.0
+gpu NVIDIA RTX PRO 6000 Blackwell Server Edition count 1
+revision 1769516ac588c4c558089c94f27d96b0dc67b183
+max_model_len 8192
+tensor_parallel 1
+quantization bf16
+safetensors_bytes 47944143456
+attention_backend TRITON_ATTN
+kv_cache_dtype fp8
