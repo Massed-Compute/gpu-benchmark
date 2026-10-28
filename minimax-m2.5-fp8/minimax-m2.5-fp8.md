@@ -4,12 +4,12 @@
 MC - 2026.10.28
 
 ## Purpose
-Live Massed Compute vLLM bench for **MiniMax-M2.5** official FP8 (`MiniMaxAI/MiniMax-M2.5`), 229B parameters. Captured 2026-10-27 on 4× RTX PRO 6000 Blackwell. The bench VM was terminated after the raw JSON was copied off.
+Live Massed Compute vLLM bench for **MiniMax-M2.5** official FP8 ([MiniMaxAI/MiniMax-M2.5](https://huggingface.co/MiniMaxAI/MiniMax-M2.5)), 229B parameters, modified-MIT ([license](https://github.com/MiniMax-AI/MiniMax-M2.5/blob/main/LICENSE)). Captured 2026-10-27 on 4× RTX PRO 6000 Blackwell. The runner did not pass `revision=`, so this page does not pin a hub commit. The bench VM was terminated after the raw JSON was copied off.
 
 ## Technique
 Pinned profile: random prompts, input=128, output=128, request-rate=inf, concurrency 1 / 8 / 32. The headline is **Output token throughput** at concurrency 32.
 Engine: **vLLM** `vllm/vllm-openai:v0.27.1` (`sha256:0a51ea5b4ae2dc5d81890e5173f54203d2a3ae0cfffe51b8fd2afd4391bfd967`).
-Serve: `--tensor-parallel-size 4 --max-model-len 8192 --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --kv-cache-dtype fp8 --moe-backend triton --trust-remote-code`. `VLLM_USE_DEEP_GEMM=0` and `VLLM_MOE_USE_DEEP_GEMM=0`. Prefix caching was not enabled. The clock is `vllm bench serve` on `/v1/completions` after the server is up, so it does not include weight download or process start.
+Serve: `--tensor-parallel-size 4 --max-model-len 8192 --gpu-memory-utilization 0.92 --max-num-batched-tokens 16384 --kv-cache-dtype fp8 --moe-backend triton --trust-remote-code`. `VLLM_USE_DEEP_GEMM=0` and `VLLM_MOE_USE_DEEP_GEMM=0`. The runner did not pass `--no-enable-prefix-caching` or `--ignore-eos`. vLLM V1 may enable prefix caching by default. Prompts were random with `random_prefix_len` 0. Every request still returned 128 output tokens (640 / 5120 / 20480). The clock is `vllm bench serve` on `/v1/completions` after the server is up, so it does not include weight download or process start.
 
 ## Results
 
@@ -24,8 +24,6 @@ Serve: `--tensor-parallel-size 4 --max-model-len 8192 --gpu-memory-utilization 0
 | 32 | 160/160 | 860.3 | 459.4 |
 
 Zero failed requests. During concurrency 32, `nvidia-smi` sampled all four GPUs, utilization reached 100%, and the busiest GPU held **89.3 GiB** of 95.6 GiB.
-
-A second client, not `vllm bench`, sent 32 unique prompts at concurrency 32 with `max_tokens=128` and measured **886.1** output tok/s. That is a shorter, different prompt set. It checks the server. It does not replace the 860.3 headline. Repeating one prompt on that same server measured 1572.5 tok/s, which is prefix reuse, not this profile.
 
 ### Screenshots
 
@@ -42,6 +40,7 @@ vllm — 860.3 output tok/s @ c32:
 - 2× Blackwell (192 GB) and 2× H100 (160 GB) cannot hold the 230 GB FP8 weights. They were not launched. 8× A6000 is less expensive and was not launched: that SKU has no FP8 tensor cores, so this checkpoint was not treated as a fit.
 - Same box and engine as the Qwen3-235B-A22B-FP8 page. Different weights, so that pair is not a controlled comparison.
 - Capture 2026-10-27. Rate **$8.76/hr** is the live `gpu_4x_pro_6000_blackwell` price that day.
+- `nvidia-smi.txt` is the concurrency-32 sample, not a second capture.
 
 ---
 
