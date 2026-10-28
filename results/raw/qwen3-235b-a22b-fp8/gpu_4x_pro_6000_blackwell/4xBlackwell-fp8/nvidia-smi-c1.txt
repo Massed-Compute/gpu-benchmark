@@ -1,0 +1,45 @@
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:11:47.001, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:47.006, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:47.009, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:47.011, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:11:49.053, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:49.060, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:49.067, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:49.073, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:11:51.117, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:51.124, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:51.130, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:51.135, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:11:53.176, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:53.182, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:53.187, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:53.191, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:11:55.231, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:55.237, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:55.241, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:11:55.245, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:11:57.289, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:11:57.299, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:11:57.307, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 98 %
+2026/10/27 14:11:57.313, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 98 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:11:59.364, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 96 %
+2026/10/27 14:11:59.373, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 96 %
+2026/10/27 14:11:59.381, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 97 %
+2026/10/27 14:11:59.389, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 95 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:01.437, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 98 %
+2026/10/27 14:12:01.444, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 98 %
+2026/10/27 14:12:01.451, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:01.457, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:03.506, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 98 %
+2026/10/27 14:12:03.513, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:03.519, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:03.525, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %

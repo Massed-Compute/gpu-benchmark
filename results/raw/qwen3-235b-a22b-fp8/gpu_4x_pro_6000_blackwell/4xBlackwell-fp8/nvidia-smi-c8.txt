@@ -1,0 +1,65 @@
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:04.392, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:04.399, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:04.404, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:04.408, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:06.451, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:06.458, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:06.464, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:06.470, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:08.516, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:08.523, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:08.529, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:08.534, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:10.576, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:10.583, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:10.589, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:10.594, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:12.636, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:12.643, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:12.649, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+2026/10/27 14:12:12.653, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 0 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:14.702, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:14.712, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:14.722, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:14.731, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:16.791, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:16.802, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:16.811, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:16.818, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:18.879, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:18.890, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:18.900, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:18.909, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:20.967, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:20.978, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:20.989, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:20.996, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:23.056, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:23.066, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:23.077, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:23.084, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:25.141, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:25.152, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:25.161, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:25.169, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:27.228, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:27.238, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:27.249, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:27.258, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+timestamp, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]
+2026/10/27 14:12:29.325, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:29.336, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:29.344, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %
+2026/10/27 14:12:29.352, NVIDIA RTX PRO 6000 Blackwell Server Edition, 91249 MiB, 97887 MiB, 99 %

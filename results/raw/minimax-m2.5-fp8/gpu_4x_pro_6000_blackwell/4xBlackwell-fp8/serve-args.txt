@@ -1,0 +1,13 @@
+model=MiniMaxAI/MiniMax-M2.5
+tp=4
+max_model_len=8192
+gpu_memory_utilization=0.92
+max_num_batched_tokens=16384
+kv_cache_dtype=fp8
+moe_backend=triton
+trust_remote_code=yes
+prefix_caching_flag=not_passed
+ignore_eos=not_passed
+VLLM_USE_DEEP_GEMM=0
+VLLM_MOE_USE_DEEP_GEMM=0
+started_utc=2026-10-27T14:19:57Z
