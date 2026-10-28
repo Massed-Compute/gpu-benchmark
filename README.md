@@ -15,6 +15,8 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [Qwen3-235B-A22B-FP8 (4× Blackwell)](./qwen3-235b-a22b-fp8/qwen3-235b-a22b-fp8.md)
+- [MiniMax-M2.5 FP8 (4× Blackwell)](./minimax-m2.5-fp8/minimax-m2.5-fp8.md)
 - [MiniCPM-V-4.7-35B-A3B (Blackwell)](./minicpm-v-4.7-35b-a3b/minicpm-v-4.7-35b-a3b.md)
 - [LFM2.5-24B-A2B (L40S FP8 / A100 BF16 / Blackwell BF16)](./lfm2.5-24b-a2b/lfm2.5-24b-a2b.md)
 - [Kolibri-1 FP8 (Blackwell / 2× A100 / H200)](./kolibri-1/kolibri-1.md)
@@ -67,6 +69,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Qwen
 
+- [Qwen3-235B-A22B-FP8 (4× Blackwell)](./qwen3-235b-a22b-fp8/qwen3-235b-a22b-fp8.md)
 - [Qwen2.5 7B Instruct](./qwen2-5-7b-instruct/qwen2-5-7b-instruct.md)
 - [Qwen3 32B](./qwen3-32b/qwen3-32b.md)
 - [Qwen3 30B-A3B (MoE)](./qwen3-30b-a3b/qwen3-30b-a3b.md)
@@ -78,6 +81,10 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 - [GLM 5.3 Flash](./glm-5.3-flash/glm-5.3-flash.md)
 - [GLM-4.7-Flash](./glm-4.7-flash/glm-4.7-flash.md)
+
+### MiniMax
+
+- [MiniMax-M2.5 FP8 (4× Blackwell)](./minimax-m2.5-fp8/minimax-m2.5-fp8.md)
 
 ### Spark
 

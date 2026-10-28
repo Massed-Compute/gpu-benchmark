@@ -1,0 +1,5 @@
+timestamp, name, memory.used [MiB], memory.total [MiB], driver_version
+2026/10/27 14:19:57.251, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 580.126.16
+2026/10/27 14:19:57.251, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 580.126.16
+2026/10/27 14:19:57.251, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 580.126.16
+2026/10/27 14:19:57.251, NVIDIA RTX PRO 6000 Blackwell Server Edition, 0 MiB, 97887 MiB, 580.126.16

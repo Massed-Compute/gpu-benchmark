@@ -1,0 +1,6 @@
+model=Qwen/Qwen3-235B-A22B-FP8
+tp=4
+max_model_len=8192
+kv_cache_dtype=fp8
+prefix_caching=off
+started_utc=2026-10-27T14:08:58Z
