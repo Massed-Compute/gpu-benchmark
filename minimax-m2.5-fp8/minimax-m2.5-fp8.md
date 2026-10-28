@@ -4,7 +4,7 @@
 MC - 2026.10.28
 
 ## Purpose
-Live Massed Compute vLLM bench for **MiniMax-M2.5** official FP8 ([MiniMaxAI/MiniMax-M2.5](https://huggingface.co/MiniMaxAI/MiniMax-M2.5)), 229B parameters, modified-MIT ([license](https://github.com/MiniMax-AI/MiniMax-M2.5/blob/main/LICENSE)). Captured 2026-10-27 on 4× RTX PRO 6000 Blackwell. The runner did not pass `revision=`, so this page does not pin a hub commit. The bench VM was terminated after the raw JSON was copied off.
+Live Massed Compute vLLM bench for **MiniMax-M2.5** official FP8 ([MiniMaxAI/MiniMax-M2.5](https://huggingface.co/MiniMaxAI/MiniMax-M2.5)), 229B parameters, modified-MIT ([license](https://github.com/MiniMax-AI/MiniMax-M2.5/blob/main/LICENSE-MODEL)). Captured 2026-10-27 on 4× RTX PRO 6000 Blackwell. The runner did not pass `revision=`, so this page does not pin a hub commit. The bench VM was terminated after the raw JSON was copied off.
 
 ## Technique
 Pinned profile: random prompts, input=128, output=128, request-rate=inf, concurrency 1 / 8 / 32. The headline is **Output token throughput** at concurrency 32.
