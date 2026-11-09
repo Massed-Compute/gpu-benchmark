@@ -15,6 +15,7 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [Arete 27B](./arete-27b/arete-27b.md)
 - [MiniCPM-V-4.7-35B-A3B (Blackwell)](./minicpm-v-4.7-35b-a3b/minicpm-v-4.7-35b-a3b.md)
 - [LFM2.5-24B-A2B (L40S FP8 / A100 BF16 / Blackwell BF16)](./lfm2.5-24b-a2b/lfm2.5-24b-a2b.md)
 - [Kolibri-1 FP8 (Blackwell / 2× A100 / H200)](./kolibri-1/kolibri-1.md)

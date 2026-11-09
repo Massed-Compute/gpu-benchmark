@@ -1,0 +1,13 @@
+{
+  "id": "20261109T135515Z-gpu_1x_h100",
+  "date": "2026-11-09",
+  "model": {
+    "hf_id": "NousResearch/Arete-27B"
+  },
+  "hardware": {
+    "sku": "gpu_1x_h100",
+    "count": 1,
+    "price_usd_per_hour": 2.73
+  },
+  "results": []
+}
