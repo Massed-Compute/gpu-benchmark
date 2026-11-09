@@ -7,7 +7,7 @@ MC - 2026.11.09
 Arete-27B is Nous Research's supervised fine-tune of Qwen3.8-27B (Apache-2.0, same 27B size, no architecture change). This page measures sustained vLLM output throughput on the exact BF16 weights, then what a more expensive card buys.
 
 ## What fits
-BF16 weights are about 51 GB on the GPU before the cache. A 48 GB card does not hold them. On 9 Nov 2026 the cheaper in-stock cards (A6000 at $0.57/hr, RTX 6000 Ada at $0.79/hr, L40 at $0.86/hr, L40S at $0.97/hr) were left untested for that reason. The least expensive live card that ran the model was the 1× A100 at **$1.38/hr**.
+BF16 weights are about 51 GB on the GPU before the cache. A 48 GB card does not hold them. On 9 Nov 2026 the cheaper in-stock cards (A6000 at $0.57/hr, RTX 6000 Ada at $0.79/hr, L40 at $0.86/hr, L40S at $0.97/hr) were left untested for that reason. The L40S list rate rose to $0.97 on 2026-09-08. Pages that still say $0.88 were captured at the earlier rate. The least expensive live card that ran the model was the 1× A100 at **$1.38/hr**.
 
 ## Technique
 Random prompts, 128 in, 128 out, request-rate inf. Concurrency 1, 8, 16, 32, and 64. The headline is **output token throughput at concurrency 32**, not the peak figure in the same log.
