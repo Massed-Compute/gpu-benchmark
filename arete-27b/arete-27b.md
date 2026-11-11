@@ -1,7 +1,7 @@
 # Arete 27B GPU Benchmark
 
 ### Last Edit Date:
-MC - 2026.11.09
+MC - 2026.11.11
 
 ## Purpose
 Arete-27B is Nous Research's supervised fine-tune of Qwen3.8-27B (Apache-2.0, same 27B size, no architecture change). This page measures sustained vLLM output throughput on the exact BF16 weights, then what a more expensive card buys.
@@ -19,17 +19,17 @@ The A100 kept the server default `max_num_seqs`. Blackwell and the H100 crashed 
 | Tier | SKU | $/hr | Output tok/s (c32) | TTFT med (ms) | tok/s per $ | $/1M out tokens |
 |---|---|---:|---:|---:|---:|---:|
 | Smallest fit | `gpu_1x_DGX_A100` | 1.38 | 613.3 | 961.0 | 444.4 | 0.625 |
-| Medium | `gpu_1x_pro_6000_blackwell` | 2.19 | 625.8 | 659.5 | 285.7 | 0.972 |
-| Large | `gpu_1x_h100` | 2.73 | 754.0 | 568.4 | 276.2 | 1.006 |
+| Medium | `gpu_1x_pro_6000_blackwell` | 2.19 | 625.8 | 659.6 | 285.7 | 0.972 |
+| Large | `gpu_1x_h100` | 2.73 | 754.1 | 568.4 | 276.2 | 1.006 |
 
-Rates are the live list price on the capture date.
+Rates are the live list price on the capture date. One decimal is half-up from the bench text: H100 c32 is 754.05, Blackwell median TTFT is 659.55. tok/s per $ is that c32 rate divided by $/hr. $/1M out tokens is `$/hr × 1,000,000 / (tok/s × 3600)`, using the one-decimal rate. The showcase PNGs keep the unrounded bench figures.
 
 ### What more hardware buys
 The A100 is the number most people want: **613.3 tok/s** and **444.4 tok/s per dollar**.
 
-Blackwell at $2.19/hr adds about **2%** more output tokens (625.8) and cuts median time-to-first-token from 961 ms to 660 ms. Each token costs more. It is not the value pick.
+Blackwell at $2.19/hr adds about **2%** more output tokens (625.8) and cuts median time-to-first-token from 961 ms to 659.6 ms. Each token costs more. It is not the value pick.
 
-The H100 at $2.73/hr is **1.2×** the A100 on output tokens (754.0) and the lowest first-token wait (568 ms). It is the speed pick, and the worst of the three on tok/s per dollar.
+The H100 at $2.73/hr is **1.2×** the A100 on output tokens (754.1) and the lowest first-token wait (568 ms). It is the speed pick, and the worst of the three on tok/s per dollar.
 
 ### Screenshots
 
@@ -45,8 +45,12 @@ vllm — 625.8 output tok/s @ c32:
 
 **gpu_1x_h100** — $2.73/hr — large
 
-vllm — 754.0 output tok/s @ c32:
+vllm — 754.1 output tok/s @ c32:
 ![gpu_1x_h100 vllm](./images/1xH100-vllm-showcase.png)
+
+## Notes
+- Server banner on this harness is vLLM 0.27.1. The raw logs do not include an image digest.
+- Live `nvidia-smi` for the A100 sits next to the successful capture. The successful H100 and Blackwell directories do not. The only samples for those two cards are in the earlier directories whose summaries have empty results, taken while a server was up and before the retry that produced the numbers above.
 
 ## Conclusion
 Rent the A100 unless first-token wait is the constraint. The H100 is the faster card. Blackwell sits between them on speed and does not win on cost.
