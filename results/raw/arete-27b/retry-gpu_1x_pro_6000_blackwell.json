@@ -1,0 +1,95 @@
+{
+  "id": "20261109T140517Z-gpu_1x_pro_6000_blackwell",
+  "date": "2026-11-09",
+  "model": {
+    "hf_id": "NousResearch/Arete-27B"
+  },
+  "hardware": {
+    "sku": "gpu_1x_pro_6000_blackwell",
+    "count": 1,
+    "price_usd_per_hour": 2.19
+  },
+  "results": [
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 1,
+      "metrics": {
+        "request_s": 0.2,
+        "output_tok_s": 26.11,
+        "ttft_ms_mean": 68.73,
+        "ttft_ms_p50": 56.85,
+        "tpot_ms_mean": 38.06,
+        "tpot_ms_p50": 38.04
+      },
+      "raw_stdout_path": "results/raw/arete-27b/gpu_1x_pro_6000_blackwell/20261109T140517Z/vllm-c1.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 8,
+      "metrics": {
+        "request_s": 1.53,
+        "output_tok_s": 195.84,
+        "ttft_ms_mean": 194.54,
+        "ttft_ms_p50": 198.07,
+        "tpot_ms_mean": 39.63,
+        "tpot_ms_p50": 39.59
+      },
+      "raw_stdout_path": "results/raw/arete-27b/gpu_1x_pro_6000_blackwell/20261109T140517Z/vllm-c8.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 16,
+      "metrics": {
+        "request_s": 2.84,
+        "output_tok_s": 363.53,
+        "ttft_ms_mean": 348.72,
+        "ttft_ms_p50": 352.9,
+        "tpot_ms_mean": 41.6,
+        "tpot_ms_p50": 41.54
+      },
+      "raw_stdout_path": "results/raw/arete-27b/gpu_1x_pro_6000_blackwell/20261109T140517Z/vllm-c16.txt"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 32,
+      "metrics": {
+        "request_s": 4.89,
+        "output_tok_s": 625.79,
+        "ttft_ms_mean": 625.77,
+        "ttft_ms_p50": 659.55,
+        "tpot_ms_mean": 46.59,
+        "tpot_ms_p50": 46.31
+      },
+      "raw_stdout_path": "results/raw/arete-27b/gpu_1x_pro_6000_blackwell/20261109T140517Z/vllm-c32.txt",
+      "screenshot": "arete-27b/images/1xBlackwell-vllm-showcase.png"
+    },
+    {
+      "engine": "vllm",
+      "sku": "gpu_1x_pro_6000_blackwell",
+      "gpu_count": 1,
+      "price_usd_per_hour": 2.19,
+      "max_concurrency": 64,
+      "metrics": {
+        "request_s": 7.82,
+        "output_tok_s": 1001.12,
+        "ttft_ms_mean": 1272.34,
+        "ttft_ms_p50": 1291.09,
+        "tpot_ms_mean": 54.39,
+        "tpot_ms_p50": 54.18
+      },
+      "raw_stdout_path": "results/raw/arete-27b/gpu_1x_pro_6000_blackwell/20261109T140517Z/vllm-c64.txt"
+    }
+  ]
+}
