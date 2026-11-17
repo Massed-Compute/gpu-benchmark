@@ -15,6 +15,8 @@ This repository covers benchmarking LLM inference speeds on different GPUs, incl
 
 ### Newest
 
+- [gpt-oss-120b (A100)](./gpt-oss-120b/gpt-oss-120b.md)
+- [Ornith-1.5-9B (A6000)](./ornith-1.5-9b/ornith-1.5-9b.md)
 - [Arete 27B](./arete-27b/arete-27b.md)
 - [MiniCPM-V-4.7-35B-A3B (Blackwell)](./minicpm-v-4.7-35b-a3b/minicpm-v-4.7-35b-a3b.md)
 - [LFM2.5-24B-A2B (L40S FP8 / A100 BF16 / Blackwell BF16)](./lfm2.5-24b-a2b/lfm2.5-24b-a2b.md)
