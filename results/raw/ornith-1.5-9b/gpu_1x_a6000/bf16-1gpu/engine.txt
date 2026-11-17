@@ -1,0 +1,14 @@
+image=vllm/vllm-openai:v0.32.0
+digests=["vllm/vllm-openai@sha256:befccf0e7e4089aa23926bb6f887a85c0d46c2a99e6de5c5ffdf5cb7957c5b34"]
+revision=489cb97981b8654bcfcf30ce1f94ed1b62e07b53
+sku=gpu_1x_a6000
+variant=bf16-1gpu
+tensor_parallel=1
+max_model_len=8192
+prefix_caching=off
+kv_cache_dtype=bfloat16
+attention_backend=TRITON_ATTN
+gpu_memory_utilization=0.92
+max_num_batched_tokens=16384
+quantization=bf16
+safetensors_bytes 19306303864
