@@ -1,0 +1,39 @@
+# Janus: Claude and an OpenAI model review each PR, check each other's findings, and post one
+# reconciled comment. It never approves. Code: Massed-Compute/janus, pinned to a commit below;
+# bump the SHA to take Janus changes. Only the two API keys are passed in.
+name: Janus review
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, review_requested]
+
+jobs:
+  review:
+    # Skip drafts and bots; on review_requested, run only when j-mose is the requested reviewer.
+    if: >-
+      !github.event.pull_request.draft &&
+      !endsWith(github.event.pull_request.user.login, '[bot]') &&
+      (github.event.action != 'review_requested' || github.event.requested_reviewer.login == 'j-mose')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      pull-requests: write
+    # One review per PR at a time. A second event waits instead of cancelling the first; once the
+    # first posts its reviewed-head marker, the waiting run sees an unchanged head and skips
+    # without calling either model.
+    concurrency:
+      group: janus-${{ github.event.pull_request.number }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: Massed-Compute/janus@5842374922215d9b333424734514dcfef9fa53f2
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          openai-model: ${{ vars.REVIEW_OPENAI_MODEL }}
+          claude-model: ${{ vars.REVIEW_CLAUDE_MODEL || 'claude-opus-5-5' }}
